@@ -79,8 +79,7 @@ class DomainParser:
             for t, d in semantic:
                 d, n_subs = re.subn(RegularExpressions.NEEDED_ATTRIBUTE, '', d)
                 synonyms = re.split(RegularExpressions.SYNONYMS, d)  # Check if there are multiple versions
-                for s in synonyms:
-                    action.add_semantics(t, s, n_subs > 0)
+                action.add_semantics(t, synonyms, n_subs > 0)
             domain_semantics.add_action(action)
         f.close()
         return domain_semantics

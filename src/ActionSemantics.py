@@ -55,6 +55,9 @@ class DomainSemantics:
             s += str(a) + "---\n"
         return s
 
+    def __getitem__(self, x):
+        return self.get_action(x)
+
 
 class ActionSemantics:
     def __init__(self, action_name, parameters=None, semantic=None):
@@ -71,7 +74,10 @@ class ActionSemantics:
     def get_semantics(self, stype):
         return self._semantic[stype]
 
-    def get_rnd_verb(self, stype):
+    def has_semantics(self, stype):
+        return stype in self._semantic
+
+    def get_rnd_semantics(self, stype):
         return random.choice(self._semantic[stype])
 
     def set_action_name(self, action_name):
@@ -83,15 +89,20 @@ class ActionSemantics:
     def add_param(self, var, param_type):
         self._params.append((var, param_type))
 
+    def get_params(self):
+        return self._params
+
     def add_semantics(self, sem_type, value, prep_needed=False):
+        if type(value) is not list:
+            value = [value]
         if sem_type not in ACCEPTED_TYPES:
             raise ValueError("Type " + sem_type + " is not recognized.")
-        if sem_type is 'prep':  # Only check for prep clauses. subjects, verbs and (in)direct objects are always needed
-            value = (value, prep_needed)
+        if sem_type == 'prep':  # Only check for prep clauses. subjects, verbs and (in)direct objects are always needed
+            value = [(value, prep_needed)]
         if sem_type in self._semantic:
-            self._semantic[sem_type].append(value)
+            self._semantic[sem_type].extend(value)
         else:
-            self._semantic[sem_type] = [value]
+            self._semantic[sem_type] = value
 
     def __str__(self):
         s = "Action: " + self._action_name + "\n"
@@ -104,3 +115,6 @@ class ActionSemantics:
         return s
 
     __repr__ = __str__
+
+    def __getitem__(self, x):
+        return self.get_semantics(x)
