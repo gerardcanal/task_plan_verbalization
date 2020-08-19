@@ -78,10 +78,10 @@ class ROSPlanNarratorNode:
             self._planner.call()
         except rospy.ServiceException as e:
             rospy.logerr(rospy.get_name() + ": Service call failed: %s" % e)
+        return EmptyResponse()
 
     def narrate_plan(self, current_step=0):
         plan = re.findall(RegularExpressions.PLAN_ACTION, self._plan)
-        current_step = random.randint(0, len(plan))
         narration = "Narrator is: " + self._robot_name + '\n' if self._robot_name else ""
         for i, (time, action, duration) in enumerate(plan):  # TODO use time and duration
             tense = 'present' if i == current_step else 'past' if i < current_step else 'future'
