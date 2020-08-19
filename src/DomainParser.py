@@ -1,6 +1,6 @@
-#!/usr/env/python3
+#!/usr/bin/env python3
 #######################################################################################
-# Copyright (c) 2020, Gerard Canal, Senka Krivić, Andrew Coles, King's College London
+# Copyright (c) 2020, Gerard Canal, Senka Krivić, Andrew Coles - King's College London
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
@@ -40,7 +40,7 @@ class RegularExpressions:
 
     # Matches the action name and parameter list
     #  The first group is the action name, second is the param list
-    PDDL_SUBACTION = re.compile(r"(?s)\(:.*action ([\w-]+).*:parameters\s?\((.*?)\)")
+    PDDL_SUBACTION = re.compile(r"(?s)\(:.*action ([\w-]+).*:parameters\s?\((.*?)\)", re.MULTILINE)
 
     # Matches each parameter in the list and the type
     # Group 1 is the list of varnames (?from ?to), group 2 is the type
@@ -55,6 +55,18 @@ class RegularExpressions:
     # Matches exclamation marks
     NEEDED_ATTRIBUTE = re.compile(r"\s*!\s*$")
 
+    # Matches a single parameter
+    PARAM = re.compile(r"\?[\w-]+")
+
+    # Matches IPC plan actions
+    PLAN_ACTION = re.compile(r"(.*):\s*\((.*)\)\s*\[(.*)\]", re.MULTILINE)
+
+    # Pre and post verb
+    VERB_PREPOST = re.compile(r"(?:\((\w*)\)[\t ]*)?(\w+)(?:[\t ]*\((\w*)\))?")
+
+    # This matches verb lines ending in ) and no space. Used when parsing to deambiguate PDDL_ACTION
+    VERB_SPACE = re.compile(r"(.*verb.*\)$)", re.MULTILINE)
+
 
 class DomainParser:
     def __init__(self, domain_file):
@@ -63,6 +75,8 @@ class DomainParser:
     def parse(self):
         f = open(self.domain_file, "r")
         domain = f.read()
+        # Find verbs ending in ) with no space to avoid issues when parsing by adding a space after the )
+        domain = re.sub(RegularExpressions.VERB_SPACE, '\\1 ', domain)
         name = re.search(RegularExpressions.DOMAIN_NAME, domain).group(1)
         domain_semantics = DomainSemantics(name)
         action_matches = re.finditer(RegularExpressions.PDDL_ACTION, domain)

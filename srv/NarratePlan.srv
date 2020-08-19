@@ -1,0 +1,4 @@
+string input_plan
+int8 current_step
+---
+string narration

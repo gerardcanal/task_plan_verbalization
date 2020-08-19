@@ -1,6 +1,6 @@
-#!/usr/env/python3
+#!/usr/bin/env python3
 #######################################################################################
-# Copyright (c) 2020, Gerard Canal, Senka Krivić, Andrew Coles, King's College London
+# Copyright (c) 2020, Gerard Canal, Senka Krivić, Andrew Coles - King's College London
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
@@ -31,7 +31,7 @@
 import mlconjug3
 import random
 import re
-from DomainParser import DomainParser
+from DomainParser import DomainParser, RegularExpressions
 from ActionSemantics import ActionSemantics
 
 # TODO:
@@ -41,49 +41,77 @@ CORRECT_PERSONS = ['1s', '1p', '2s', '2p', '3s', '3p']
 
 
 class PlanNarrator:
-    def __init__(self, language='en'):
+    def __init__(self, narrator_name=None, language='en'):
         self._conjugator = mlconjug3.Conjugator(language=language)
+        self._narrator_name = narrator_name
 
     # Assumes IPC format
-    def make_action_sentence(self, ground_action, action_semantics):
-        ground_action = re.sub(r'\(|\)', '', ground_action)
-        ground_params = ground_action.split(' ')[1:]
-        # Todo: find person
-        # todo: find tense
+    def make_action_sentence(self, ground_action, ground_params, action_semantics, tense='future'):
+        # Find person of the verb
+        subject = action_semantics.get_rnd_semantics('subject')
+        subj_params = re.findall(RegularExpressions.PARAM, subject)
+        person = '3p' if len(subj_params) > 1 else '3s'
+        action_params = action_semantics.get_params()
+        if self._narrator_name:
+            for i, (v, _) in enumerate(action_params):
+                if self._narrator_name.lower() == ground_params[i].lower() and v in subj_params:
+                    subject = subject.replace(v, 'I')
+                    person = '1p' if len(subj_params) > 1 else '1s'
+                    break
+
         # Create sentence with semantics
         # Default format: subject verb indirect-object direct-object preps
-        sentence = action_semantics.get_rnd_semantics('subject') + ' ' + \
-            self.conjugate_verb(action_semantics.get_rnd_verb(), 'present', '3s')
+        sentence = subject + ' ' + \
+            self.conjugate_verb(action_semantics.get_rnd_verb(), tense, person)
         if action_semantics.has_semantics('indirect-object'):
-            sentence += ' ' + action_semantics.get_rnd_semantics('indirect_object')
+            sentence += ' ' + action_semantics.get_rnd_semantics('indirect-object')
         if action_semantics.has_semantics('direct-object'):
-            sentence += ' ' + action_semantics.get_rnd_semantics('direct_object')
+            sentence += ' ' + action_semantics.get_rnd_semantics('direct-object')
         if action_semantics.has_semantics('prep'):
             prep = action_semantics.get_semantics('prep')
             for p in prep:  # Todo: use importance
                 sentence += ' ' + random.choice(p[0])
 
         # Substitute parameters
-        for i, p in enumerate(action_semantics.get_params()):
-            sentence = sentence.replace(p[0], ground_params[i])
+        for i, p in enumerate(action_params):
+            sentence = re.sub('([ \t]?)\\' + p[0] + r'([ \t.:-\?]|$)', '\\1' + ground_params[i] + '\\2', sentence)
+
         return sentence.capitalize() + '.'
 
     def conjugate_verb(self, verb, tense, person) -> str:
         if person not in CORRECT_PERSONS:
             raise ValueError('Unknown person type ' + person)
+
+        m = re.search(RegularExpressions.VERB_PREPOST, verb)
+        pre = m.group(1) + " " if m.group(1) else ''
+        verb = m.group(2)
+        post = " " + m.group(3) if m.group(3) else ''
         conjugated = self._conjugator.conjugate(verb)
         if tense == 'present':
             # NB: MLConjug has the continuous person key as "1p 1p": https://github.com/SekouDiaoNlp/mlconjug3/issues/79
             be = self._conjugator.conjugate('be').conjug_info['indicative']['indicative present'][person]
-            return be + " " + conjugated.conjug_info['indicative']['indicative present continuous'][
-                person + ' ' + person]
+            return be + " " + pre + \
+                   conjugated.conjug_info['indicative']['indicative present continuous'][person + ' ' + person] + post
         elif tense == 'past':
-            return conjugated.conjug_info['indicative']['indicative past tense'][person]
+            return pre + conjugated.conjug_info['indicative']['indicative past tense'][person] + post
         elif tense == 'future':
             if random.randint(0, 1):  # will
-                return 'will ' + verb
+                return 'will ' + pre + verb + post
             else:  # Go to
                 be = self._conjugator.conjugate('be').conjug_info['indicative']['indicative present'][person]
-                return be + ' going to ' + verb
+                return be + ' going to ' + pre + verb + post
         else:
             raise ValueError("Unknown tense " + tense)
+
+
+if __name__ == "__main__":
+    pn = PlanNarrator()
+    DOMAIN_TEST = "/home/gerard/code/ROSPlan_ws/src/pddl_verbalization/domains/office_robot/domain.pddl"
+    a = DomainParser(DOMAIN_TEST)
+    dsemantics = a.parse()
+    print(pn.make_action_sentence("goto_waypoint", "kenny kitchen living-room".split(' '), dsemantics['goto_waypoint']))
+    print(pn.make_action_sentence("goto_waypoint", "kenny bathroom bedroom".split(' '), dsemantics['goto_waypoint']))
+    pn = PlanNarrator('kenny')
+    print(pn.make_action_sentence("goto_waypoint", "kenny kitchen living-room".split(' '), dsemantics['goto_waypoint'], 'past'))
+    print(pn.make_action_sentence("goto_waypoint", "kenny bathroom bedroom".split(' '), dsemantics['goto_waypoint'], 'past'))
+
