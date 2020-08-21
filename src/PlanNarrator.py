@@ -48,6 +48,8 @@ class PlanNarrator:
     # Assumes IPC format
     def make_action_sentence(self, ground_action, ground_params, action_semantics, tense='future'):
         # Find person of the verb
+        if not action_semantics.has_semantics('subject'):
+            raise KeyError("Action " + action_semantics.get_action_name() + " has no subject defined")
         subject = action_semantics.get_rnd_semantics('subject')
         subj_params = re.findall(RegularExpressions.PARAM, subject)
         person = '3p' if len(subj_params) > 1 else '3s'
