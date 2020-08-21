@@ -1,0 +1,35 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// A domain for turtlebot exploration, demo for ROSPlan.
+//
+// Author: Gerard Canal (gcanal@iri.upc.edu)
+// 
+// Based on the demo domain for the turtlebot.
+//
+///////////////////////////////////////////////////////////////////////////////
+
+non-fluents nf_turtlebot_inst1 {
+	domain = turtlebot_domain;
+	objects {
+		//waypoint: {wp0, wp1, wp2, wp3, wp4};
+		waypoint: {wp0, wp1};
+        robot: {kenny};
+	};
+	
+	non-fluents {
+		DOCK_AT(wp0);
+	};
+}
+
+instance turtlebot_inst__1 {
+	domain = turtlebot_domain;
+	non-fluents = nf_turtlebot_inst1;
+	init-state {
+		robot_at(kenny, wp0);
+		docked(kenny);
+	};
+
+	max-nondef-actions = 1;
+	horizon  = 7;
+	discount = 1.0;
+}

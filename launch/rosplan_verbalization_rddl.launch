@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<launch>
+	<arg name="planning_language"  default="RDDL" />
+	<arg name="domain_path"		   default="$(find pddl_verbalization)/domains/turtlebot_nav_rddl/turtlebot_domain.rddl" />
+	<arg name="problem_path"	   default="$(find pddl_verbalization)/domains/turtlebot_nav_rddl/turtlebot_inst.rddl" />
+	<arg name="generated_problem_path"	value="/tmp/gen_problem.rddl" />
+	<arg name="robot_name"	 	   default="" />
+
+	<!-- Include rosplan -->
+	<include file="$(find pddl_verbalization)/launch/rosplan_full.launch">
+		<arg name="domain_path"		 		value="$(arg domain_path)" />
+		<arg name="problem_path" 			value="$(arg problem_path)" />
+		<arg name="planning_language" 		value="$(arg planning_language)" />
+		<arg name="planner_topic" 			value="planner_output" />
+		<arg name="data_path" 				value="/tmp/" />
+		<arg name="generated_problem_path"	value="$(arg generated_problem_path)" />
+		<arg name="dispatcher" 				value="None" /> <!-- Check to add the parser when needed -->
+		<arg name="planner_command"      	value="timeout 90 $(find rosplan_planning_system)/common/bin/prost/run_prost.sh DOMAIN PROBLEM &quot;[PROST -s 1 -se [THTS -act [UCB1] -out [UMC] -backup [PB] -init [Expand -h [IDS]] -t 1.0 ]]&quot;"/>
+		<arg name="planner_interface"    	value="rddlsim_planner_interface" />
+	</include>
+
+  	<node name="rosplan_narrator" pkg="pddl_verbalization" type="pddl_verbalization_node.py" respawn="false" output="screen">
+    	<param name="domain_path" value="$(arg domain_path)" />
+    	<param name="problem_path" value="$(arg problem_path)" />
+    	<param name="robot_name" value="$(arg robot_name)" />
+	</node>s
+</launch>
