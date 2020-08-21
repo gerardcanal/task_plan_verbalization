@@ -36,7 +36,9 @@ from PlanNarrator import PlanNarrator, DomainParser, RegularExpressions
 from pddl_verbalization.srv import NarratePlan, NarratePlanResponse
 # TODO:
 # - Set_params for narration
+# - Monitor dispatched actions, update narration based on that
 import random
+
 
 class ROSPlanNarratorNode:
     def __init__(self):
@@ -46,8 +48,9 @@ class ROSPlanNarratorNode:
         self._planner = rospy.ServiceProxy("/rosplan_planner_interface/planning_server", Empty)
         self._raw_plan_subs = rospy.Subscriber("/rosplan_planner_interface/planner_output", String, self.raw_plan_cb)
         self._verbalization_pub = rospy.Publisher("~plan_narration", String, queue_size=1)
-        self._trigger_plan_srv = rospy.Service("~trigger_plan", Empty, self.trigger_plan_srv)
-        self._narrate_plan_srv = rospy.Service("~narrate_plan", Trigger, self.narrate_plan_srv)
+        self._trigger_plan_srv = rospy.Service("~trigger_planning", Empty, self.trigger_plan_srv)
+        self._narrate_plan_srv = rospy.Service("~narrate_plan", NarratePlan, self.narrate_plan_srv)
+        self._update_narration_srv = rospy.Service("~narrate_current_plan", Trigger, self.update_narration_srv)
         self._plan_received = False
         self._plan = None
 
@@ -89,13 +92,24 @@ class ROSPlanNarratorNode:
             tense = 'present' if i == current_step else 'past' if i < current_step else 'future'
             action_sp = action.split(' ')
             s = self._narrator.make_action_sentence(action_sp[0], action_sp[1:], self._domain_semantics[action_sp[0]], tense)
+            s = '(' + action + '): ' + s
             if tense == 'present':  # FIXME check whether this is useful or not
                 s = '* ' + s
-            narration += s + "\n"
-        self._plan = None
+            narration += s + "\n\n"
+        #self._plan = None
         self._plan_received = False
         rospy.loginfo(rospy.get_name() + ": Plan narration computed: \n\n" + narration + "\n")
         return narration
+
+    def update_narration_srv(self, req):
+        res = TriggerResponse()
+        if not self._plan:
+            rospy.logwarn(rospy.get_name() + ": No plan available.")
+            res.success = False
+            res.message = "No plan available."
+            return res
+        n = self.narrate_plan(random_step=True)
+        return TriggerResponse(True, n)
 
     def narrate_plan_srv(self, req):
         self._plan = req.input_plan
@@ -107,9 +121,6 @@ class ROSPlanNarratorNode:
         dp = DomainParser(domain_path)
         self._domain_semantics = dp.parse()
 
-# rosservice call /rosplan_problem_interface/problem_generation_server
-# rosservice call /rosplan_planner_interface/planning_server "{}"
-# topic /rosplan_planner_interface/planner_output
 
 if __name__ == "__main__":
     node = ROSPlanNarratorNode()

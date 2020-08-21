@@ -9,8 +9,8 @@
 	<arg name="problem_path"			  default="" />
 	<arg name="planning_language" />
 	<arg name="generated_problem_path"    default="$(find rosplan_demos)/common/problem.pddl" />
-	<arg name="planner_interface" /> <!--example: timeout 10 $(find rosplan_planning_system)/common/bin/popf DOMAIN PROBLEM -->
-	<arg name="planner_command" />   <!-- example: popf_planner_interface -->
+	<arg name="planner_interface" /> <!-- example: popf_planner_interface -->
+	<arg name="planner_command" />   <!--example: timeout 10 $(find rosplan_planning_system)/common/bin/popf DOMAIN PROBLEM -->
 	
 	<!-- Not commonly modified arguments -->
 	<arg name="knowledge_base" 			  default="rosplan_knowledge_base" />
