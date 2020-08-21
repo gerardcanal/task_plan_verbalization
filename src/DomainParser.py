@@ -33,21 +33,25 @@ from ActionSemantics import ActionSemantics, DomainSemantics
 
 class RegularExpressions:
     # Matches the domain name
-    DOMAIN_NAME = re.compile(r"(?s)domain\s(.*?)\)")
+    PDDL_DOMAIN_NAME = re.compile(r"(?s)define\s+\(domain\s+(.*?)\s*\)", re.MULTILINE)
+    RDDL_DOMAIN_NAME = re.compile(r"(?s)domain\s+(.*?)\s*\{", re.MULTILINE)
 
     # Matches the whole action (if they start with a comment)
-    PDDL_ACTION = re.compile(r"(?s)^[\t ]*;.*?\)$(?=\s*(?:;|\(:|\Z))", re.MULTILINE)
+    PDDL_ACTION = re.compile(r"(?s)(?:^[\t ]*;[ \t\S]*[\r\n\f\v])+[ \t\S]+action(?!\w).*?\).*?$(?=\s*(?:;|\(:|\Z))", re.MULTILINE)
+    RDDL_ACTION = re.compile(r"(?s)(?:^[\t ]*//[ \t\S]*[\r\n\f\v])+[ \t\S]+action-fluent.*?;", re.MULTILINE)
 
     # Matches the action name and parameter list
     #  The first group is the action name, second is the param list
-    PDDL_SUBACTION = re.compile(r"(?s)\(:.*action ([\w-]+).*:parameters\s?\((.*?)\)", re.MULTILINE)
+    PDDL_SUBACTION = re.compile(r"(?s)\(:.*action(?:[ \t]*;[ \t\S]*$)?\s([\w-]+).*:parameters\s?\((.*?)\)", re.MULTILINE)
+    RDDL_SUBACTION = re.compile(r"(?s)([\w-]+)\s*\((.*?)\)", re.MULTILINE)
 
     # Matches each parameter in the list and the type
     # Group 1 is the list of varnames (?from ?to), group 2 is the type
     PDDL_PARAM_LIST = re.compile(r"((?:\?[\w-]+\s?)+)\s-\s([\w-]+)")
+    RDDL_PARAM_LIST = re.compile(r"([\w-]+),?")
 
     # Matches for the semantic attachments lines (i.e. ; verb = XXX)
-    SEMANTIC = re.compile(r";[ \t]*([\w-]+)\s?=\s?(.*)")
+    SEMANTIC = re.compile(r"(?:;|//)[ \t]*([\w-]+)\s?=\s?(.*)")
 
     # Matches forward slashes. Used to split synonyms of type go / move / travel
     SYNONYMS = re.compile(r"\s?/\s?")
@@ -65,7 +69,7 @@ class RegularExpressions:
     VERB_PREPOST = re.compile(r"(?:\((\w*)\)[\t ]*)?(\w+)(?:[\t ]*\((\w*)\))?")
 
     # This matches verb lines ending in ) and no space. Used when parsing to deambiguate PDDL_ACTION
-    VERB_SPACE = re.compile(r"(.*verb.*\)$)", re.MULTILINE)
+    # VERB_SPACE = re.compile(r"(.*verb.*\)$)", re.MULTILINE)  # FIXME not needed?
 
 
 class DomainParser:
@@ -76,8 +80,8 @@ class DomainParser:
         f = open(self.domain_file, "r")
         domain = f.read()
         # Find verbs ending in ) with no space to avoid issues when parsing by adding a space after the )
-        domain = re.sub(RegularExpressions.VERB_SPACE, '\\1 ', domain)
-        name = re.search(RegularExpressions.DOMAIN_NAME, domain).group(1)
+        #FIXME domain = re.sub(RegularExpressions.VERB_SPACE, '\\1 ', domain)
+        name = re.search(RegularExpressions.PDDL_DOMAIN_NAME, domain).group(1)
         domain_semantics = DomainSemantics(name)
         action_matches = re.finditer(RegularExpressions.PDDL_ACTION, domain)
         for match in action_matches:
