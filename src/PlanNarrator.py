@@ -91,7 +91,7 @@ class PlanNarrator:
             # NB: MLConjug has the continuous person key as "1p 1p": https://github.com/SekouDiaoNlp/mlconjug3/issues/79
             be = self._conjugator.conjugate('be').conjug_info['indicative']['indicative present'][person]
             return be + " " + pre + \
-                   conjugated.conjug_info['indicative']['indicative present continuous'][person + ' ' + person] + post
+                   conjugated.conjug_info['indicative']['indicative present continuous'][person] + post
         elif tense == 'past':
             return pre + conjugated.conjug_info['indicative']['indicative past tense'][person] + post
         elif tense == 'future':

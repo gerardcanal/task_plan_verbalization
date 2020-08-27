@@ -152,7 +152,7 @@
 ; verb = give / hand / deliver
 ; subject = ?v
 ; direct-object = ?o
-; prep = to ?person !
+; prep = to ?p !
 ; prep = at ?place
 (:durative-action give_object
   :parameters (?v - robot ?o - object ?place - waypoint ?p - person)
