@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# coding=utf-8
 #######################################################################################
 # Copyright (c) 2020, Gerard Canal, Senka Krivić, Andrew Coles - King's College London
 # All rights reserved.
@@ -30,14 +31,16 @@
 import rospy
 import sys
 import re
+import random
+import copy
 from std_srvs.srv import Empty, EmptyResponse, Trigger, TriggerResponse
 from std_msgs.msg import String
 from PlanNarrator import PlanNarrator, DomainParser, RegularExpressions
 from pddl_verbalization.srv import NarratePlan, NarratePlanResponse
+
 # TODO:
 # - Set_params for narration
 # - Monitor dispatched actions, update narration based on that
-import random
 
 
 class ROSPlanNarratorNode:
@@ -59,6 +62,7 @@ class ROSPlanNarratorNode:
 
         self._domain_semantics = None
         self.parse_domain()
+        self.compressed_plan = []
 
     def raw_plan_cb(self, msg):
         self._plan_received = True
@@ -85,21 +89,53 @@ class ROSPlanNarratorNode:
 
     def narrate_plan(self, current_step=-1, random_step=False):
         plan = re.findall(RegularExpressions.PLAN_ACTION, self._plan)
+        plan = [(p[0], p[1].split(' '), p[2]) for p in plan]  # Split actions and parameters
+        original_plan = copy.deepcopy(plan)
+
+        self.compress_plan(plan)
+
         if random_step:
             current_step = random.randint(0, len(plan))
         narration = "Narrator is: " + self._robot_name + '\n' if self._robot_name else ""
         for i, (time, action, duration) in enumerate(plan):  # TODO use time and duration
+            #action_sp = action.split(' ')  # Action splitted in a list
             tense = 'present' if i == current_step else 'past' if i < current_step else 'future'
-            action_sp = action.split(' ')
-            s = self._narrator.make_action_sentence(action_sp[0], action_sp[1:], self._domain_semantics[action_sp[0]], tense)
-            s = '(' + action + '): ' + s
+            s = self._narrator.make_action_sentence(action[0], action[1:], self._domain_semantics[action[0]], tense)
+
+            #### DEBUG
+            aux = [' '.join(x) for x in self.compressed_plan[i]]
+            s = '(' + ' / '.join(aux) + '): ' + s
+            # for j, x in enumerate(action):
+            #     if type(x) is list:
+            #         action[i] = '[' + ', '.join(x) + ']'
+            # s = '(' + ' '.join(action) + '): ' + s
             if tense == 'present':  # FIXME check whether this is useful or not
                 s = '* ' + s
+            ##### DEBUG END
+
             narration += s + "\n\n"
         #self._plan = None
         self._plan_received = False
         rospy.loginfo(rospy.get_name() + ": Plan narration computed: \n\n" + narration + "\n")
         return narration
+
+    def compress_plan(self, plan):
+        # Plan is (time, action, duration)
+        i = 0
+        curr = [plan[i][1]]
+        while i < len(plan)-1:
+            # Time will be the one from the start action, duration the sum
+            compressed, result = self._narrator.compress_actions(plan[i][1], plan[i+1][1])
+            if compressed:
+                curr.append(plan[i+1][1])
+                plan[i] = plan[i][0], result, str(float(plan[i][2])+float(plan[i+1][2]))  # Same start time, add duration
+                plan.pop(i+1)
+            else:
+                self.compressed_plan.append(curr)
+                i += 1
+                curr = [plan[i][1]]
+        self.compressed_plan.append(curr)  # Last one
+        return plan
 
     def update_narration_srv(self, req):
         res = TriggerResponse()

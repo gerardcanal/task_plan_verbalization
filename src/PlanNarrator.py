@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# coding=utf-8
 #######################################################################################
 # Copyright (c) 2020, Gerard Canal, Senka Krivić, Andrew Coles - King's College London
 # All rights reserved.
@@ -32,11 +33,12 @@ import mlconjug3
 import random
 import re
 from DomainParser import DomainParser, RegularExpressions
-from ActionSemantics import ActionSemantics
 
 # TODO:
 # - MakeSentence(), using mlconjug
 # - NarratePlan() - stub, inputs a plan returns narration -- need to check format
+from PatternMatcher import PatternMatcher
+
 CORRECT_PERSONS = ['1s', '1p', '2s', '2p', '3s', '3p']
 
 
@@ -76,6 +78,9 @@ class PlanNarrator:
 
         # Substitute parameters
         for i, p in enumerate(action_params):
+            if type(ground_params[i]) is list:
+                f = "{}, and {}" if len(ground_params[i]) > 2 else "{} and {}"
+                ground_params[i] = f.format(', '.join(ground_params[i][:-1]), ground_params[i][-1])
             sentence = re.sub('([ \t]?)\\' + p[0] + r'([ \t.:-\?]|$)', '\\1' + ground_params[i] + '\\2', sentence)
 
         return sentence.capitalize() + '.'
@@ -104,6 +109,31 @@ class PlanNarrator:
                 return be + ' going to ' + pre + verb + post
         else:
             raise ValueError("Unknown tense " + tense)
+
+    def compress_actions(self, action_a, action_b):
+        if action_a[0] == action_b[0]:  # same action name
+            pattern = PatternMatcher.get_param_pattern(action_a[1:], action_b[1:])
+            if len(pattern) >= len(action_a)-2:  # If only one free variable
+                params = [None]*(len(action_a)-1)
+                for p in pattern:
+                    if p[0] == p[1]:
+                        params[p[0]] = action_a[p[0]+1]  # Same parameter
+                    else:  # if p[0] > p[1]:  # Parameter moves back, is reused and not needed
+                        params[p[1]] = action_a[p[1]+1]
+                        params[p[0]] = action_b[p[0]+1]
+                # Case where all the params are different, then it's an action applied to a list of parameters
+                for i, p in enumerate(params):
+                    if not p:
+                        if type(action_a[i+1]) is list:
+                            params[i] = action_a[i + 1] + [action_b[i + 1]]
+                        elif type(action_b[i+1]) is list:
+                            params[i] = [action_a[i + 1]] + action_b[i + 1]
+                        else:
+                            params[i] = [action_a[i+1], action_b[i+1]]
+                action_c = [action_a[0]] + params
+                # TODO failure case?
+                return True, action_c
+        return False, []
 
 
 if __name__ == "__main__":

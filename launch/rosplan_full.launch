@@ -41,7 +41,6 @@
 		<arg name="problem_path"      value="$(arg generated_problem_path)" />
 		<arg name="problem_topic"     value="$(arg problem_topic)" />
 		<arg name="planning_language" value="$(arg planning_language)" />
-
 	</include>
 
 	<!-- planner interface -->
