@@ -92,7 +92,7 @@ class ROSPlanNarratorNode:
         plan = [(p[0], p[1].split(' '), p[2]) for p in plan]  # Split actions and parameters
         original_plan = copy.deepcopy(plan)
 
-        self.compress_plan(plan)
+        plan, compressions = self.compress_plan(plan)
 
         if random_step:
             current_step = random.randint(0, len(plan))
@@ -100,7 +100,7 @@ class ROSPlanNarratorNode:
         for i, (time, action, duration) in enumerate(plan):  # TODO use time and duration
             #action_sp = action.split(' ')  # Action splitted in a list
             tense = 'present' if i == current_step else 'past' if i < current_step else 'future'
-            s = self._narrator.make_action_sentence(action[0], action[1:], self._domain_semantics[action[0]], tense)
+            s = self._narrator.make_action_sentence(action[0], action[1:], self._domain_semantics[action[0]], compressions[i], tense)
 
             #### DEBUG
             aux = [' '.join(x) for x in self.compressed_plan[i]]
@@ -123,19 +123,25 @@ class ROSPlanNarratorNode:
         # Plan is (time, action, duration)
         i = 0
         curr = [plan[i][1]]
+        curr_intmd = []
+        compressions = []
         while i < len(plan)-1:
             # Time will be the one from the start action, duration the sum
-            compressed, result = self._narrator.compress_actions(plan[i][1], plan[i+1][1])
-            if compressed:
+            result, intmd = self._narrator.compress_actions(plan[i][1], plan[i+1][1])
+            if result:
                 curr.append(plan[i+1][1])
+                curr_intmd.extend(intmd)
                 plan[i] = plan[i][0], result, str(float(plan[i][2])+float(plan[i+1][2]))  # Same start time, add duration
                 plan.pop(i+1)
             else:
                 self.compressed_plan.append(curr)
+                compressions.append(curr_intmd)
+                curr_intmd = []
                 i += 1
                 curr = [plan[i][1]]
         self.compressed_plan.append(curr)  # Last one
-        return plan
+        compressions.append(curr_intmd)
+        return plan, compressions
 
     def update_narration_srv(self, req):
         res = TriggerResponse()

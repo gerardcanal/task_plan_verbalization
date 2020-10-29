@@ -48,7 +48,7 @@ class PlanNarrator:
         self._narrator_name = narrator_name
 
     # Assumes IPC format
-    def make_action_sentence(self, ground_action, ground_params, action_semantics, tense='future'):
+    def make_action_sentence(self, ground_action, ground_params, action_semantics, compressions=[], tense='future'):
         # Find person of the verb
         if not action_semantics.has_semantics('subject'):
             raise KeyError("Action " + action_semantics.get_action_name() + " has no subject defined")
@@ -79,11 +79,18 @@ class PlanNarrator:
         # Substitute parameters
         for i, p in enumerate(action_params):
             if type(ground_params[i]) is list:
-                f = "{}, and {}" if len(ground_params[i]) > 2 else "{} and {}"
-                ground_params[i] = f.format(', '.join(ground_params[i][:-1]), ground_params[i][-1])
+                ground_params[i] = self.make_list_str(ground_params[i])
             sentence = re.sub('([ \t]?)\\' + p[0] + r'([ \t.:-\?]|$)', '\\1' + ground_params[i] + '\\2', sentence)
 
+        if compressions:
+            sentence += " (via " + self.make_list_str(compressions) + ')'
+
         return sentence.capitalize() + '.'
+
+    @staticmethod
+    def make_list_str(l):
+        f = "{}, and {}" if len(l) > 2 else "{} and {}"
+        return f.format(', '.join(l[:-1]),l[-1])
 
     def conjugate_verb(self, verb, tense, person) -> str:
         if person not in CORRECT_PERSONS:
@@ -110,9 +117,12 @@ class PlanNarrator:
         else:
             raise ValueError("Unknown tense " + tense)
 
+    # Compresses two actions if the action is the same, there's only one free parameter, and they comply with some
+    # patterns
     def compress_actions(self, action_a, action_b):
         if action_a[0] == action_b[0]:  # same action name
             pattern = PatternMatcher.get_param_pattern(action_a[1:], action_b[1:])
+            intermediate = []  # Keeps the intermediate parameters
             if len(pattern) >= len(action_a)-2:  # If only one free variable
                 params = [None]*(len(action_a)-1)
                 for p in pattern:
@@ -121,6 +131,7 @@ class PlanNarrator:
                     else:  # if p[0] > p[1]:  # Parameter moves back, is reused and not needed
                         params[p[1]] = action_a[p[1]+1]
                         params[p[0]] = action_b[p[0]+1]
+                        intermediate.append(action_a[p[0]+1])
                 # Case where all the params are different, then it's an action applied to a list of parameters
                 for i, p in enumerate(params):
                     if not p:
@@ -132,8 +143,8 @@ class PlanNarrator:
                             params[i] = [action_a[i+1], action_b[i+1]]
                 action_c = [action_a[0]] + params
                 # TODO failure case?
-                return True, action_c
-        return False, []
+                return action_c, intermediate
+        return [], []
 
 
 if __name__ == "__main__":
