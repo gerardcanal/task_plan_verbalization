@@ -58,7 +58,9 @@ class PlanNarrator:
         action_params = action_semantics.get_params()
         if self._narrator_name:
             for i, (v, _) in enumerate(action_params):
-                if self._narrator_name.lower() == ground_params[i].lower() and v in subj_params:
+                found_narrator = any([self._narrator_name.lower() == x for x in ground_params[i]]) \
+                        if type(ground_params[i]) is list else self._narrator_name.lower() == ground_params[i].lower()
+                if found_narrator and v in subj_params:  # FIXME check instead of I me when I am the object?
                     subject = subject.replace(v, 'I')
                     person = '1p' if len(subj_params) > 1 else '1s'
                     break
@@ -82,6 +84,9 @@ class PlanNarrator:
                 ground_params[i] = self.make_list_str(ground_params[i])
             sentence = re.sub('([ \t]?)\\' + p[0] + r'([ \t.:-\?]|$)', '\\1' + ground_params[i] + '\\2', sentence)
 
+        # Add narrator in the non-subject parameters (subjects have already been dealt with)
+        sentence = re.sub(self._narrator_name, 'me', sentence, flags=re.IGNORECASE)
+
         if compressions:
             sentence += " (via " + self.make_list_str(compressions) + ')'
 
@@ -89,8 +94,9 @@ class PlanNarrator:
 
     @staticmethod
     def make_list_str(l):
-        f = "{}, and {}" if len(l) > 2 else "{} and {}"
-        return f.format(', '.join(l[:-1]),l[-1])
+        n = len(l)
+        f = "{}{}" if n < 2 else "{}, and {}" if n > 2 else "{} and {}"
+        return f.format(', '.join(l[:-1]), l[-1])
 
     def conjugate_verb(self, verb, tense, person) -> str:
         if person not in CORRECT_PERSONS:

@@ -49,6 +49,7 @@ class ROSPlanNarratorNode:
 
         self._problem_gen = rospy.ServiceProxy("/rosplan_problem_interface/problem_generation_server", Empty)
         self._planner = rospy.ServiceProxy("/rosplan_planner_interface/planning_server", Empty)
+        self._parse_plan = rospy.ServiceProxy("/rosplan_parsing_interface/parse_plan", Empty)
         self._raw_plan_subs = rospy.Subscriber("/rosplan_planner_interface/planner_output", String, self.raw_plan_cb)
         self._verbalization_pub = rospy.Publisher("~plan_narration", String, queue_size=1)
         self._trigger_plan_srv = rospy.Service("~trigger_planning", Empty, self.trigger_plan_srv)
@@ -83,11 +84,16 @@ class ROSPlanNarratorNode:
         try:
             self._problem_gen.call()
             self._planner.call()
+            self._parse_plan.call()
         except rospy.ServiceException as e:
             rospy.logerr(rospy.get_name() + ": Service call failed: %s" % e)
         return EmptyResponse()
 
     def narrate_plan(self, current_step=-1, random_step=False):
+        if not self._plan:
+            self._plan_received = False
+            rospy.loginfo(rospy.get_name() + ": No plan was found")
+            return "No plan was found"
         plan = re.findall(RegularExpressions.PLAN_ACTION, self._plan)
         plan = [(p[0], p[1].split(' '), p[2]) for p in plan]  # Split actions and parameters
         original_plan = copy.deepcopy(plan)

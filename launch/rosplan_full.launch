@@ -75,9 +75,9 @@
 	<group if="$(eval dispatcher == 'esterel')" >
 		<!-- plan parsing -->
 		<node name="rosplan_parsing_interface" pkg="rosplan_planning_system" type="pddl_esterel_plan_parser" respawn="false" output="screen">
-			<param name="knowledge_base" value="$(arg knowledge_base)" />
-			<param name="planner_topic"  value="/rosplan_planner_interface/$(arg planner_topic)" />
-			<param name="plan_topic"     value="$(arg plan_topic)" />
+			<param name="knowledge_base" 	value="$(arg knowledge_base)" />
+			<param name="planner_topic"  	value="/rosplan_planner_interface/$(arg planner_topic)" />
+			<param name="plan_topic"     	value="$(arg plan_topic)" />
 		</node>
 
 		<!-- plan dispatching -->
@@ -86,6 +86,7 @@
 			<param name="plan_topic"            value="/rosplan_parsing_interface/$(arg plan_topic)" />
 			<param name="action_dispatch_topic" value="$(arg action_dispatch_topic)" />
 			<param name="action_feedback_topic" value="$(arg action_feedback_topic)" />
+			<param name="display_edge_type" value="true" />
 		</node>
 	</group>
 
