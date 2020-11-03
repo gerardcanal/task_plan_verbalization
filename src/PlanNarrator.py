@@ -85,7 +85,8 @@ class PlanNarrator:
             sentence = re.sub('([ \t]?)\\' + p[0] + r'([ \t.:-\?]|$)', '\\1' + ground_params[i] + '\\2', sentence)
 
         # Add narrator in the non-subject parameters (subjects have already been dealt with)
-        sentence = re.sub(self._narrator_name, 'me', sentence, flags=re.IGNORECASE)
+        if self._narrator_name:
+            sentence = re.sub(self._narrator_name, 'me', sentence, flags=re.IGNORECASE)
 
         if compressions:
             sentence += " (via " + self.make_list_str(compressions) + ')'
