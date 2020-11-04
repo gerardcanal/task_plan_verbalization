@@ -114,7 +114,7 @@
 ; Grasp an object
 ; verb = grasp / take / grab
 ; subject = ?v
-; direct-object = ?p
+; direct-object = the ?p
 ; prep = at ?place
 (:durative-action grasp_object
   :parameters (?v - robot ?p - object ?place - waypoint)

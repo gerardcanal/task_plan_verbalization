@@ -37,16 +37,22 @@ from std_srvs.srv import Empty, EmptyResponse, Trigger, TriggerResponse
 from std_msgs.msg import String
 from PlanNarrator import PlanNarrator, DomainParser, RegularExpressions
 from pddl_verbalization.srv import NarratePlan, NarratePlanResponse
+from rosplan_knowledge_msgs.srv import GetAttributeService, GetDomainOperatorService, GetDomainOperatorDetailsService
+from rosplan_dispatch_msgs.msg import EsterelPlan
+from EsterelProcessing import EsterelProcessing
 
 # TODO:
 # - Set_params for narration
 # - Monitor dispatched actions, update narration based on that
-
+ESTEREL_TIMEOUT = 15  # seconds
 
 class ROSPlanNarratorNode:
     def __init__(self):
         rospy.init_node("rosplan_narrator", sys.argv)
 
+        self._get_goals = rospy.ServiceProxy("/rosplan_knowledge_base/state/goals", GetAttributeService)
+        self._get_operators = rospy.ServiceProxy("/rosplan_knowledge_base/domain/operators", GetDomainOperatorService)
+        self._get_operator_details = rospy.ServiceProxy("/rosplan_knowledge_base/domain/operator_details", GetDomainOperatorDetailsService)
         self._problem_gen = rospy.ServiceProxy("/rosplan_problem_interface/problem_generation_server", Empty)
         self._planner = rospy.ServiceProxy("/rosplan_planner_interface/planning_server", Empty)
         self._parse_plan = rospy.ServiceProxy("/rosplan_parsing_interface/parse_plan", Empty)
@@ -64,6 +70,8 @@ class ROSPlanNarratorNode:
         self._domain_semantics = None
         self.parse_domain()
         self.compressed_plan = []
+        self.operators = {}
+        self.get_all_operators_info()
 
     def raw_plan_cb(self, msg):
         self._plan_received = True
@@ -97,6 +105,16 @@ class ROSPlanNarratorNode:
         plan = re.findall(RegularExpressions.PLAN_ACTION, self._plan)
         plan = [(p[0], p[1].split(' '), p[2]) for p in plan]  # Split actions and parameters
         original_plan = copy.deepcopy(plan)
+
+        ###############333 TEST
+        goals = self.get_goals()
+        try:
+            esterel_plan = rospy.wait_for_message('/rosplan_parsing_interface/complete_plan', EsterelPlan, ESTEREL_TIMEOUT)
+            EsterelProcessing.find_causal_chains(self.operators, goals, plan, esterel_plan)
+        except rospy.ROSException:
+            rospy.logwarn(rospy.get_name() + ': Esterel plan not received in ' + str(ESTEREL_TIMEOUT) + 'seconds. ' +
+                                             'Causality will not be checked.')
+        ########################
 
         plan, compressions = self.compress_plan(plan)
 
@@ -169,6 +187,22 @@ class ROSPlanNarratorNode:
         dp = DomainParser(domain_path)
         self._domain_semantics = dp.parse()
 
+    def get_goals(self):
+        goals = []
+        try:
+            rp_goals = self._get_goals.call()
+            for ki in rp_goals.attributes:
+                assert ki.knowledge_type == ki.FACT
+                g = EsterelProcessing.ki_to_str(ki)
+                goals.append(g)
+        except rospy.ServiceException as e:
+            rospy.logerr(rospy.get_name() + ": Service call failed: %s" % e)
+        return goals
+
+    def get_all_operators_info(self):
+        operator_list = self._get_operators.call()
+        for o in operator_list.operators:
+            self.operators[o.name] = self._get_operator_details.call(o.name).op
 
 if __name__ == "__main__":
     node = ROSPlanNarratorNode()
