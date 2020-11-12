@@ -206,5 +206,6 @@ class ROSPlanNarratorNode:
 
 if __name__ == "__main__":
     node = ROSPlanNarratorNode()
+    rospy.loginfo(rospy.get_name() + ": Ready.")
     node.main_loop()
     rospy.spin()

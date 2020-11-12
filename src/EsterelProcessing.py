@@ -49,8 +49,8 @@ class EsterelProcessing:
         for n in esterel_plan.nodes:
             if EsterelProcessing.match_action(action, n.action):
                 # Recursively trace back the causality chain of the initial nodes
-                return EsterelProcessing.causal_chain_rec([n], esterel_plan)
-
+                source_nodes = EsterelProcessing.get_source_nodes(n, esterel_plan)  # Nodes pointing to this action node
+                return EsterelProcessing.causal_chain_rec(source_nodes, esterel_plan)
         return []
 
     @staticmethod
@@ -88,29 +88,26 @@ class EsterelProcessing:
                functools.reduce(lambda a, b: a and b, [x[0] == x[1].value for x in zip(action_list[1:],
                                                                                        rp_action.parameters)])
 
-    # Returns a dictionary of goals and actions achieving such goals to start the causal chain comptuation
+    # Returns a list of goals and actions achieving such goals to start the causal chain computation
     @staticmethod
     def achieving_actions(goals, plan, operators):
         causal_chains = []
         for a_id, a in enumerate(reversed(plan)):  # Goals are more likely to be achieved in the end, so let's fine them there
-
             op = operators[a[1][0]]
             grounding = {}
             for i, tp in enumerate(op.formula.typed_parameters):
                 grounding[tp.key] = a[1][i+1]
-            for i, g in enumerate(goals):
+            for i, g in enumerate(goals):  # Find if action a achieves the goal g
                 if g[0]:  # positive goal, check add list
-                    for eff in (op.at_end_add_effects + op.at_start_add_effects):
-                        if EsterelProcessing.check_effect_goal(g, eff, grounding):  # Action effect achieves goal
-                            g = goals.pop(i)
-                            cchain = CausalityChain(g[1], g[0], ' '.join(a[1]), len(plan)-a_id-1)
-                            causal_chains.append(cchain)
-                            break
-                else:
-                    for eff in (op.at_end_del_effects + op.at_start_del_effects):
-                        if EsterelProcessing.check_effect_goal(g, eff, grounding):  # Action effect achieves goal
-                            causal_chains[goals.pop(i)] = [a[1]]
-                            break
+                    effects_list = op.at_end_add_effects + op.at_start_add_effects
+                else:  # Negative goal, check del list
+                    effects_list = op.at_end_del_effects + op.at_start_del_effects
+                for eff in effects_list:
+                    if EsterelProcessing.check_effect_goal(g, eff, grounding):  # Action effect achieves goal
+                        g = goals.pop(i)
+                        cchain = CausalityChain(g[1], g[0], ' '.join(a[1]), len(plan) - a_id - 1)
+                        causal_chains.append(cchain)
+                        break
             if not goals:
                 break
         return causal_chains
@@ -143,6 +140,15 @@ class CausalityChain:
         def __repr__(self):
             return self.__str__()
 
+        def _print(self, acc=''):
+            acc += ' ' + self.action_str + ' (' + str(self.action_id) + ')'
+            if self.children:
+                acc += ' |'
+                for n in self.children:
+                    n._print(acc)
+            else:
+                print(acc)
+
     def __init__(self, goal, goal_value, action_str, action_id):
         self.goal = goal
         self.goal_value = goal_value
@@ -152,4 +158,9 @@ class CausalityChain:
         return '(' + self.goal + ' [' + str(self.goal_value) + ']): ' + str(self.achieving_action)
 
     def __repr__(self):
-            return self.__str__()
+        return self.__str__()
+
+    def _print(self):
+        print('Goal: ' + self.goal)
+        print('Actions:')
+        self.achieving_action._print('   ')
