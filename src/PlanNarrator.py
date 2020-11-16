@@ -124,6 +124,7 @@ class PlanNarrator:
         else:
             raise ValueError("Unknown tense " + tense)
 
+
     # Compresses two actions if the action is the same, there's only one free parameter, and they comply with some
     # patterns
     def compress_actions(self, action_a, action_b):
@@ -153,6 +154,31 @@ class PlanNarrator:
                 return action_c, intermediate
         return [], []
 
+    def create_script(self, plan, causal_chains, compressions):
+        verbalization_script = []
+        used_actions = [False] * len(plan)
+
+        # Traverse causal chains to start to write the script.
+        for c in causal_chains:
+            # Add achieving action + goal
+            justifications = []
+            action_id = c.achieving_action.action_id
+            #sorted(causal_chains[2].achieving_action.children, key=lambda x: x.action_id) fixme
+            for n in c.achieving_action.children:
+                pass
+            ActionScript(action_id, None, goal)
+            pass
+
+    def add_action_scripts(self, causal_chain, verbalization_script, used_actions):
+        pass
+
+
+# Helper class to store information on an action used in an plan script
+class ActionScript:
+    def __init__(self, main_action_id, action_justifications, goal=None):
+        self.action = main_action_id
+        self.justifications = action_justifications  # This action is justified by the actions in the list
+        self.goal = goal
 
 if __name__ == "__main__":
     pn = PlanNarrator()

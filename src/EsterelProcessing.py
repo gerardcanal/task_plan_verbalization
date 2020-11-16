@@ -53,6 +53,7 @@ class EsterelProcessing:
                 return EsterelProcessing.causal_chain_rec(source_nodes, esterel_plan)
         return []
 
+    # Recursively computes a causal chain starting from the nodes 'nodes' using the esterel_plan
     @staticmethod
     def causal_chain_rec(nodes, esterel_plan):
         causal_chain = []  # Base case will be when nodes is empty
@@ -125,6 +126,27 @@ class EsterelProcessing:
     @staticmethod
     def ki_to_str(ki):
         return not ki.is_negative, ki.attribute_name + ' ' + ' '.join([v.value for v in ki.values])
+
+    # Returns a list of the effect predicates that involve any ground parameter in params
+    @staticmethod
+    def params_in_effects(params, action_info, ground_action):
+        action_list = ground_action.split(' ')
+        assert action_info.name == action_list[0]
+        grounding = {}
+        action_params = action_list[1:]
+        for i, tp in enumerate(action_info.formula.typed_parameters):
+            grounding[tp.key] = action_params[i]
+
+        ret = []
+        effects_list = action_info.at_end_add_effects + action_info.at_start_add_effects + \
+                       action_info.at_end_del_effects + action_info.at_start_del_effects
+        for eff in effects_list:
+            eff_param_list = EsterelProcessing.typed_params_to_str(eff.typed_parameters, grounding)
+            for p in params:
+                if p in eff_param_list:
+                    ret.append(eff.name + ' ' + eff_param_list)
+                    break
+        return ret  # Todo check polarity in add/del lists?
 
 
 class CausalityChain:
