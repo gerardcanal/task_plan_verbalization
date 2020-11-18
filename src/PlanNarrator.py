@@ -155,67 +155,61 @@ class PlanNarrator:
         return [], []
 
     def create_script(self, plan, operators, causal_chains, compressions=None):
-        verbalization_script = [None] * len(plan)
-        used_actions = [False] * len(plan)
+        verbalization_script = [ ActionScript(n) for n in range(len(plan))]
 
-        #########33 FIXME test
-        c = causal_chains[3]
-        c._print()
-        action_id = c.achieving_action.action_id
-        goal_params = c.goal.split(' ')[1:]  # TODO remove subjects from the list
-        self.add_causal_action_scripts_rec(c.achieving_action, goal_params, operators, plan, verbalization_script,
-                                           used_actions, check_jusifies=True)
-        verbalization_script[action_id].goal = c.goal, c.goal_value
-        #########333 end test
+        # #########33 FIXME test
+        # c = causal_chains[0]
+        # c._print()
+        # action_id = c.achieving_action.action_id
+        # goal_params = c.goal.split(' ')[1:]  # TODO remove subjects from the list
+        # self.add_causal_action_scripts_rec(c.achieving_action, goal_params, operators, plan, verbalization_script,
+        #                                    used_actions, check_jusifies=True)
+        # verbalization_script[action_id].goal = c.goal, c.goal_value
+        # #########333 end test
 
         # Traverse causal chains to start to write the script.
         for c in causal_chains:
             # Add achieving action + goal
             action_id = c.achieving_action.action_id
             goal_params = c.goal.split(' ')[1:]  # TODO remove subjects from the list
-            self.add_causal_action_scripts_rec(c.achieving_action, goal_params, operators, pscdlan, verbalization_script, used_actions)
+            self.add_causal_action_scripts_rec(c.achieving_action, goal_params, operators, plan, verbalization_script,
+                                               check_jusifies=True)
             verbalization_script[action_id].goal = c.goal, c.goal_value
         return verbalization_script
 
-    def add_causal_action_scripts_rec(self, node, goal_params, operators, plan, verbalization_script, used_actions, check_jusifies=False):
-        #if not node.effects in goal: return/ignore and continue with children TODO choose what
-        goal_effect_params = EsterelProcessing.params_in_effects(goal_params, operators[plan[node.action_id][1][0]],
-                                                   plan[node.action_id][1])
-        if not goal_effect_params:
-            print('NOT IN GOAL!')
-            return
-        node_script = verbalization_script[node.action_id] if verbalization_script[node.action_id] \
-                                                           else ActionScript(node.action_id)
+    def add_causal_action_scripts_rec(self, node, goal_params, operators, plan, verbalization_script, check_jusifies=False):
         consecutive_id = node.action_id
         sorted_children = sorted(node.children, key=lambda x: x.action_id, reverse=True)
         for n in sorted_children:
             if consecutive_id - n.action_id == 1:
                 # Actions are consecutive in the plan, add them as justifying the parent
-                node_script.justifications.append(n.action_id)
-                used_actions[n.action_id] = True  # As this will be used to justify the sentences
+                verbalization_script[node.action_id].justifications.add(n.action_id)
                 consecutive_id = n.action_id
-            elif check_jusifies:
-                a_script = ActionScript(n.action_id)
-                a_script.justifies.append(node.action_id)
-                verbalization_script[n.action_id] = a_script
-                used_actions[n.action_id] = True  # As it got a script of its own
-            #self.add_causal_action_scripts_rec(n, goal_params, operators, plan, verbalization_script, used_actions) FIXME remove
-        if not used_actions[node.action_id]:
-            verbalization_script[node.action_id] = node_script
-            used_actions[node.action_id] = True
-        # Recursive call on children
-        for n in sorted_children:
-            self.add_causal_action_scripts_rec(n, goal_params, operators, plan, verbalization_script, used_actions, False)  # FIXME can this be done in the previous loop?
-        # We process the recursive call here as there may be cases where the children causality is also in the parent,
-        # so going first through the children may find them and break the script.
+                # Add symmetrical justification, and a flag to skip this action as it's already used to justify another
+                # one. This action will be verbalized nonetheless to justify a different action.
+                verbalization_script[n.action_id].justifies.add(node.action_id)
+                verbalization_script[n.action_id].skip = True
+            else:
+                # In this case, the action is not consecutive so it will be used to justify a later action (so it'll be
+                # written two times)
+                verbalization_script[n.action_id].justifies.add(node.action_id)
+                # In order to avoid extremely cluttering the sentences, we will skip the action that justify other
+                # actions when they are not causing a goal-achieving action (thus, check_justifies is only true in the
+                # first call
+                verbalization_script[n.action_id].skip = check_jusifies
+            # Recursive call with this child
+            self.add_causal_action_scripts_rec(n, goal_params, operators, plan, verbalization_script, False)
+            # TODO should skip become False at any time?
+
 
 # Helper class to store information on an action used in an plan script
 class ActionScript:
     def __init__(self, main_action_id, goal=None):
         self.action = main_action_id
-        self.justifications = []  # This action is justified by the actions in the list
-        self.justifies = []  # This action justifies the actions in the list
+        self.justifications = set()  # This action is justified by the actions in the list
+        self.justifies = set()  # This action justifies the actions in the list
         self.goal = goal
+        self.skip = False
 
 if __name__ == "__main__":
     pn = PlanNarrator()
