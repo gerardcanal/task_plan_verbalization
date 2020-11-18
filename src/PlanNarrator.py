@@ -33,6 +33,7 @@ import mlconjug3
 import random
 import re
 from DomainParser import DomainParser, RegularExpressions
+from EsterelProcessing import EsterelProcessing
 
 # TODO:
 # - MakeSentence(), using mlconjug
@@ -124,7 +125,6 @@ class PlanNarrator:
         else:
             raise ValueError("Unknown tense " + tense)
 
-
     # Compresses two actions if the action is the same, there's only one free parameter, and they comply with some
     # patterns
     def compress_actions(self, action_a, action_b):
@@ -154,30 +154,67 @@ class PlanNarrator:
                 return action_c, intermediate
         return [], []
 
-    def create_script(self, plan, causal_chains, compressions):
-        verbalization_script = []
+    def create_script(self, plan, operators, causal_chains, compressions=None):
+        verbalization_script = [None] * len(plan)
         used_actions = [False] * len(plan)
+
+        #########33 FIXME test
+        c = causal_chains[3]
+        c._print()
+        action_id = c.achieving_action.action_id
+        goal_params = c.goal.split(' ')[1:]  # TODO remove subjects from the list
+        self.add_causal_action_scripts_rec(c.achieving_action, goal_params, operators, plan, verbalization_script,
+                                           used_actions, check_jusifies=True)
+        verbalization_script[action_id].goal = c.goal, c.goal_value
+        #########333 end test
 
         # Traverse causal chains to start to write the script.
         for c in causal_chains:
             # Add achieving action + goal
-            justifications = []
             action_id = c.achieving_action.action_id
-            #sorted(causal_chains[2].achieving_action.children, key=lambda x: x.action_id) fixme
-            for n in c.achieving_action.children:
-                pass
-            ActionScript(action_id, None, goal)
-            pass
+            goal_params = c.goal.split(' ')[1:]  # TODO remove subjects from the list
+            self.add_causal_action_scripts_rec(c.achieving_action, goal_params, operators, pscdlan, verbalization_script, used_actions)
+            verbalization_script[action_id].goal = c.goal, c.goal_value
+        return verbalization_script
 
-    def add_action_scripts(self, causal_chain, verbalization_script, used_actions):
-        pass
-
+    def add_causal_action_scripts_rec(self, node, goal_params, operators, plan, verbalization_script, used_actions, check_jusifies=False):
+        #if not node.effects in goal: return/ignore and continue with children TODO choose what
+        goal_effect_params = EsterelProcessing.params_in_effects(goal_params, operators[plan[node.action_id][1][0]],
+                                                   plan[node.action_id][1])
+        if not goal_effect_params:
+            print('NOT IN GOAL!')
+            return
+        node_script = verbalization_script[node.action_id] if verbalization_script[node.action_id] \
+                                                           else ActionScript(node.action_id)
+        consecutive_id = node.action_id
+        sorted_children = sorted(node.children, key=lambda x: x.action_id, reverse=True)
+        for n in sorted_children:
+            if consecutive_id - n.action_id == 1:
+                # Actions are consecutive in the plan, add them as justifying the parent
+                node_script.justifications.append(n.action_id)
+                used_actions[n.action_id] = True  # As this will be used to justify the sentences
+                consecutive_id = n.action_id
+            elif check_jusifies:
+                a_script = ActionScript(n.action_id)
+                a_script.justifies.append(node.action_id)
+                verbalization_script[n.action_id] = a_script
+                used_actions[n.action_id] = True  # As it got a script of its own
+            #self.add_causal_action_scripts_rec(n, goal_params, operators, plan, verbalization_script, used_actions) FIXME remove
+        if not used_actions[node.action_id]:
+            verbalization_script[node.action_id] = node_script
+            used_actions[node.action_id] = True
+        # Recursive call on children
+        for n in sorted_children:
+            self.add_causal_action_scripts_rec(n, goal_params, operators, plan, verbalization_script, used_actions, False)  # FIXME can this be done in the previous loop?
+        # We process the recursive call here as there may be cases where the children causality is also in the parent,
+        # so going first through the children may find them and break the script.
 
 # Helper class to store information on an action used in an plan script
 class ActionScript:
-    def __init__(self, main_action_id, action_justifications, goal=None):
+    def __init__(self, main_action_id, goal=None):
         self.action = main_action_id
-        self.justifications = action_justifications  # This action is justified by the actions in the list
+        self.justifications = []  # This action is justified by the actions in the list
+        self.justifies = []  # This action justifies the actions in the list
         self.goal = goal
 
 if __name__ == "__main__":

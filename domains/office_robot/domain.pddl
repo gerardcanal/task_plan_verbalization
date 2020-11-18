@@ -10,7 +10,7 @@
 
 (:predicates
 	(robot_at ?v - robot ?wp - waypoint)
-        (person_nexto ?v - person ?wp - waypoint)
+  (person_nexto ?v - person ?wp - waypoint)
 	(connected ?from ?to - waypoint)
 	(visited ?wp - waypoint)
 	(not_occupied ?wp - waypoint)
@@ -55,7 +55,9 @@
   :parameters (?v - robot ?place - waypoint)
   :duration(= ?duration 1)
   :condition (and 
-    (over all (robot_at ?v ?place)))
+    (over all (robot_at ?v ?place))
+    (at start (robot_at ?v ?place))
+    (at end (robot_at ?v ?place)))
   :effect (and 
     (at end (scanned_place ?place)))
 )
@@ -84,6 +86,8 @@
   :duration(= ?duration 2)
   :condition (and 
     (over all (robot_at ?v ?wp))
+    (at start (robot_at ?v ?wp))
+    (at end (robot_at ?v ?wp))
     (over all (person_nexto ?p ?wp))
     (over all (person_found ?p)))
   :effect (and (at end (person_asked ?p)))
@@ -100,6 +104,8 @@
   :duration(= ?duration 2)
   :condition (and 
     (over all (robot_at ?v ?place))
+    (at start (robot_at ?v ?place))
+    (at end (robot_at ?v ?place))
     (over all (person_nexto ?p ?place))
     (over all (graspable ?o))
     (over all (person_found ?p))
@@ -121,6 +127,8 @@
   :duration(= ?duration 2)
   :condition (and 
     (over all (robot_at ?v ?place))
+    (at start (robot_at ?v ?place))
+    (at end (robot_at ?v ?place))
     (over all (graspable ?p))
     (at start (object_at ?p ?place))
     (at start (not_holding_object ?v)))
@@ -141,6 +149,8 @@
   :condition (and
     (at start (object_at ?p ?v))
     (over all (robot_at ?v ?place))
+    (at start (robot_at ?v ?place))
+    (at end (robot_at ?v ?place))
     (over all (scanned_place ?place)))
   :effect (and
     (at start (not (object_at ?p ?v)))
@@ -160,6 +170,8 @@
   :condition (and
     (at start (object_at ?o ?v))
     (over all (robot_at ?v ?place))
+    (at start (robot_at ?v ?place))
+    (at end (robot_at ?v ?place))
     (over all (person_nexto ?p ?place))
     (over all (person_found ?p)))
   :effect (and

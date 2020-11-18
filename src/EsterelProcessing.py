@@ -80,8 +80,12 @@ class EsterelProcessing:
             start_node = esterel_plan.nodes[esterel_plan.edges[edge].source_ids[0]]
             assert start_node.action.action_id == n.action.action_id and start_node.node_id != n.node_id
             edges += start_node.edges_in
-        return [esterel_plan.nodes[ni] for ei in edges for ni in esterel_plan.edges[ei].source_ids
+        #return [esterel_plan.nodes[ni] for ei in edges for ni in esterel_plan.edges[ei].source_ids
+        #        if esterel_plan.edges[ei].edge_type == edge_type]
+        # This removes duplicate nodes in case of multiple edges
+        source_ids = [ni for ei in edges for ni in esterel_plan.edges[ei].source_ids
                 if esterel_plan.edges[ei].edge_type == edge_type]
+        return [esterel_plan.nodes[ni] for ni in set(source_ids)]
 
     @staticmethod
     def match_action(action_list, rp_action):
@@ -128,12 +132,12 @@ class EsterelProcessing:
         return not ki.is_negative, ki.attribute_name + ' ' + ' '.join([v.value for v in ki.values])
 
     # Returns a list of the effect predicates that involve any ground parameter in params
+    # Ground action has the format of list [action name, param1, param2,...]
     @staticmethod
     def params_in_effects(params, action_info, ground_action):
-        action_list = ground_action.split(' ')
-        assert action_info.name == action_list[0]
+        assert action_info.formula.name == ground_action[0]
         grounding = {}
-        action_params = action_list[1:]
+        action_params = ground_action[1:]
         for i, tp in enumerate(action_info.formula.typed_parameters):
             grounding[tp.key] = action_params[i]
 
