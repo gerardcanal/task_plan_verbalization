@@ -81,7 +81,7 @@ class EsterelProcessing:
             assert start_node.action.action_id == n.action.action_id and start_node.node_id != n.node_id
             edges += start_node.edges_in
         #return [esterel_plan.nodes[ni] for ei in edges for ni in esterel_plan.edges[ei].source_ids
-        #        if esterel_plan.edges[ei].edge_type == edge_type]
+        #        if esterel_plan.edges[ei].edge_type == edge_type] FIXME
         # This removes duplicate nodes in case of multiple edges
         source_ids = [ni for ei in edges for ni in esterel_plan.edges[ei].source_ids
                 if esterel_plan.edges[ei].edge_type == edge_type]

@@ -83,7 +83,7 @@ class PlanNarrator:
         for i, p in enumerate(action_params):
             if type(ground_params[i]) is list:
                 ground_params[i] = self.make_list_str(ground_params[i])
-            sentence = re.sub('([ \t]?)\\' + p[0] + r'([ \t.:-\?]|$)', '\\1' + ground_params[i] + '\\2', sentence)
+            sentence = re.sub(r"([ \t]?)\\" + p[0] + r"([ \t.:-\?]|$)", "\\1" + ground_params[i] + "\\2", sentence)
 
         # Add narrator in the non-subject parameters (subjects have already been dealt with)
         if self._narrator_name:
@@ -157,27 +157,18 @@ class PlanNarrator:
     def create_script(self, plan, operators, causal_chains, compressions=None):
         verbalization_script = [ ActionScript(n) for n in range(len(plan))]
 
-        # #########33 FIXME test
-        # c = causal_chains[0]
-        # c._print()
-        # action_id = c.achieving_action.action_id
-        # goal_params = c.goal.split(' ')[1:]  # TODO remove subjects from the list
-        # self.add_causal_action_scripts_rec(c.achieving_action, goal_params, operators, plan, verbalization_script,
-        #                                    used_actions, check_jusifies=True)
-        # verbalization_script[action_id].goal = c.goal, c.goal_value
-        # #########333 end test
-
         # Traverse causal chains to start to write the script.
         for c in causal_chains:
             # Add achieving action + goal
             action_id = c.achieving_action.action_id
             goal_params = c.goal.split(' ')[1:]  # TODO remove subjects from the list
-            self.add_causal_action_scripts_rec(c.achieving_action, goal_params, operators, plan, verbalization_script,
-                                               check_jusifies=True)
             verbalization_script[action_id].goal = c.goal, c.goal_value
+            self.get_action_scripts_rec(c.achieving_action, goal_params, operators, plan, verbalization_script,
+                                        check_jusifies=True)
+            verbalization_script[action_id].skip = False
         return verbalization_script
 
-    def add_causal_action_scripts_rec(self, node, goal_params, operators, plan, verbalization_script, check_jusifies=False):
+    def get_action_scripts_rec(self, node, goal_params, operators, plan, verbalization_script, check_jusifies):
         consecutive_id = node.action_id
         sorted_children = sorted(node.children, key=lambda x: x.action_id, reverse=True)
         for n in sorted_children:
@@ -195,11 +186,12 @@ class PlanNarrator:
                 verbalization_script[n.action_id].justifies.add(node.action_id)
                 # In order to avoid extremely cluttering the sentences, we will skip the action that justify other
                 # actions when they are not causing a goal-achieving action (thus, check_justifies is only true in the
-                # first call
-                verbalization_script[n.action_id].skip = check_jusifies
-            # Recursive call with this child
-            self.add_causal_action_scripts_rec(n, goal_params, operators, plan, verbalization_script, False)
-            # TODO should skip become False at any time?
+                # first call. If skip was already true because this is a justification, skip should keep it true
+                if check_jusifies:
+                    #verbalization_script[n.action_id].skip = check_jusifies or verbalization_script[n.action_id].skip
+                    verbalization_script[n.action_id].skip = True
+            # Recursive call with this child. We will skip the justifies of the following actions in the chain
+            self.get_action_scripts_rec(n, goal_params, operators, plan, verbalization_script, False)
 
 
 # Helper class to store information on an action used in an plan script
@@ -210,6 +202,7 @@ class ActionScript:
         self.justifies = set()  # This action justifies the actions in the list
         self.goal = goal
         self.skip = False
+
 
 if __name__ == "__main__":
     pn = PlanNarrator()
