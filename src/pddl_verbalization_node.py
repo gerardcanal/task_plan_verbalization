@@ -69,7 +69,7 @@ class ROSPlanNarratorNode:
 
         self._domain_semantics = None
         self.parse_domain()
-        self.compressed_plan = []
+        self.compressed_plan = []  # FIXME remove
         self.operators = {}
         self.get_all_operators_info()
 
@@ -144,7 +144,7 @@ class ROSPlanNarratorNode:
         rospy.loginfo(rospy.get_name() + ": Plan narration computed: \n\n" + narration + "\n")
         return narration
 
-    def compress_plan(self, plan):
+    def compress_plan(self, plan):  # FIXME REMOVE
         # Plan is (time, action, duration)
         i = 0
         curr = [plan[i][1]]

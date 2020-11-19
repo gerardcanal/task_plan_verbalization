@@ -127,7 +127,7 @@ class PlanNarrator:
 
     # Compresses two actions if the action is the same, there's only one free parameter, and they comply with some
     # patterns
-    def compress_actions(self, action_a, action_b):
+    def compress_actions(self, action_a, action_b):  # FIXME REMOVE
         if action_a[0] == action_b[0]:  # same action name
             pattern = PatternMatcher.get_param_pattern(action_a[1:], action_b[1:])
             intermediate = []  # Keeps the intermediate parameters
@@ -155,7 +155,9 @@ class PlanNarrator:
         return [], []
 
     def create_script(self, plan, operators, causal_chains, compressions=None):
-        verbalization_script = [ ActionScript(n) for n in range(len(plan))]
+        verbalization_script = [ActionScript(n) for n in range(len(plan))]
+
+        compressions = PlanCompressions(plan)
 
         # Traverse causal chains to start to write the script.
         for c in causal_chains:
@@ -188,7 +190,6 @@ class PlanNarrator:
                 # actions when they are not causing a goal-achieving action (thus, check_justifies is only true in the
                 # first call. If skip was already true because this is a justification, skip should keep it true
                 if check_jusifies:
-                    #verbalization_script[n.action_id].skip = check_jusifies or verbalization_script[n.action_id].skip
                     verbalization_script[n.action_id].skip = True
             # Recursive call with this child. We will skip the justifies of the following actions in the chain
             self.get_action_scripts_rec(n, goal_params, operators, plan, verbalization_script, False)
@@ -204,14 +205,78 @@ class ActionScript:
         self.skip = False
 
 
-if __name__ == "__main__":
-    pn = PlanNarrator()
-    DOMAIN_TEST = "/home/gerard/code/ROSPlan_ws/src/pddl_verbalization/domains/office_robot/domain.pddl"
-    a = DomainParser(DOMAIN_TEST)
-    dsemantics = a.parse()
-    print(pn.make_action_sentence("goto_waypoint", "kenny kitchen living-room".split(' '), dsemantics['goto_waypoint']))
-    print(pn.make_action_sentence("goto_waypoint", "kenny bathroom bedroom".split(' '), dsemantics['goto_waypoint']))
-    pn = PlanNarrator('kenny')
-    print(pn.make_action_sentence("goto_waypoint", "kenny kitchen living-room".split(' '), dsemantics['goto_waypoint'], 'past'))
-    print(pn.make_action_sentence("goto_waypoint", "kenny bathroom bedroom".split(' '), dsemantics['goto_waypoint'], 'past'))
+# Helper class to compute, store, and manage action compressions
+class PlanCompressions:
+    def __init__(self, plan):
+        self._compression_dic = {}
+        self._compressed_actions = []
+        self._compressed_parameters = []
+        self._plan = plan
+        self.compress_plan()
 
+    def add_compression(self, compressed_actions_ids, action_compression, compressed_params):
+        i = len(self._compressed_actions)  # Id of the new action
+        self._compressed_actions.append(action_compression)
+        self._compressed_parameters.append(compressed_params)
+        for a in compressed_actions_ids:
+            self._compression_dic[a] = i
+
+    def get_compression(self, action_id):
+        try:
+            return self._compressed_actions[self._compression_dic[action_id]]
+        except KeyError:
+            return self._plan[action_id]
+
+    # Compresses two actions if the action is the same, there's only one free parameter, and they comply with some
+    # patterns
+    def compress_actions(self, action_a, action_b):
+        if action_a[0] == action_b[0]:  # same action name
+            pattern = PatternMatcher.get_param_pattern(action_a[1:], action_b[1:])
+            intermediate = []  # Keeps the intermediate parameters
+            if len(pattern) >= len(action_a)-2:  # If only one free variable
+                params = [None]*(len(action_a)-1)
+                for p in pattern:
+                    if p[0] == p[1]:
+                        params[p[0]] = action_a[p[0]+1]  # Same parameter
+                    else:  # if p[0] > p[1]:  # Parameter moves back, is reused and not needed
+                        params[p[1]] = action_a[p[1]+1]
+                        params[p[0]] = action_b[p[0]+1]
+                        intermediate.append(action_a[p[0]+1])
+                # Case where all the params are different, then it's an action applied to a list of parameters
+                for i, p in enumerate(params):
+                    if not p:
+                        if type(action_a[i+1]) is list:
+                            params[i] = action_a[i + 1] + [action_b[i + 1]]
+                        elif type(action_b[i+1]) is list:
+                            params[i] = [action_a[i + 1]] + action_b[i + 1]
+                        else:
+                            params[i] = [action_a[i+1], action_b[i+1]]
+                action_c = [action_a[0]] + params
+                # TODO failure case?
+                return action_c, intermediate
+        return [], []
+
+    # Computes the compressions of the whole plan
+    def compress_plan(self):
+        # Plan is (time, action, duration)
+        curr_ids = [0]
+        curr_action = self._plan[0]  # This will always be i-1 or the compressed action
+        curr_intmd = []
+        for i in range(1, len(self._plan)):
+            # Time will be the one from the start action, duration the sum
+            result, intmd = self.compress_actions(curr_action[1], self._plan[i][1])
+            if result:  # Result stores the compressed action (if compression was made)
+                curr_ids.append(i)
+                curr_intmd.extend(intmd)
+                # Format: ('0.000', ['goto_waypoint', 'robot_assistant', 'wp3', 'wp15'], '13.000')
+                # Compressed action start time, duration of the two actions are added
+                curr_action = curr_action[0], result, str(float(curr_action[2])+float(self._plan[i][2]))
+            else:  # No compression found
+                if len(curr_ids) > 1:  # We have compressed some actions
+                    self.add_compression(curr_ids, curr_action, curr_intmd)
+                curr_ids = [i]
+                curr_action = self._plan[i]  # This will always be i-1 or the compressed action
+                curr_intmd = []
+        # Check if last action was to be compressed outside the loop
+        if len(curr_ids) > 1:  # We have compressed some actions
+            self.add_compression(curr_ids, curr_action, curr_intmd)
