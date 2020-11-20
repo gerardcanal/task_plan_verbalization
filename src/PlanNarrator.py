@@ -34,6 +34,7 @@ import random
 import re
 from DomainParser import DomainParser, RegularExpressions
 from EsterelProcessing import EsterelProcessing
+from collections import deque
 
 # TODO:
 # - MakeSentence(), using mlconjug
@@ -154,23 +155,67 @@ class PlanNarrator:
                 return action_c, intermediate
         return [], []
 
-    def create_script(self, plan, operators, causal_chains, compressions=None):
-        verbalization_script = [ActionScript(n) for n in range(len(plan))]
-
+    def create_verbalization_script(self, plan, operators, causal_chains):
+        # Compute action compressions
         compressions = PlanCompressions(plan)
 
+        # Compute causality script
+        causality_script = self.compute_causality_scripts(plan, operators, causal_chains)
+
+        # Join scripts
+        verbalization_script = deque()
+            # TODO add verbalization spaces parameters and processing here
+            # if not causality_script[i].skip: FIXME remove this shit
+            #     # Convert actions to compressions
+            #     for j in list(causality_script[i].justifies):
+            #         if compressions.is_compressed(j):
+            #             causality_script[i].justifies.remove(j)
+            #             causality_script[i].justifies.add(compressions.get_compressed_id(i))
+            #     for j in list(causality_script[i].justifications):
+            #         if compressions.is_compressed(j):
+            #             causality_script[i].justifications.remove(j)
+            #             causality_script[i].justifications.add(compressions.get_compressed_id(i))
+            # elif compressions.is_compressed(i):
+            #     pass
+        skipped_actions = [False] * len(plan)
+        for i in range(len(causality_script)-1, -1, -1):
+            if skipped_actions[i]:
+                continue
+            s = causality_script[i]
+            if s.goal:  # Goal achieving actions are always kept
+                s.justifies.clear()  # Remove justifies for this action as it achieves a goal
+            else:
+                s.justifies = {j for j in s.justifies if causality_script[j].goal and not skipped_actions[j]}
+            keep_justifications = []
+            for j in s.justifications:
+                if not causality_script[j].goal:  # If justification achieves a goal, we'll not use it here
+                    skipped_actions[j] = True
+                    keep_justifications.append(j)
+                s.justifications = set(keep_justifications)  # TODO hash compressions here?
+            if compressions.is_compressed(i):
+                cid = compressions.get_compressed_id(i)
+                for k in compressions.get_ids_compressed_action(cid):
+                    skipped_actions[k] = True  # TODO what about actions achieving goals?!
+            verbalization_script.appendleft(s)
+        return verbalization_script
+
+    def compute_causality_scripts(self, plan, operators, causal_chains):
         # Traverse causal chains to start to write the script.
+        causality_script = [ActionScript(n) for n in range(len(plan))]
         for c in causal_chains:
             # Add achieving action + goal
             action_id = c.achieving_action.action_id
             goal_params = c.goal.split(' ')[1:]  # TODO remove subjects from the list
-            verbalization_script[action_id].goal = c.goal, c.goal_value
-            self.get_action_scripts_rec(c.achieving_action, goal_params, operators, plan, verbalization_script,
+            causality_script[action_id].goal = c.goal, c.goal_value
+            self.add_action_scripts_rec(c.achieving_action, goal_params, operators, plan, causality_script,
                                         check_jusifies=True)
-            verbalization_script[action_id].skip = False
-        return verbalization_script
+        #FIXME  for i in range(len(causality_script)):
+        #     for j in causality_script[i].justifications:
+        #         if not causality_script[j].goal:
+        #             causality_script[j].skip = True
+        return causality_script
 
-    def get_action_scripts_rec(self, node, goal_params, operators, plan, verbalization_script, check_jusifies):
+    def add_action_scripts_rec(self, node, goal_params, operators, plan, verbalization_script, check_jusifies):
         consecutive_id = node.action_id
         sorted_children = sorted(node.children, key=lambda x: x.action_id, reverse=True)
         for n in sorted_children:
@@ -181,18 +226,20 @@ class PlanNarrator:
                 # Add symmetrical justification, and a flag to skip this action as it's already used to justify another
                 # one. This action will be verbalized nonetheless to justify a different action.
                 verbalization_script[n.action_id].justifies.add(node.action_id)
-                verbalization_script[n.action_id].skip = True
+                #verbalization_script[n.action_id].skip = True
             else:
                 # In this case, the action is not consecutive so it will be used to justify a later action (so it'll be
                 # written two times)
                 verbalization_script[n.action_id].justifies.add(node.action_id)
-                # In order to avoid extremely cluttering the sentences, we will skip the action that justify other
+                # FIXME REMOVE  In order to avoid extremely cluttering the sentences, we will skip the action that justify other
                 # actions when they are not causing a goal-achieving action (thus, check_justifies is only true in the
                 # first call. If skip was already true because this is a justification, skip should keep it true
-                if check_jusifies:
-                    verbalization_script[n.action_id].skip = True
+                #if not check_jusifies:
+                #    verbalization_script[n.action_id].skip = True# FIXME REMOVE
+                #if verbalization_script[n.action_id].skip:
+                #    verbalization_script[n.action_id].skip = not check_jusifies
             # Recursive call with this child. We will skip the justifies of the following actions in the chain
-            self.get_action_scripts_rec(n, goal_params, operators, plan, verbalization_script, False)
+            self.add_action_scripts_rec(n, goal_params, operators, plan, verbalization_script, False)
 
 
 # Helper class to store information on an action used in an plan script
@@ -202,30 +249,60 @@ class ActionScript:
         self.justifications = set()  # This action is justified by the actions in the list
         self.justifies = set()  # This action justifies the actions in the list
         self.goal = goal
-        self.skip = False
 
 
 # Helper class to compute, store, and manage action compressions
 class PlanCompressions:
     def __init__(self, plan):
-        self._compression_dic = {}
-        self._compressed_actions = []
-        self._compressed_parameters = []
+        self._compression_dic = {} # Dictionary of action in plan -> compressed action id. This Id is len(plan)+index
+        self._compressed_actions = []  # List of compressed action strings
+        self._compressed_parameters = []  # List of parameters of the compressed actions (i.e. via points)
+        self._compressed_ids = []  # Ids that generated the compressed action
         self._plan = plan
         self.compress_plan()
 
+    # Check if an action_id has been compressed into another action, or is a compressed action id
+    def is_compressed(self, action_id):
+        if action_id >= len(self._plan):
+            return True
+        return action_id in self._compression_dic
+
+    # Returns an action string from an id. If the action_id is a codified compression action or an action that was
+    # compressed, it returns the compressed action
+    def compressed_id_to_action_str(self, action_id):
+        try:
+            if action_id < len(self._plan):
+                action_id = self._compression_dic[action_id]
+            return self._compressed_actions[action_id-len(self._plan)]
+        except KeyError:
+            return self._plan[action_id]
+
+    # Return an action string from an id. If the action_id is a codified compression action, returns the compressed
+    # action otherwise returns the original action in the plan (regardless of if it was compressed).
+    def id_to_action_str(self, action_id):
+        if action_id < len(self._plan):
+            return self._plan[action_id]
+        return self._compressed_actions[action_id-len(self._plan)]
+
+    def get_compressed_id(self, action_id):
+        try:
+            return self._compression_dic[action_id]
+        except KeyError:
+            return action_id
+
+    def get_ids_compressed_action(self, compressed_id):
+        assert compressed_id > len(self._plan)
+        return self._compressed_ids[compressed_id-len(self._plan)]
+
+    # Adds an action compression of action_ids
     def add_compression(self, compressed_actions_ids, action_compression, compressed_params):
         i = len(self._compressed_actions)  # Id of the new action
         self._compressed_actions.append(action_compression)
         self._compressed_parameters.append(compressed_params)
+        self._compressed_ids.append(compressed_actions_ids)
         for a in compressed_actions_ids:
-            self._compression_dic[a] = i
-
-    def get_compression(self, action_id):
-        try:
-            return self._compressed_actions[self._compression_dic[action_id]]
-        except KeyError:
-            return self._plan[action_id]
+            self._compression_dic[a] = len(self._plan)+i
+            # This way we have two spaces of ids. This class will handle this translations
 
     # Compresses two actions if the action is the same, there's only one free parameter, and they comply with some
     # patterns

@@ -111,7 +111,7 @@ class ROSPlanNarratorNode:
         try:
             esterel_plan = rospy.wait_for_message('/rosplan_parsing_interface/complete_plan', EsterelPlan, ESTEREL_TIMEOUT)
             causal_chains = EsterelProcessing.find_causal_chains(self.operators, goals, plan, esterel_plan)
-            self._narrator.create_script(plan, self.operators, causal_chains)
+            self._narrator.create_verbalization_script(plan, self.operators, causal_chains)
         except rospy.ROSException:
             rospy.logwarn(rospy.get_name() + ': Esterel plan not received in ' + str(ESTEREL_TIMEOUT) + 'seconds. ' +
                                              'Causality will not be checked.')
@@ -204,6 +204,7 @@ class ROSPlanNarratorNode:
         operator_list = self._get_operators.call()
         for o in operator_list.operators:
             self.operators[o.name] = self._get_operator_details.call(o.name).op
+
 
 if __name__ == "__main__":
     node = ROSPlanNarratorNode()
