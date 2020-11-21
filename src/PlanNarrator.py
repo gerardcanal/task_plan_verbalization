@@ -32,8 +32,8 @@
 import mlconjug3
 import random
 import re
+import copy
 from DomainParser import DomainParser, RegularExpressions
-from EsterelProcessing import EsterelProcessing
 from collections import deque
 
 # TODO:
@@ -161,6 +161,7 @@ class PlanNarrator:
 
         # Compute causality script
         causality_script = self.compute_causality_scripts(plan, operators, causal_chains)
+        AUX = copy.deepcopy(causality_script) # FIXME remove
 
         # Join scripts
         verbalization_script = deque()
@@ -177,6 +178,7 @@ class PlanNarrator:
             #             causality_script[i].justifications.add(compressions.get_compressed_id(i))
             # elif compressions.is_compressed(i):
             #     pass
+        compress = True
         skipped_actions = [False] * len(plan)
         for i in range(len(causality_script)-1, -1, -1):
             if skipped_actions[i]:
@@ -185,17 +187,28 @@ class PlanNarrator:
             if s.goal:  # Goal achieving actions are always kept
                 s.justifies.clear()  # Remove justifies for this action as it achieves a goal
             else:
-                s.justifies = {j for j in s.justifies if causality_script[j].goal and not skipped_actions[j]}
-            keep_justifications = []
+                if compress:
+                    s.justifies = {compressions.get_compressed_id(j) for j in s.justifies if causality_script[j].goal
+                                                                                             and not skipped_actions[j]}
+                else:
+                    s.justifies = {j for j in s.justifies if causality_script[j].goal and not skipped_actions[j]}
+            keep_justifications = []  # Justifications to keep
             for j in s.justifications:
                 if not causality_script[j].goal:  # If justification achieves a goal, we'll not use it here
                     skipped_actions[j] = True
+                    if compress:
+                        j = compressions.get_compressed_id(j)
                     keep_justifications.append(j)
                 s.justifications = set(keep_justifications)  # TODO hash compressions here?
-            if compressions.is_compressed(i):
+            if compress and compressions.is_compressed(i):
                 cid = compressions.get_compressed_id(i)
+                s.action = cid
                 for k in compressions.get_ids_compressed_action(cid):
-                    skipped_actions[k] = True  # TODO what about actions achieving goals?!
+                    skipped_actions[k] = True  # TODO what about actions achieving goals?! -> Redo compression
+                    # TODO join compressions, goals
+                # Clear justifications (remove itself)
+                s.justifications.discard(cid)
+                s.justifies.discard(cid)
             verbalization_script.appendleft(s)
         return verbalization_script
 
@@ -291,7 +304,7 @@ class PlanCompressions:
             return action_id
 
     def get_ids_compressed_action(self, compressed_id):
-        assert compressed_id > len(self._plan)
+        assert compressed_id >= len(self._plan)
         return self._compressed_ids[compressed_id-len(self._plan)]
 
     # Adds an action compression of action_ids
