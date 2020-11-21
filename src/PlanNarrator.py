@@ -156,12 +156,15 @@ class PlanNarrator:
         return [], []
 
     def create_verbalization_script(self, plan, operators, causal_chains):
-        # Compute action compressions
-        compressions = PlanCompressions(plan)
 
         # Compute causality script
         causality_script = self.compute_causality_scripts(plan, operators, causal_chains)
+        goal_achieving_actions = sorted([c.achieving_action.action_id for c in causal_chains])
         AUX = copy.deepcopy(causality_script) # FIXME remove
+
+        # Compute action compressions
+        compressions = PlanCompressions(plan, goal_achieving_actions)
+
 
         # Join scripts
         verbalization_script = deque()
@@ -266,12 +269,13 @@ class ActionScript:
 
 # Helper class to compute, store, and manage action compressions
 class PlanCompressions:
-    def __init__(self, plan):
+    def __init__(self, plan, goal_achieving_actions):
         self._compression_dic = {} # Dictionary of action in plan -> compressed action id. This Id is len(plan)+index
         self._compressed_actions = []  # List of compressed action strings
         self._compressed_parameters = []  # List of parameters of the compressed actions (i.e. via points)
         self._compressed_ids = []  # Ids that generated the compressed action
         self._plan = plan
+        self._goal_achieving_actions = goal_achieving_actions
         self.compress_plan()
 
     # Check if an action_id has been compressed into another action, or is a compressed action id
@@ -355,6 +359,8 @@ class PlanCompressions:
         for i in range(1, len(self._plan)):
             # Time will be the one from the start action, duration the sum
             result, intmd = self.compress_actions(curr_action[1], self._plan[i][1])
+            if i-1 in self._goal_achieving_actions:
+                result = False  # Force avoid compression in case of goal achieving action
             if result:  # Result stores the compressed action (if compression was made)
                 curr_ids.append(i)
                 curr_intmd.extend(intmd)
