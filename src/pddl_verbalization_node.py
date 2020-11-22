@@ -130,16 +130,12 @@ class ROSPlanNarratorNode:
             #### DEBUG
             aux = [' '.join(x) for x in self.compressed_plan[i]]
             s = '(' + ' / '.join(aux) + '): ' + s
-            # for j, x in enumerate(action):
-            #     if type(x) is list:
-            #         action[i] = '[' + ', '.join(x) + ']'
-            # s = '(' + ' '.join(action) + '): ' + s
             if tense == 'present':  # FIXME check whether this is useful or not
                 s = '* ' + s
             ##### DEBUG END
 
             narration += s + "\n\n"
-        #self._plan = None
+
         self._plan_received = False
         rospy.loginfo(rospy.get_name() + ": Plan narration computed: \n\n" + narration + "\n")
         return narration

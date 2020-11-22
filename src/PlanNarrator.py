@@ -156,32 +156,16 @@ class PlanNarrator:
         return [], []
 
     def create_verbalization_script(self, plan, operators, causal_chains):
-
-        # Compute causality script
+        # Compute causality scripts
         causality_script = self.compute_causality_scripts(plan, operators, causal_chains)
         goal_achieving_actions = sorted([c.achieving_action.action_id for c in causal_chains])
-        AUX = copy.deepcopy(causality_script) # FIXME remove
 
         # Compute action compressions
         compressions = PlanCompressions(plan, goal_achieving_actions)
 
-
         # Join scripts
         verbalization_script = deque()
-            # TODO add verbalization spaces parameters and processing here
-            # if not causality_script[i].skip: FIXME remove this shit
-            #     # Convert actions to compressions
-            #     for j in list(causality_script[i].justifies):
-            #         if compressions.is_compressed(j):
-            #             causality_script[i].justifies.remove(j)
-            #             causality_script[i].justifies.add(compressions.get_compressed_id(i))
-            #     for j in list(causality_script[i].justifications):
-            #         if compressions.is_compressed(j):
-            #             causality_script[i].justifications.remove(j)
-            #             causality_script[i].justifications.add(compressions.get_compressed_id(i))
-            # elif compressions.is_compressed(i):
-            #     pass
-        compress = True
+        compress = True  # FIXME parametrize
         skipped_actions = [False] * len(plan)
         for i in range(len(causality_script)-1, -1, -1):
             if skipped_actions[i]:
@@ -207,8 +191,13 @@ class PlanNarrator:
                 cid = compressions.get_compressed_id(i)
                 s.action = cid
                 for k in compressions.get_ids_compressed_action(cid):
-                    skipped_actions[k] = True  # TODO what about actions achieving goals?! -> Redo compression
-                    # TODO join compressions, goals
+                    if k != i:
+                        skipped_actions[k] = True
+                        j = [compressions.get_compressed_id(j) for j in causality_script[k].justifications]
+                        s.justifications = s.justifications.union(j)
+                        j = [compressions.get_compressed_id(j) for j in causality_script[k].justifies]
+                        s.justifies = s.justifies.union(j)
+                        # TODO join goals in compressions?
                 # Clear justifications (remove itself)
                 s.justifications.discard(cid)
                 s.justifies.discard(cid)
