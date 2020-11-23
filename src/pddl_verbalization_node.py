@@ -35,7 +35,7 @@ import random
 import copy
 from std_srvs.srv import Empty, EmptyResponse, Trigger, TriggerResponse
 from std_msgs.msg import String
-from PlanNarrator import PlanNarrator, DomainParser, RegularExpressions
+from PlanNarrator import PlanNarrator, DomainParser, RegularExpressions, PlanCompressions
 from pddl_verbalization.srv import NarratePlan, NarratePlanResponse
 from rosplan_knowledge_msgs.srv import GetAttributeService, GetDomainOperatorService, GetDomainOperatorDetailsService
 from rosplan_dispatch_msgs.msg import EsterelPlan
@@ -104,28 +104,31 @@ class ROSPlanNarratorNode:
             return "No plan was found"
         plan = re.findall(RegularExpressions.PLAN_ACTION, self._plan)
         plan = [(p[0], p[1].split(' '), p[2]) for p in plan]  # Split actions and parameters
-        original_plan = copy.deepcopy(plan)
 
-        ###############333 TEST
         goals = self.get_goals()
         try:
-            esterel_plan = rospy.wait_for_message('/rosplan_parsing_interface/complete_plan', EsterelPlan, ESTEREL_TIMEOUT)
-            causal_chains = EsterelProcessing.find_causal_chains(self.operators, goals, plan, esterel_plan)
-            self._narrator.create_verbalization_script(plan, self.operators, causal_chains)
+            plan_topic = '/rosplan_parsing_interface/complete_plan'
+            esterel_plan = rospy.wait_for_message(plan_topic, EsterelPlan, ESTEREL_TIMEOUT)
         except rospy.ROSException:
             rospy.logwarn(rospy.get_name() + ': Esterel plan not received in ' + str(ESTEREL_TIMEOUT) + 'seconds. ' +
                                              'Causality will not be checked.')
-        ########################
+        causal_chains = EsterelProcessing.find_causal_chains(self.operators, goals, plan, esterel_plan)
+        goal_achieving_actions = sorted([c.achieving_action.action_id for c in causal_chains])
+        compressions = PlanCompressions(plan, goal_achieving_actions)  # Compute action compressions
+        verbalization_script = self._narrator.create_verbalization_script(plan, self.operators, causal_chains,
+                                                                          compressions)
 
-        plan, compressions = self.compress_plan(plan)
+
+        # plan, compressions = self.compress_plan(plan) FIXME remove
 
         if random_step:
-            current_step = random.randint(0, len(plan))
+            current_step = random.randint(0, len(verbalization_script))
         narration = "Narrator is: " + self._robot_name + '\n' if self._robot_name else ""
-        for i, (time, action, duration) in enumerate(plan):  # TODO use time and duration
-            #action_sp = action.split(' ')  # Action splitted in a list
+        #for i, (time, action, duration) in enumerate(plan):  # TODO use time and duration
+        for i, ac_sript in enumerate(verbalization_script):  # TODO use time and duration?
             tense = 'present' if i == current_step else 'past' if i < current_step else 'future'
-            s = self._narrator.make_action_sentence(action[0], action[1:], self._domain_semantics[action[0]], compressions[i], tense)
+            #s = self._narrator.make_action_sentence(action[0], action[1:], self._domain_semantics[action[0]], compressions[i], tense) # REMOVE
+            s = self._narrator.make_action_sentence(ac_sript, self._domain_semantics, compressions, tense)
 
             #### DEBUG
             aux = [' '.join(x) for x in self.compressed_plan[i]]

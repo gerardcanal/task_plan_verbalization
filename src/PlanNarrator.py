@@ -49,8 +49,8 @@ class PlanNarrator:
         self._conjugator = mlconjug3.Conjugator(language=language)
         self._narrator_name = narrator_name
 
-    # Assumes IPC format
-    def make_action_sentence(self, ground_action, ground_params, action_semantics, compressions=[], tense='future'):
+    # Assumes IPC format FIXME remove
+    def make_action_sentence_IPC(self, ground_action, ground_params, action_semantics, compressions=[], tense='future'):
         # Find person of the verb
         if not action_semantics.has_semantics('subject'):
             raise KeyError("Action " + action_semantics.get_action_name() + " has no subject defined")
@@ -77,7 +77,7 @@ class PlanNarrator:
             sentence += ' ' + action_semantics.get_rnd_semantics('direct-object')
         if action_semantics.has_semantics('prep'):
             prep = action_semantics.get_semantics('prep')
-            for p in prep:  # Todo: use importance
+            for p in prep:  # Todo: use importance!
                 sentence += ' ' + random.choice(p[0])
 
         # Substitute parameters
@@ -95,6 +95,12 @@ class PlanNarrator:
 
         return sentence.capitalize() + '.'
 
+    def make_action_sentence_from_script(self, ac_script, domain_semantics, compressions, tense="future"):
+        main_action = compressions.id_to_action_str(ac_script.action)
+        justifications = [compressions.id_to_action_str(i) for i in sorted(ac_script.justifications)]
+        justifies = [compressions.id_to_action_str(i) for i in sorted(ac_script.justifies)]
+        return '.'
+
     @staticmethod
     def make_list_str(l):
         n = len(l)
@@ -111,7 +117,6 @@ class PlanNarrator:
         post = " " + m.group(3) if m.group(3) else ''
         conjugated = self._conjugator.conjugate(verb)
         if tense == 'present':
-            # NB: MLConjug has the continuous person key as "1p 1p": https://github.com/SekouDiaoNlp/mlconjug3/issues/79
             be = self._conjugator.conjugate('be').conjug_info['indicative']['indicative present'][person]
             return be + " " + pre + \
                    conjugated.conjug_info['indicative']['indicative present continuous'][person] + post
@@ -155,13 +160,9 @@ class PlanNarrator:
                 return action_c, intermediate
         return [], []
 
-    def create_verbalization_script(self, plan, operators, causal_chains):
+    def create_verbalization_script(self, plan, operators, causal_chains, compressions):
         # Compute causality scripts
         causality_script = self.compute_causality_scripts(plan, operators, causal_chains)
-        goal_achieving_actions = sorted([c.achieving_action.action_id for c in causal_chains])
-
-        # Compute action compressions
-        compressions = PlanCompressions(plan, goal_achieving_actions)
 
         # Join scripts
         verbalization_script = deque()
@@ -186,16 +187,18 @@ class PlanNarrator:
                     if compress:
                         j = compressions.get_compressed_id(j)
                     keep_justifications.append(j)
-                s.justifications = set(keep_justifications)  # TODO hash compressions here?
+            s.justifications = set(keep_justifications)  # TODO hash compressions here?
             if compress and compressions.is_compressed(i):
                 cid = compressions.get_compressed_id(i)
                 s.action = cid
                 for k in compressions.get_ids_compressed_action(cid):
                     if k != i:
                         skipped_actions[k] = True
-                        j = [compressions.get_compressed_id(j) for j in causality_script[k].justifications]
+                        j = [compressions.get_compressed_id(j) for j in causality_script[k].justifications
+                             if not skipped_actions[j]]
                         s.justifications = s.justifications.union(j)
-                        j = [compressions.get_compressed_id(j) for j in causality_script[k].justifies]
+                        j = [compressions.get_compressed_id(j) for j in causality_script[k].justifies
+                             if not skipped_actions[j]]
                         s.justifies = s.justifies.union(j)
                         # TODO join goals in compressions?
                 # Clear justifications (remove itself)
