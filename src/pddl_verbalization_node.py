@@ -128,10 +128,10 @@ class ROSPlanNarratorNode:
         for i, ac_sript in enumerate(verbalization_script):  # TODO use time and duration?
             tense = 'present' if i == current_step else 'past' if i < current_step else 'future'
             #s = self._narrator.make_action_sentence(action[0], action[1:], self._domain_semantics[action[0]], compressions[i], tense) # REMOVE
-            s = self._narrator.make_action_sentence(ac_sript, self._domain_semantics, compressions, tense)
+            s = self._narrator.make_action_sentence_from_script(ac_sript, self._domain_semantics, compressions, tense)
 
             #### DEBUG
-            aux = [' '.join(x) for x in self.compressed_plan[i]]
+            aux = ''# [' '.join(x) for x in self.compressed_plan[i]]
             s = '(' + ' / '.join(aux) + '): ' + s
             if tense == 'present':  # FIXME check whether this is useful or not
                 s = '* ' + s

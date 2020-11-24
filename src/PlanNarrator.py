@@ -42,6 +42,9 @@ from collections import deque
 from PatternMatcher import PatternMatcher
 
 CORRECT_PERSONS = ['1s', '1p', '2s', '2p', '3s', '3p']
+JUSTIFICATION_LINKERS = ['to', 'to be able to', ', which allows <SUBJECT> to', 'to then', 'so I could']
+JUSTIFIES_LINKERS = ['to', 'to be able to', ', which allows <SUBJECT> to', 'to then', 'so I could']
+GOAL_LINKERS = ['to achieve the goal of', 'to reach the goal of', 'to fulfill']
 
 
 class PlanNarrator:
@@ -61,7 +64,7 @@ class PlanNarrator:
         if self._narrator_name:
             for i, (v, _) in enumerate(action_params):
                 found_narrator = any([self._narrator_name.lower() == x for x in ground_params[i]]) \
-                        if type(ground_params[i]) is list else self._narrator_name.lower() == ground_params[i].lower()
+                    if type(ground_params[i]) is list else self._narrator_name.lower() == ground_params[i].lower()
                 if found_narrator and v in subj_params:  # FIXME check instead of I me when I am the object?
                     subject = subject.replace(v, 'I')
                     person = '1p' if len(subj_params) > 1 else '1s'
@@ -69,8 +72,8 @@ class PlanNarrator:
 
         # Create sentence with semantics
         # Default format: subject verb indirect-object direct-object preps
-        sentence = subject + ' ' + \
-            self.conjugate_verb(action_semantics.get_rnd_verb(), tense, person)
+        # sentence = subject + ' ' + self.conjugate_verb(action_semantics.get_rnd_verb(), tense, person)
+        sentence = self.conjugate_verb(action_semantics.get_rnd_verb(), tense, person)
         if action_semantics.has_semantics('indirect-object'):
             sentence += ' ' + action_semantics.get_rnd_semantics('indirect-object')
         if action_semantics.has_semantics('direct-object'):
@@ -84,7 +87,7 @@ class PlanNarrator:
         for i, p in enumerate(action_params):
             if type(ground_params[i]) is list:
                 ground_params[i] = self.make_list_str(ground_params[i])
-            sentence = re.sub(r"([ \t]?)\\" + p[0] + r"([ \t.:-\?]|$)", "\\1" + ground_params[i] + "\\2", sentence)
+            sentence = re.sub('([ \t]?)\\' + p[0] + r'([ \t.:-\?]|$)', '\\1' + ground_params[i] + '\\2', sentence)
 
         # Add narrator in the non-subject parameters (subjects have already been dealt with)
         if self._narrator_name:
@@ -93,19 +96,50 @@ class PlanNarrator:
         if compressions:
             sentence += " (via " + self.make_list_str(compressions) + ')'
 
-        return sentence.capitalize() + '.'
+        return subject, sentence
 
     def make_action_sentence_from_script(self, ac_script, domain_semantics, compressions, tense="future"):
         main_action = compressions.id_to_action_str(ac_script.action)
-        justifications = [compressions.id_to_action_str(i) for i in sorted(ac_script.justifications)]
-        justifies = [compressions.id_to_action_str(i) for i in sorted(ac_script.justifies)]
-        return '.'
+        main_action_verb = self.make_action_sentence_IPC(main_action[1][0], main_action[1][1:],
+                                                         domain_semantics[main_action[1][0]],
+                                                         compressions.get_compressed_params(ac_script.action), tense)
+
+        justifications = [(i, compressions.id_to_action_str(i)) for i in ac_script.justifications]
+        justifications_verb = [self.make_action_sentence_IPC(ja[1][0], ja[1][1:], domain_semantics[ja[1][0]],
+                                                             compressions.get_compressed_params(i), tense)
+                               for i, ja in sorted(justifications, key=lambda x: x[0])]
+        justifications_subjects = {s[0] for s in justifications_verb}
+        justifications_sentence = self.make_list_str([s[1] for s in justifications_verb]) if justifications_verb else ''
+
+        justifies = [(i, compressions.id_to_action_str(i)) for i in ac_script.justifies]
+        justifies_verb = [self.make_action_sentence_IPC(ja[1][0], ja[1][1:], domain_semantics[ja[1][0]],
+                                                        compressions.get_compressed_params(i), 'indicative')
+                          for i, ja in sorted(justifies, key=lambda x: x[0])]
+        justifies_subjects = {s[0] for s in justifies_verb}
+        justifies_sentence = self.make_list_str([s[1] for s in justifies_verb]) if justifies_verb else ''
+
+        goal = ''  # TODO
+
+        # Sentence will be: justifications + main action + goals + justifies
+        s = main_action_verb[0] + ' ' + \
+            (justifications_sentence + ' ' + random.choice(JUSTIFICATION_LINKERS) + ' ' if justifications else '') + \
+            main_action_verb[1] + ' ' + \
+            (goal + ' ' if goal else '') + \
+            (random.choice(JUSTIFIES_LINKERS) + ' ' + justifies_sentence if justifies else '')
+        # TODO fix subject and add goal
+        return self.capitalize_first(s) + '.'
 
     @staticmethod
     def make_list_str(l):
+        if not l:
+            return ''
         n = len(l)
         f = "{}{}" if n < 2 else "{}, and {}" if n > 2 else "{} and {}"
         return f.format(', '.join(l[:-1]), l[-1])
+
+    @staticmethod
+    def capitalize_first(sentence):
+        return sentence[0].upper() + sentence[1:]
 
     def conjugate_verb(self, verb, tense, person) -> str:
         if person not in CORRECT_PERSONS:
@@ -128,6 +162,8 @@ class PlanNarrator:
             else:  # Go to
                 be = self._conjugator.conjugate('be').conjug_info['indicative']['indicative present'][person]
                 return be + ' going to ' + pre + verb + post
+        elif tense == 'indicative':
+            return pre + conjugated.conjug_info['indicative']['indicative present'][person] + post
         else:
             raise ValueError("Unknown tense " + tense)
 
@@ -137,24 +173,24 @@ class PlanNarrator:
         if action_a[0] == action_b[0]:  # same action name
             pattern = PatternMatcher.get_param_pattern(action_a[1:], action_b[1:])
             intermediate = []  # Keeps the intermediate parameters
-            if len(pattern) >= len(action_a)-2:  # If only one free variable
-                params = [None]*(len(action_a)-1)
+            if len(pattern) >= len(action_a) - 2:  # If only one free variable
+                params = [None] * (len(action_a) - 1)
                 for p in pattern:
                     if p[0] == p[1]:
-                        params[p[0]] = action_a[p[0]+1]  # Same parameter
+                        params[p[0]] = action_a[p[0] + 1]  # Same parameter
                     else:  # if p[0] > p[1]:  # Parameter moves back, is reused and not needed
-                        params[p[1]] = action_a[p[1]+1]
-                        params[p[0]] = action_b[p[0]+1]
-                        intermediate.append(action_a[p[0]+1])
+                        params[p[1]] = action_a[p[1] + 1]
+                        params[p[0]] = action_b[p[0] + 1]
+                        intermediate.append(action_a[p[0] + 1])
                 # Case where all the params are different, then it's an action applied to a list of parameters
                 for i, p in enumerate(params):
                     if not p:
-                        if type(action_a[i+1]) is list:
+                        if type(action_a[i + 1]) is list:
                             params[i] = action_a[i + 1] + [action_b[i + 1]]
-                        elif type(action_b[i+1]) is list:
+                        elif type(action_b[i + 1]) is list:
                             params[i] = [action_a[i + 1]] + action_b[i + 1]
                         else:
-                            params[i] = [action_a[i+1], action_b[i+1]]
+                            params[i] = [action_a[i + 1], action_b[i + 1]]
                 action_c = [action_a[0]] + params
                 # TODO failure case?
                 return action_c, intermediate
@@ -163,21 +199,29 @@ class PlanNarrator:
     def create_verbalization_script(self, plan, operators, causal_chains, compressions):
         # Compute causality scripts
         causality_script = self.compute_causality_scripts(plan, operators, causal_chains)
-
+        AUX = copy.deepcopy(causality_script)
         # Join scripts
         verbalization_script = deque()
         compress = True  # FIXME parametrize
         skipped_actions = [False] * len(plan)
-        for i in range(len(causality_script)-1, -1, -1):
+        for i in range(len(causality_script) - 1, -1, -1):
             if skipped_actions[i]:
                 continue
             s = causality_script[i]
+            # It may happen that after compression two actions that were not consecutive become consecutive (all
+            # intermediate actions were compressed). If that's the case, A) skip it and add it as a justification to the
+            # previous action. B) Remove the previous action from the justifies and go on.
+            if verbalization_script and verbalization_script[0].action in s.justifies:
+                # verbalization_script[0].justifications.add(s.action)
+                # continue
+                s.justifies.remove(verbalization_script[0].action)
+
             if s.goal:  # Goal achieving actions are always kept
-                s.justifies.clear()  # Remove justifies for this action as it achieves a goal
+                s.justifies.clear()  # Remove justifies for this action as it achieves a goal to avoid overcluttering
             else:
                 if compress:
                     s.justifies = {compressions.get_compressed_id(j) for j in s.justifies if causality_script[j].goal
-                                                                                             and not skipped_actions[j]}
+                                   and not skipped_actions[j]}
                 else:
                     s.justifies = {j for j in s.justifies if causality_script[j].goal and not skipped_actions[j]}
             keep_justifications = []  # Justifications to keep
@@ -186,19 +230,28 @@ class PlanNarrator:
                     skipped_actions[j] = True
                     if compress:
                         j = compressions.get_compressed_id(j)
+                        # If j has been compressed, we need to skip the original compressed actions as those will be
+                        # a justification for i
+                        if compressions.is_compressed(j):
+                            for jj in compressions.get_ids_compressed_action(j):
+                                skipped_actions[jj] = True if not causality_script[jj].goal else False
                     keep_justifications.append(j)
             s.justifications = set(keep_justifications)  # TODO hash compressions here?
             if compress and compressions.is_compressed(i):
                 cid = compressions.get_compressed_id(i)
                 s.action = cid
+                if verbalization_script and verbalization_script[0].action in s.justifies:
+                    # verbalization_script[0].justifications.add(s.action)  # See above for explanation
+                    # continue
+                    s.justifies.remove(verbalization_script[0].action)
                 for k in compressions.get_ids_compressed_action(cid):
-                    if k != i:
+                    if k != i or skipped_actions[k]:
                         skipped_actions[k] = True
-                        j = [compressions.get_compressed_id(j) for j in causality_script[k].justifications
-                             if not skipped_actions[j]]
+                        j = {compressions.get_compressed_id(j) for j in causality_script[k].justifications
+                             if not compressions.is_compressed(j) and not skipped_actions[j]}
                         s.justifications = s.justifications.union(j)
-                        j = [compressions.get_compressed_id(j) for j in causality_script[k].justifies
-                             if not skipped_actions[j]]
+                        j = {compressions.get_compressed_id(j) for j in causality_script[k].justifies
+                             if not compressions.is_compressed(j) and not skipped_actions[j]}
                         s.justifies = s.justifies.union(j)
                         # TODO join goals in compressions?
                 # Clear justifications (remove itself)
@@ -213,14 +266,10 @@ class PlanNarrator:
         for c in causal_chains:
             # Add achieving action + goal
             action_id = c.achieving_action.action_id
-            goal_params = c.goal.split(' ')[1:]  # TODO remove subjects from the list
+            goal_params = c.goal.split(' ')[1:]  # TODO remove subjects from the list?
             causality_script[action_id].goal = c.goal, c.goal_value
             self.add_action_scripts_rec(c.achieving_action, goal_params, operators, plan, causality_script,
                                         check_jusifies=True)
-        #FIXME  for i in range(len(causality_script)):
-        #     for j in causality_script[i].justifications:
-        #         if not causality_script[j].goal:
-        #             causality_script[j].skip = True
         return causality_script
 
     def add_action_scripts_rec(self, node, goal_params, operators, plan, verbalization_script, check_jusifies):
@@ -234,18 +283,10 @@ class PlanNarrator:
                 # Add symmetrical justification, and a flag to skip this action as it's already used to justify another
                 # one. This action will be verbalized nonetheless to justify a different action.
                 verbalization_script[n.action_id].justifies.add(node.action_id)
-                #verbalization_script[n.action_id].skip = True
             else:
                 # In this case, the action is not consecutive so it will be used to justify a later action (so it'll be
                 # written two times)
                 verbalization_script[n.action_id].justifies.add(node.action_id)
-                # FIXME REMOVE  In order to avoid extremely cluttering the sentences, we will skip the action that justify other
-                # actions when they are not causing a goal-achieving action (thus, check_justifies is only true in the
-                # first call. If skip was already true because this is a justification, skip should keep it true
-                #if not check_jusifies:
-                #    verbalization_script[n.action_id].skip = True# FIXME REMOVE
-                #if verbalization_script[n.action_id].skip:
-                #    verbalization_script[n.action_id].skip = not check_jusifies
             # Recursive call with this child. We will skip the justifies of the following actions in the chain
             self.add_action_scripts_rec(n, goal_params, operators, plan, verbalization_script, False)
 
@@ -262,7 +303,7 @@ class ActionScript:
 # Helper class to compute, store, and manage action compressions
 class PlanCompressions:
     def __init__(self, plan, goal_achieving_actions):
-        self._compression_dic = {} # Dictionary of action in plan -> compressed action id. This Id is len(plan)+index
+        self._compression_dic = {}  # Dictionary of action in plan -> compressed action id. This Id is len(plan)+index
         self._compressed_actions = []  # List of compressed action strings
         self._compressed_parameters = []  # List of parameters of the compressed actions (i.e. via points)
         self._compressed_ids = []  # Ids that generated the compressed action
@@ -282,7 +323,7 @@ class PlanCompressions:
         try:
             if action_id < len(self._plan):
                 action_id = self._compression_dic[action_id]
-            return self._compressed_actions[action_id-len(self._plan)]
+            return self._compressed_actions[action_id - len(self._plan)]
         except KeyError:
             return self._plan[action_id]
 
@@ -291,7 +332,7 @@ class PlanCompressions:
     def id_to_action_str(self, action_id):
         if action_id < len(self._plan):
             return self._plan[action_id]
-        return self._compressed_actions[action_id-len(self._plan)]
+        return self._compressed_actions[action_id - len(self._plan)]
 
     def get_compressed_id(self, action_id):
         try:
@@ -301,7 +342,12 @@ class PlanCompressions:
 
     def get_ids_compressed_action(self, compressed_id):
         assert compressed_id >= len(self._plan)
-        return self._compressed_ids[compressed_id-len(self._plan)]
+        return self._compressed_ids[compressed_id - len(self._plan)]
+
+    def get_compressed_params(self, action_id):
+        if action_id < len(self._plan):
+            return []
+        return self._compressed_parameters[action_id - len(self._plan)]
 
     # Adds an action compression of action_ids
     def add_compression(self, compressed_actions_ids, action_compression, compressed_params):
@@ -310,7 +356,7 @@ class PlanCompressions:
         self._compressed_parameters.append(compressed_params)
         self._compressed_ids.append(compressed_actions_ids)
         for a in compressed_actions_ids:
-            self._compression_dic[a] = len(self._plan)+i
+            self._compression_dic[a] = len(self._plan) + i
             # This way we have two spaces of ids. This class will handle this translations
 
     # Compresses two actions if the action is the same, there's only one free parameter, and they comply with some
@@ -319,24 +365,24 @@ class PlanCompressions:
         if action_a[0] == action_b[0]:  # same action name
             pattern = PatternMatcher.get_param_pattern(action_a[1:], action_b[1:])
             intermediate = []  # Keeps the intermediate parameters
-            if len(pattern) >= len(action_a)-2:  # If only one free variable
-                params = [None]*(len(action_a)-1)
+            if len(pattern) >= len(action_a) - 2:  # If only one free variable
+                params = [None] * (len(action_a) - 1)
                 for p in pattern:
                     if p[0] == p[1]:
-                        params[p[0]] = action_a[p[0]+1]  # Same parameter
+                        params[p[0]] = action_a[p[0] + 1]  # Same parameter
                     else:  # if p[0] > p[1]:  # Parameter moves back, is reused and not needed
-                        params[p[1]] = action_a[p[1]+1]
-                        params[p[0]] = action_b[p[0]+1]
-                        intermediate.append(action_a[p[0]+1])
+                        params[p[1]] = action_a[p[1] + 1]
+                        params[p[0]] = action_b[p[0] + 1]
+                        intermediate.append(action_a[p[0] + 1])
                 # Case where all the params are different, then it's an action applied to a list of parameters
                 for i, p in enumerate(params):
                     if not p:
-                        if type(action_a[i+1]) is list:
+                        if type(action_a[i + 1]) is list:
                             params[i] = action_a[i + 1] + [action_b[i + 1]]
-                        elif type(action_b[i+1]) is list:
+                        elif type(action_b[i + 1]) is list:
                             params[i] = [action_a[i + 1]] + action_b[i + 1]
                         else:
-                            params[i] = [action_a[i+1], action_b[i+1]]
+                            params[i] = [action_a[i + 1], action_b[i + 1]]
                 action_c = [action_a[0]] + params
                 # TODO failure case?
                 return action_c, intermediate
@@ -351,14 +397,14 @@ class PlanCompressions:
         for i in range(1, len(self._plan)):
             # Time will be the one from the start action, duration the sum
             result, intmd = self.compress_actions(curr_action[1], self._plan[i][1])
-            if i-1 in self._goal_achieving_actions:
+            if i - 1 in self._goal_achieving_actions:
                 result = False  # Force avoid compression in case of goal achieving action
             if result:  # Result stores the compressed action (if compression was made)
                 curr_ids.append(i)
                 curr_intmd.extend(intmd)
                 # Format: ('0.000', ['goto_waypoint', 'robot_assistant', 'wp3', 'wp15'], '13.000')
                 # Compressed action start time, duration of the two actions are added
-                curr_action = curr_action[0], result, str(float(curr_action[2])+float(self._plan[i][2]))
+                curr_action = curr_action[0], result, str(float(curr_action[2]) + float(self._plan[i][2]))
             else:  # No compression found
                 if len(curr_ids) > 1:  # We have compressed some actions
                     self.add_compression(curr_ids, curr_action, curr_intmd)
