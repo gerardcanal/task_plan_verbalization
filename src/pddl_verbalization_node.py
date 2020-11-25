@@ -105,6 +105,8 @@ class ROSPlanNarratorNode:
         plan = re.findall(RegularExpressions.PLAN_ACTION, self._plan)
         plan = [(p[0], p[1].split(' '), p[2]) for p in plan]  # Split actions and parameters
 
+        s_plans = self.split_plan_by_subjects(plan)
+
         goals = self.get_goals()
         try:
             plan_topic = '/rosplan_parsing_interface/complete_plan'
@@ -222,6 +224,30 @@ class ROSPlanNarratorNode:
             PDDL_main_action += '(' + ' '.join(compressions.id_to_action_str(ac_script.action)[1]) + ')'
 
         return '{' + PDDL_justifications + PDDL_main_action + PDDL_justifies + '}'
+
+    def split_plan_by_subjects(self, plan):
+        plans = {}
+        get_var = re.compile(r'\?([\w-]+)')
+        action_subjects = {}
+        for i, a in enumerate(plan):
+            action_name = a[1][0]
+            if action_name in action_subjects:
+                subject_idx = action_subjects[action_name]
+            else:
+                subject = ' '.join(self._domain_semantics.get_action(a[1][0]).get_semantics('subject'))
+                subjects = re.findall(get_var, subject) # List of variables representing subjects
+                subjects_idx = []
+                for idx, kv in enumerate(self.operators[a[1][0]].formula.typed_parameters):
+                    if kv.key in subjects:
+                        subjects_idx.append(idx)
+                action_subjects[action_name] = subjects_idx
+
+            for idx in subjects_idx:
+                param = a[1][idx+1]
+                if param not in plans:
+                    plans[param] = []
+                plans[param].append((i, a))
+        return plans
 
 
 if __name__ == "__main__":

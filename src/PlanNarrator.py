@@ -61,9 +61,7 @@ class PlanNarrator:
             raise KeyError("Action " + action_semantics.get_action_name() + " has no subject defined")
         subject = action_semantics.get_rnd_semantics('subject')
         subj_params = re.findall(RegularExpressions.PARAM, subject)
-        person = '3p' if len(subj_params) > 1 else '3s'
-        if tense == 'indicative':
-            person = '1s'
+        person = '3p' if len(subj_params) > 1 or tense == 'indicative' else '3s'
         action_params = action_semantics.get_params()
         if self._narrator_name:
             for i, (v, _) in enumerate(action_params):
@@ -136,10 +134,12 @@ class PlanNarrator:
 
         # Justifications in the script
         if ac_script.justifications:
+            template_choice = random.randint(0, len(JUSTIFICATION_TEMPLATES)-1) if tense != 'present' else 0
+            justification_template = JUSTIFICATION_TEMPLATES[template_choice]
             jtense = 'past'
             if tense != 'present':
                 jtense = tense
-                tense = 'indicative'
+                tense = 'indicative' if template_choice != 0 else tense  # Template 0 must be conjugated as main action goes first
             justifications = [(i, compressions.id_to_action_str(i)) for i in ac_script.justifications]
             justifications_verb = [self.make_action_sentence_IPC(ja[1][0], ja[1][1:], domain_semantics[ja[1][0]],
                                                                  compressions.get_compressed_params(i), jtense)
@@ -150,7 +150,6 @@ class PlanNarrator:
             else:
                 justifications_sentence = self.make_list_str([s[2] for s in justifications_verb])
             justifications_subjects = {s[1] for s in justifications_verb}
-            justification_template = random.choice(JUSTIFICATION_TEMPLATES) if tense != 'present' else JUSTIFICATION_TEMPLATES[0]
             # if ',' != justification_template[0]:
             #     justification_template = ' ' + justification_template
             verb = get_verb.findall(justification_template)
