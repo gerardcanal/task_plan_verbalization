@@ -38,8 +38,12 @@ from collections import deque
 from PatternMatcher import PatternMatcher
 
 CORRECT_PERSONS = ['1s', '1p', '2s', '2p', '3s', '3p']
-JUSTIFICATION_LINKERS = ['to', 'to be able to', ', which <VERB=allow> <SUBJECT-OBJ> to', 'to then', 'so <SUBJECT> <VERB=can>']
-JUSTIFIES_LINKERS = ['to later', 'to later be able to', ', which later <VERB=allow> <SUBJECT-OBJ> to',
+JUSTIFICATION_TEMPLATES = ['<MAIN_ACTION> because <SUBJECT> <JUSTIFICATION>', '<JUSTIFICATION> to <MAIN_ACTION>',
+                           '<JUSTIFICATION> to be able to <MAIN_ACTION>',
+                           '<JUSTIFICATION>, which <VERB=allow> <SUBJECT-OBJ> to <MAIN_ACTION>',
+                           '<JUSTIFICATION> to then <MAIN_ACTION>', '<JUSTIFICATION> so <SUBJECT> <VERB=can> <MAIN_ACTION>']
+
+JUSTIFIES_LINKERS = ['to later', 'to later be able to', ', which <VERB=allow> <SUBJECT-OBJ> to later',
                      'so <SUBJECT> <VERB=can> later']
 GOAL_LINKERS = ['to achieve the goal of', 'to reach the goal of', 'to fulfill']
 
@@ -121,7 +125,10 @@ class PlanNarrator:
 
         # Justifications in the script
         if ac_script.justifications:
-            jtense = tense if tense != 'present' else 'past'
+            jtense = 'past'
+            if tense != 'present':
+                jtense = tense
+                tense = 'indicative'
             justifications = [(i, compressions.id_to_action_str(i)) for i in ac_script.justifications]
             justifications_verb = [self.make_action_sentence_IPC(ja[1][0], ja[1][1:], domain_semantics[ja[1][0]],
                                                                  compressions.get_compressed_params(i), jtense)
@@ -132,19 +139,18 @@ class PlanNarrator:
             else:
                 justifications_sentence = self.make_list_str([s[2] for s in justifications_verb])
             justifications_subjects = {s[1] for s in justifications_verb}
-            justification_linker = random.choice(JUSTIFICATION_LINKERS)
-            if ',' != justification_linker[0]:
-                justification_linker = ' ' + justification_linker
-            verb = get_verb.findall(justification_linker)
+            justification_template = random.choice(JUSTIFICATION_TEMPLATES) if tense != 'present' else JUSTIFICATION_TEMPLATES[0]
+            # if ',' != justification_template[0]:
+            #     justification_template = ' ' + justification_template
+            verb = get_verb.findall(justification_template)
             person = justifications_verb[0][0]
             if verb:
                 verb = self.conjugate_verb(verb[0], jtense, person) if jtense != 'future' else 'will ' + verb[0]
-                justification_linker = get_verb.sub(verb, justification_linker)
-            justification_linker = justification_linker.replace('<SUBJECT-OBJ>', 'me' if '1' in person else justifications_verb[0][1])
-            justification_linker = justification_linker.replace('<SUBJECT>', justifications_verb[0][1])
-            justification_linker = justification_linker.replace('canned', 'could')  # As mlconjug conjugates past of can as canned
-            justification_linker = justification_linker.replace('will can', 'can')  # Workaround for mlconjug
-            tense = 'indicative'  # For main action
+                justification_template = get_verb.sub(verb, justification_template)
+            justification_template = justification_template.replace('<SUBJECT-OBJ>', 'me' if '1' in person else justifications_verb[0][1])
+            justification_template = justification_template.replace('<SUBJECT>', justifications_verb[0][1])
+            justification_template = justification_template.replace('canned', 'could')  # As mlconjug conjugates past of can as canned
+            justification_template = justification_template.replace('will can', 'can')  # Workaround for mlconjug
 
         ## Main action in the script
         main_action = compressions.id_to_action_str(ac_script.action)
@@ -155,11 +161,15 @@ class PlanNarrator:
             goal = random.choice(GOAL_LINKERS) + ' (' + ac_script.goal[0] + ')' # TODO
 
         # Sentence will be: justifications + main action + goals + justifies
-        s = main_action_verb[1] + \
-            (' ' + justifications_sentence + justification_linker if ac_script.justifications else '') + \
-            ' ' + main_action_verb[2] + \
-            (' ' + goal if ac_script.goal else '') + \
-            (justifies_linker + ' ' + justifies_sentence if ac_script.justifies else '')
+        s = main_action_verb[1] + ' ' # Subject
+        if ac_script.justifications:
+            s += justification_template.replace('<JUSTIFICATION>', justifications_sentence).replace('<MAIN_ACTION>', main_action_verb[2])
+        else:
+            s += main_action_verb[2]
+
+        # Add rest of sentence
+        s += (' ' + goal if ac_script.goal else '') + \
+             (justifies_linker + ' ' + justifies_sentence if ac_script.justifies else '')
         # TODO fix subject and add goal
         return self.capitalize_first(s) + '.'
 

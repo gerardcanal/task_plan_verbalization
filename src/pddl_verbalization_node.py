@@ -124,15 +124,13 @@ class ROSPlanNarratorNode:
         if random_step:
             current_step = random.randint(0, len(verbalization_script))
         narration = "Narrator is: " + self._robot_name + '\n' if self._robot_name else ""
-        #for i, (time, action, duration) in enumerate(plan):  # TODO use time and duration
-        for i, ac_sript in enumerate(verbalization_script):  # TODO use time and duration?
+        for i, ac_script in enumerate(verbalization_script):  # TODO use time and duration?
             tense = 'present' if i == current_step else 'past' if i < current_step else 'future'
             #s = self._narrator.make_action_sentence(action[0], action[1:], self._domain_semantics[action[0]], compressions[i], tense) # REMOVE
-            s = self._narrator.make_action_sentence_from_script(ac_sript, self._domain_semantics, compressions, tense)
+            s = self._narrator.make_action_sentence_from_script(ac_script, self._domain_semantics, compressions, tense)
 
             #### DEBUG
-            aux = ''# [' '.join(x) for x in self.compressed_plan[i]]
-            s = '(' + ' / '.join(aux) + '): ' + s
+            s = self.script_debug_str(ac_script, compressions) + ': ' + s
             if tense == 'present':  # FIXME check whether this is useful or not
                 s = '* ' + s
             ##### DEBUG END
@@ -203,6 +201,50 @@ class ROSPlanNarratorNode:
         operator_list = self._get_operators.call()
         for o in operator_list.operators:
             self.operators[o.name] = self._get_operator_details.call(o.name).op
+
+    def script_debug_str(self, ac_script, compressions):
+        PDDL_justifications = ''
+        for i, x in enumerate(ac_script.justifications):
+            if i > 0:
+                PDDL_justifications += ' '
+            if compressions.is_compressed(x):
+                PDDL_justifications += '['
+                for j, y in enumerate(compressions.get_ids_compressed_action(x)):
+                    if j > 0:
+                        PDDL_justifications += ' '
+                    PDDL_justifications += '(' + ' '.join(compressions.id_to_action_str(y)[1]) + ')'
+                PDDL_justifications += ']'
+            else:
+                PDDL_justifications += '(' + ' '.join(compressions.id_to_action_str(x)[1]) + ')'
+        if ac_script.justifications:
+            PDDL_justifications += ' -> '
+
+        PDDL_justifies = ' -> ' if ac_script.justifies else ''
+        for i, x in enumerate(ac_script.justifies):
+            if i > 0:
+                PDDL_justifies += ' '
+            if compressions.is_compressed(x):
+                PDDL_justifies += '['
+                for j, y in enumerate(compressions.get_ids_compressed_action(x)):
+                    if j > 0:
+                        PDDL_justifies += ' '
+                    PDDL_justifies += '(' + ' '.join(compressions.id_to_action_str(y)[1]) + ')'
+                PDDL_justifies += ']'
+            else:
+                PDDL_justifies += '(' + ' '.join(compressions.id_to_action_str(x)[1]) + ')'
+
+        PDDL_main_action = ''
+        if compressions.is_compressed(ac_script.action):
+            PDDL_main_action += '['
+            for i, x in enumerate(compressions.get_ids_compressed_action(ac_script.action)):
+                if i > 0:
+                    PDDL_main_action += ' '
+                PDDL_main_action += '(' + ' '.join(compressions.id_to_action_str(x)[1]) + ')'
+            PDDL_main_action += ']'
+        else:
+            PDDL_main_action += '(' + ' '.join(compressions.id_to_action_str(ac_script.action)[1]) + ')'
+
+        return '{' + PDDL_justifications + PDDL_main_action + PDDL_justifies + '}'
 
 
 if __name__ == "__main__":
