@@ -11,12 +11,13 @@
 (:predicates
   ; The robot ?v is at the waypoint ?wp
   ; verb = be
+  ; subject = ?v
   ; prep = at ?wp
 	(robot_at ?v - robot ?wp - waypoint)
 
   ; The person ?v is next to the waypont ?wp
   ; verb = be
-  ; direct-object = ?v
+  ; subject = ?v
   ; prep = at ?wp
   (person_nexto ?v - person ?wp - waypoint)
 
@@ -33,17 +34,17 @@
 
   ; Waypoint ?wp is empty
   ; verb = be (empty)
-  ; direct-object = ?wp
+  ; subject = ?wp
 	(not_occupied ?wp - waypoint)
 
   ; Scan a waypoint
   ; verb = scan
-  ; direct-object = ?place
+  ; direct-object = the ?place
 	(scanned_place ?place - waypoint)
 
   ; Object is at waypoint
   ; verb = be
-  ; direct-object = ?p
+  ; subject = ?p
   ; prep = at ?l
 	(object_at ?p - object ?l - locatable)
 

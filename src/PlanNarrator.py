@@ -45,7 +45,7 @@ JUSTIFICATION_TEMPLATES = ['<MAIN_ACTION> because <SUBJECT> <JUSTIFICATION>', '<
 
 JUSTIFIES_LINKERS = ['to later', 'to later be able to', ', which <VERB=allow> <SUBJECT-OBJ> to later',
                      'so <SUBJECT> <VERB=can> later']
-GOAL_LINKERS = ['to achieve the goal of', 'to reach the goal of', 'to fulfill']
+GOAL_LINKERS = ['to achieve the goal of', 'to reach the goal of', 'to fulfill the goal of']
 
 
 class PlanNarrator:
@@ -158,7 +158,13 @@ class PlanNarrator:
                                                          domain_semantics[main_action[1][0]],
                                                          compressions.get_compressed_params(ac_script.action), tense)
         if ac_script.goal:
-            goal = random.choice(GOAL_LINKERS) + ' (' + ac_script.goal[0] + ')' # TODO
+            if type(ac_script.goal) is not list:
+                ac_script.goal = [ac_script.goal]
+            goal_sentence = []
+            for g in ac_script.goal:
+                goal = g[0].split(' ')
+                goal_sentence.append(self.make_predicate_sentence(goal[0], goal[1:], domain_semantics))
+            goal = random.choice(GOAL_LINKERS) + ' ' + self.make_list_str(goal_sentence)
 
         # Sentence will be: justifications + main action + goals + justifies
         s = main_action_verb[1] + ' ' # Subject
@@ -172,6 +178,45 @@ class PlanNarrator:
              (justifies_linker + ' ' + justifies_sentence if ac_script.justifies else '')
         # TODO fix subject and add goal
         return self.capitalize_first(s) + '.'
+
+    def make_predicate_sentence(self, predicate_name, predicate_ground_params, domain_semantics):
+        try:
+            predicate_semantics = domain_semantics.get_predicate(predicate_name)
+        except KeyError:
+            raise KeyError("Predicate " + predicate_name + " has no semantics defined")
+
+        sentence = ''
+        predicate_params = predicate_semantics.get_params()
+        if predicate_semantics.has_semantics('subject'):
+            subject = predicate_semantics.get_rnd_semantics('subject')
+            subj_params = re.findall(RegularExpressions.PARAM, subject)
+            if self._narrator_name:
+                for i, (v, _) in enumerate(predicate_params):
+                    found_narrator = any([self._narrator_name.lower() == x for x in predicate_ground_params[i]]) \
+                        if type(predicate_ground_params[i]) is list else self._narrator_name.lower() == predicate_ground_params[i].lower()
+                    if found_narrator and v in subj_params:
+                        subject = subject.replace(v, 'me')
+                        break
+            sentence = subject + ' '
+
+        sentence += self.conjugate_verb(predicate_semantics.get_rnd_verb(), 'continuous', '1s')  # Person is not important here
+        if predicate_semantics.has_semantics('direct-object'):
+            sentence += ' ' + predicate_semantics.get_rnd_semantics('direct-object')
+        if predicate_semantics.has_semantics('indirect-object'):
+            sentence += ' ' + predicate_semantics.get_rnd_semantics('indirect-object')
+        if predicate_semantics.has_semantics('prep'):
+            prep = predicate_semantics.get_semantics('prep')
+            for p in prep:  # Todo: use importance!
+                sentence += ' ' + random.choice(p[0])
+
+        # Substitute parameters
+        predicate_params = predicate_semantics.get_params()
+        for i, p in enumerate(predicate_params):
+            if type(predicate_ground_params[i]) is list:
+                predicate_ground_params[i] = self.make_list_str(predicate_ground_params[i])
+            sentence = re.sub('([ \t]?)\\' + p[0] + r'([ \t.:-\?]|$)', '\\1' + predicate_ground_params[i] + '\\2', sentence)
+
+        return sentence
 
     @staticmethod
     def make_list_str(l):
@@ -208,6 +253,8 @@ class PlanNarrator:
                 return be + ' going to ' + pre + verb + post
         elif tense == 'indicative':
             return pre + conjugated.conjug_info['indicative']['indicative present'][person] + post
+        elif tense == 'continuous':  # Present continuous without be in front
+            return pre + conjugated.conjug_info['indicative']['indicative present continuous'][person] + post
         else:
             raise ValueError("Unknown tense " + tense)
 

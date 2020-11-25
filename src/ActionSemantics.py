@@ -53,6 +53,9 @@ class DomainSemantics:
     def get_action(self, action_name):
         return self._actions[action_name]
 
+    def get_predicate(self, predicate_name):
+        return self._predicates[predicate_name]
+
     def __str__(self):
         s = 'Domain ' + self._name + "\n"
         for n, a in self._actions.items():
@@ -81,6 +84,9 @@ class AbstractSemantics:
 
     def has_semantics(self, stype):
         return stype in self._semantic
+
+    def num_semantics(self):
+        return len(self._semantic)
 
     def get_rnd_semantics(self, stype):
         return random.choice(self._semantic[stype])
