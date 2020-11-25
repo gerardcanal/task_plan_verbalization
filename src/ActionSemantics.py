@@ -41,11 +41,15 @@ ACCEPTED_TYPES = [
 class DomainSemantics:
     def __init__(self, name):
         self._actions = {}
+        self._predicates = {}
         self._name = name
 
     def add_action(self, a):
         self._actions[a.get_action_name()] = a
 
+    def add_predicate(self, p):
+        self._predicates[p.get_predicate_name()] = p
+    
     def get_action(self, action_name):
         return self._actions[action_name]
 
@@ -59,11 +63,12 @@ class DomainSemantics:
         return self.get_action(x)
 
 
-class ActionSemantics:
+class AbstractSemantics:
     def __init__(self, action_name, parameters=None, semantic=None):
-        self._action_name = action_name
+        self._name = action_name  # Action or Predicate name
         self._params = parameters or []
         self._semantic = semantic or {}
+        self._type = 'ABSTRACT'
 
     def get_verbs(self):
         return self._semantic['verb']
@@ -81,10 +86,16 @@ class ActionSemantics:
         return random.choice(self._semantic[stype])
 
     def set_action_name(self, action_name):
-        self._action_name = action_name
+        self._name = action_name
 
     def get_action_name(self):
-        return self._action_name
+        return self._name
+
+    def set_predicate_name(self, action_name):
+        self._name = action_name
+
+    def get_predicate_name(self):
+        return self._name
 
     def add_param(self, var, param_type):
         self._params.append((var, param_type))
@@ -105,7 +116,7 @@ class ActionSemantics:
             self._semantic[sem_type] = value
 
     def __str__(self):
-        s = "Action: " + self._action_name + "\n"
+        s = self._type + ": " + self._name + "\n"
         s += "  Parameters:\n"
         for v, t in self._params:
             s += "  - " + v + " of type " + t + "\n"
@@ -118,3 +129,15 @@ class ActionSemantics:
 
     def __getitem__(self, x):
         return self.get_semantics(x)
+
+
+class ActionSemantics(AbstractSemantics):
+    def __init__(self, action_name, parameters=None, semantic=None):
+        AbstractSemantics.__init__(self, action_name, parameters, semantic)
+        self._type = 'Action'
+
+
+class PredicateSemantics(AbstractSemantics):
+    def __init__(self, action_name, parameters=None, semantic=None):
+        AbstractSemantics.__init__(self, action_name, parameters, semantic)
+        self._type = 'Predicate'

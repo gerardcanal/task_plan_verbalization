@@ -9,18 +9,68 @@
 )
 
 (:predicates
+  ; The robot ?v is at the waypoint ?wp
+  ; verb = be
+  ; prep = at ?wp
 	(robot_at ?v - robot ?wp - waypoint)
+
+  ; The person ?v is next to the waypont ?wp
+  ; verb = be
+  ; direct-object = ?v
+  ; prep = at ?wp
   (person_nexto ?v - person ?wp - waypoint)
+
+  ; Waypoint ?from is connected to ?to
+  ; verb = connect
+  ; prep = from ?from !
+  ; prep = to ?to
 	(connected ?from ?to - waypoint)
+
+  ; Waypoint ?wp is visited
+  ; verb = visit
+  ; direct-object = ?wp
 	(visited ?wp - waypoint)
+
+  ; Waypoint ?wp is empty
+  ; verb = be (empty)
+  ; direct-object = ?wp
 	(not_occupied ?wp - waypoint)
+
+  ; Scan a waypoint
+  ; verb = scan
+  ; direct-object = ?place
 	(scanned_place ?place - waypoint)
+
+  ; Object is at waypoint
+  ; verb = be
+  ; direct-object = ?p
+  ; prep = at ?l
 	(object_at ?p - object ?l - locatable)
+
+  ; Robot is not holding the object
+  ; verb = empty
+  ; direct-object = gripper
 	(not_holding_object ?v - robot)
-        (graspable ?p - object)
-        (person_found ?p - person)
-        (person_not_found ?p - person)
-        (person_asked ?p - person)
+
+  ; Object is graspable
+  ; verb = grasp
+  ; direct-object = ?p
+  (graspable ?p - object)
+
+  ; Person has been found
+  ; verb = find
+  ; direct-object = ?p
+  (person_found ?p - person)
+
+  ; Person has not been found
+  ; verb = find
+  ; direct-object = ?p
+  (person_not_found ?p - person)
+
+  ; Person has been asked
+  ; verb = ask
+  ; direct-object = ?p
+  (person_asked ?p - person)
 )
 
 (:functions

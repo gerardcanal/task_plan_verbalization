@@ -28,7 +28,7 @@
 
 # Author: Gerard Canal <gerard.canal@kcl.ac.uk>, King's College London
 import re
-from ActionSemantics import ActionSemantics, DomainSemantics
+from ActionSemantics import ActionSemantics, DomainSemantics, PredicateSemantics
 
 
 class RegularExpressions:
@@ -68,6 +68,15 @@ class RegularExpressions:
     # Pre and post verb
     VERB_PREPOST = re.compile(r"(?:\((\w*)\)[\t ]*)?(\w+)(?:[\t ]*\(([\w ]*)\))?")
 
+    # Predicates section of domain
+    # PREDICATES = re.compile(r'(?s)\(:predicates\s*(.*?\))[^\(]*\)(?=[\n \t]*\(:)', re.MULTILINE)
+    PDDL_PREDICATES_SECTION = re.compile(r'(?s)\(:predicates\s*(.*?\))[^\(]*\)', re.MULTILINE)
+    RDDL_PREDICATES_SECTION = re.compile(r'(?s)pvariables\s*{(.*?)^\s*};', re.MULTILINE)
+    PDDL_SINGLE_PREDICATE_DESCRIPTION = re.compile(r'(?s)\s*((?:;.*?$)*\s*\(.*?\))', re.MULTILINE)  # Covers semantic comments and predicates
+    RDDL_SINGLE_PREDICATE_DESCRIPTION = re.compile(r"(?s)((?:^[\t ]*//[ \t\S]*[\r\n\f\v])+[ \t\S]+state-fluent.*?;)", re.MULTILINE)
+    PDDL_SINGLE_PREDICATE = re.compile(r'\(([\w_]+)\s+(.*)\)')  # Covers only the predicate (predicate ?x - type)
+    RDDL_SINGLE_PREDICATE = re.compile(r'([\w_]+)(?:\((.*)\))?:')  # Covers only the predicate predicate(type)
+
     # Proxy method to get regexs for different languages
     @staticmethod
     def get(language, regex_name):
@@ -105,5 +114,29 @@ class DomainParser:
                 synonyms = re.split(RegularExpressions.SYNONYMS, d)  # Check if there are multiple versions
                 action.add_semantics(t, synonyms, n_subs > 0)
             domain_semantics.add_action(action)
+
+        # Parse predicates
+        m = re.search(RegularExpressions.get(self.language, "PREDICATES_SECTION"), domain)
+        predicate_matches = []
+        if m:
+            predicate_matches = re.finditer(RegularExpressions.get(self.language, "SINGLE_PREDICATE_DESCRIPTION"), m.group(1))
+        for match in predicate_matches:
+            predicate_definition = match.group(1)
+            semantic = re.findall(RegularExpressions.SEMANTIC, predicate_definition)
+            aux = re.search(RegularExpressions.get(self.language, "SINGLE_PREDICATE"), predicate_definition)
+            predicate_name = aux.group(1)
+            params = re.findall(RegularExpressions.get(self.language, "PARAM_LIST"), aux.group(2)) if aux.group(2) else []
+            if self.language == "RDDL":
+                params = [('\\' + str(i+1), t) for i, t in enumerate(params)]
+            predicate = PredicateSemantics(predicate_name)
+            for var, t in params:
+                for v in var.split(' '):
+                    predicate.add_param(v, t)
+            for t, d in semantic:
+                d, n_subs = re.subn(RegularExpressions.NEEDED_ATTRIBUTE, '', d)
+                synonyms = re.split(RegularExpressions.SYNONYMS, d)  # Check if there are multiple versions
+                predicate.add_semantics(t, synonyms, n_subs > 0)
+            domain_semantics.add_predicate(predicate)
+
         f.close()
         return domain_semantics

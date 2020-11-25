@@ -30,11 +30,30 @@ domain turtlebot_domain {
 
 
         // State fluents
+        // The robot is at the waypoint
+        // verb = be
+        // prep = at \2
         robot_at(robot, waypoint): { state-fluent, bool, default = false };
+        
+        // Waypoint ?wp is visited
+        // verb = visit
+        // direct-object = \1
         visited(waypoint): { state-fluent, bool, default = false };
+        
+        // Robot is undocked
+        // verb = be (undocked)
         undocked(robot): { state-fluent, bool, default = false };
+        
+        // Robot is docked
+        // verb = be (docked)
         docked(robot): { state-fluent, bool, default = false };
+        
+        // Robot is localised
+        // verb = be (localised)
         localised(robot): { state-fluent, bool, default = false };
+        
+        // All waypoints are visited
+        // verb = visit (all the waypoints)
         allvisited: { state-fluent, bool, default = false}; // Helper for the reward
 
         // Action fluents
