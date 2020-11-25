@@ -340,11 +340,10 @@ class PlanNarrator:
             action_id = c.achieving_action.action_id
             goal_params = c.goal.split(' ')[1:]  # TODO remove subjects from the list?
             causality_script[action_id].goal = c.goal, c.goal_value
-            self.add_action_scripts_rec(c.achieving_action, goal_params, operators, plan, causality_script,
-                                        check_jusifies=True)
+            self.add_action_scripts_rec(c.achieving_action, goal_params, operators, plan, causality_script)
         return causality_script
 
-    def add_action_scripts_rec(self, node, goal_params, operators, plan, verbalization_script, check_jusifies):
+    def add_action_scripts_rec(self, node, goal_params, operators, plan, verbalization_script):
         consecutive_id = node.action_id
         sorted_children = sorted(node.children, key=lambda x: x.action_id, reverse=True)
         for n in sorted_children:
@@ -360,7 +359,7 @@ class PlanNarrator:
                 # written two times)
                 verbalization_script[n.action_id].justifies.add(node.action_id)
             # Recursive call with this child. We will skip the justifies of the following actions in the chain
-            self.add_action_scripts_rec(n, goal_params, operators, plan, verbalization_script, False)
+            self.add_action_scripts_rec(n, goal_params, operators, plan, verbalization_script)
 
     def set_current_step(self, current_step):
         self._current_step = current_step
