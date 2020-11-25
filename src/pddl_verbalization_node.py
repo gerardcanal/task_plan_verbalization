@@ -123,6 +123,7 @@ class ROSPlanNarratorNode:
 
         if random_step:
             current_step = random.randint(0, len(verbalization_script))
+        self._narrator.set_current_step(current_step)
         narration = "Narrator is: " + self._robot_name + '\n' if self._robot_name else ""
         for i, ac_script in enumerate(verbalization_script):  # TODO use time and duration?
             tense = 'present' if i == current_step else 'past' if i < current_step else 'future'
@@ -130,7 +131,7 @@ class ROSPlanNarratorNode:
             s = self._narrator.make_action_sentence_from_script(ac_script, self._domain_semantics, compressions, tense)
 
             #### DEBUG
-            s = self.script_debug_str(ac_script, compressions) + ': ' + s
+            #s = self.script_debug_str(ac_script, compressions) + ': ' + s
             if tense == 'present':  # FIXME check whether this is useful or not
                 s = '* ' + s
             ##### DEBUG END

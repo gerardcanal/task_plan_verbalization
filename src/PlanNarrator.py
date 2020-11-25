@@ -52,6 +52,7 @@ class PlanNarrator:
     def __init__(self, narrator_name=None, language='en'):
         self._conjugator = mlconjug3.Conjugator(language=language)
         self._narrator_name = narrator_name
+        self._current_step = -1
 
     # Assumes IPC format
     def make_action_sentence_IPC(self, ground_action, ground_params, action_semantics, compressions=[], tense='future'):
@@ -105,7 +106,7 @@ class PlanNarrator:
 
         # Later future justifications in the script
         if ac_script.justifies:
-            justifies = [(i, compressions.id_to_action_str(i)) for i in ac_script.justifies]
+            justifies = [(i, compressions.id_to_action_str(i)) for i in sorted(ac_script.justifies)]
             justifies_verb = [self.make_action_sentence_IPC(ja[1][0], ja[1][1:], domain_semantics[ja[1][0]],
                                                             compressions.get_compressed_params(i), 'indicative')
                               for i, ja in sorted(justifies, key=lambda x: x[0])]
@@ -117,7 +118,14 @@ class PlanNarrator:
             person = justifies_verb[0][0]
             verb = get_verb.findall(justifies_linker)
             if verb:
-                verb = ('will ' if verb[0] != 'can' else '') + verb[0]
+                first_justifies = justifies[0][0]
+                if compressions.is_compressed(justifies[0][0]):
+                    first_justifies = sorted(compressions.get_ids_compressed_action(justifies[0][0]))[0]
+                if self._current_step > first_justifies:
+                    person = justifies_verb[0][0]
+                    verb = self.conjugate_verb(verb[0], 'past', person)
+                else:
+                    verb = ('will ' if verb[0] != 'can' else '') + verb[0]
                 justifies_linker = get_verb.sub(verb, justifies_linker)
             justifies_linker = justifies_linker.replace('<SUBJECT-OBJ>', 'me' if '1' in person else justifies_verb[0][1])
             justifies_linker = justifies_linker.replace('<SUBJECT>', justifies_verb[0][1])
@@ -380,6 +388,9 @@ class PlanNarrator:
                 verbalization_script[n.action_id].justifies.add(node.action_id)
             # Recursive call with this child. We will skip the justifies of the following actions in the chain
             self.add_action_scripts_rec(n, goal_params, operators, plan, verbalization_script, False)
+
+    def set_current_step(self, current_step):
+        self._current_step = current_step
 
 
 # Helper class to store information on an action used in an plan script
