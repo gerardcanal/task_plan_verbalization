@@ -62,6 +62,8 @@ class PlanNarrator:
         subject = action_semantics.get_rnd_semantics('subject')
         subj_params = re.findall(RegularExpressions.PARAM, subject)
         person = '3p' if len(subj_params) > 1 else '3s'
+        if tense == 'indicative':
+            person = '1s'
         action_params = action_semantics.get_params()
         if self._narrator_name:
             for i, (v, _) in enumerate(action_params):
@@ -90,6 +92,7 @@ class PlanNarrator:
             if type(ground_params[i]) is list:
                 ground_params[i] = self.make_list_str(ground_params[i])
             sentence = re.sub('([ \t]?)\\' + p[0] + r'([ \t.:-\?]|$)', '\\1' + ground_params[i] + '\\2', sentence)
+            subject = re.sub('([ \t]?)\\' + p[0] + r'([ \t.:-\?]|$)', '\\1' + ground_params[i] + '\\2', subject)
 
         # Add narrator in the non-subject parameters (subjects have already been dealt with)
         if self._narrator_name:
@@ -123,7 +126,7 @@ class PlanNarrator:
                     first_justifies = sorted(compressions.get_ids_compressed_action(justifies[0][0]))[0]
                 if self._current_step > first_justifies:
                     person = justifies_verb[0][0]
-                    verb = self.conjugate_verb(verb[0], 'past', person)
+                    verb = self.conjugate_verb(verb[0], 'past', '1s')
                 else:
                     verb = ('will ' if verb[0] != 'can' else '') + verb[0]
                 justifies_linker = get_verb.sub(verb, justifies_linker)
@@ -265,35 +268,6 @@ class PlanNarrator:
             return pre + conjugated.conjug_info['indicative']['indicative present continuous'][person] + post
         else:
             raise ValueError("Unknown tense " + tense)
-
-    # Compresses two actions if the action is the same, there's only one free parameter, and they comply with some
-    # patterns
-    def compress_actions(self, action_a, action_b):  # FIXME REMOVE
-        if action_a[0] == action_b[0]:  # same action name
-            pattern = PatternMatcher.get_param_pattern(action_a[1:], action_b[1:])
-            intermediate = []  # Keeps the intermediate parameters
-            if len(pattern) >= len(action_a) - 2:  # If only one free variable
-                params = [None] * (len(action_a) - 1)
-                for p in pattern:
-                    if p[0] == p[1]:
-                        params[p[0]] = action_a[p[0] + 1]  # Same parameter
-                    else:  # if p[0] > p[1]:  # Parameter moves back, is reused and not needed
-                        params[p[1]] = action_a[p[1] + 1]
-                        params[p[0]] = action_b[p[0] + 1]
-                        intermediate.append(action_a[p[0] + 1])
-                # Case where all the params are different, then it's an action applied to a list of parameters
-                for i, p in enumerate(params):
-                    if not p:
-                        if type(action_a[i + 1]) is list:
-                            params[i] = action_a[i + 1] + [action_b[i + 1]]
-                        elif type(action_b[i + 1]) is list:
-                            params[i] = [action_a[i + 1]] + action_b[i + 1]
-                        else:
-                            params[i] = [action_a[i + 1], action_b[i + 1]]
-                action_c = [action_a[0]] + params
-                # TODO failure case?
-                return action_c, intermediate
-        return [], []
 
     def create_verbalization_script(self, plan, operators, causal_chains, compressions):
         # Compute causality scripts

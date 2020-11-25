@@ -142,30 +142,6 @@ class ROSPlanNarratorNode:
         rospy.loginfo(rospy.get_name() + ": Plan narration computed: \n\n" + narration + "\n")
         return narration
 
-    def compress_plan(self, plan):  # FIXME REMOVE
-        # Plan is (time, action, duration)
-        i = 0
-        curr = [plan[i][1]]
-        curr_intmd = []
-        compressions = []
-        while i < len(plan)-1:
-            # Time will be the one from the start action, duration the sum
-            result, intmd = self._narrator.compress_actions(plan[i][1], plan[i+1][1])
-            if result:
-                curr.append(plan[i+1][1])
-                curr_intmd.extend(intmd)
-                plan[i] = plan[i][0], result, str(float(plan[i][2])+float(plan[i+1][2]))  # Same start time, add duration
-                plan.pop(i+1)
-            else:
-                self.compressed_plan.append(curr)
-                compressions.append(curr_intmd)
-                curr_intmd = []
-                i += 1
-                curr = [plan[i][1]]
-        self.compressed_plan.append(curr)  # Last one
-        compressions.append(curr_intmd)
-        return plan, compressions
-
     def update_narration_srv(self, req):
         res = TriggerResponse()
         if not self._plan:
