@@ -35,15 +35,12 @@ import re
 import copy
 from DomainParser import DomainParser, RegularExpressions
 from collections import deque
-
-# TODO:
-# - MakeSentence(), using mlconjug
-# - NarratePlan() - stub, inputs a plan returns narration -- need to check format
 from PatternMatcher import PatternMatcher
 
 CORRECT_PERSONS = ['1s', '1p', '2s', '2p', '3s', '3p']
-JUSTIFICATION_LINKERS = ['to', 'to be able to', ', which allows <SUBJECT> to', 'to then', 'so I could']
-JUSTIFIES_LINKERS = ['to', 'to be able to', ', which allows <SUBJECT> to', 'to then', 'so I could']
+JUSTIFICATION_LINKERS = ['to', 'to be able to', ', which <VERB=allow> <SUBJECT-OBJ> to', 'to then', 'so <SUBJECT> <VERB=can>']
+JUSTIFIES_LINKERS = ['to later', 'to later be able to', ', which later <VERB=allow> <SUBJECT-OBJ> to',
+                     'so <SUBJECT> <VERB=can> later']
 GOAL_LINKERS = ['to achieve the goal of', 'to reach the goal of', 'to fulfill']
 
 
@@ -52,7 +49,7 @@ class PlanNarrator:
         self._conjugator = mlconjug3.Conjugator(language=language)
         self._narrator_name = narrator_name
 
-    # Assumes IPC format FIXME remove
+    # Assumes IPC format
     def make_action_sentence_IPC(self, ground_action, ground_params, action_semantics, compressions=[], tense='future'):
         # Find person of the verb
         if not action_semantics.has_semantics('subject'):
@@ -96,36 +93,73 @@ class PlanNarrator:
         if compressions:
             sentence += " (via " + self.make_list_str(compressions) + ')'
 
-        return subject, sentence
+        return person, subject, sentence
 
+    # Tense is the tense for the main action
     def make_action_sentence_from_script(self, ac_script, domain_semantics, compressions, tense="future"):
+        get_verb = re.compile(r'<VERB=(\w+)>')  # To get verbs from linkers
+
+        # Later future justifications in the script
+        if ac_script.justifies:
+            justifies = [(i, compressions.id_to_action_str(i)) for i in ac_script.justifies]
+            justifies_verb = [self.make_action_sentence_IPC(ja[1][0], ja[1][1:], domain_semantics[ja[1][0]],
+                                                            compressions.get_compressed_params(i), 'indicative')
+                              for i, ja in sorted(justifies, key=lambda x: x[0])]
+            justifies_subjects = {s[1] for s in justifies_verb}
+            justifies_sentence = self.make_list_str([s[2] for s in justifies_verb]) if justifies_verb else ''
+            justifies_linker = random.choice(JUSTIFIES_LINKERS)
+            if ',' != justifies_linker[0]:
+                justifies_linker = ' ' + justifies_linker
+            person = justifies_verb[0][0]
+            verb = get_verb.findall(justifies_linker)
+            if verb:
+                verb = ('will ' if verb[0] != 'can' else '') + verb[0]
+                justifies_linker = get_verb.sub(verb, justifies_linker)
+            justifies_linker = justifies_linker.replace('<SUBJECT-OBJ>', 'me' if '1' in person else justifies_verb[0][1])
+            justifies_linker = justifies_linker.replace('<SUBJECT>', justifies_verb[0][1])
+            justifies_linker = justifies_linker.replace('canned', 'could')  # As mlconjug conjugates past of can as canned
+
+        # Justifications in the script
+        if ac_script.justifications:
+            jtense = tense if tense != 'present' else 'past'
+            justifications = [(i, compressions.id_to_action_str(i)) for i in ac_script.justifications]
+            justifications_verb = [self.make_action_sentence_IPC(ja[1][0], ja[1][1:], domain_semantics[ja[1][0]],
+                                                                 compressions.get_compressed_params(i), jtense)
+                                   for i, ja in sorted(justifications, key=lambda x: x[0])]
+            if jtense == 'future':  # Keep subject
+                justifications_sentence = self.make_list_str([justifications_verb[0][2]] +  # First without subject
+                                                             [j[1] + ' ' + j[2] for j in justifications_verb[1:]])
+            else:
+                justifications_sentence = self.make_list_str([s[2] for s in justifications_verb])
+            justifications_subjects = {s[1] for s in justifications_verb}
+            justification_linker = random.choice(JUSTIFICATION_LINKERS)
+            if ',' != justification_linker[0]:
+                justification_linker = ' ' + justification_linker
+            verb = get_verb.findall(justification_linker)
+            person = justifications_verb[0][0]
+            if verb:
+                verb = self.conjugate_verb(verb[0], jtense, person) if jtense != 'future' else 'will ' + verb[0]
+                justification_linker = get_verb.sub(verb, justification_linker)
+            justification_linker = justification_linker.replace('<SUBJECT-OBJ>', 'me' if '1' in person else justifications_verb[0][1])
+            justification_linker = justification_linker.replace('<SUBJECT>', justifications_verb[0][1])
+            justification_linker = justification_linker.replace('canned', 'could')  # As mlconjug conjugates past of can as canned
+            justification_linker = justification_linker.replace('will can', 'can')  # Workaround for mlconjug
+            tense = 'indicative'  # For main action
+
+        ## Main action in the script
         main_action = compressions.id_to_action_str(ac_script.action)
         main_action_verb = self.make_action_sentence_IPC(main_action[1][0], main_action[1][1:],
                                                          domain_semantics[main_action[1][0]],
                                                          compressions.get_compressed_params(ac_script.action), tense)
-
-        justifications = [(i, compressions.id_to_action_str(i)) for i in ac_script.justifications]
-        justifications_verb = [self.make_action_sentence_IPC(ja[1][0], ja[1][1:], domain_semantics[ja[1][0]],
-                                                             compressions.get_compressed_params(i), tense)
-                               for i, ja in sorted(justifications, key=lambda x: x[0])]
-        justifications_subjects = {s[0] for s in justifications_verb}
-        justifications_sentence = self.make_list_str([s[1] for s in justifications_verb]) if justifications_verb else ''
-
-        justifies = [(i, compressions.id_to_action_str(i)) for i in ac_script.justifies]
-        justifies_verb = [self.make_action_sentence_IPC(ja[1][0], ja[1][1:], domain_semantics[ja[1][0]],
-                                                        compressions.get_compressed_params(i), 'indicative')
-                          for i, ja in sorted(justifies, key=lambda x: x[0])]
-        justifies_subjects = {s[0] for s in justifies_verb}
-        justifies_sentence = self.make_list_str([s[1] for s in justifies_verb]) if justifies_verb else ''
-
-        goal = ''  # TODO
+        if ac_script.goal:
+            goal = random.choice(GOAL_LINKERS) + ' (' + ac_script.goal[0] + ')' # TODO
 
         # Sentence will be: justifications + main action + goals + justifies
-        s = main_action_verb[0] + ' ' + \
-            (justifications_sentence + ' ' + random.choice(JUSTIFICATION_LINKERS) + ' ' if justifications else '') + \
-            main_action_verb[1] + ' ' + \
-            (goal + ' ' if goal else '') + \
-            (random.choice(JUSTIFIES_LINKERS) + ' ' + justifies_sentence if justifies else '')
+        s = main_action_verb[1] + \
+            (' ' + justifications_sentence + justification_linker if ac_script.justifications else '') + \
+            ' ' + main_action_verb[2] + \
+            (' ' + goal if ac_script.goal else '') + \
+            (justifies_linker + ' ' + justifies_sentence if ac_script.justifies else '')
         # TODO fix subject and add goal
         return self.capitalize_first(s) + '.'
 
@@ -199,7 +233,7 @@ class PlanNarrator:
     def create_verbalization_script(self, plan, operators, causal_chains, compressions):
         # Compute causality scripts
         causality_script = self.compute_causality_scripts(plan, operators, causal_chains)
-        AUX = copy.deepcopy(causality_script)
+
         # Join scripts
         verbalization_script = deque()
         compress = True  # FIXME parametrize
