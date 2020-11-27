@@ -73,7 +73,9 @@ class Locality(Enum):
 
     def get_range(self):
         # If All will return a full slice
-        return slice(*self.range)
+        if self.range:
+            return slice(*self.range)
+        return None
 
 
 class Specificity(Enum):

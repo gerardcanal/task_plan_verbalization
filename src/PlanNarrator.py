@@ -291,17 +291,23 @@ class PlanNarrator:
             raise ValueError("Unknown tense " + tense)
 
     def create_verbalization_script(self, plan, operators, causal_chains, compressions):
-        # Compress actions if needed:
-        if self._verbalization_space_params.specificity == Specificity.SUMMARY:
+        # Compress actions if needed based on verbalization space
+        compress = self._verbalization_space_params.specificity == Specificity.SUMMARY  # FIXME parametrize
+        if compress:
             compressions.compress_plan()
+
         # Compute causality scripts
         causality_script = self.compute_causality_scripts(plan, operators, causal_chains)
 
         # Join scripts
         verbalization_script = deque()
-        compress = True  # FIXME parametrize
         skipped_actions = [False] * len(plan)
         for i in range(len(causality_script) - 1, -1, -1):
+            locality_range = self._verbalization_space_params.locality.get_range()
+            if self._verbalization_space_params.locality != Locality.ALL and \
+                    (i < locality_range.start or i > locality_range.stop):
+                continue
+
             if skipped_actions[i]:
                 continue
             s = causality_script[i]
