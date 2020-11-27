@@ -36,10 +36,11 @@ import copy
 from std_srvs.srv import Empty, EmptyResponse, Trigger, TriggerResponse
 from std_msgs.msg import String
 from PlanNarrator import PlanNarrator, DomainParser, RegularExpressions, PlanCompressions
-from pddl_verbalization.srv import NarratePlan, NarratePlanResponse
+from pddl_verbalization.srv import NarratePlan, NarratePlanResponse, SetVerbalizationParams, SetVerbalizationParamsResponse
 from rosplan_knowledge_msgs.srv import GetAttributeService, GetDomainOperatorService, GetDomainOperatorDetailsService
 from rosplan_dispatch_msgs.msg import EsterelPlan
 from EsterelProcessing import EsterelProcessing
+from VerbalizationSpace import VerbalizationSpace, Abstraction, Locality, Specificity, Explanation
 
 # TODO:
 # - Set_params for narration
@@ -60,9 +61,11 @@ class ROSPlanNarratorNode:
         self._verbalization_pub = rospy.Publisher("~plan_narration", String, queue_size=1)
         self._trigger_plan_srv = rospy.Service("~trigger_planning", Empty, self.trigger_plan_srv)
         self._narrate_plan_srv = rospy.Service("~narrate_plan", NarratePlan, self.narrate_plan_srv)
+        self._set_narration_params = rospy.Service("~set_params", SetVerbalizationParams, self.set_params_srv)
         self._update_narration_srv = rospy.Service("~narrate_current_plan", Trigger, self.update_narration_srv)
         self._plan_received = False
         self._plan = None
+        self._verbalization_space_params = VerbalizationSpace(3, 1, 2, 4)  # Default parameters
 
         self._robot_name = rospy.get_param("~robot_name", None)
         self._narrator = PlanNarrator(self._robot_name)
@@ -105,7 +108,7 @@ class ROSPlanNarratorNode:
         plan = re.findall(RegularExpressions.PLAN_ACTION, self._plan)
         plan = [(p[0], p[1].split(' '), p[2]) for p in plan]  # Split actions and parameters
 
-        s_plans = self.split_plan_by_subjects(plan)
+        self._narrator.set_verbalization_space(self._verbalization_space_params)
 
         goals = self.get_goals()
         try:
@@ -133,7 +136,7 @@ class ROSPlanNarratorNode:
             s = self._narrator.make_action_sentence_from_script(ac_script, self._domain_semantics, compressions, tense)
 
             #### DEBUG
-            #s = self.script_debug_str(ac_script, compressions) + ': ' + s
+            s = self.script_debug_str(ac_script, compressions) + ': ' + s
             if tense == 'present':  # FIXME check whether this is useful or not
                 s = '* ' + s
             ##### DEBUG END
@@ -158,6 +161,10 @@ class ROSPlanNarratorNode:
         self._plan = req.input_plan
         n = self.narrate_plan(current_step=req.current_step)
         return NarratePlanResponse(n)
+
+    def set_params_srv(self, req):
+        self._verbalization_space_params = VerbalizationSpace.from_params_srv(req)
+        return SetVerbalizationParamsResponse(True)
 
     def parse_domain(self):
         domain_path = rospy.get_param("~domain_path")
