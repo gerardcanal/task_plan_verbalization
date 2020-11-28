@@ -407,6 +407,8 @@ class PlanNarrator:
                 s.justifications.discard(cid)
                 s.justifies.discard(cid)
             verbalization_script.appendleft(s)
+        if subj_plans:
+            verbalization_script = sorted(verbalization_script, key=lambda x: self.script_sort_time_key(x, compressions))
         return verbalization_script
 
     def compute_causality_scripts(self, plan, operators, causal_chains, subj_plans):
@@ -443,6 +445,11 @@ class PlanNarrator:
 
     def set_verbalization_space(self, verbalization_space_params):
         self._verbalization_space_params = verbalization_space_params
+
+    # Method to sort a verbalization script by smallest time
+    def script_sort_time_key(self, script, compressions):
+        return min([float(compressions.compressed_id_to_action_str(script.action)[0])] +
+                   [float(compressions.compressed_id_to_action_str(a)[0]) for a in script.justifications])
 
 
 # Helper class to store information on an action used in an plan script
