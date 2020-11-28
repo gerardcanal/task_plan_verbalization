@@ -575,6 +575,7 @@ class PlanCompressions:
         if len(curr_ids) > 1:  # We have compressed some actions
             self.add_compression(curr_ids, curr_action, curr_intmd)
 
+
 # Class to store plans by subject
 class SubjectPlans:
     def __init__(self):
