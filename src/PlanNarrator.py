@@ -86,7 +86,9 @@ class PlanNarrator:
         if action_semantics.has_semantics('prep'):
             prep = action_semantics.get_semantics('prep')
             for p in prep:  # Todo: use importance!
-                sentence += ' ' + random.choice(p[0])
+                if self._verbalization_space_params.abstraction < Abstraction.LEV4 or \
+                        (self._verbalization_space_params.abstraction == Abstraction.LEV4 and p[1]): # If p is important
+                    sentence += ' ' + random.choice(p[0])
 
         # Substitute parameters
         for i, p in enumerate(action_params):
@@ -99,11 +101,11 @@ class PlanNarrator:
         if self._narrator_name:
             sentence = re.sub(self._narrator_name, 'me', sentence, flags=re.IGNORECASE)
 
-        duration = float(duration)
+        duration = float(duration) if self._verbalization_space_params.abstraction < Abstraction.LEV3 else 0
         duration_s = 'taking {} second'.format('{0:.2f}'.format(duration).rstrip('0').rstrip('.'))
         if duration > 1:
             duration_s += 's'
-        if compressions:
+        if compressions and self._verbalization_space_params.abstraction < Abstraction.LEV4:
             sentence += " (via " + self.make_list_str(compressions)
             if duration:
                 sentence += ', ' + duration_s.format('{0:.2f}'.format(duration).rstrip('0').rstrip('.'))
@@ -116,6 +118,14 @@ class PlanNarrator:
     # Tense is the tense for the main action
     def make_action_sentence_from_script(self, ac_script, domain_semantics, compressions, tense="future"):
         get_verb = re.compile(r'<VERB=(\w+)>')  # To get verbs from linkers
+
+        # Check VerbalizationSpace
+        if self._verbalization_space_params.explanation < Explanation.LEV4:
+            ac_script.goal = None
+        if self._verbalization_space_params.explanation < Explanation.LEV3:
+            ac_script.justifies.clear()
+        if self._verbalization_space_params.explanation < Explanation.LEV2:
+            ac_script.justifications.clear()
 
         # Later future justifications in the script
         if ac_script.justifies:
@@ -343,7 +353,7 @@ class PlanNarrator:
                             for jj in compressions.get_ids_compressed_action(j):
                                 skipped_actions[jj] = True if not causality_script[jj].goal else False
                     keep_justifications.append(j)
-            s.justifications = set(keep_justifications)  # TODO hash compressions here?
+            s.justifications = set(keep_justifications)
             if compress and compressions.is_compressed(i):
                 cid = compressions.get_compressed_id(i)
                 s.action = cid

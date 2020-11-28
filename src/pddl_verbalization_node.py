@@ -164,6 +164,8 @@ class ROSPlanNarratorNode:
 
     def set_params_srv(self, req):
         self._verbalization_space_params = VerbalizationSpace.from_params_srv(req)
+        if self._plan:
+            self.narrate_plan(random_step=True)
         return SetVerbalizationParamsResponse(True)
 
     def parse_domain(self):

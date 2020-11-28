@@ -28,7 +28,7 @@
 #######################################################################################
 
 # Author: Gerard Canal <gerard.canal@kcl.ac.uk>, King's College London
-from enum import Enum
+from enum import Enum, IntEnum
 
 
 class VerbalizationSpace:
@@ -52,7 +52,7 @@ class VerbalizationSpace:
         return cls(abstraction, locality, specificity, explanation, locality.range)
 
 
-class Abstraction(Enum):
+class Abstraction(IntEnum):
     LEV1 = 1
     LEV2 = 2
     LEV3 = 3
@@ -84,7 +84,7 @@ class Specificity(Enum):
     DETAILED_NARRATIVE = 3
 
 
-class Explanation(Enum):
+class Explanation(IntEnum):
     LEV1 = 1
     LEV2 = 2
     LEV3 = 3
