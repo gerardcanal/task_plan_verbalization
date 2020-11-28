@@ -32,10 +32,11 @@ from enum import Enum, IntEnum
 
 
 class VerbalizationSpace:
-    def __init__(self, abstraction, locality, specificity, explanation, locality_range=None):
+    def __init__(self, abstraction, locality, specificity, explanation, locality_range=None, locality_object=None):
         self.abstraction = Abstraction(abstraction) if type(abstraction) is int else abstraction
         self.locality = Locality(locality) if type(locality) is int else locality
         self.locality.set_range(locality_range)
+        self.locality.set_object(locality_object)
         self.specificity = Specificity(specificity) if type(specificity) is int else specificity
         self.explanation = Explanation(explanation) if type(explanation) is int else explanation
 
@@ -43,13 +44,15 @@ class VerbalizationSpace:
     def from_params_srv(cls, request_msg):
         abstraction = Abstraction(request_msg.abstraction)
         locality = Locality(request_msg.locality)
+        if locality == Locality.OBJECT:
+            locality.set_object(request_msg.locality_object_name)
         if locality == Locality.RANGE:
             if request_msg.locality_min >= request_msg.locality_max:
                 raise ValueError('Locality min range must be smaller than max range')
             locality.set_range((request_msg.locality_min, request_msg.locality_max))
         specificity = Specificity(request_msg.specificity)
         explanation = Explanation(request_msg.explanation)
-        return cls(abstraction, locality, specificity, explanation, locality.range)
+        return cls(abstraction, locality, specificity, explanation, locality.range, locality.object)
 
 
 class Abstraction(IntEnum):
@@ -62,10 +65,12 @@ class Abstraction(IntEnum):
 class Locality(Enum):
     ALL = 1
     RANGE = 2
+    OBJECT = 3
 
     def __init__(self, val):
         Enum.__init__(val)
         self.range = None
+        self.object = None
 
     def set_range(self, plan_range):
         if self == self.RANGE:
@@ -76,6 +81,13 @@ class Locality(Enum):
         if self.range:
             return slice(*self.range)
         return None
+
+    def set_object(self, object):
+        if self == self.OBJECT:
+            self.object = object
+
+    def get_object(self):
+        return self.object
 
 
 class Specificity(Enum):

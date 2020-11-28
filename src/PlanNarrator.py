@@ -316,13 +316,17 @@ class PlanNarrator:
         skipped_actions = [False] * len(plan)
         for i in range(len(causality_script) - 1, -1, -1):
             locality_range = self._verbalization_space_params.locality.get_range()
-            if self._verbalization_space_params.locality != Locality.ALL and \
+            if self._verbalization_space_params.locality == Locality.RANGE and \
                     (i < locality_range.start or i > locality_range.stop):
                 continue
 
             if skipped_actions[i]:
                 continue
             s = causality_script[i]
+
+            obj = self._verbalization_space_params.locality.get_object()
+            if self._verbalization_space_params.locality == Locality.OBJECT and obj not in plan[s.action][1]:
+                continue
 
             if self._verbalization_space_params.specificity == Specificity.GENERAL_PICTURE and not s.goal:
                 continue
