@@ -85,7 +85,7 @@ class PlanNarrator:
             sentence += ' ' + action_semantics.get_rnd_semantics('direct-object')
         if action_semantics.has_semantics('prep'):
             prep = action_semantics.get_semantics('prep')
-            for p in prep:  # Todo: use importance!
+            for p in prep:
                 if self._verbalization_space_params.abstraction < Abstraction.LEV4 or \
                         (self._verbalization_space_params.abstraction == Abstraction.LEV4 and p[1]): # If p is important
                     sentence += ' ' + random.choice(p[0])
@@ -247,8 +247,10 @@ class PlanNarrator:
             sentence += ' ' + predicate_semantics.get_rnd_semantics('indirect-object')
         if predicate_semantics.has_semantics('prep'):
             prep = predicate_semantics.get_semantics('prep')
-            for p in prep:  # Todo: use importance!
-                sentence += ' ' + random.choice(p[0])
+            for p in prep:
+                if self._verbalization_space_params.abstraction < Abstraction.LEV4 or \
+                        (self._verbalization_space_params.abstraction == Abstraction.LEV4 and p[1]):  # If p is important
+                    sentence += ' ' + random.choice(p[0])
 
         # Substitute parameters
         predicate_params = predicate_semantics.get_params()

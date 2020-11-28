@@ -123,9 +123,6 @@ class ROSPlanNarratorNode:
         verbalization_script = self._narrator.create_verbalization_script(plan, self.operators, causal_chains,
                                                                           compressions)
 
-
-        # plan, compressions = self.compress_plan(plan) FIXME remove
-
         if random_step:
             current_step = random.randint(0, len(verbalization_script))
         self._narrator.set_current_step(current_step)
