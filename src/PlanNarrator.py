@@ -305,14 +305,21 @@ class PlanNarrator:
         else:
             raise ValueError("Unknown tense " + tense)
 
-    def create_verbalization_script(self, plan, operators, causal_chains, compressions):
+    def create_verbalization_script(self, plan, operators, domain_semantics, causal_chains, compressions):
+        subj_plans = SubjectPlans()
+        subj_plans.split_plan_by_subjects(plan, domain_semantics, operators)
+
         # Compress actions if needed based on verbalization space
         compress = self._verbalization_space_params.specificity == Specificity.SUMMARY
         if compress:
-            compressions.compress_plan()
+            if subj_plans:
+                for subj in subj_plans:
+                    compressions.compress_plan(subj_plans, subj)
+            else:
+                compressions.compress_plan()
 
         # Compute causality scripts
-        causality_script = self.compute_causality_scripts(plan, operators, causal_chains)
+        causality_script = self.compute_causality_scripts(plan, operators, causal_chains, subj_plans)
 
         # Join scripts
         verbalization_script = deque()
@@ -402,7 +409,7 @@ class PlanNarrator:
             verbalization_script.appendleft(s)
         return verbalization_script
 
-    def compute_causality_scripts(self, plan, operators, causal_chains):
+    def compute_causality_scripts(self, plan, operators, causal_chains, subj_plans):
         # Traverse causal chains to start to write the script.
         causality_script = [ActionScript(n) for n in range(len(plan))]
         for c in causal_chains:
@@ -410,14 +417,14 @@ class PlanNarrator:
             action_id = c.achieving_action.action_id
             goal_params = c.goal.split(' ')[1:]
             causality_script[action_id].goal = c.goal, c.goal_value
-            self.add_action_scripts_rec(c.achieving_action, goal_params, operators, plan, causality_script)
+            self.add_action_scripts_rec(c.achieving_action, goal_params, operators, plan, causality_script, subj_plans)
         return causality_script
 
-    def add_action_scripts_rec(self, node, goal_params, operators, plan, verbalization_script):
+    def add_action_scripts_rec(self, node, goal_params, operators, plan, verbalization_script, subj_plans):
         consecutive_id = node.action_id
         sorted_children = sorted(node.children, key=lambda x: x.action_id, reverse=True)
         for n in sorted_children:
-            if consecutive_id - n.action_id == 1:
+            if abs(consecutive_id - n.action_id) == 1 or subj_plans.are_subj_consecutive(consecutive_id, n.action_id):
                 # Actions are consecutive in the plan, add them as justifying the parent
                 verbalization_script[node.action_id].justifications.add(n.action_id)
                 consecutive_id = n.action_id
@@ -429,7 +436,7 @@ class PlanNarrator:
                 # written two times)
                 verbalization_script[n.action_id].justifies.add(node.action_id)
             # Recursive call with this child. We will skip the justifies of the following actions in the chain
-            self.add_action_scripts_rec(n, goal_params, operators, plan, verbalization_script)
+            self.add_action_scripts_rec(n, goal_params, operators, plan, verbalization_script, subj_plans)
 
     def set_current_step(self, current_step):
         self._current_step = current_step
@@ -538,16 +545,20 @@ class PlanCompressions:
         return [], []
 
     # Computes the compressions of the whole plan
-    def compress_plan(self):
+    def compress_plan(self, subj_plans=None, subj=None):
         # Plan is (time, action, duration)
         curr_ids = [0]
         curr_action = self._plan[0]  # This will always be i-1 or the compressed action
         curr_intmd = []
+        last_i = 0  # last i value for the same subject
         for i in range(1, len(self._plan)):
+            if subj_plans and not subj_plans.is_from_subj(i, subj):
+                continue
             # Time will be the one from the start action, duration the sum
             result, intmd = self.compress_actions(curr_action[1], self._plan[i][1])
-            if i - 1 in self._goal_achieving_actions:
+            if (not subj_plans or subj_plans.is_from_subj(last_i, subj)) and last_i in self._goal_achieving_actions:
                 result = False  # Force avoid compression in case of goal achieving action
+            last_i = i
             if result:  # Result stores the compressed action (if compression was made)
                 curr_ids.append(i)
                 curr_intmd.extend(intmd)
@@ -563,3 +574,72 @@ class PlanCompressions:
         # Check if last action was to be compressed outside the loop
         if len(curr_ids) > 1:  # We have compressed some actions
             self.add_compression(curr_ids, curr_action, curr_intmd)
+
+# Class to store plans by subject
+class SubjectPlans:
+    def __init__(self):
+        self._plans = {}
+        self._subj_to_plan = {}  # From subj action_id to plan action_id
+        self._plan_to_subj = {}  # From plan action_id to subject action_id
+
+    def split_plan_by_subjects(self, plan, domain_semantics, operators):
+        get_var = re.compile(r'\?([\w-]+)')
+        action_subjects = {}  # Keeps the param id of the subject in each action
+        for i, a in enumerate(plan):
+            action_name = a[1][0]
+            if action_name in action_subjects:
+                subject_idx = action_subjects[action_name]
+            else:
+                subject = ' '.join(domain_semantics.get_action(a[1][0]).get_semantics('subject'))
+                subjects = re.findall(get_var, subject) # List of variables representing subjects
+                subjects_idx = []
+                for idx, kv in enumerate(operators[a[1][0]].formula.typed_parameters):
+                    if kv.key in subjects:
+                        subjects_idx.append(idx)
+                action_subjects[action_name] = subjects_idx
+
+            for idx in subjects_idx:
+                subj_param = a[1][idx+1]
+                if subj_param not in self._plans:
+                    self._plans[subj_param] = []
+                j = len(self._plans[subj_param])
+                self._plans[subj_param].append(a)
+                self._plan_to_subj[i] = (subj_param, j)
+                self._subj_to_plan[(subj_param, j)] = i
+        return self._plans
+
+    def subj_to_id(self, aid, subj):
+        return self._subj_to_plan[(subj, aid)]
+
+    def id_to_subj(self, aid, subj):
+        if len(self._plans) > 1:
+            subj_id = self._plan_to_subj[aid]
+            if subj_id[0] == subj:
+                return subj_id[1]
+            return None
+        return aid
+
+    def id_to_subj(self, aid):
+        if len(self._plans) > 1:
+            return self._plan_to_subj[aid][1]
+        return aid
+
+    def is_from_subj(self, aid, subj):
+        return self._plan_to_subj[aid][0] == subj
+
+    def are_subj_consecutive(self, ida, idb):
+        a = self._plan_to_subj[ida]
+        b = self._plan_to_subj[idb]
+        return a[0] == b[0] and abs(a[1]-b[1]) == 1
+
+    def get_plans(self):
+        return self._plans
+
+    def __bool__(self):
+        return len(self._plans) > 1  # More than 1 subject
+
+    def __iter__(self):
+        return self._plans.__iter__()
+
+    def __getitem__(self, key):
+        return self._plans[key]

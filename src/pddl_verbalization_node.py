@@ -45,6 +45,7 @@ from VerbalizationSpace import VerbalizationSpace, Abstraction, Locality, Specif
 
 ESTEREL_TIMEOUT = 15  # seconds
 
+
 class ROSPlanNarratorNode:
     def __init__(self):
         rospy.init_node("rosplan_narrator", sys.argv)
@@ -119,8 +120,9 @@ class ROSPlanNarratorNode:
             causal_chains = []
         goal_achieving_actions = sorted([c.achieving_action.action_id for c in causal_chains])
         compressions = PlanCompressions(plan, goal_achieving_actions)  # Compute action compressions
-        verbalization_script = self._narrator.create_verbalization_script(plan, self.operators, causal_chains,
-                                                                          compressions)
+
+        verbalization_script = self._narrator.create_verbalization_script(plan, self.operators, self._domain_semantics,
+                                                                          causal_chains, compressions)
 
         if random_step:
             current_step = random.randint(0, len(verbalization_script))
@@ -231,29 +233,6 @@ class ROSPlanNarratorNode:
 
         return '{' + PDDL_justifications + PDDL_main_action + PDDL_justifies + '}'
 
-    def split_plan_by_subjects(self, plan):
-        plans = {}
-        get_var = re.compile(r'\?([\w-]+)')
-        action_subjects = {}
-        for i, a in enumerate(plan):
-            action_name = a[1][0]
-            if action_name in action_subjects:
-                subject_idx = action_subjects[action_name]
-            else:
-                subject = ' '.join(self._domain_semantics.get_action(a[1][0]).get_semantics('subject'))
-                subjects = re.findall(get_var, subject) # List of variables representing subjects
-                subjects_idx = []
-                for idx, kv in enumerate(self.operators[a[1][0]].formula.typed_parameters):
-                    if kv.key in subjects:
-                        subjects_idx.append(idx)
-                action_subjects[action_name] = subjects_idx
-
-            for idx in subjects_idx:
-                param = a[1][idx+1]
-                if param not in plans:
-                    plans[param] = []
-                plans[param].append((i, a))
-        return plans
 
     def generate_all_verbalizations(self):
         rospy.wait_for_message('/rosplan_planner_interface/planner_output', String)
