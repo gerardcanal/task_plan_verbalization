@@ -40,7 +40,6 @@ class EsterelProcessing:
             chain = EsterelProcessing.get_causal_chain(plan[c.achieving_action.action_id][1], esterel_plan)
             causal_chains[i].achieving_action.children = chain
         return causal_chains
-        # TODO idea: keep also goals per action, so if one action achieves multiple goals we can handle that
 
     # Returns list of actions that are causal links to the action sent by parameter
     @staticmethod
@@ -80,8 +79,6 @@ class EsterelProcessing:
             start_node = esterel_plan.nodes[esterel_plan.edges[edge].source_ids[0]]
             assert start_node.action.action_id == n.action.action_id and start_node.node_id != n.node_id
             edges += start_node.edges_in
-        #return [esterel_plan.nodes[ni] for ei in edges for ni in esterel_plan.edges[ei].source_ids
-        #        if esterel_plan.edges[ei].edge_type == edge_type] FIXME
         # This removes duplicate nodes in case of multiple edges
         source_ids = [ni for ei in edges for ni in esterel_plan.edges[ei].source_ids
                       if esterel_plan.edges[ei].edge_type == edge_type]
@@ -150,7 +147,7 @@ class EsterelProcessing:
                 if p in eff_param_list:
                     ret.append(eff.name + ' ' + eff_param_list)
                     break
-        return ret  # Todo check polarity in add/del lists?
+        return ret  # check polarity in add/del lists?
 
 
 class CausalityChain:

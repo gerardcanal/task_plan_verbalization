@@ -70,7 +70,7 @@ class PlanNarrator:
             for i, (v, _) in enumerate(action_params):
                 found_narrator = any([self._narrator_name.lower() == x for x in ground_params[i]]) \
                     if type(ground_params[i]) is list else self._narrator_name.lower() == ground_params[i].lower()
-                if found_narrator and v in subj_params:  # FIXME check instead of I me when I am the object?
+                if found_narrator and v in subj_params:
                     subject = subject.replace(v, 'I')
                     person = '1p' if len(subj_params) > 1 else '1s'
                     break
@@ -304,7 +304,7 @@ class PlanNarrator:
 
     def create_verbalization_script(self, plan, operators, causal_chains, compressions):
         # Compress actions if needed based on verbalization space
-        compress = self._verbalization_space_params.specificity == Specificity.SUMMARY  # FIXME parametrize
+        compress = self._verbalization_space_params.specificity == Specificity.SUMMARY
         if compress:
             compressions.compress_plan()
 
@@ -376,7 +376,6 @@ class PlanNarrator:
                         j = {compressions.get_compressed_id(j) for j in causality_script[k].justifies
                              if not compressions.is_compressed(j) and not skipped_actions[j]}
                         s.justifies = s.justifies.union(j)
-                        # TODO join goals in compressions?
                 # Clear justifications (remove itself)
                 s.justifications.discard(cid)
                 s.justifies.discard(cid)
@@ -389,7 +388,7 @@ class PlanNarrator:
         for c in causal_chains:
             # Add achieving action + goal
             action_id = c.achieving_action.action_id
-            goal_params = c.goal.split(' ')[1:]  # TODO remove subjects from the list?
+            goal_params = c.goal.split(' ')[1:]
             causality_script[action_id].goal = c.goal, c.goal_value
             self.add_action_scripts_rec(c.achieving_action, goal_params, operators, plan, causality_script)
         return causality_script
@@ -513,7 +512,6 @@ class PlanCompressions:
                         else:
                             params[i] = [action_a[i + 1], action_b[i + 1]]
                 action_c = [action_a[0]] + params
-                # TODO failure case?
                 return action_c, intermediate
         return [], []
 

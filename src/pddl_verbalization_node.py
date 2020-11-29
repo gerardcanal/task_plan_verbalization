@@ -42,9 +42,6 @@ from rosplan_dispatch_msgs.msg import EsterelPlan
 from EsterelProcessing import EsterelProcessing
 from VerbalizationSpace import VerbalizationSpace, Abstraction, Locality, Specificity, Explanation
 
-# TODO:
-# - Set_params for narration
-# - Monitor dispatched actions, update narration based on that
 ESTEREL_TIMEOUT = 15  # seconds
 
 class ROSPlanNarratorNode:
@@ -72,7 +69,6 @@ class ROSPlanNarratorNode:
 
         self._domain_semantics = None
         self.parse_domain()
-        self.compressed_plan = []  # FIXME remove
         self.operators = {}
         self.get_all_operators_info()
 
@@ -127,14 +123,14 @@ class ROSPlanNarratorNode:
             current_step = random.randint(0, len(verbalization_script))
         self._narrator.set_current_step(current_step)
         narration = "Narrator is: " + self._robot_name + '\n' if self._robot_name else ""
-        for i, ac_script in enumerate(verbalization_script):  # TODO use time and duration?
+        for i, ac_script in enumerate(verbalization_script):
             tense = 'present' if i == current_step else 'past' if i < current_step else 'future'
             #s = self._narrator.make_action_sentence(action[0], action[1:], self._domain_semantics[action[0]], compressions[i], tense) # REMOVE
             s = self._narrator.make_action_sentence_from_script(ac_script, self._domain_semantics, compressions, tense)
 
             #### DEBUG
             s = self.script_debug_str(ac_script, compressions) + ': ' + s
-            if tense == 'present':  # FIXME check whether this is useful or not
+            if tense == 'present':
                 s = '* ' + s
             ##### DEBUG END
 
