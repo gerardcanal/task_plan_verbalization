@@ -159,8 +159,8 @@ class PlanNarrator:
                 justifies_sentence = get_verb.sub(verb, justifies_sentence)
             for p, s, _ in justifies_verb:
                 justifies_sentence = justifies_sentence.replace('<SUBJECT-OBJ>',
-                                                                'me' if '1' in p else s, 1)
-                justifies_sentence = justifies_sentence.replace('<SUBJECT>', s, 1)
+                                                                'me' if '1' in p else s.capitalize(), 1)
+                justifies_sentence = justifies_sentence.replace('<SUBJECT>', s.capitalize(), 1)
             justifies_sentence = justifies_sentence.replace('canned',
                                                             'could')  # As mlconjug conjugates past of can as canned
 
@@ -182,9 +182,9 @@ class PlanNarrator:
                 # We need a template with MAIN_SUBJECT as we have multiple subjects. Skip 0 as it's the weird tense one
                 justification_template = random.choice([j for j in JUSTIFICATION_TEMPLATES[1:] if 'MAIN_SUBJECT' in j])
             if jtense == 'future' or len(justifications_subjects) > 1:  # Keep subject always for future or multiple subj
-                justifications_sentence = self.make_list_str([j[1] + ' ' + j[2] for j in justifications_verb])
+                justifications_sentence = self.make_list_str([j[1].capitalize() + ' ' + j[2] for j in justifications_verb])
             else:
-                 justifications_sentence = justifications_verb[0][1] + ' '  # Subject + rest of sentence without subj
+                 justifications_sentence = justifications_verb[0][1].capitalize() + ' '  # Subject + rest of sentence without subj
                  justifications_sentence += self.make_list_str([s[2] for s in justifications_verb])
 
             verb = get_verb.findall(justification_template)
@@ -215,8 +215,8 @@ class PlanNarrator:
         if ac_script.justifications:
             s = justification_template.replace('<JUSTIFICATION>', justifications_sentence)
             s = s.replace('<MAIN_ACTION>', main_action_verb[2])
-            s = s.replace('<MAIN_SUBJECT-OBJ>', 'me' if '1' in main_action_verb[0] else main_action_verb[1])
-            s = s.replace('<MAIN_SUBJECT>', main_action_verb[1])
+            s = s.replace('<MAIN_SUBJECT-OBJ>', 'me' if '1' in main_action_verb[0] else main_action_verb[1].capitalize())
+            s = s.replace('<MAIN_SUBJECT>', main_action_verb[1].capitalize())
         else:
             s = main_action_verb[1] + ' ' + main_action_verb[2]  # Subject + verb
 

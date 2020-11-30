@@ -129,7 +129,7 @@ class ROSPlanNarratorNode:
             s = self._narrator.make_action_sentence_from_script(ac_script, self._domain_semantics, compressions, tense)
 
             #### DEBUG
-            #s = self.script_debug_str(ac_script, compressions) + ': ' + s
+            s = self.script_debug_str(ac_script, compressions) + ':\n ' + s
             if tense == 'present':
                 s = '* ' + s
             ##### DEBUG END
