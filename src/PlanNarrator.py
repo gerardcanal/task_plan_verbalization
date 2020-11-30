@@ -38,11 +38,11 @@ from PatternMatcher import PatternMatcher
 from VerbalizationSpace import VerbalizationSpace, Abstraction, Locality, Specificity, Explanation
 
 CORRECT_PERSONS = ['1s', '1p', '2s', '2p', '3s', '3p']
-JUSTIFICATION_TEMPLATES = ['<MAIN_ACTION> because <SUBJECT> <JUSTIFICATION>', '<JUSTIFICATION> to <MAIN_ACTION>',
+JUSTIFICATION_TEMPLATES = ['<MAIN_SUBJECT> <MAIN_ACTION> because <JUSTIFICATION>', '<JUSTIFICATION> to <MAIN_ACTION>',
                            '<JUSTIFICATION> to be able to <MAIN_ACTION>',
-                           '<JUSTIFICATION>, which <VERB=allow> <SUBJECT-OBJ> to <MAIN_ACTION>',
+                           '<JUSTIFICATION>, which <VERB=allow> <MAIN_SUBJECT-OBJ> to <MAIN_ACTION>',
                            '<JUSTIFICATION> to then <MAIN_ACTION>',
-                           '<JUSTIFICATION> so <SUBJECT> <VERB=can> <MAIN_ACTION>']
+                           '<JUSTIFICATION> so <MAIN_SUBJECT> <VERB=can> <MAIN_ACTION>']
 
 JUSTIFIES_LINKERS = ['to later', 'to later be able to', ', which <VERB=allow> <SUBJECT-OBJ> to later',
                      'so <SUBJECT> <VERB=can> later']
@@ -134,10 +134,17 @@ class PlanNarrator:
                                                             compressions.get_compressed_params(i), ja[2], 'indicative')
                               for i, ja in sorted(justifies, key=lambda x: x[0])]
             justifies_subjects = {s[1] for s in justifies_verb}
-            justifies_sentence = self.make_list_str([s[2] for s in justifies_verb]) if justifies_verb else ''
-            justifies_linker = random.choice(JUSTIFIES_LINKERS)
+            if len(justifies_subjects) > 1:
+                # If we have more than one subject, we need to adapt the linker based on the selected one, ensuring the subject is there
+                justifies_linker = random.choice([j for j in JUSTIFIES_LINKERS if 'SUBJECT' in j])
+                subj_aux = re.search(r'<SUBJECT.*?> (?:<VERB=.*?>|to)', justifies_linker).group(0)
+                justifies_verb = [justifies_verb[0]] + [(p, subj, subj_aux + ' ' + v) for p, subj, v in justifies_verb[1:]]
+            else:
+                justifies_linker = random.choice(JUSTIFIES_LINKERS)
             if ',' != justifies_linker[0]:
                 justifies_linker = ' ' + justifies_linker
+
+            justifies_sentence = justifies_linker + ' ' + self.make_list_str([s[2] for s in justifies_verb]) if justifies_verb else ''
             person = justifies_verb[0][0]
             verb = get_verb.findall(justifies_linker)
             if verb:
@@ -149,12 +156,13 @@ class PlanNarrator:
                     verb = self.conjugate_verb(verb[0], 'past', '1s')
                 else:
                     verb = ('will ' if verb[0] != 'can' else '') + verb[0]
-                justifies_linker = get_verb.sub(verb, justifies_linker)
-            justifies_linker = justifies_linker.replace('<SUBJECT-OBJ>',
-                                                        'me' if '1' in person else justifies_verb[0][1])
-            justifies_linker = justifies_linker.replace('<SUBJECT>', justifies_verb[0][1])
-            justifies_linker = justifies_linker.replace('canned',
-                                                        'could')  # As mlconjug conjugates past of can as canned
+                justifies_sentence = get_verb.sub(verb, justifies_sentence)
+            for p, s, _ in justifies_verb:
+                justifies_sentence = justifies_sentence.replace('<SUBJECT-OBJ>',
+                                                                'me' if '1' in p else s, 1)
+                justifies_sentence = justifies_sentence.replace('<SUBJECT>', s, 1)
+            justifies_sentence = justifies_sentence.replace('canned',
+                                                            'could')  # As mlconjug conjugates past of can as canned
 
         # Justifications in the script
         if ac_script.justifications:
@@ -168,23 +176,25 @@ class PlanNarrator:
             justifications_verb = [self.make_action_sentence_IPC(ja[1][0], ja[1][1:], domain_semantics[ja[1][0]],
                                                                  compressions.get_compressed_params(i), ja[2], jtense)
                                    for i, ja in sorted(justifications, key=lambda x: x[0])]
-            if jtense == 'future':  # Keep subject
-                justifications_sentence = self.make_list_str([justifications_verb[0][2]] +  # First without subject
-                                                             [j[1] + ' ' + j[2] for j in justifications_verb[1:]])
-            else:
-                justifications_sentence = self.make_list_str([s[2] for s in justifications_verb])
+
+            justifications_verb.append(('1s', 'I', justifications_verb[0][2])) ###FIXME REMOVE
+            print(justifications_verb) ## FIXME REMOVE
+
             justifications_subjects = {s[1] for s in justifications_verb}
-            # if ',' != justification_template[0]:
-            #     justification_template = ' ' + justification_template
+            if len(justifications_subjects) > 1 and 'MAIN_SUBJECT' not in justification_template:
+                # We need a template with MAIN_SUBJECT as we have multiple subjects. Skip 0 as it's the weird tense one
+                justification_template = random.choice([j for j in JUSTIFICATION_TEMPLATES[1:] if 'MAIN_SUBJECT' in j])
+            if jtense == 'future' or len(justifications_subjects) > 1:  # Keep subject always for future or multiple subj
+                justifications_sentence = self.make_list_str([j[1] + ' ' + j[2] for j in justifications_verb])
+            else:
+                 justifications_sentence = justifications_verb[0][1] + ' '  # Subject + rest of sentence without subj
+                 justifications_sentence += self.make_list_str([s[2] for s in justifications_verb])
+
             verb = get_verb.findall(justification_template)
             person = justifications_verb[0][0]
             if verb:
                 verb = self.conjugate_verb(verb[0], jtense, person) if jtense != 'future' else 'will ' + verb[0]
                 justification_template = get_verb.sub(verb, justification_template)
-            justification_template = justification_template.replace('<SUBJECT-OBJ>',
-                                                                    'me' if '1' in person else justifications_verb[0][
-                                                                        1])
-            justification_template = justification_template.replace('<SUBJECT>', justifications_verb[0][1])
             justification_template = justification_template.replace('canned',
                                                                     'could')  # As mlconjug conjugates past of can as canned
             justification_template = justification_template.replace('will can', 'can')  # Workaround for mlconjug
@@ -205,16 +215,17 @@ class PlanNarrator:
             goal = random.choice(GOAL_LINKERS) + ' ' + self.make_list_str(goal_sentence)
 
         # Sentence will be: justifications + main action + goals + justifies
-        s = main_action_verb[1] + ' '  # Subject
         if ac_script.justifications:
-            s += justification_template.replace('<JUSTIFICATION>', justifications_sentence).replace('<MAIN_ACTION>',
-                                                                                                    main_action_verb[2])
+            s = justification_template.replace('<JUSTIFICATION>', justifications_sentence)
+            s = s.replace('<MAIN_ACTION>', main_action_verb[2])
+            s = s.replace('<MAIN_SUBJECT-OBJ>', 'me' if '1' in main_action_verb[0] else main_action_verb[1])
+            s = s.replace('<MAIN_SUBJECT>', main_action_verb[1])
         else:
-            s += main_action_verb[2]
+            s = main_action_verb[1] + ' ' + main_action_verb[2]  # Subject + verb
 
         # Add rest of sentence
         s += (' ' + goal if ac_script.goal else '') + \
-             (justifies_linker + ' ' + justifies_sentence if ac_script.justifies else '')
+             (justifies_sentence if ac_script.justifies else '')
 
         return self.capitalize_first(s) + '.'
 
