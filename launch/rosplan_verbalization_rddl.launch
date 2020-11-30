@@ -14,7 +14,7 @@
 		<arg name="planner_topic" 			value="planner_output" />
 		<arg name="data_path" 				value="/tmp/" />
 		<arg name="generated_problem_path"	value="$(arg generated_problem_path)" />
-		<arg name="dispatcher" 				value="None" /> <!-- Check to add the parser when needed -->
+		<arg name="dispatcher" 				value="esterel" /> <!-- Check to add the parser when needed -->
 		<arg name="planner_command"      	value="timeout 90 $(find rosplan_planning_system)/common/bin/prost/run_prost.sh DOMAIN PROBLEM &quot;[PROST -s 1 -se [THTS -act [UCB1] -out [UMC] -backup [PB] -init [Expand -h [IDS]] -t 1.0 ]]&quot;"/>
 		<arg name="planner_interface"    	value="rddlsim_planner_interface" />
 	</include>
