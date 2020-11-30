@@ -55,6 +55,7 @@ class PlanNarrator:
         self._narrator_name = narrator_name
         self._current_step = -1
         self._verbalization_space_params = VerbalizationSpace(3, 1, 2, 4)  # Default parameters
+        self._subjects = []
 
     # Assumes IPC format
     def make_action_sentence_IPC(self, ground_action, ground_params, action_semantics, compressions=[], duration=0,
@@ -260,6 +261,8 @@ class PlanNarrator:
         for i, p in enumerate(predicate_params):
             if type(predicate_ground_params[i]) is list:
                 predicate_ground_params[i] = self.make_list_str(predicate_ground_params[i])
+            if predicate_ground_params[i] in self._subjects:
+                predicate_ground_params[i] = predicate_ground_params[i].capitalize()
             sentence = re.sub('([ \t]?)\\' + p[0] + r'([ \t.:-\?]|$)', '\\1' + predicate_ground_params[i] + '\\2',
                               sentence)
         sentence = sentence.replace('_', ' ')
@@ -308,6 +311,7 @@ class PlanNarrator:
     def create_verbalization_script(self, plan, operators, domain_semantics, causal_chains, compressions):
         subj_plans = SubjectPlans()
         subj_plans.split_plan_by_subjects(plan, domain_semantics, operators)
+        self._subjects = subj_plans.get_subjects()
 
         # Compress actions if needed based on verbalization space
         compress = self._verbalization_space_params.specificity == Specificity.SUMMARY
@@ -642,6 +646,9 @@ class SubjectPlans:
 
     def get_plans(self):
         return self._plans
+
+    def get_subjects(self):
+        return self._plans.keys()
 
     def __bool__(self):
         return len(self._plans) > 1  # More than 1 subject
