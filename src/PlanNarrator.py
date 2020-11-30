@@ -177,9 +177,6 @@ class PlanNarrator:
                                                                  compressions.get_compressed_params(i), ja[2], jtense)
                                    for i, ja in sorted(justifications, key=lambda x: x[0])]
 
-            justifications_verb.append(('1s', 'I', justifications_verb[0][2])) ###FIXME REMOVE
-            print(justifications_verb) ## FIXME REMOVE
-
             justifications_subjects = {s[1] for s in justifications_verb}
             if len(justifications_subjects) > 1 and 'MAIN_SUBJECT' not in justification_template:
                 # We need a template with MAIN_SUBJECT as we have multiple subjects. Skip 0 as it's the weird tense one
