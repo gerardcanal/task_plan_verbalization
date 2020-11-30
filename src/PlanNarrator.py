@@ -245,7 +245,7 @@ class PlanNarrator:
                     if found_narrator and v in subj_params:
                         subject = subject.replace(v, 'me')
                         break
-            sentence = subject.capitalize() + ' '
+            sentence = subject + ' '
 
         sentence += self.conjugate_verb(predicate_semantics.get_rnd_verb(), 'continuous',
                                         '1s')  # Person is not important here
