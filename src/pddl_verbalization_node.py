@@ -64,8 +64,8 @@ class ROSPlanNarratorNode:
         self._plan = None
         self._verbalization_space_params = VerbalizationSpace(3, 1, 2, 4)  # Default parameters
 
-        self._robot_name = rospy.get_param("~robot_name", None)
-        self._narrator = PlanNarrator(self._robot_name)
+        self._narrator_name = rospy.get_param("~narrator_name", None)
+        self._narrator = PlanNarrator(self._narrator_name)
 
         self._domain_semantics = None
         self.parse_domain()
@@ -122,7 +122,7 @@ class ROSPlanNarratorNode:
         if random_step:
             current_step = random.randint(0, len(verbalization_script))
         self._narrator.set_current_step(current_step)
-        narration = "Narrator is: " + self._robot_name + '\n' if self._robot_name else ""
+        narration = "Narrator is: " + self._narrator_name + '\n' if self._narrator_name else ""
         for i, ac_script in enumerate(verbalization_script):
             tense = 'present' if i == current_step else 'past' if i < current_step else 'future'
             #s = self._narrator.make_action_sentence(action[0], action[1:], self._domain_semantics[action[0]], compressions[i], tense) # REMOVE
