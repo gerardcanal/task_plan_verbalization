@@ -5,6 +5,7 @@
 	<arg name="problem_path"	   default="$(find pddl_verbalization)/domains/turtlebot_nav_rddl/turtlebot_inst.rddl" />
 	<arg name="generated_problem_path"	value="/tmp/gen_problem.rddl" />
 	<arg name="narrator_name"	 	   default="" />
+	<arg name="print_actions"	 	   default="false" />
 
 	<!-- Include rosplan -->
 	<include file="$(find pddl_verbalization)/launch/rosplan_full.launch">
@@ -23,5 +24,6 @@
     	<param name="domain_path" value="$(arg domain_path)" />
     	<param name="problem_path" value="$(arg problem_path)" />
     	<param name="narrator_name" value="$(arg narrator_name)" />
+    	<param name="print_actions" value="$(arg print_actions)" />
 	</node>s
 </launch>

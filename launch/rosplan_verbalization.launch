@@ -3,6 +3,7 @@
 	<arg name="domain_path"		default="$(find pddl_verbalization)/domains/office_robot/domain.pddl" />
 	<arg name="problem_path"	default="$(find pddl_verbalization)/domains/office_robot/problem1.pddl" />
 	<arg name="narrator_name"	 	default="" />
+	<arg name="print_actions"	 	default="false" />
 
 	<!-- Include rosplan -->
 	<include file="$(find pddl_verbalization)/launch/rosplan_full.launch">
@@ -21,5 +22,6 @@
     	<param name="domain_path" value="$(arg domain_path)" />
     	<param name="problem_path" value="$(arg problem_path)" />
     	<param name="narrator_name" value="$(arg narrator_name)" />
+    	<param name="print_actions" value="$(arg print_actions)" />
 	</node>
 </launch>

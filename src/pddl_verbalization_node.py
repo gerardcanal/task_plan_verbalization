@@ -65,6 +65,7 @@ class ROSPlanNarratorNode:
         self._verbalization_space_params = VerbalizationSpace(3, 1, 2, 4)  # Default parameters
 
         self._narrator_name = rospy.get_param("~narrator_name", None)
+        self._print_actions = rospy.get_param("~print_actions", False)
         self._narrator = PlanNarrator(self._narrator_name)
 
         self._domain_semantics = None
@@ -125,16 +126,17 @@ class ROSPlanNarratorNode:
         narration = "Narrator is: " + self._narrator_name + '\n' if self._narrator_name else ""
         for i, ac_script in enumerate(verbalization_script):
             tense = 'present' if i == current_step else 'past' if i < current_step else 'future'
-            #s = self._narrator.make_action_sentence(action[0], action[1:], self._domain_semantics[action[0]], compressions[i], tense) # REMOVE
             s = self._narrator.make_action_sentence_from_script(ac_script, self._domain_semantics, compressions, tense)
 
-            #### DEBUG
-            s = self.script_debug_str(ac_script, compressions) + ':\n ' + s
+            if self._print_actions:
+                s = self.script_debug_str(ac_script, compressions) + ':\n ' + s
             if tense == 'present':
                 s = '* ' + s
-            ##### DEBUG END
 
-            narration += s + "\n\n"
+            narration += s + "\n"
+
+            if self._print_actions:
+                s += '\n'  # Add extra newline
 
         self._plan_received = False
         rospy.loginfo(rospy.get_name() + ": Plan narration computed: \n\n" + narration + "\n")
