@@ -21,6 +21,8 @@ uint8 E_LEVEL1 = 1
 uint8 E_LEVEL2 = 2
 uint8 E_LEVEL3 = 3
 uint8 E_LEVEL4 = 4
+uint8 E_LEVEL5 = 5
+uint8 E_LEVEL6 = 6
 uint8 explanation
 ---
 bool success

@@ -350,11 +350,14 @@ class PlanNarrator:
             if s.goal:  # Goal achieving actions are always kept
                 s.justifies.clear()  # Remove justifies for this action as it achieves a goal to avoid overcluttering
             else:
-                if compress:
-                    s.justifies = {compressions.get_compressed_id(j) for j in s.justifies if causality_script[j].goal
-                                   and not skipped_actions[j]}
-                else:
-                    s.justifies = {j for j in s.justifies if causality_script[j].goal and not skipped_actions[j]}
+                if self._verbalization_space_params.explanation == Explanation.LEV5:
+                    s.justifies = {min(s.justifies)} if s.justifies else {}
+                elif self._verbalization_space_params.explanation < Explanation.LEV6:
+                    if compress:
+                        s.justifies = {compressions.get_compressed_id(j) for j in s.justifies if causality_script[j].goal
+                                       and not skipped_actions[j]}
+                    else:
+                        s.justifies = {j for j in s.justifies if causality_script[j].goal and not skipped_actions[j]}
             keep_justifications = []  # Justifications to keep
             for j in s.justifications:
                 if not causality_script[j].goal:  # If justification achieves a goal, we'll not use it here

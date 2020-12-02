@@ -101,3 +101,5 @@ class Explanation(IntEnum):
     LEV2 = 2
     LEV3 = 3
     LEV4 = 4
+    LEV5 = 5
+    LEV6 = 6
