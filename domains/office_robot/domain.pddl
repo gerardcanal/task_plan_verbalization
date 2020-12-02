@@ -82,8 +82,8 @@
 ; Moves the robot from ?from waypoint to the ?to waypoint
 ; verb = go / travel / move
 ; subject = ?v
-; prep = from the ?from
-; prep = to the ?to / towards the ?to !
+; prep = from ?from
+; prep = to ?to / towards ?to !
 (:durative-action goto_waypoint
   :parameters (?v - robot ?from ?to - waypoint)
   :duration(= ?duration (distance ?from ?to))
@@ -130,7 +130,7 @@
 ; Ask someone a question
 ; verb = ask / request
 ; subject = ?v
-; prep = ?p !
+; direct-object = ?p
 ; prep = at ?wp
 (:durative-action ask_person
   :parameters (?v - robot ?p - person ?wp - waypoint)
@@ -213,7 +213,7 @@
 ; verb = give / hand / deliver
 ; subject = ?v
 ; direct-object = ?o
-; prep = to ?p !
+; indirect-object = ?p
 ; prep = at ?place
 (:durative-action give_object
   :parameters (?v - robot ?o - object ?place - waypoint ?p - person)
