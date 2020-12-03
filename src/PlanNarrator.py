@@ -358,6 +358,8 @@ class PlanNarrator:
                                        and not skipped_actions[j]}
                     else:
                         s.justifies = {j for j in s.justifies if causality_script[j].goal and not skipped_actions[j]}
+                else:  # self._verbalization_space_params.explanation == Explanation.LEV6
+                    s.justifies = {compressions.get_compressed_id(j) for j in s.justifies}
             keep_justifications = []  # Justifications to keep
             for j in s.justifications:
                 if not causality_script[j].goal:  # If justification achieves a goal, we'll not use it here
