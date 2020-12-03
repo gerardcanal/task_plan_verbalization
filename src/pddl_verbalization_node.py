@@ -233,7 +233,6 @@ class ROSPlanNarratorNode:
 
         return '{' + PDDL_justifications + PDDL_main_action + PDDL_justifies + '}'
 
-
     def generate_all_verbalizations(self):
         rospy.wait_for_message('/rosplan_planner_interface/planner_output', String)
         problem_name = os.path.splitext(os.path.basename(rospy.get_param('~problem_path')))[0]
