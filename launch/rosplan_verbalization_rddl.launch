@@ -1,11 +1,12 @@
 <?xml version="1.0"?>
 <launch>
-	<arg name="planning_language"  default="RDDL" />
-	<arg name="domain_path"		   default="$(find pddl_verbalization)/domains/turtlebot_nav_rddl/turtlebot_domain.rddl" />
-	<arg name="problem_path"	   default="$(find pddl_verbalization)/domains/turtlebot_nav_rddl/turtlebot_inst.rddl" />
-	<arg name="generated_problem_path"	value="/tmp/gen_problem.rddl" />
+	<arg name="planning_language"      default="RDDL" />
+	<arg name="domain_path"		       default="$(find pddl_verbalization)/domains/turtlebot_nav_rddl/turtlebot_domain.rddl" />
+	<arg name="problem_path"	       default="$(find pddl_verbalization)/domains/turtlebot_nav_rddl/turtlebot_inst.rddl" />
+	<arg name="generated_problem_path" default="/tmp/gen_problem.rddl" />
 	<arg name="narrator_name"	 	   default="" />
 	<arg name="print_actions"	 	   default="false" />
+	<arg name="evaluation"	 	       default="false" />
 
 	<!-- Include rosplan -->
 	<include file="$(find pddl_verbalization)/launch/rosplan_full.launch">
@@ -21,9 +22,10 @@
 	</include>
 
   	<node name="rosplan_narrator" pkg="pddl_verbalization" type="pddl_verbalization_node.py" respawn="false" output="screen">
-    	<param name="domain_path" value="$(arg domain_path)" />
-    	<param name="problem_path" value="$(arg problem_path)" />
+    	<param name="domain_path"   value="$(arg domain_path)" />
+    	<param name="problem_path"  value="$(arg problem_path)" />
     	<param name="narrator_name" value="$(arg narrator_name)" />
     	<param name="print_actions" value="$(arg print_actions)" />
+    	<param name="evaluation"    value="$(arg evaluation)" />
 	</node>s
 </launch>

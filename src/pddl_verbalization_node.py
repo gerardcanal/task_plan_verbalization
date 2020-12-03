@@ -32,7 +32,8 @@ import rospy
 import sys
 import re
 import random
-import copy
+import os
+import rospkg
 from std_srvs.srv import Empty, EmptyResponse, Trigger, TriggerResponse
 from std_msgs.msg import String
 from PlanNarrator import PlanNarrator, DomainParser, RegularExpressions, PlanCompressions
@@ -253,9 +254,33 @@ class ROSPlanNarratorNode:
                 plans[param].append((i, a))
         return plans
 
+    def generate_all_verbalizations(self):
+        rospy.wait_for_message('/rosplan_planner_interface/planner_output')
+        results_path = rospkg.RosPack().get_path(self.get_package_name()) + '/results/' + self._domain_semantics.get_name()
+        problem_name = os.path.splitext(os.path.basename(rospy.get_param('~problem_path')))[0]
+        for a in Abstraction:
+            for s in Specificity:
+                for e in Explanation:
+                    self._verbalization_space_params = VerbalizationSpace(a, Locality.ALL, s, e)
+                    narration = self.narrate_plan(random_step=False)
+                    filename = problem_name + '_' + str(a) + '_' + str(s) + '_' + str(e)
+                    filename = filename.repace('.', '-') + '_narration.txt'
+                    with open(results_path + '/' + filename, 'w') as f:
+                        f.write(narration)
+
+    @staticmethod
+    def get_package_name():
+        pkg_name = os.path.basename(os.path.dirname(os.path.realpath(__file__)))  # should work in every case
+        if pkg_name in ['src', 'bin', 'python']:  # typical sub dirs
+            pkg_name = os.path.basename(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
+        return pkg_name
+
 
 if __name__ == "__main__":
     node = ROSPlanNarratorNode()
     rospy.loginfo(rospy.get_name() + ": Ready.")
-    node.main_loop()
+    if rospy.get_param("~evaluation", False):
+        node.generate_all_verbalizations()
+    else:
+        node.main_loop()
     rospy.spin()

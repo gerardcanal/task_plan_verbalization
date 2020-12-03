@@ -47,6 +47,9 @@ class DomainSemantics:
     def add_action(self, a):
         self._actions[a.get_action_name()] = a
 
+    def get_name(self):
+        return self._name
+
     def add_predicate(self, p):
         self._predicates[p.get_predicate_name()] = p
     

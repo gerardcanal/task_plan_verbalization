@@ -172,7 +172,7 @@
 ; verb = sample
 ; direct-object = soil
 ; subject = ?x
-; prep = to store ?s
+; prep = to store at ?s
 ; prep = at ?p
 (:durative-action sample_soil
 :parameters (?x - rover ?s - store ?p - waypoint)
@@ -187,7 +187,7 @@
 ; verb = sample
 ; direct-object = rock
 ; subject = ?x
-; prep = to store ?s
+; prep = to store at ?s
 ; prep = at ?p
 (:durative-action sample_rock
 :parameters (?x - rover ?s - store ?p - waypoint)
