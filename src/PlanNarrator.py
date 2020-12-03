@@ -116,7 +116,7 @@ class PlanNarrator:
         sentence.replace('_', ' ')
         subject.replace('_', ' ')
 
-        return person, subject.capitalize(), sentence
+        return person, subject.title(), sentence
 
     # Tense is the tense for the main action
     def make_action_sentence_from_script(self, ac_script, domain_semantics, compressions, tense="future"):
