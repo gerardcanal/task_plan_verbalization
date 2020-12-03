@@ -261,6 +261,11 @@ class ROSPlanNarratorNode:
                        self._domain_semantics.get_name() + '_' + problem_name
         if not os.path.exists(results_path):
             os.makedirs(results_path)
+
+        # Print plan
+        with open(results_path + '/' + 'plan.txt', 'w') as f:
+            f.write(self._plan)
+
         for a in Abstraction:
             for s in Specificity:
                 for e in Explanation:
