@@ -351,7 +351,7 @@ class PlanNarrator:
                 s.justifies.clear()  # Remove justifies for this action as it achieves a goal to avoid overcluttering
             else:
                 if self._verbalization_space_params.explanation == Explanation.LEV5:
-                    s.justifies = {min(s.justifies)} if s.justifies else {}
+                    s.justifies = {compressions.get_compressed_id(min(s.justifies))} if s.justifies else {}
                 elif self._verbalization_space_params.explanation < Explanation.LEV6:
                     if compress:
                         s.justifies = {compressions.get_compressed_id(j) for j in s.justifies if causality_script[j].goal
