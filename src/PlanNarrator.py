@@ -119,14 +119,6 @@ class PlanNarrator:
     def make_action_sentence_from_script(self, ac_script, domain_semantics, compressions, tense="future"):
         get_verb = re.compile(r'<VERB=(\w+)>')  # To get verbs from linkers
 
-        # Check VerbalizationSpace
-        if self._verbalization_space_params.explanation < Explanation.LEV4:
-            ac_script.goal = None
-        if self._verbalization_space_params.explanation < Explanation.LEV3:
-            ac_script.justifies.clear()
-        if self._verbalization_space_params.explanation < Explanation.LEV2:
-            ac_script.justifications.clear()
-
         # Later future justifications in the script
         if ac_script.justifies:
             justifies = [(i, compressions.id_to_action_str(i)) for i in sorted(ac_script.justifies)]
@@ -339,6 +331,12 @@ class PlanNarrator:
             if self._verbalization_space_params.specificity == Specificity.GENERAL_PICTURE and not s.goal:
                 continue
 
+            # Check VerbalizationSpace for Explanations
+            if self._verbalization_space_params.explanation < Explanation.LEV3:
+                s.justifies.clear()
+            if self._verbalization_space_params.explanation < Explanation.LEV2:
+                s.justifications.clear()
+
             # It may happen that after compression two actions that were not consecutive become consecutive (all
             # intermediate actions were compressed). If that's the case, A) skip it and add it as a justification to the
             # previous action. B) Remove the previous action from the justifies and go on.
@@ -347,7 +345,9 @@ class PlanNarrator:
                 # continue
                 s.justifies.remove(verbalization_script[0].action)
 
-            if s.goal:  # Goal achieving actions are always kept
+            if s.goal and self._verbalization_space_params.explanation > Explanation.LEV3:
+                # Goal achieving actions are always kept. If level is >3 we print goals, otherwise we don't so there's
+                # no need to clear justifies
                 s.justifies.clear()  # Remove justifies for this action as it achieves a goal to avoid overcluttering
             else:
                 if self._verbalization_space_params.explanation == Explanation.LEV5:
@@ -360,6 +360,10 @@ class PlanNarrator:
                         s.justifies = {j for j in s.justifies if causality_script[j].goal and not skipped_actions[j]}
                 else:  # self._verbalization_space_params.explanation == Explanation.LEV6
                     s.justifies = {compressions.get_compressed_id(j) for j in s.justifies}
+
+            if self._verbalization_space_params.explanation < Explanation.LEV4:  # Level <4 does not include goals
+                s.goal = None
+
             keep_justifications = []  # Justifications to keep
             for j in s.justifications:
                 if not causality_script[j].goal:  # If justification achieves a goal, we'll not use it here
