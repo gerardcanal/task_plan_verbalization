@@ -113,6 +113,9 @@ class PlanNarrator:
         elif duration:
             sentence += ' (' + duration_s + ')'
 
+        sentence.replace('_', ' ')
+        subject.replace('_', ' ')
+
         return person, subject.capitalize(), sentence
 
     # Tense is the tense for the main action
@@ -259,7 +262,7 @@ class PlanNarrator:
                 predicate_ground_params[i] = self.make_list_str(predicate_ground_params[i])
             sentence = re.sub('([ \t]?)\\' + p[0] + r'([ \t.:-\?]|$)', '\\1' + predicate_ground_params[i] + '\\2',
                               sentence)
-
+        sentence.replace('_', ' ')
         return sentence
 
     @staticmethod
