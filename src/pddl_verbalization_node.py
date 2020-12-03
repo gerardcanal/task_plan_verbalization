@@ -256,15 +256,18 @@ class ROSPlanNarratorNode:
 
     def generate_all_verbalizations(self):
         rospy.wait_for_message('/rosplan_planner_interface/planner_output', String)
-        results_path = rospkg.RosPack().get_path(self.get_package_name()) + '/results/' + self._domain_semantics.get_name()
         problem_name = os.path.splitext(os.path.basename(rospy.get_param('~problem_path')))[0]
+        results_path = rospkg.RosPack().get_path(self.get_package_name()) + '/results/' + \
+                       self._domain_semantics.get_name() + '_' + problem_name
+        if not os.path.exists(results_path):
+            os.makedirs(results_path)
         for a in Abstraction:
             for s in Specificity:
                 for e in Explanation:
                     self._verbalization_space_params = VerbalizationSpace(a, Locality.ALL, s, e)
                     narration = self.narrate_plan(random_step=False)
-                    filename = problem_name + '_' + str(a) + '_' + str(s) + '_' + str(e)
-                    filename = filename.replace('.', '-') + '_narration.txt'
+                    filename = 'narration_' + str(a) + '_' + str(s) + '_' + str(e)
+                    filename = filename.replace('.', '-') + '.txt'
                     with open(results_path + '/' + filename, 'w') as f:
                         f.write(narration)
 
