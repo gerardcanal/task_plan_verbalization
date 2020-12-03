@@ -480,7 +480,9 @@ class PlanCompressions:
             return action_id
 
     def get_ids_compressed_action(self, compressed_id):
-        assert compressed_id >= len(self._plan)
+        assert self.is_compressed(compressed_id)
+        if compressed_id < len(self._plan):
+            compressed_id = self._compression_dic[compressed_id]
         return self._compressed_ids[compressed_id - len(self._plan)]
 
     def get_compressed_params(self, action_id):
