@@ -113,8 +113,8 @@ class PlanNarrator:
         elif duration:
             sentence += ' (' + duration_s + ')'
 
-        sentence.replace('_', ' ')
-        subject.replace('_', ' ')
+        sentence = sentence.replace('_', ' ')
+        subject = subject.replace('_', ' ')
 
         return person, subject.title(), sentence
 
@@ -262,7 +262,7 @@ class PlanNarrator:
                 predicate_ground_params[i] = self.make_list_str(predicate_ground_params[i])
             sentence = re.sub('([ \t]?)\\' + p[0] + r'([ \t.:-\?]|$)', '\\1' + predicate_ground_params[i] + '\\2',
                               sentence)
-        sentence.replace('_', ' ')
+        sentence = sentence.replace('_', ' ')
         return sentence
 
     @staticmethod
