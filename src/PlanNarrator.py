@@ -637,18 +637,10 @@ class SubjectPlans:
     def subj_to_id(self, aid, subj):
         return self._subj_to_plan[(subj, aid)]
 
-    def id_to_subj(self, aid, subj):
-        if len(self._plans) > 1:
-            subj_id = self._plan_to_subj[aid]
-            if subj_id[0] == subj:
-                return subj_id[1]
-            return None
-        return aid
-
     def id_to_subj(self, aid):
         if len(self._plans) > 0:
             return self._plan_to_subj[aid][0]
-        return aid
+        raise KeyError("Empty subjects!")
 
     def is_from_subj(self, aid, subj):
         return self._plan_to_subj[aid][0] == subj
