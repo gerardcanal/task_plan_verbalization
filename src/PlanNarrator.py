@@ -56,6 +56,7 @@ class PlanNarrator:
         self._current_step = -1
         self._verbalization_space_params = VerbalizationSpace(3, 1, 2, 4)  # Default parameters
         self._subjects = []
+        self._subj_plans = SubjectPlans()
 
     # Assumes IPC format
     def make_action_sentence_IPC(self, ground_action, ground_params, action_semantics, compressions=[], duration=0,
@@ -123,6 +124,18 @@ class PlanNarrator:
     def make_action_sentence_from_script(self, ac_script, domain_semantics, compressions, tense="future"):
         get_verb = re.compile(r'<VERB=(\w+)>')  # To get verbs from linkers
 
+        if compressions.is_compressed(ac_script.action):
+            ids = compressions.get_ids_compressed_action(ac_script.action)
+            main_subj = set()
+            for aid in ids:
+                main_subj.add(self._subj_plans.id_to_subj(aid))
+            assert len(main_subj) == 1
+            main_subj = main_subj.pop()
+        else:
+            main_subj = self._subj_plans.id_to_subj(ac_script.action)
+        if main_subj == self._narrator_name:
+            main_subj = 'I'
+
         # Later future justifications in the script
         if ac_script.justifies:
             justifies = [(i, compressions.id_to_action_str(i)) for i in sorted(ac_script.justifies)]
@@ -130,6 +143,7 @@ class PlanNarrator:
                                                             compressions.get_compressed_params(i), ja[2], 'indicative')
                               for i, ja in sorted(justifies, key=lambda x: x[0])]
             justifies_subjects = {s[1] for s in justifies_verb}
+            justifies_subjects.add(main_subj)
             if len(justifies_subjects) > 1:
                 # If we have more than one subject, we need to adapt the linker based on the selected one, ensuring the subject is there
                 justifies_linker = random.choice([j for j in JUSTIFIES_LINKERS if 'SUBJECT' in j])
@@ -174,6 +188,7 @@ class PlanNarrator:
                                    for i, ja in sorted(justifications, key=lambda x: x[0])]
 
             justifications_subjects = {s[1] for s in justifications_verb}
+            justifications_subjects.add(main_subj)
             if len(justifications_subjects) > 1 and 'MAIN_SUBJECT' not in justification_template:
                 # We need a template with MAIN_SUBJECT as we have multiple subjects. Skip 0 as it's the weird tense one
                 justification_template = random.choice([j for j in JUSTIFICATION_TEMPLATES[1:] if 'MAIN_SUBJECT' in j])
@@ -309,21 +324,20 @@ class PlanNarrator:
             raise ValueError("Unknown tense " + tense)
 
     def create_verbalization_script(self, plan, operators, domain_semantics, causal_chains, compressions):
-        subj_plans = SubjectPlans()
-        subj_plans.split_plan_by_subjects(plan, domain_semantics, operators)
-        self._subjects = subj_plans.get_subjects()
+        self._subj_plans.split_plan_by_subjects(plan, domain_semantics, operators)
+        self._subjects = self._subj_plans.get_subjects()
 
         # Compress actions if needed based on verbalization space
         compress = self._verbalization_space_params.specificity == Specificity.SUMMARY
         if compress:
-            if subj_plans:
-                for subj in subj_plans:
-                    compressions.compress_plan(subj_plans, subj)
+            if self._subj_plans:
+                for subj in self._subj_plans:
+                    compressions.compress_plan(self._subj_plans, subj)
             else:
                 compressions.compress_plan()
 
         # Compute causality scripts
-        causality_script = self.compute_causality_scripts(plan, operators, causal_chains, subj_plans)
+        causality_script = self.compute_causality_scripts(plan, operators, causal_chains, self._subj_plans)
 
         # Join scripts
         verbalization_script = deque()
@@ -411,7 +425,7 @@ class PlanNarrator:
                 s.justifications.discard(cid)
                 s.justifies.discard(cid)
             verbalization_script.appendleft(s)
-        if subj_plans:
+        if self._subj_plans:
             verbalization_script = sorted(verbalization_script, key=lambda x: self.script_sort_time_key(x, compressions))
         return verbalization_script
 
@@ -632,8 +646,8 @@ class SubjectPlans:
         return aid
 
     def id_to_subj(self, aid):
-        if len(self._plans) > 1:
-            return self._plan_to_subj[aid][1]
+        if len(self._plans) > 0:
+            return self._plan_to_subj[aid][0]
         return aid
 
     def is_from_subj(self, aid, subj):
