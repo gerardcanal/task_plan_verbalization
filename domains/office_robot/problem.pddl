@@ -8,6 +8,7 @@
 )
 (:init
     (robot_at robot_assistant wp3)
+    (not_moving robot_assistant)
     (object_at paper wp1)
     (object_at mug wp2)
     (object_at post1 wp38)

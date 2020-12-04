@@ -72,6 +72,11 @@
   ; verb = ask
   ; direct-object = ?p
   (person_asked ?p - person)
+
+  ; Person has been asked
+  ; verb = be (not moving)
+  ; subject = ?r
+  (not_moving ?r - robot)
 )
 
 (:functions
@@ -82,8 +87,8 @@
 ; Moves the robot from ?from waypoint to the ?to waypoint
 ; verb = go / travel / move
 ; subject = ?v
-; prep = from ?from
-; prep = to ?to / towards ?to !
+; prep = from the ?from
+; prep = to the ?to / towards the ?to !
 (:durative-action goto_waypoint
   :parameters (?v - robot ?from ?to - waypoint)
   :duration(= ?duration (distance ?from ?to))
@@ -95,7 +100,9 @@
     (at start (not (not_occupied ?to)))
     (at end (not_occupied ?from))
     (at start (not (robot_at ?v ?from)))
-    (at end (robot_at ?v ?to)))
+    (at end (robot_at ?v ?to))
+    (at start (not (not_moving ?v)))
+    (at end (not_moving ?v)))
 )
 
 ; Scan a place to check if object is placeable
@@ -121,7 +128,9 @@
   :parameters (?v - robot ?p - person)
   :duration(= ?duration 20)
   :condition (and 
-    (at start (person_not_found ?p)))
+    (at start (person_not_found ?p))
+    (at start (not_moving ?v))
+    (over all (not_moving ?v)))
   :effect (and
     (at end (person_found ?p))
     (at end (not (person_not_found ?p))))
@@ -131,7 +140,7 @@
 ; verb = ask / request
 ; subject = ?v
 ; direct-object = ?p
-; prep = at ?wp
+; prep = at the ?wp
 (:durative-action ask_person
   :parameters (?v - robot ?p - person ?wp - waypoint)
   :duration(= ?duration 2)
@@ -148,8 +157,8 @@
 ; verb = get / take
 ; subject = ?v
 ; direct-object = the ?o
-; prep = at ?place
-; prep = from ?p !
+; prep = at the ?place
+; prep = from the ?p !
 (:durative-action take_object
   :parameters (?v - robot ?o - object ?place - waypoint ?p - person)
   :duration(= ?duration 2)
@@ -172,7 +181,7 @@
 ; verb = grasp / take / grab
 ; subject = ?v
 ; direct-object = the ?p
-; prep = at ?place
+; prep = at the ?place
 (:durative-action grasp_object
   :parameters (?v - robot ?p - object ?place - waypoint)
   :duration(= ?duration 2)
@@ -193,7 +202,7 @@
 ; verb = place / leave / put
 ; subject = ?v
 ; direct-object = the ?p
-; prep = at ?place
+; prep = at the ?place
 (:durative-action place_object
   :parameters (?v - robot ?p - object ?place - waypoint)
   :duration(= ?duration 2.5)
@@ -213,8 +222,8 @@
 ; verb = give / hand / deliver
 ; subject = ?v
 ; direct-object = ?o
-; indirect-object = ?p
-; prep = at ?place
+; prep = to ?p !
+; prep = at the ?place
 (:durative-action give_object
   :parameters (?v - robot ?o - object ?place - waypoint ?p - person)
   :duration(= ?duration 2)

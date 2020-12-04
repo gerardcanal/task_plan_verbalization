@@ -106,7 +106,7 @@
   ; verb = be (communicated)
   ; subject = image data
   ; prep = of ?o
-  ; prep = at ?w
+  ; prep = in ?m mode
   (communicated_image_data ?o - objective ?m - mode)
 
   ; Soil sample is at waypoint ?w

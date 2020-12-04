@@ -8,7 +8,9 @@
 )
 (:init
     (robot_at robot_assistant wp3)
-    (robot_at hsr_robot wp5)
+    (robot_at HSR_robot wp5)
+    (not_moving HSR_robot)
+    (not_moving robot_assistant)
     (object_at paper wp1)
     (object_at mug wp2)
     (object_at post1 wp38)
@@ -18,7 +20,7 @@
     (graspable post1)
     (graspable post2)
     (not_holding_object robot_assistant)
-    (not_holding_object hsr_robot)
+    (not_holding_object HSR_robot)
     (person_not_found  person1)  
     (person_not_found  person2)
     (person_nexto person2 wp15) 
@@ -949,7 +951,7 @@
 )
 (:goal (and
     (robot_at robot_assistant wp1)
-    (robot_at hsr_robot wp5)
+    (robot_at HSR_robot wp5)
     (object_at paper wp4)
     (object_at mug wp5)
     (object_at post1 wp6) 
