@@ -590,7 +590,8 @@ class PlanCompressions:
                 continue
             # Time will be the one from the start action, duration the sum
             result, intmd = self.compress_actions(curr_action[1], self._plan[i][1])
-            if (not subj_plans or subj_plans.is_from_subj(last_i, subj)) and last_i in self._goal_achieving_actions:
+            if (not subj_plans or subj_plans.is_from_subj(last_i, subj)) and \
+                    (last_i in self._goal_achieving_actions or i in self._goal_achieving_actions) :
                 result = False  # Force avoid compression in case of goal achieving action
             last_i = i
             if result:  # Result stores the compressed action (if compression was made)
