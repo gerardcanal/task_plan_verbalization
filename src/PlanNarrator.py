@@ -52,7 +52,7 @@ GOAL_LINKERS = ['to achieve the goal of', 'to reach the goal of', 'to fulfill th
 class PlanNarrator:
     def __init__(self, narrator_name=None, language='en'):
         self._conjugator = mlconjug3.Conjugator(language=language)
-        self._narrator_name = narrator_name
+        self._narrator_name = narrator_name.replace('_', ' ').title()
         self._current_step = -1
         self._verbalization_space_params = VerbalizationSpace(3, 1, 2, 4)  # Default parameters
         self._subjects = []
@@ -66,16 +66,19 @@ class PlanNarrator:
             raise KeyError("Action " + action_semantics.get_action_name() + " has no subject defined")
         subject = action_semantics.get_rnd_semantics('subject')
         subj_params = re.findall(RegularExpressions.PARAM, subject)
-        person = '3p' if len(subj_params) > 1 or tense == 'indicative' else '3s'
+        person = '3p' if len(subj_params) > 1 or tense == 'infinitive' else '3s'
         action_params = action_semantics.get_params()
         if self._narrator_name:
             for i, (v, _) in enumerate(action_params):
-                found_narrator = any([self._narrator_name.lower() == x for x in ground_params[i]]) \
-                    if type(ground_params[i]) is list else self._narrator_name.lower() == ground_params[i].lower()
-                if found_narrator and v in subj_params:
-                    subject = subject.replace(v, 'I')
-                    person = '1p' if len(subj_params) > 1 else '1s'
-                    break
+                found_narrator = any([self._narrator_name.lower() == x.replace('_', ' ').lower() for x in ground_params[i]]) \
+                    if type(ground_params[i]) is list else self._narrator_name.lower() == ground_params[i].replace('_', ' ').lower()
+                if v in subj_params:
+                    if found_narrator:
+                        subject = subject.replace(v, 'I')
+                        person = '1p' if len(subj_params) > 1 else '1s'
+                        break
+                    else:  # If multi subject and not narrator, set person accordingly
+                        person = '3p' if type(ground_params[i]) is list else '3s'
 
         # Create sentence with semantics
         # Default format: subject verb indirect-object direct-object preps
@@ -95,7 +98,11 @@ class PlanNarrator:
         # Substitute parameters
         for i, p in enumerate(action_params):
             if type(ground_params[i]) is list:
+                if p[0] == subject:
+                    ground_params[i] = [s.title() for s in ground_params[i]]
                 ground_params[i] = self.make_list_str(ground_params[i])
+            elif p[0] == subject:
+                ground_params[i] = ground_params[i].title()
             sentence = re.sub('([ \t]?)\\' + p[0] + r'([ \t.:-\?]|$)', '\\1' + ground_params[i] + '\\2', sentence)
             subject = re.sub('([ \t]?)\\' + p[0] + r'([ \t.:-\?]|$)', '\\1' + ground_params[i] + '\\2', subject)
 
@@ -118,7 +125,7 @@ class PlanNarrator:
         sentence = sentence.replace('_', ' ')
         subject = subject.replace('_', ' ')
 
-        return person, subject.title(), sentence
+        return person, subject, sentence
 
     # Tense is the tense for the main action
     def make_action_sentence_from_script(self, ac_script, domain_semantics, compressions, tense="future"):
@@ -128,22 +135,23 @@ class PlanNarrator:
             ids = compressions.get_ids_compressed_action(ac_script.action)
             main_subj = set()
             for aid in ids:
-                main_subj.add(self._subj_plans.id_to_subj(aid))
-            assert len(main_subj) == 1
-            main_subj = main_subj.pop()
+                ms = self._subj_plans.id_to_subj(aid)
+                if ms.lower() == self._narrator_name.lower():
+                    ms = 'I'
+                main_subj.add(ms)
         else:
-            main_subj = self._subj_plans.id_to_subj(ac_script.action)
-        if main_subj == self._narrator_name:
-            main_subj = 'I'
+            ms = self._subj_plans.id_to_subj(ac_script.action)
+            main_subj = {'I' if ms.lower() == self._narrator_name.lower() else ms}
+
 
         # Later future justifications in the script
         if ac_script.justifies:
             justifies = [(i, compressions.id_to_action_str(i)) for i in sorted(ac_script.justifies)]
             justifies_verb = [self.make_action_sentence_IPC(ja[1][0], ja[1][1:], domain_semantics[ja[1][0]],
-                                                            compressions.get_compressed_params(i), ja[2], 'indicative')
+                                                            compressions.get_compressed_params(i), ja[2], 'infinitive')
                               for i, ja in sorted(justifies, key=lambda x: x[0])]
             justifies_subjects = {s[1] for s in justifies_verb}
-            justifies_subjects.add(main_subj)
+            justifies_subjects = justifies_subjects.union(main_subj)
             if len(justifies_subjects) > 1:
                 # If we have more than one subject, we need to adapt the linker based on the selected one, ensuring the subject is there
                 justifies_linker = random.choice([j for j in JUSTIFIES_LINKERS if 'SUBJECT' in j])
@@ -181,14 +189,14 @@ class PlanNarrator:
             jtense = 'past'
             if tense != 'present':
                 jtense = tense
-                tense = 'indicative' if template_choice != 0 else tense  # Template 0 must be conjugated as main action goes first
+                tense = 'infinitive' if template_choice != 0 else tense  # Template 0 must be conjugated as main action goes first
             justifications = [(i, compressions.id_to_action_str(i)) for i in ac_script.justifications]
             justifications_verb = [self.make_action_sentence_IPC(ja[1][0], ja[1][1:], domain_semantics[ja[1][0]],
                                                                  compressions.get_compressed_params(i), ja[2], jtense)
                                    for i, ja in sorted(justifications, key=lambda x: x[0])]
 
             justifications_subjects = {s[1] for s in justifications_verb}
-            justifications_subjects.add(main_subj)
+            justifications_subjects = justifications_subjects.union(main_subj)
             if len(justifications_subjects) > 1 and 'MAIN_SUBJECT' not in justification_template:
                 # We need a template with MAIN_SUBJECT as we have multiple subjects. Skip 0 as it's the weird tense one
                 justification_template = random.choice([j for j in JUSTIFICATION_TEMPLATES[1:] if 'MAIN_SUBJECT' in j])
@@ -252,7 +260,7 @@ class PlanNarrator:
                 for i, (v, _) in enumerate(predicate_params):
                     found_narrator = any([self._narrator_name.lower() == x for x in predicate_ground_params[i]]) \
                         if type(predicate_ground_params[i]) is list else self._narrator_name.lower() == \
-                                                                         predicate_ground_params[i].lower()
+                                                                         predicate_ground_params[i].replace('_', ' ').lower()
                     if found_narrator and v in subj_params:
                         subject = subject.replace(v, 'me')
                         break
@@ -275,9 +283,10 @@ class PlanNarrator:
         predicate_params = predicate_semantics.get_params()
         for i, p in enumerate(predicate_params):
             if type(predicate_ground_params[i]) is list:
+                predicate_ground_params[i] = [s.title() if s.title() in self._subjects else s for s in predicate_ground_params[i]]
                 predicate_ground_params[i] = self.make_list_str(predicate_ground_params[i])
-            if predicate_ground_params[i] in self._subjects:
-                predicate_ground_params[i] = predicate_ground_params[i].capitalize()
+            elif predicate_ground_params[i].title() in self._subjects:
+                predicate_ground_params[i] = predicate_ground_params[i].title()
             sentence = re.sub('([ \t]?)\\' + p[0] + r'([ \t.:-\?]|$)', '\\1' + predicate_ground_params[i] + '\\2',
                               sentence)
         sentence = sentence.replace('_', ' ')
@@ -316,8 +325,8 @@ class PlanNarrator:
             else:  # Go to
                 be = self._conjugator.conjugate('be').conjug_info['indicative']['indicative present'][person]
                 return be + ' going to ' + pre + verb + post
-        elif tense == 'indicative':
-            return pre + conjugated.conjug_info['indicative']['indicative present'][person] + post
+        elif tense == 'infinitive':
+            return pre + conjugated.conjug_info['indicative']['indicative present']['1s'] + post
         elif tense == 'continuous':  # Present continuous without be in front
             return pre + conjugated.conjug_info['indicative']['indicative present continuous'][person] + post
         else:
@@ -625,7 +634,7 @@ class SubjectPlans:
                 action_subjects[action_name] = subjects_idx
 
             for idx in subjects_idx:
-                subj_param = a[1][idx+1]
+                subj_param = a[1][idx+1].replace('_', ' ').title()
                 if subj_param not in self._plans:
                     self._plans[subj_param] = []
                 j = len(self._plans[subj_param])
@@ -654,7 +663,7 @@ class SubjectPlans:
         return self._plans
 
     def get_subjects(self):
-        return self._plans.keys()
+        return list(self._plans.keys())
 
     def __bool__(self):
         return len(self._plans) > 1  # More than 1 subject

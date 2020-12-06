@@ -115,7 +115,7 @@ class ROSPlanNarratorNode:
             esterel_plan = rospy.wait_for_message(plan_topic, EsterelPlan, ESTEREL_TIMEOUT)
             causal_chains = EsterelProcessing.find_causal_chains(self.operators, goals, plan, esterel_plan)
         except rospy.ROSException:
-            rospy.logwarn(rospy.get_name() + ': Esterel plan not received in ' + str(ESTEREL_TIMEOUT) + 'seconds. ' +
+            rospy.logwarn(rospy.get_name() + ': Esterel plan not received in ' + str(ESTEREL_TIMEOUT) + ' seconds. ' +
                                              'Causality will not be checked.')
             causal_chains = []
         goal_achieving_actions = sorted([c.achieving_action.action_id for c in causal_chains])

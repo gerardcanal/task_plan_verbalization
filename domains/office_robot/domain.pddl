@@ -12,24 +12,24 @@
   ; The robot ?v is at the waypoint ?wp
   ; verb = be
   ; subject = ?v
-  ; prep = at ?wp
+  ; prep = at the ?wp
 	(robot_at ?v - robot ?wp - waypoint)
 
   ; The person ?v is next to the waypont ?wp
   ; verb = be
   ; subject = ?v
-  ; prep = at ?wp
+  ; prep = at the ?wp
   (person_nexto ?v - person ?wp - waypoint)
 
   ; Waypoint ?from is connected to ?to
   ; verb = connect
-  ; prep = from ?from !
-  ; prep = to ?to
+  ; prep = from the ?from !
+  ; prep = to the ?to
 	(connected ?from ?to - waypoint)
 
   ; Waypoint ?wp is visited
   ; verb = visit
-  ; direct-object = ?wp
+  ; direct-object = the ?wp
 	(visited ?wp - waypoint)
 
   ; Waypoint ?wp is empty
@@ -45,7 +45,7 @@
   ; Object is at waypoint
   ; verb = be
   ; subject = ?p
-  ; prep = at ?l
+  ; prep = at the ?l
 	(object_at ?p - object ?l - locatable)
 
   ; Robot is not holding the object
