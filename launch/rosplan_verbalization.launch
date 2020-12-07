@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <launch>
 	<arg name="domain_path"		default="$(find pddl_verbalization)/domains/office_robot/domain.pddl" />
-	<arg name="problem_path"	default="$(find pddl_verbalization)/domains/office_robot/problem1.pddl" />
+	<arg name="problem_path"	default="$(find pddl_verbalization)/domains/office_robot/problem.pddl" />
 	<arg name="narrator_name"	default="" />
 	<arg name="print_actions"	default="false" />
 	<arg name="evaluation"	 	default="false" />

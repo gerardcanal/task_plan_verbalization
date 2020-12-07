@@ -21,7 +21,7 @@
 		<arg name="planner_interface"    	value="rddlsim_planner_interface" />
 	</include>
 
-  	<node name="rosplan_narrator" pkg="pddl_verbalization" type="pddl_verbalization_node.py" respawn="false" output="screen" required="true">
+  	<node name="rosplan_narrator" pkg="pddl_verbalization" type="pddl_verbalization_node.py" respawn="false" output="screen" required="$(eval evaluation == true)">
     	<param name="domain_path"   value="$(arg domain_path)" />
     	<param name="problem_path"  value="$(arg problem_path)" />
     	<param name="narrator_name" value="$(arg narrator_name)" />

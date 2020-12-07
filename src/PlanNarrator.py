@@ -619,7 +619,7 @@ class SubjectPlans:
         self._plan_to_subj = {}  # From plan action_id to subject action_id
 
     def split_plan_by_subjects(self, plan, domain_semantics, operators):
-        get_var = re.compile(r'\?([\w-]+)')
+        get_var = re.compile(r'(\?[\w-]+|\\\d+)')
         action_subjects = {}  # Keeps the param id of the subject in each action
         for i, a in enumerate(plan):
             action_name = a[1][0]
@@ -627,10 +627,10 @@ class SubjectPlans:
                 subject_idx = action_subjects[action_name]
             else:
                 subject = ' '.join(domain_semantics.get_action(a[1][0]).get_semantics('subject'))
-                subjects = re.findall(get_var, subject) # List of variables representing subjects
+                subjects = re.findall(get_var, subject)  # List of variables representing subjects
                 subjects_idx = []
                 for idx, kv in enumerate(operators[a[1][0]].formula.typed_parameters):
-                    if kv.key in subjects:
+                    if ('?'+kv.key in subjects) or ('\\'+str(idx+1) in subjects):
                         subjects_idx.append(idx)
                 action_subjects[action_name] = subjects_idx
 

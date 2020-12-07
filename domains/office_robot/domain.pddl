@@ -44,7 +44,7 @@
 
   ; Object is at waypoint
   ; verb = be
-  ; subject = ?p
+  ; subject = the ?p
   ; prep = at the ?l
 	(object_at ?p - object ?l - locatable)
 

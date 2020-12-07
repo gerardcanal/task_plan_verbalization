@@ -63,7 +63,8 @@ domain turtlebot_domain {
         // subject = \1
         // prep = from the \2
         // prep = to the \3 / towards the \3 !
-        goto_waypoint(robot, waypoint, waypoint): { action-fluent, bool, default = false }; // robot from to
+        goto_waypoint(robot, waypoint, waypoint): { action-fluent, bool, 
+                                                    default = false }; // robot from to
 
         // Localises the robot in the map
         // subject = \1
