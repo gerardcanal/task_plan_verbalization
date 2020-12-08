@@ -623,7 +623,7 @@ class SubjectPlans:
         for i, a in enumerate(plan):
             action_name = a[1][0]
             if action_name in action_subjects:
-                subject_idx = action_subjects[action_name]
+                subjects_idx = action_subjects[action_name]
             else:
                 subject = ' '.join(domain_semantics.get_action(a[1][0]).get_semantics('subject'))
                 subjects = re.findall(get_var, subject)  # List of variables representing subjects
@@ -631,10 +631,10 @@ class SubjectPlans:
                 for idx, kv in enumerate(operators[a[1][0]].formula.typed_parameters):
                     if ('?'+kv.key in subjects) or ('\\'+str(idx+1) in subjects):
                         subjects_idx.append(idx)
-                action_subjects[action_name] = subjects_idx
-
-            if not subjects_idx:
-                self.add_subject_action(subject, a, i)
+                if not subjects_idx:
+                    self.add_subject_action(subject, a, i)
+                else:
+                    action_subjects[action_name] = subjects_idx
 
             for idx in subjects_idx:
                 subj_param = a[1][idx+1].replace('_', ' ').title()
