@@ -98,10 +98,9 @@ class PlanNarrator:
         # Substitute parameters
         for i, p in enumerate(action_params):
             if type(ground_params[i]) is list:
-                if p[0] == subject:
-                    ground_params[i] = [s.title() for s in ground_params[i]]
+                ground_params[i] = [s.title() if s.title() in self._subjects else s for s in ground_params[i]]
                 ground_params[i] = self.make_list_str(ground_params[i])
-            elif p[0] == subject:
+            elif p[0] == subject or ground_params[i].title() in self._subjects:
                 ground_params[i] = ground_params[i].title()
             sentence = re.sub('([ \t]?)\\' + p[0] + r'([ \t.:-\?]|$)', '\\1' + ground_params[i] + '\\2', sentence)
             subject = re.sub('([ \t]?)\\' + p[0] + r'([ \t.:-\?]|$)', '\\1' + ground_params[i] + '\\2', subject)
