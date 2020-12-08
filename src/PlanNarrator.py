@@ -634,15 +634,21 @@ class SubjectPlans:
                         subjects_idx.append(idx)
                 action_subjects[action_name] = subjects_idx
 
+            if not subjects_idx:
+                self.add_subject_action(subject, a, i)
+
             for idx in subjects_idx:
                 subj_param = a[1][idx+1].replace('_', ' ').title()
-                if subj_param not in self._plans:
-                    self._plans[subj_param] = []
-                j = len(self._plans[subj_param])
-                self._plans[subj_param].append(a)
-                self._plan_to_subj[i] = (subj_param, j)
-                self._subj_to_plan[(subj_param, j)] = i
+                self.add_subject_action(subj_param, a, i)
         return self._plans
+
+    def add_subject_action(self, subject, action, action_id):
+        if subject not in self._plans:
+            self._plans[subject] = []
+        j = len(self._plans[subject])  # Action id for current subject
+        self._plans[subject].append(action)
+        self._plan_to_subj[action_id] = (subject, j)
+        self._subj_to_plan[(subject, j)] = action_id
 
     def subj_to_id(self, aid, subj):
         return self._subj_to_plan[(subj, aid)]
