@@ -425,7 +425,7 @@ class PlanNarrator:
                     # If last added action (next in the plan) is in justifies of this action, remove it and add it
                     # to justifications
                     s.justifies.remove(verbalization_script[0].action)
-                    verbalization_script[0].justification.add(cid)
+                    verbalization_script[0].justifications.add(cid)
                     skipped_actions[i] = True
                     continue
                 # Add the compressed ids accordingly to justifies and justifications of this action
