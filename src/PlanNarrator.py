@@ -413,22 +413,31 @@ class PlanNarrator:
                                 skipped_actions[jj] = True if not causality_script[jj].goal else False
                     keep_justifications.append(j)
             s.justifications = set(keep_justifications)
+
+            # If action i is compressed, update action id accordingly to the compression as well as justifications and
+            # justifies
             if compress and compressions.is_compressed(i):
                 cid = compressions.get_compressed_id(i)
                 s.action = cid
                 if verbalization_script and verbalization_script[0].action in s.justifies:
-                    # verbalization_script[0].justifications.add(s.action)  # See above for explanation
-                    # continue
+                    # If last added action (next in the plan) is in justifies of this action, remove it and add it
+                    # to justifications
                     s.justifies.remove(verbalization_script[0].action)
+                    verbalization_script[0].justification.add(cid)
+                    skipped_actions[i] = True
+                    continue
+                # Add the compressed ids accordingly to justifies and justifications of this action
                 for k in compressions.get_ids_compressed_action(cid):
                     if k != i or skipped_actions[k]:
                         skipped_actions[k] = True
-                        j = {compressions.get_compressed_id(j) for j in causality_script[k].justifications
-                             if not compressions.is_compressed(j) and not skipped_actions[j]}
-                        s.justifications = s.justifications.union(j)
-                        j = {compressions.get_compressed_id(j) for j in causality_script[k].justifies
-                             if not compressions.is_compressed(j) and not skipped_actions[j]}
-                        s.justifies = s.justifies.union(j)
+                        if self._verbalization_space_params.explanation > Explanation.LEV1:
+                            j = {compressions.get_compressed_id(j) for j in causality_script[k].justifications
+                                 if not compressions.is_compressed(j) and not skipped_actions[j]}
+                            s.justifications = s.justifications.union(j)
+                        if self._verbalization_space_params.explanation > Explanation.LEV2:
+                            j = {compressions.get_compressed_id(j) for j in causality_script[k].justifies
+                                 if not compressions.is_compressed(j) and not skipped_actions[j]}
+                            s.justifies = s.justifies.union(j)
                 # Clear justifications (remove itself)
                 s.justifications.discard(cid)
                 s.justifies.discard(cid)
