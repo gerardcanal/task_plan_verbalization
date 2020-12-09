@@ -402,6 +402,8 @@ class PlanNarrator:
 
             keep_justifications = []  # Justifications to keep
             for j in s.justifications:
+                if skipped_actions[j]:
+                    continue
                 if not causality_script[j].goal:  # If justification achieves a goal, we'll not use it here
                     skipped_actions[j] = True
                     if compress:
