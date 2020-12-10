@@ -386,15 +386,13 @@ class PlanNarrator:
                 # no need to clear justifies
                 s.justifies.clear()  # Remove justifies for this action as it achieves a goal to avoid overcluttering
             else:
-                if self._verbalization_space_params.explanation == Explanation.LEV5:
-                    s.justifies = {compressions.get_compressed_id(max(s.justifies))} if s.justifies else set()
-                elif self._verbalization_space_params.explanation < Explanation.LEV6:
+                if self._verbalization_space_params.explanation < Explanation.LEV5:
                     if compress:
                         s.justifies = {compressions.get_compressed_id(j) for j in s.justifies if causality_script[j].goal
                                        and not skipped_actions[j]}
                     else:
                         s.justifies = {j for j in s.justifies if causality_script[j].goal and not skipped_actions[j]}
-                else:  # self._verbalization_space_params.explanation == Explanation.LEV6
+                else:  # self._verbalization_space_params.explanation == Explanation.LEV5
                     s.justifies = {compressions.get_compressed_id(j) for j in s.justifies}
 
             if self._verbalization_space_params.explanation < Explanation.LEV4:  # Level <5 does not include goals
