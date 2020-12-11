@@ -87,8 +87,8 @@ class EsterelProcessing:
     @staticmethod
     def match_action(action_list, rp_action):
         return action_list[0] == rp_action.name and \
-               functools.reduce(lambda a, b: a and b, [x[0] == x[1].value for x in zip(action_list[1:],
-                                                                                       rp_action.parameters)]) if len(action_list) > 1 else True
+               (functools.reduce(lambda a, b: a and b, [x[0] == x[1].value for x in zip(action_list[1:],
+                                                                                       rp_action.parameters)]) if len(action_list) > 1 else True)
 
     # Returns a list of goals and actions achieving such goals to start the causal chain computation
     @staticmethod

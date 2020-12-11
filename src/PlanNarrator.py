@@ -79,6 +79,8 @@ class PlanNarrator:
                         break
                     else:  # If multi subject and not narrator, set person accordingly
                         person = '3p' if type(ground_params[i]) is list else '3s'
+            if subject == 'I':
+                person = '1p' if len(subj_params) > 1 else '1s'
 
         # Create sentence with semantics
         # Default format: subject verb indirect-object direct-object preps
@@ -229,7 +231,7 @@ class PlanNarrator:
             goal_sentence = []
             for g in ac_script.goal:
                 goal = g[0].split(' ')
-                goal_sentence.append(self.make_predicate_sentence(goal[0], goal[1:], domain_semantics))
+                goal_sentence.append(self.make_predicate_sentence(goal[0], goal[1:], domain_semantics, g[1]))
             goal = random.choice(GOAL_LINKERS) + ' ' + self.make_list_str(goal_sentence)
 
         # Sentence will be: justifications + main action + goals + justifies
@@ -247,7 +249,7 @@ class PlanNarrator:
 
         return self.capitalize_first(s) + '.'
 
-    def make_predicate_sentence(self, predicate_name, predicate_ground_params, domain_semantics):
+    def make_predicate_sentence(self, predicate_name, predicate_ground_params, domain_semantics, sign=True):
         try:
             predicate_semantics = domain_semantics.get_predicate(predicate_name)
         except KeyError:
@@ -270,6 +272,8 @@ class PlanNarrator:
                     subject = subject.replace('I', 'me')
             sentence = subject + ' '
 
+        if not sign:
+            sentence += 'not '
         sentence += self.conjugate_verb(predicate_semantics.get_rnd_verb(), 'continuous',
                                         '1s')  # Person is not important here
         if predicate_semantics.has_semantics('direct-object'):
