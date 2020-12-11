@@ -135,6 +135,9 @@ class EsterelProcessing:
 
     @staticmethod
     def check_effect_goal(goal, effect, grounding):
+        if effect.typed_parameters and not grounding:
+            # FIXME this happens with forall goals in RDDL. Instead it should get the variable types from KB and substitute them
+            return False
         ground_effect = effect.name + ' ' + EsterelProcessing.typed_params_to_str(effect.typed_parameters, grounding)
         is_goal = goal[1] == ground_effect
         return is_goal
