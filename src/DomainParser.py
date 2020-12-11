@@ -43,7 +43,7 @@ class RegularExpressions:
     # Matches the action name and parameter list
     #  The first group is the action name, second is the param list
     PDDL_SUBACTION = re.compile(r"(?s)\(:.*action(?:[ \t]*;[ \t\S]*$)?\s([\w-]+).*:parameters\s?\((.*?)\)", re.MULTILINE)
-    RDDL_SUBACTION = re.compile(r"(?s)^[ \t]*([\w-]+)\s*\((.*?)\)", re.MULTILINE)
+    RDDL_SUBACTION = re.compile(r"(?s)^[ \t]*([\w-]+)(?:\s*\((.*?)\))?", re.MULTILINE)
 
     # Matches each parameter in the list and the type
     # Group 1 is the list of varnames (?from ?to), group 2 is the type
@@ -75,7 +75,7 @@ class RegularExpressions:
     PDDL_SINGLE_PREDICATE_DESCRIPTION = re.compile(r'(?s)\s*((?:;.*?$)*\s*\(.*?\))', re.MULTILINE)  # Covers semantic comments and predicates
     RDDL_SINGLE_PREDICATE_DESCRIPTION = re.compile(r"(?s)((?:^[\t ]*//[ \t\S]*[\r\n\f\v])+[ \t\S]+state-fluent.*?;)", re.MULTILINE)
     PDDL_SINGLE_PREDICATE = re.compile(r'\(([\w_]+)\s+(.*)\)')  # Covers only the predicate (predicate ?x - type)
-    RDDL_SINGLE_PREDICATE = re.compile(r'([\w_]+)(?:\((.*)\))?:')  # Covers only the predicate predicate(type)
+    RDDL_SINGLE_PREDICATE = re.compile(r'([\w-]+)(?:\((.*)\))?\s*:')  # Covers only the predicate predicate(type)
 
     # Proxy method to get regexs for different languages
     @staticmethod
@@ -102,7 +102,7 @@ class DomainParser:
             semantic = re.findall(RegularExpressions.SEMANTIC, action_definition)
             aux = re.search(RegularExpressions.get(self.language, "SUBACTION"), action_definition)
             action_name = aux.group(1)
-            params = re.findall(RegularExpressions.get(self.language, "PARAM_LIST"), aux.group(2))
+            params = re.findall(RegularExpressions.get(self.language, "PARAM_LIST"), aux.group(2)) if aux.group(2) else []
             if self.language == "RDDL":
                 params = [('\\' + str(i+1), t) for i, t in enumerate(params)]
             action = ActionSemantics(action_name)
