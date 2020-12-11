@@ -263,6 +263,8 @@ class PlanNarrator:
                     if found_narrator and v in subj_params:
                         subject = subject.replace(v, 'me')
                         break
+                if subject == 'I':
+                    subject = subject.replace('I', 'me')
             sentence = subject + ' '
 
         sentence += self.conjugate_verb(predicate_semantics.get_rnd_verb(), 'continuous',
