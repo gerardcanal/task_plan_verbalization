@@ -34,7 +34,7 @@ from ActionSemantics import ActionSemantics, DomainSemantics, PredicateSemantics
 class RegularExpressions:
     # Matches the domain name
     PDDL_DOMAIN_NAME = re.compile(r"(?s)define\s+\(domain\s+(.*?)\s*\)", re.MULTILINE)
-    RDDL_DOMAIN_NAME = re.compile(r"(?s)domain\s+(.*?)\s*\{", re.MULTILINE)
+    RDDL_DOMAIN_NAME = re.compile(r"(?s)^[ \t]*domain\s+(.*?)\s*\{", re.MULTILINE)
 
     # Matches the whole action (if they start with a comment)
     PDDL_ACTION = re.compile(r"(?s)(?:^[\t ]*;[ \t\S]*[\r\n\f\v])+[ \t\S]+action(?!\w).*?\).*?$(?=\s*(?:;|\(:|\Z))", re.MULTILINE)
