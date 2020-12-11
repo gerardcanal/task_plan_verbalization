@@ -32,6 +32,7 @@
 import mlconjug3
 import random
 import re
+import copy
 from DomainParser import DomainParser, RegularExpressions
 from collections import deque
 from PatternMatcher import PatternMatcher
@@ -367,7 +368,7 @@ class PlanNarrator:
 
             if skipped_actions[i]:
                 continue
-            s = causality_script[i]
+            s = copy.deepcopy(causality_script[i])  # Make copy as otherwise causality_script will be destroyed
 
             obj = self._verbalization_space_params.locality.get_object()
             if self._verbalization_space_params.locality == Locality.OBJECT and obj not in plan[s.action][1]:
