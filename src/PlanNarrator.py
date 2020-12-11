@@ -461,8 +461,10 @@ class PlanNarrator:
         for c in causal_chains:
             # Add achieving action + goal
             action_id = c.achieving_action.action_id
-            goal_params = c.goal.split(' ')[1:]
-            causality_script[action_id].goal = c.goal, c.goal_value
+            goal_params = []
+            if c.goal:
+                goal_params = c.goal.split(' ')[1:]
+                causality_script[action_id].goal = c.goal, c.goal_value
             self.add_action_scripts_rec(c.achieving_action, goal_params, operators, plan, causality_script, subj_plans)
         return causality_script
 

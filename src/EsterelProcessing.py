@@ -39,6 +39,25 @@ class EsterelProcessing:
         for i, c in enumerate(causal_chains):
             chain = EsterelProcessing.get_causal_chain(plan[c.achieving_action.action_id][1], esterel_plan)
             causal_chains[i].achieving_action.children = chain
+        if not causal_chains:  # Probably a RDDL-based MDP
+            # Add a chain for all the actions that finish a causality chain
+            for n in esterel_plan.nodes:
+                if n.node_type != EsterelPlanNode.ACTION_START:  # We keep action_starts, and join it with END
+                    continue
+                start_end_edge = [e for e in n.edges_out if esterel_plan.edges[e].edge_type == EsterelPlanEdge.START_END_ACTION_EDGE]
+                end_node = esterel_plan.nodes[esterel_plan.edges[start_end_edge[0]].sink_ids[0]]  # End node of n (which is a start node)
+
+                # Get causal edges in and out of both start and end
+                causal_out_e = {e for e in n.edges_out if esterel_plan.edges[e].edge_type == EsterelPlanEdge.CONDITION_EDGE}
+                causal_out_e.update({e for e in end_node.edges_out if esterel_plan.edges[e].edge_type == EsterelPlanEdge.CONDITION_EDGE})
+                causal_in_e = {e for e in n.edges_in if esterel_plan.edges[e].edge_type == EsterelPlanEdge.CONDITION_EDGE}
+                causal_in_e.update({e for e in end_node.edges_in if esterel_plan.edges[e].edge_type == EsterelPlanEdge.CONDITION_EDGE})
+                if not causal_out_e and causal_in_e:  # If it finishes a causality chain, add it
+                    a = plan[n.action.action_id]
+                    cchain = CausalityChain(None, '', ' '.join(a[1]), n.action.action_id)
+                    cchain.achieving_action.children = EsterelProcessing.get_causal_chain(a[1], esterel_plan)
+                    causal_chains.append(cchain)
+
         return causal_chains
 
     # Returns list of actions that are causal links to the action sent by parameter
