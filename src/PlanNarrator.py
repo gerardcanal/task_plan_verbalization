@@ -107,7 +107,10 @@ class PlanNarrator:
 
         # Add narrator in the non-subject parameters (subjects have already been dealt with)
         if self._narrator_name:
-            sentence = re.sub(self._narrator_name, 'me', sentence, flags=re.IGNORECASE)
+            if self._narrator_name == 'I':
+                sentence = re.sub('I ', 'me', sentence)
+            else:
+                sentence = re.sub(self._narrator_name, 'me', sentence, flags=re.IGNORECASE)
 
         duration = float(duration) if self._verbalization_space_params.abstraction < Abstraction.LEV3 else 0
         duration_s = 'taking {} second'.format('{0:.2f}'.format(duration).rstrip('0').rstrip('.'))
