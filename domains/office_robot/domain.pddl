@@ -12,13 +12,13 @@
   ; The robot ?v is at the waypoint ?wp
   ; verb = be
   ; subject = ?v
-  ; prep = at the ?wp
+  ; prep = at the ?wp !
 	(robot_at ?v - robot ?wp - waypoint)
 
   ; The person ?v is next to the waypont ?wp
   ; verb = be
   ; subject = ?v
-  ; prep = at the ?wp
+  ; prep = at the ?wp !
   (person_nexto ?v - person ?wp - waypoint)
 
   ; Waypoint ?from is connected to ?to
@@ -45,7 +45,7 @@
   ; Object is at waypoint
   ; verb = be
   ; subject = the ?p
-  ; prep = at the ?l
+  ; prep = at the ?l !
 	(object_at ?p - object ?l - locatable)
 
   ; Robot is not holding the object
@@ -106,7 +106,7 @@
 )
 
 ; Scan a place to check if object is placeable
-; verb = scan / check / look (at)
+; verb = scan / check / look (around)
 ; subject = ?v
 ; direct-object = the ?place
 (:durative-action scan_place
