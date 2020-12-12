@@ -59,9 +59,9 @@ class PlanNarrator:
         self._subjects = []
         self._subj_plans = SubjectPlans()
 
-    # Assumes IPC format
+    # Assumes IPC format. If ignore_importance is True, all prepositional clauses will be set. Used for deferred justifications
     def make_action_sentence_IPC(self, ground_action, ground_params, action_semantics, compressions=[], duration=0,
-                                 tense='future'):
+                                 tense='future', ignore_importance=False):
         # Find person of the verb
         if not action_semantics.has_semantics('subject'):
             raise KeyError("Action " + action_semantics.get_action_name() + " has no subject defined")
@@ -94,8 +94,9 @@ class PlanNarrator:
         if action_semantics.has_semantics('prep'):
             prep = action_semantics.get_semantics('prep')
             for p in prep:
-                if self._verbalization_space_params.abstraction < Abstraction.LEV4 or \
-                        (self._verbalization_space_params.abstraction == Abstraction.LEV4 and p[1]): # If p is important
+                if ignore_importance or (self._verbalization_space_params.abstraction < Abstraction.LEV4 or \
+                                         (self._verbalization_space_params.abstraction == Abstraction.LEV4 and p[1])):
+                    # If p is important
                     sentence += ' ' + random.choice(p[0])
 
         # Substitute parameters
@@ -153,7 +154,8 @@ class PlanNarrator:
         if ac_script.justifies:
             justifies = [(i, compressions.id_to_action_str(i)) for i in sorted(ac_script.justifies)]
             justifies_verb = [self.make_action_sentence_IPC(ja[1][0], ja[1][1:], domain_semantics[ja[1][0]],
-                                                            compressions.get_compressed_params(i), ja[2], 'infinitive')
+                                                            compressions.get_compressed_params(i), ja[2], 'infinitive',
+                                                            True)  # Ignore importance flag for later actions.
                               for i, ja in sorted(justifies, key=lambda x: x[0])]
             justifies_subjects = {s[1] for s in justifies_verb}
             justifies_subjects = justifies_subjects.union(main_subj)
