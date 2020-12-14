@@ -350,6 +350,9 @@ class PlanNarrator:
         # Compress actions if needed based on verbalization space
         compress = self._verbalization_space_params.specificity == Specificity.SUMMARY
         if compress:
+            if self._verbalization_space_params.explanation < Explanation.LEV4:
+                # If no goal will be verbalized, do not split compressions when goals are present
+                compressions.disable_goal_checking()
             if self._subj_plans:
                 for subj in self._subj_plans:
                     compressions.compress_plan(self._subj_plans, subj)
@@ -407,7 +410,7 @@ class PlanNarrator:
                 else:  # self._verbalization_space_params.explanation == Explanation.LEV5
                     s.justifies = {compressions.get_compressed_id(j) for j in s.justifies}
 
-            if self._verbalization_space_params.explanation < Explanation.LEV4:  # Level <5 does not include goals
+            if self._verbalization_space_params.explanation < Explanation.LEV4:  # Level <4 does not include goals
                 s.goal = None
 
             keep_justifications = []  # Justifications to keep
@@ -572,9 +575,13 @@ class PlanCompressions:
             self._compression_dic[a] = len(self._plan) + i
             # This way we have two spaces of ids. This class will handle this translations
 
+    def disable_goal_checking(self):
+        self._goal_achieving_actions = []
+
+    @staticmethod
     # Compresses two actions if the action is the same, there's only one free parameter, and they comply with some
     # patterns
-    def compress_actions(self, action_a, action_b):
+    def compress_actions(action_a, action_b):
         if action_a[0] == action_b[0]:  # same action name
             pattern = PatternMatcher.get_param_pattern(action_a[1:], action_b[1:])
             intermediate = []  # Keeps the intermediate parameters
@@ -613,7 +620,7 @@ class PlanCompressions:
             # Time will be the one from the start action, duration the sum
             result, intmd = self.compress_actions(curr_action[1], self._plan[i][1])
             if (not subj_plans or subj_plans.is_from_subj(last_i, subj)) and \
-                    (last_i in self._goal_achieving_actions or i in self._goal_achieving_actions) :
+                    (last_i in self._goal_achieving_actions or i in self._goal_achieving_actions):
                 result = False  # Force avoid compression in case of goal achieving action
             last_i = i
             if result:  # Result stores the compressed action (if compression was made)
