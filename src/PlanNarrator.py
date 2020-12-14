@@ -459,6 +459,14 @@ class PlanNarrator:
             verbalization_script.appendleft(s)
         if self._subj_plans:
             verbalization_script = sorted(verbalization_script, key=lambda x: self.script_sort_time_key(x, compressions))
+
+        # Filter script. After sorting, some actions that were not consecutive may appear as consecutive, so we delete
+        # the deferred justification from the script
+        for i in range(len(verbalization_script)-1):
+            a_next = verbalization_script[i+1].action
+            a_i_script = verbalization_script[i]
+            if a_next in a_i_script.justifies:
+                a_i_script.justifies.remove(a_next)
         return verbalization_script
 
     def compute_causality_scripts(self, plan, operators, causal_chains, subj_plans):
