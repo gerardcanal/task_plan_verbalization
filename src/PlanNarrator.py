@@ -649,6 +649,7 @@ class PlanCompressions:
         duration = a_duration + b_duration - overlap
         return str(duration)
 
+
 # Class to store plans by subject
 class SubjectPlans:
     def __init__(self):
