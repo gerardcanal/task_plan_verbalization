@@ -621,7 +621,7 @@ class PlanCompressions:
                 curr_intmd.extend(intmd)
                 # Format: ('0.000', ['goto_waypoint', 'robot_assistant', 'wp3', 'wp15'], '13.000')
                 # Compressed action start time, duration of the two actions are added
-                curr_action = curr_action[0], result, str(float(curr_action[2]) + float(self._plan[i][2]))
+                curr_action = curr_action[0], result, self.compute_compressed_duration(curr_action, self._plan[i])
             else:  # No compression found
                 if len(curr_ids) > 1:  # We have compressed some actions
                     self.add_compression(curr_ids, curr_action, curr_intmd)
@@ -632,6 +632,22 @@ class PlanCompressions:
         if len(curr_ids) > 1:  # We have compressed some actions
             self.add_compression(curr_ids, curr_action, curr_intmd)
 
+    @staticmethod
+    # Computes the duration after compressing action a and b
+    def compute_compressed_duration(a, b):
+        assert a[0] <= b[0]  # Action a should start before action b
+        a_start = float(a[0])
+        b_start = float(b[0])
+        a_duration = float(a[2])
+        b_duration = float(b[2])
+        if (b_start + b_duration) <= (a_start + a_duration):
+            return a[2]  # If b ends before a, duration is that of a
+        # Duration overlap is the duration of action a minus the difference of start times
+        # If actions are not overlapping, overlap is 0
+        overlap = max(a_duration - (b_start - a_start), 0)
+        # Final duration is the sum of the durations of both actions minus the overlapped time
+        duration = a_duration + b_duration - overlap
+        return str(duration)
 
 # Class to store plans by subject
 class SubjectPlans:
