@@ -635,9 +635,9 @@ class PlanCompressions:
     @staticmethod
     # Computes the duration after compressing action a and b
     def compute_compressed_duration(a, b):
-        assert a[0] <= b[0]  # Action a should start before action b
         a_start = float(a[0])
         b_start = float(b[0])
+        assert a_start <= b_start  # Action a should start before action b
         a_duration = float(a[2])
         b_duration = float(b[2])
         if (b_start + b_duration) <= (a_start + a_duration):
