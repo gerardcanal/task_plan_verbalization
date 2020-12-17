@@ -16,11 +16,11 @@
 		<arg name="generated_problem_path"	value="/tmp/gen_problem.pddl" />
 		<arg name="dispatcher" 				value="esterel" /> <!-- Check to add the parser when needed -->
 		<arg name="planner_command"      	value="timeout 10 $(find rosplan_planning_system)/common/bin/popf DOMAIN PROBLEM" if="$(eval evaluation == false)" />
-		<arg name="planner_command"      	value="timeout 10 $(find rosplan_planning_system)/common/bin/popf -n DOMAIN PROBLEM" if="$(eval evaluation == true)"/>
+		<arg name="planner_command"      	value="timeout 120 $(find rosplan_planning_system)/common/bin/popf -n DOMAIN PROBLEM" if="$(eval evaluation == true)"/>
 		<arg name="planner_interface"    	value="popf_planner_interface" />
 	</include>
 
-  	<node name="rosplan_narrator" pkg="pddl_verbalization" type="pddl_verbalization_node.py" respawn="false" output="screen">
+  	<node name="rosplan_narrator" pkg="pddl_verbalization" type="pddl_verbalization_node.py" respawn="false" output="screen" required="$(eval evaluation == true)">
     	<param name="domain_path"   value="$(arg domain_path)" />
     	<param name="problem_path"  value="$(arg problem_path)" />
     	<param name="narrator_name" value="$(arg narrator_name)" />
