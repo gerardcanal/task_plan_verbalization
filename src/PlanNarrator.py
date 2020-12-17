@@ -53,7 +53,7 @@ GOAL_LINKERS = ['to achieve the goal of', 'to reach the goal of', 'to fulfill th
 class PlanNarrator:
     def __init__(self, narrator_name=None, language='en'):
         self._conjugator = mlconjug3.Conjugator(language=language)
-        self._narrator_name = narrator_name.replace('_', ' ').title() if narrator_name else None
+        self._narrator_name = narrator_name.replace('_', ' ').title() if narrator_name else ''
         self._current_step = -1
         self._verbalization_space_params = VerbalizationSpace(3, 1, 2, 4)  # Default parameters
         self._subjects = []
@@ -159,7 +159,7 @@ class PlanNarrator:
                 main_subj.add(ms)
         else:
             ms = self._subj_plans.id_to_subj(ac_script.action)
-            main_subj = {'I' if self._narrator_name and ms.lower() == self._narrator_name.lower() else ms}
+            main_subj = {'I' if ms.lower() == self._narrator_name.lower() else ms}
 
 
         # Later future justifications in the script
