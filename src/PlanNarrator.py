@@ -165,7 +165,7 @@ class PlanNarrator:
             justifies_verb = [self.make_action_sentence_IPC(ja[1][0], ja[1][1:], domain_semantics[ja[1][0]],
                                                             compressions.get_compressed_params(i), ja[2], 'infinitive',
                                                             True)  # Ignore importance flag for later actions.
-                              for i, ja in sorted(justifies, key=lambda x: x[0])]
+                              for i, ja in sorted(justifies, key=lambda x: float(x[1][0]))]
             justifies_subjects = {s[1] for s in justifies_verb}
             justifies_subjects = justifies_subjects.union(main_subj)
             if len(justifies_subjects) > 1:
@@ -209,7 +209,7 @@ class PlanNarrator:
             justifications = [(i, compressions.id_to_action_str(i)) for i in ac_script.justifications]
             justifications_verb = [self.make_action_sentence_IPC(ja[1][0], ja[1][1:], domain_semantics[ja[1][0]],
                                                                  compressions.get_compressed_params(i), ja[2], jtense)
-                                   for i, ja in sorted(justifications, key=lambda x: x[0])]
+                                   for i, ja in sorted(justifications, key=lambda x: float(x[1][0]))]
 
             justifications_subjects = {s[1] for s in justifications_verb}
             justifications_subjects = justifications_subjects.union(main_subj)
@@ -642,7 +642,7 @@ class PlanCompressions:
             if i in self._compression_dic:
                 continue
             result, intmd = self.compress_actions(curr_action[1], self._plan[i][1])
-            compressed_subject = self.check_compressed_subject(subj, result, intmd)
+            compressed_subject = self.check_compressed_subject(subj, result, intmd) and result and float(curr_action[0])-float(self._plan[i][0]) < 0.05
             if not compressed_subject and subj_plans and not subj_plans.is_from_subj(i, subj):
                 continue  # If action is not from current subject, and subject is not in the compression, skip
             if (not subj_plans or subj_plans.is_from_subj(last_i, subj)) and \
