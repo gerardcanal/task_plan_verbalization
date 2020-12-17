@@ -53,7 +53,7 @@ GOAL_LINKERS = ['to achieve the goal of', 'to reach the goal of', 'to fulfill th
 class PlanNarrator:
     def __init__(self, narrator_name=None, language='en'):
         self._conjugator = mlconjug3.Conjugator(language=language)
-        self._narrator_name = narrator_name.replace('_', ' ').title()
+        self._narrator_name = narrator_name.replace('_', ' ').title() if narrator_name else None
         self._current_step = -1
         self._verbalization_space_params = VerbalizationSpace(3, 1, 2, 4)  # Default parameters
         self._subjects = []
@@ -665,8 +665,8 @@ class PlanCompressions:
                     curr_action = self._plan[i]  # This will always be i-1 or the compressed action
                     curr_intmd = []
                     continue  # Go back to the last action from this subject and keep compressing from there
-            i_from_subj = subj_plans.is_from_subj(i, subj)  # i is from subject subj
-            if not compressed_subject and subj_plans and not i_from_subj:
+            i_from_subj = subj_plans.is_from_subj(i, subj) if subj_plans else True  # i is from subject subj
+            if not compressed_subject and not i_from_subj:
                 continue  # If action is not from current subject, and subject is not in the compression, skip
             if (not subj_plans or subj_plans.is_from_subj(last_i, subj)) and \
                     (last_i in self._goal_achieving_actions or i in self._goal_achieving_actions):
