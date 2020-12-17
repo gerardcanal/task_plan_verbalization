@@ -75,8 +75,17 @@ class PlanNarrator:
                     if type(ground_params[i]) is list else self._narrator_name.lower() == ground_params[i].replace('_', ' ').lower()
                 if v in subj_params:
                     if found_narrator:
-                        subject = subject.replace(v, 'I')
-                        person = '1p' if len(subj_params) > 1 else '1s'
+                        if type(ground_params[i]) is list:
+                            s_i = ground_params[i].index(self._narrator_name.lower())
+                            ground_params_t = copy.deepcopy(ground_params[i])
+                            ground_params_t.pop(s_i)
+                            ground_params_t = [s.title() for s in ground_params_t]
+                            ground_params_t.append('me')
+                            subject = self.make_list_str(ground_params_t)
+                            person = '1p'
+                        else:
+                            subject = subject.replace(v, 'I')
+                            person = '1p' if len(subj_params) > 1 else '1s'
                         break
                     else:  # If multi subject and not narrator, set person accordingly
                         person = '3p' if type(ground_params[i]) is list else '3s'
@@ -268,9 +277,15 @@ class PlanNarrator:
                     found_narrator = any([self._narrator_name.lower() == x for x in predicate_ground_params[i]]) \
                         if type(predicate_ground_params[i]) is list else self._narrator_name.lower() == \
                                                                          predicate_ground_params[i].replace('_', ' ').lower()
-                    if found_narrator and v in subj_params:
+                    if found_narrator and type(predicate_ground_params[i]) is list:
+                        s_i = predicate_ground_params[i].index(self._narrator_name.lower())
+                        predicate_ground_params[i].pop(s_i)
+                        predicate_ground_params[i].append('me')
+                        subject = self.make_list_str(predicate_ground_params[i])
+                        person = '1p'
+                    elif found_narrator and v in subj_params:
                         subject = subject.replace(v, 'me')
-                        break
+                    break
                 if subject == 'I':
                     subject = subject.replace('I', 'me')
             sentence = subject + ' '
@@ -623,10 +638,13 @@ class PlanCompressions:
         curr_intmd = []
         last_i = 0  # last i value for the same subject
         for i in range(1, len(self._plan)):
-            if subj_plans and not subj_plans.is_from_subj(i, subj):
-                continue
             # Time will be the one from the start action, duration the sum
+            if i in self._compression_dic:
+                continue
             result, intmd = self.compress_actions(curr_action[1], self._plan[i][1])
+            compressed_subject = self.check_compressed_subject(subj, result, intmd)
+            if not compressed_subject and subj_plans and not subj_plans.is_from_subj(i, subj):
+                continue  # If action is not from current subject, and subject is not in the compression, skip
             if (not subj_plans or subj_plans.is_from_subj(last_i, subj)) and \
                     (last_i in self._goal_achieving_actions or i in self._goal_achieving_actions):
                 result = False  # Force avoid compression in case of goal achieving action
@@ -646,6 +664,17 @@ class PlanCompressions:
         # Check if last action was to be compressed outside the loop
         if len(curr_ids) > 1:  # We have compressed some actions
             self.add_compression(curr_ids, curr_action, curr_intmd)
+
+    @staticmethod
+    def check_compressed_subject(subj, result, intmd):
+        if result:
+            for p in result:
+                if type(p) is list and subj.lower() in p:
+                    return True
+            for i in intmd:
+                if i == subj:
+                    return True
+        return False
 
     @staticmethod
     # Computes the duration after compressing action a and b
