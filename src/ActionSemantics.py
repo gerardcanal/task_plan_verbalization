@@ -62,8 +62,11 @@ class DomainSemantics:
         return self._predicates[predicate_name]
 
     def load_obj_data(self, obj_file):
-        with open(obj_file, 'r') as f:
-            self._object_data = yaml.load(f, yaml.FullLoader)
+        try:
+            with open(obj_file, 'r') as f:
+                self._object_data = yaml.load(f, yaml.FullLoader)
+        except FileNotFoundError:
+            pass
 
     def get_object_data(self, obj):
         if obj in self._object_data:
