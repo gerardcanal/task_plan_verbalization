@@ -138,6 +138,6 @@ class DomainParser:
                 synonyms = re.split(RegularExpressions.SYNONYMS, d)  # Check if there are multiple versions
                 predicate.add_semantics(t, synonyms, n_subs > 0)
             domain_semantics.add_predicate(predicate)
-
         f.close()
+
         return domain_semantics

@@ -172,6 +172,12 @@ class ROSPlanNarratorNode:
         dp = DomainParser(domain_path)
         self._domain_semantics = dp.parse()
 
+        # Load problem data
+        problem_file = os.path.splitext(rospy.get_param('~problem_path', ''))
+        if problem_file[0]:
+            object_file = problem_file[0] + '_objects.yaml'
+            self._domain_semantics.load_obj_data(object_file)
+
     def get_goals(self):
         goals = []
         try:

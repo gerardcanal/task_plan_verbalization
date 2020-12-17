@@ -28,6 +28,7 @@
 
 # Author: Gerard Canal <gerard.canal@kcl.ac.uk>, King's College London
 import random
+import yaml
 
 ACCEPTED_TYPES = [
     'verb',
@@ -43,6 +44,7 @@ class DomainSemantics:
         self._actions = {}
         self._predicates = {}
         self._name = name
+        self._object_data = {}
 
     def add_action(self, a):
         self._actions[a.get_action_name()] = a
@@ -58,6 +60,15 @@ class DomainSemantics:
 
     def get_predicate(self, predicate_name):
         return self._predicates[predicate_name]
+
+    def load_obj_data(self, obj_file):
+        with open(obj_file, 'r') as f:
+            self._object_data = yaml.load(f, yaml.FullLoader)
+
+    def get_object_data(self, obj):
+        if obj in self._object_data:
+            return self._object_data[obj]
+        return None
 
     def __str__(self):
         s = 'Domain ' + self._name + "\n"

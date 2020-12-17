@@ -60,9 +60,10 @@ class PlanNarrator:
         self._subj_plans = SubjectPlans()
 
     # Assumes IPC format. If ignore_importance is True, all prepositional clauses will be set. Used for deferred justifications
-    def make_action_sentence_IPC(self, ground_action, ground_params, action_semantics, compressions=[], duration=0,
+    def make_action_sentence_IPC(self, ground_action, ground_params, domain_semantics, compressions=[], duration=0,
                                  tense='future', ignore_importance=False):
         # Find person of the verb
+        action_semantics = domain_semantics[ground_action]
         if not action_semantics.has_semantics('subject'):
             raise KeyError("Action " + action_semantics.get_action_name() + " has no subject defined")
         subject = action_semantics.get_rnd_semantics('subject')
@@ -110,11 +111,13 @@ class PlanNarrator:
 
         # Substitute parameters
         for i, p in enumerate(action_params):
+            ground_params[i] = self.replace_object_data(ground_params[i], domain_semantics)
             if type(ground_params[i]) is list:
                 ground_params[i] = [s.title() if s.title() in self._subjects else s for s in ground_params[i]]
                 ground_params[i] = self.make_list_str(ground_params[i])
             elif p[0] == subject or ground_params[i].title() in self._subjects:
                 ground_params[i] = ground_params[i].title()
+
             sentence = re.sub('([ \t]?)\\' + p[0] + r'([ \t.:-\?]|$)', '\\1' + ground_params[i] + '\\2', sentence)
             subject = re.sub('([ \t]?)\\' + p[0] + r'([ \t.:-\?]|$)', '\\1' + ground_params[i] + '\\2', subject)
 
@@ -130,7 +133,7 @@ class PlanNarrator:
         if duration > 1:
             duration_s += 's'
         if compressions and self._verbalization_space_params.abstraction < Abstraction.LEV4:
-            sentence += " (via " + self.make_list_str(compressions)
+            sentence += " (via " + self.make_list_str(self.replace_object_data(compressions, domain_semantics))
             if duration:
                 sentence += ', ' + duration_s.format('{0:.2f}'.format(duration).rstrip('0').rstrip('.'))
             sentence += ')'
@@ -162,7 +165,7 @@ class PlanNarrator:
         # Later future justifications in the script
         if ac_script.justifies:
             justifies = [(i, compressions.id_to_action_str(i)) for i in sorted(ac_script.justifies)]
-            justifies_verb = [self.make_action_sentence_IPC(ja[1][0], ja[1][1:], domain_semantics[ja[1][0]],
+            justifies_verb = [self.make_action_sentence_IPC(ja[1][0], ja[1][1:], domain_semantics,
                                                             compressions.get_compressed_params(i), ja[2], 'infinitive',
                                                             True)  # Ignore importance flag for later actions.
                               for i, ja in sorted(justifies, key=lambda x: float(x[1][0]))]
@@ -207,7 +210,7 @@ class PlanNarrator:
                 jtense = tense
                 tense = 'infinitive' if template_choice != 0 else tense  # Template 0 must be conjugated as main action goes first
             justifications = [(i, compressions.id_to_action_str(i)) for i in ac_script.justifications]
-            justifications_verb = [self.make_action_sentence_IPC(ja[1][0], ja[1][1:], domain_semantics[ja[1][0]],
+            justifications_verb = [self.make_action_sentence_IPC(ja[1][0], ja[1][1:], domain_semantics,
                                                                  compressions.get_compressed_params(i), ja[2], jtense)
                                    for i, ja in sorted(justifications, key=lambda x: float(x[1][0]))]
 
@@ -234,7 +237,7 @@ class PlanNarrator:
         ## Main action in the script
         main_action = compressions.id_to_action_str(ac_script.action)
         main_action_verb = self.make_action_sentence_IPC(main_action[1][0], main_action[1][1:],
-                                                         domain_semantics[main_action[1][0]],
+                                                         domain_semantics,
                                                          compressions.get_compressed_params(ac_script.action),
                                                          main_action[2], tense)
         if ac_script.goal:
@@ -308,6 +311,7 @@ class PlanNarrator:
         # Substitute parameters
         predicate_params = predicate_semantics.get_params()
         for i, p in enumerate(predicate_params):
+            predicate_ground_params[i] = self.replace_object_data(predicate_ground_params[i], domain_semantics)
             if type(predicate_ground_params[i]) is list:
                 predicate_ground_params[i] = [s.title() if s.title() in self._subjects else s for s in predicate_ground_params[i]]
                 predicate_ground_params[i] = self.make_list_str(predicate_ground_params[i])
@@ -317,6 +321,19 @@ class PlanNarrator:
                               sentence)
         sentence = sentence.replace('_', ' ')
         return sentence
+
+    def replace_object_data(self, ground_param, domain_semantics):
+        if self._verbalization_space_params.abstraction == Abstraction.LEV1:
+            if type(ground_param) is list:
+                for j, gp in enumerate(ground_param):
+                    od = domain_semantics.get_object_data(ground_param[j])
+                    if od:
+                        ground_param[j] = od
+            else:
+                od = domain_semantics.get_object_data(ground_param)
+                if od:
+                    ground_param = od
+        return ground_param
 
     @staticmethod
     def make_list_str(l):
