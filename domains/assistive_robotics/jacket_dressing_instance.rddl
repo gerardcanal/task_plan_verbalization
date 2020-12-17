@@ -1,0 +1,28 @@
+non-fluents nf_jacket {
+    domain = jacket_dressing;
+    objects {
+        arm: { right, left };
+    };
+
+    non-fluents {
+        GOAL_REWARD = 50;
+        RIGHT_ARM(right) = true;
+        LEFT_ARM(left) = true;
+    };
+}
+
+instance jacket_dressing__instance {
+    domain = jacket_dressing;
+    non-fluents = nf_jacket;
+    
+    init-state {   
+        hand_visible(left) = true;
+        hand_visible(right) = true;
+        hand_reachable(left) = true;
+        hand_reachable(right) = true;
+    };
+
+    max-nondef-actions = 1;
+    horizon  = 13;
+    discount = 1.0;
+}

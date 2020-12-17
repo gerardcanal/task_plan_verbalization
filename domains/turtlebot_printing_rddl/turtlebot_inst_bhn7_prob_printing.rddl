@@ -1,0 +1,55 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// A domain for turtlebot exploration, demo for ROSPlan.
+//
+// Author: Gerard Canal (gcanal@iri.upc.edu)
+// 
+// Based on the demo domain for the turtlebot. 
+// Thanks to Florian Geißer, Thomas Keller and Scott Sanner for the help.
+//
+///////////////////////////////////////////////////////////////////////////////
+
+non-fluents nf_turtlebot_prob_bhn7 {
+	domain = turtlebot_domain_prob_printing;
+	objects {
+		waypoint: {entrance, dock_station, meeting_room, manager_office, phdarea, fridge, coffee, printer_ent, printer_corridor, printer_phdarea}; 
+        robot: {kenny};
+	};
+	
+	non-fluents {
+		DOCK_AT(dock_station);
+		PRINTER_AT(printer_ent);
+		PRINTER_AT(printer_corridor);
+		PRINTER_AT(printer_phdarea);
+		
+		//BUSY_RATE(printer_ent) = 0.95;
+		//BUSY_RATE(printer_phdarea) = 0.05;
+		//BUSY_RATE(printer_corridor) = 0.5;
+		OCCUPATION_RATE(printer_ent) = 0.00;
+		OCCUPATION_RATE(printer_phdarea) = 0.5;
+		OCCUPATION_RATE(printer_corridor) = 0.94;
+
+		//DELIVERY_DESTINATION(manager_office);
+		DELIVERY_DESTINATION(phdarea);
+		//DELIVERY_DESTINATION(coffee);
+	};
+}
+
+instance turtlebot_bhn7_printing__prob {
+	domain = turtlebot_domain_prob_printing;
+	non-fluents = nf_turtlebot_prob_bhn7;
+	init-state {
+		//robot_at(kenny, dock_station);
+		robot_at(kenny, manager_office);
+		//robot_at(kenny, phdarea);
+		//robot_at(kenny, printer_phdarea);
+		//docked(kenny);
+		undocked(kenny);
+		localised(kenny);
+		//somebody_at(printer_phdarea);
+	};
+
+	max-nondef-actions = 1;
+	horizon  = 15;
+	discount = 1.0;
+}

@@ -1,0 +1,243 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// A domain for shoe fitting
+//
+// Author: Gerard Canal (gcanal@iri.upc.edu)
+// 
+///////////////////////////////////////////////////////////////////////////////
+
+domain shoe_fitting {
+    
+    types {
+        foot: object;
+        shoe: object;
+    };
+
+    pvariables {
+        //////////////////////////////////////////////////////////////////////////////////////////
+        // Non-fluents
+        CORRECT_SHOE(shoe, foot): { non-fluent, bool, default=false };
+        GOAL_REWARD: { non-fluent, real, default=50 };
+        RIGHT_FOOT(foot): { non-fluent, bool, default=false };
+        LEFT_FOOT(foot): { non-fluent, bool, default=false };
+
+        //////////////////////////////////////////////////////////////////////////////////////////
+        // State fluents
+	// verb = have (grasped)
+	// subject = I
+	// direct-object = the \1
+        shoe_grasped(shoe): { state-fluent, bool, default=false };
+
+	// verb = have (fitted)
+	// subject = I
+	// direct-object = the \1
+	// prep = in the \2 foot
+        shoe_fitted(shoe, foot): { state-fluent, bool, default=false };
+	
+	// verb = be (close)
+	// subject = I
+	// prep = to the \1 !
+        close_to_foot(foot): { state-fluent, bool, default=false };
+
+	// verb = be (reachable)
+	// subject = I
+	// direct-object = the \1
+        foot_reachable(foot): { state-fluent, bool, default=false }; // Either ask or inform -> Means foot is lifted
+
+	// verb = be (visible)
+	// subject = I
+	// direct-object = the \1
+        foot_visible(foot): { state-fluent, bool, default=false }; // Either ask or inform
+
+	// verb = have
+	// subject = I
+	// direct-object = interacted
+        interacted: { state-fluent, bool, default=false }; // Either ask or inform
+
+        //////////////////////////////////////////////////////////////////////////////////////////
+        // Action fluents
+
+        //Grasp
+	// verb = grasp
+	// subject = I
+	// direct-object = the \1
+        graspShoe(shoe): { action-fluent, bool, default=false }; // MP
+
+        //Approach
+	// verb = approach
+	// subject = I
+	// prep = to the \1 !
+        approachTop(foot): { action-fluent, bool, default=false }; // MP
+	// verb = approach
+	// subject = I
+	// prep = to the \1 !
+        approachLeft(foot): { action-fluent, bool, default=false }; // MP
+	// verb = approach
+	// subject = I
+	// prep = to the \1 !
+        approachRight(foot): { action-fluent, bool, default=false }; // MP
+	// verb = approach
+	// subject = I
+	// prep = to the \1 !
+        approachCenter(foot): { action-fluent, bool, default=false }; // MP
+	// verb = approach
+	// subject = I
+	// prep = to the \1 !
+        approachBottom(foot): { action-fluent, bool, default=false }; // MP
+
+        //Insert
+	// verb = insert
+	// subject = I
+	// direct-object = the \1
+	// prep = in the \2
+        insertStraight(shoe, foot): { action-fluent, bool, default=false }; // Just inserting wihtout moving the foot  // MP
+	// verb = insert
+	// subject = I
+	// direct-object = the \1
+	// prep = in the \2
+        insertCurved(shoe, foot): { action-fluent, bool, default=false }; // Moving the foot to do a better insert // MP
+	// verb = insert
+	// subject = I
+	// direct-object = the \1
+	// prep = in the \2
+        insertRight(shoe, foot): { action-fluent, bool, default=false }; // Foot not straight // MP
+	// verb = insert
+	// subject = I
+	// direct-object = the \1
+	// prep = in the \2
+        insertLeft(shoe, foot): { action-fluent, bool, default=false }; // Foot not straight // MP
+
+        //Release
+	// verb = release
+	// subject = I
+	// direct-object = the \1
+	// prep = from the \2
+        releaseSimple(shoe, foot): { action-fluent, bool, default=false }; // open gripper and leave // MP
+	// verb = release
+	// subject = I
+	// direct-object = the \1
+	// prep = from the \2
+        releasePush(shoe, foot): { action-fluent, bool, default=false }; // Push before releasing to do a better fit // MP
+
+        //Interaction
+	// verb = inform
+	// subject = I
+	// direct-object = the user
+        inform: { action-fluent, bool, default=false };  // IP
+	// verb = request
+	// subject = I
+	// direct-object = the \1
+	// prep = to be reachable !
+        requestReachable(foot): { action-fluent, bool, default=false };  // IP
+	// verb = request
+	// subject = I
+	// direct-object = the \1
+	// prep = to be visible !
+        requestVisible(foot): { action-fluent, bool, default=false };  // IP
+
+        // Goal simulation
+	// verb = complete
+	// subject = I
+	// direct-object = the task
+        goal: { action-fluent, bool, default=false };
+        goal_reached: { state-fluent, bool, default=false };
+
+
+        // Fluents to force that actions are different and selectable
+        sf_graspShoe(shoe): { state-fluent, bool, default=false }; // State-fluent to force different action effect for each action and avoid prunning
+        sf_approachTop(foot): { state-fluent, bool, default=false }; // State-fluent to force different action effect for each action and avoid prunning
+        sf_approachLeft(foot): { state-fluent, bool, default=false }; // State-fluent to force different action effect for each action and avoid prunning
+        sf_approachRight(foot): { state-fluent, bool, default=false };// State-fluent to force different action effect for each action and avoid prunning
+        sf_approachCenter(foot): { state-fluent, bool, default=false };// State-fluent to force different action effect for each action and avoid prunning
+        sf_approachBottom(foot): { state-fluent, bool, default=false }; // State-fluent to force different action effect for each action and avoid prunning
+        sf_insertStraight(shoe, foot): { state-fluent, bool, default=false }; // State-fluent to force different action effect for each action and avoid prunning
+        sf_insertCurved(shoe, foot): { state-fluent, bool, default=false }; // State-fluent to force different action effect for each action and avoid prunning
+        sf_insertRight(shoe, foot): { state-fluent, bool, default=false }; // State-fluent to force different action effect for each action and avoid prunning
+        sf_insertLeft(shoe, foot): { state-fluent, bool, default=false }; // State-fluent to force different action effect for each action and avoid prunning
+        sf_releaseSimple(shoe, foot): { state-fluent, bool, default=false }; // State-fluent to force different action effect for each action and avoid prunning
+        sf_releasePush(shoe, foot): { state-fluent, bool, default=false }; // State-fluent to force different action effect for each action and avoid prunning
+    };
+    cpfs {
+        shoe_grasped'(?s) = if (graspShoe(?s)) then true 
+                            else if (exists_{?f:foot} [releaseSimple(?s, ?f) | releasePush(?s, ?f)]) then false 
+                            else shoe_grasped(?s);
+        
+        shoe_fitted'(?s, ?f) = if (insertStraight(?s, ?f) | insertCurved(?s, ?f) | insertLeft(?s, ?f) | insertRight(?s, ?f)) then true
+                               else shoe_fitted(?s, ?f);
+        
+        close_to_foot'(?f) = if (approachTop(?f) | approachLeft(?f) | approachRight(?f) | approachCenter(?f) | approachBottom(?f)) then true
+                             else if (exists_{?s:shoe} [releaseSimple(?s, ?f) | releasePush(?s, ?f)]) then false
+                             else close_to_foot(?f);
+
+        foot_reachable'(?f) = if (requestReachable(?f)) then true
+                              //else if (exists_{?s: shoe} [graspShoe(?s)]) then false
+                              else foot_reachable(?f);
+        
+        foot_visible'(?f) = if (requestVisible(?f)) then true else foot_visible(?f);
+
+        interacted' = if (inform | exists_{?fr: foot} [requestReachable(?fr)] | exists_{?fv: foot} [requestVisible(?fv)]) then true
+                      else if (exists_{?f: foot} [approachTop(?f) | approachLeft(?f) | approachRight(?f) | approachCenter(?f) | approachBottom(?f)]) then false
+                      else if (exists_{?s: shoe} [graspShoe(?s)]) then false
+                      else if (exists_{?s: shoe, ?f: foot} [insertStraight(?s, ?f) | insertCurved(?s, ?f) | insertRight(?s, ?f) | insertLeft(?s, ?f) | releaseSimple(?s, ?f) | releasePush(?s, ?f)]) then false
+                      else interacted;
+
+        goal_reached' = if (goal) then true else goal_reached;
+
+        // Workaround fluents
+        sf_graspShoe'(?s) = graspShoe(?s);
+        sf_approachTop'(?f) = approachTop(?f);
+        sf_approachLeft'(?f) = approachLeft(?f);
+        sf_approachRight'(?f) = approachRight(?f);
+        sf_approachCenter'(?f) = approachCenter(?f);
+        sf_approachBottom'(?f) = approachBottom(?f);
+        sf_insertStraight'(?s, ?f) = insertStraight(?s, ?f);
+        sf_insertCurved'(?s, ?f) = insertCurved(?s, ?f);
+        sf_insertRight'(?s, ?f) = insertRight(?s, ?f);
+        sf_insertLeft'(?s, ?f) = insertLeft(?s, ?f);
+        sf_releaseSimple'(?s, ?f) = releaseSimple(?s, ?f);
+        sf_releasePush'(?s, ?f) = releasePush(?s, ?f);
+    };
+
+
+    action-preconditions {
+        // Can't have any shoe to grasp one
+        forall_{?s: shoe} [graspShoe(?s) => (~goal_reached ^ forall_{?s1: shoe} [~shoe_grasped(?s1) ^ ~exists_{?f:foot} [shoe_fitted(?s, ?f)]])];
+
+        // I need to be able to reach the foot to approach
+        forall_{?f: foot} [approachTop(?f) => (~goal_reached ^ foot_reachable(?f) ^ ~close_to_foot(?f) ^ exists_{?s: shoe} [shoe_grasped(?s) ^  CORRECT_SHOE(?s, ?f)])];
+        forall_{?f: foot} [approachLeft(?f) => (~goal_reached ^ foot_reachable(?f) ^ ~close_to_foot(?f) ^ exists_{?s: shoe} [shoe_grasped(?s) ^  CORRECT_SHOE(?s, ?f)])];
+        forall_{?f: foot} [approachRight(?f) => (~goal_reached ^ foot_reachable(?f) ^ ~close_to_foot(?f) ^ exists_{?s: shoe} [shoe_grasped(?s) ^  CORRECT_SHOE(?s, ?f)])];
+        forall_{?f: foot} [approachCenter(?f) => (~goal_reached ^ foot_reachable(?f) ^ ~close_to_foot(?f) ^ exists_{?s: shoe} [shoe_grasped(?s) ^  CORRECT_SHOE(?s, ?f)])];
+        forall_{?f: foot} [approachBottom(?f) => (~goal_reached ^ foot_reachable(?f) ^ ~close_to_foot(?f) ^ exists_{?s: shoe} [shoe_grasped(?s) ^  CORRECT_SHOE(?s, ?f)])];
+
+        //Insert Shoe
+        forall_{?f: foot, ?s: shoe} [insertStraight(?s, ?f) => (~goal_reached ^ close_to_foot(?f) ^ foot_reachable(?f) ^ ~shoe_fitted(?s, ?f) ^ shoe_grasped(?s) ^ CORRECT_SHOE(?s, ?f))];
+        forall_{?f: foot, ?s: shoe} [insertCurved(?s, ?f) => (~goal_reached ^ close_to_foot(?f) ^ foot_reachable(?f) ^ ~shoe_fitted(?s, ?f) ^ shoe_grasped(?s) ^ CORRECT_SHOE(?s, ?f))];
+        forall_{?f: foot, ?s: shoe} [insertRight(?s, ?f) => (~goal_reached ^ close_to_foot(?f) ^ foot_reachable(?f) ^ ~shoe_fitted(?s, ?f) ^ shoe_grasped(?s) ^ CORRECT_SHOE(?s, ?f))];
+        forall_{?f: foot, ?s: shoe} [insertLeft(?s, ?f) => (~goal_reached ^ close_to_foot(?f) ^ foot_reachable(?f) ^ ~shoe_fitted(?s, ?f) ^ shoe_grasped(?s) ^ CORRECT_SHOE(?s, ?f))];
+
+        //Release
+        forall_{?s: shoe, ?f: foot} [releaseSimple(?s, ?f) => (~goal_reached ^ shoe_grasped(?s) ^ shoe_fitted(?s, ?f) ^ foot_reachable(?f))];
+        forall_{?s: shoe, ?f: foot} [releasePush(?s, ?f) => (~goal_reached ^ shoe_grasped(?s) ^ shoe_fitted(?s, ?f) ^ foot_reachable(?f))];
+        
+        //Interaction
+        inform => (~goal_reached ^ ~interacted);
+        forall_{?f: foot} [requestReachable(?f) => (~goal_reached ^ ~interacted ^ ~foot_reachable(?f) ^ foot_visible(?f))];
+        forall_{?f: foot} [requestVisible(?f) => (~goal_reached ^ ~interacted ^ ~foot_visible(?f))];
+
+        // Goal
+        goal => (~goal_reached ^ forall_{?f: foot} [exists_{?s: shoe} [shoe_fitted(?s, ?f) ^ ~shoe_grasped(?s)]]);
+    };
+
+    state-invariants {
+        // Foot reachable means foot is visible
+        forall_{?f: foot} [foot_reachable(?f) => foot_visible(?f)] ^ ((sum_{?f1: foot} [foot_reachable(?f1)]) <= 1);
+
+        // Can't have more than one foot lifted at the same time
+    };
+
+    reward = if (~goal_reached ^ goal) then GOAL_REWARD
+             else if (goal_reached) then 0
+             else if (~exists_{?f: foot, ?s: shoe} [approachTop(?f) | approachLeft(?f) | approachRight(?f) | approachCenter(?f) | approachBottom(?f) | graspShoe(?s) | insertStraight(?s, ?f) | insertCurved(?s, ?f) | insertRight(?s, ?f) | insertLeft(?s, ?f) | releaseSimple(?s, ?f) | releasePush(?s, ?f) | inform | requestReachable(?f) | requestVisible(?f)]) then -50
+             else -1;
+}

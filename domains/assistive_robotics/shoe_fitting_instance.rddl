@@ -1,0 +1,25 @@
+non-fluents shoe_nf {
+    domain = shoe_fitting;
+    objects {
+        shoe: {left_shoe, right_shoe};
+        foot: {left_foot, right_foot};
+    };
+
+    non-fluents {
+        CORRECT_SHOE(left_shoe, left_foot);
+        CORRECT_SHOE(right_shoe, right_foot);
+        RIGHT_FOOT(right_foot) = true;
+        LEFT_FOOT(left_foot) = true;
+    };
+}
+
+instance shoe_fitting__instance {
+    domain = shoe_fitting;
+    non-fluents = shoe_nf;
+    
+    //init-state {};
+
+    max-nondef-actions = 1;
+    horizon  = 15;
+    discount = 1.0;
+}

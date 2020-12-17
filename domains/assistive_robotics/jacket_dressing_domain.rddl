@@ -1,0 +1,264 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// A domain for jacket dressing
+//
+// Author: Gerard Canal (gcanal@iri.upc.edu)
+// 
+///////////////////////////////////////////////////////////////////////////////
+
+domain jacket_dressing {
+    
+    types {
+        arm: object;
+    };
+
+    pvariables {
+        //////////////////////////////////////////////////////////////////////////////////////////
+        // Non-fluents
+        GOAL_REWARD: { non-fluent, real, default=50 };
+        RIGHT_ARM(arm): { non-fluent, bool, default=false };
+        LEFT_ARM(arm): { non-fluent, bool, default=false };
+
+        //////////////////////////////////////////////////////////////////////////////////////////
+        // State fluents
+	// verb = have
+	// subject = I
+	// direct-object = the garment grasped
+        garment_grasped: { state-fluent, bool, default=true }; // Assume start with grasped 
+
+	// verb = have
+	// subject = I
+	// direct-object = fitted the forearm
+        fitted_forearm(arm): { state-fluent, bool, default=false };
+
+	// verb = have
+	// subject = I
+	// direct-object = fitted the upper \1 arm
+        fitted_upperarm(arm): { state-fluent, bool, default=false };
+
+	// verb = have
+	// subject = I
+	// direct-object = inserted the \1 hand
+        inserted_hand(arm): { state-fluent, bool, default=false };
+
+	// verb = be
+	// subject = I
+	// direct-object = close to the \1 hand
+        close_to_hand(arm): { state-fluent, bool, default=false };
+
+	// verb = see
+	// subject = I
+	// direct-object = the \1 hand
+        hand_visible(arm): { state-fluent, bool, default=false };
+
+	// verb = reach
+	// subject = I
+	// direct-object = the \1 hand
+        hand_reachable(arm): { state-fluent, bool, default=false };        
+
+	// verb = have
+	// subject = I
+	// direct-object = interacted
+        interacted: { state-fluent, bool, default=false }; // Either ask or inform
+
+        forward_arm(arm): { state-fluent, bool, default=false };  // Determines whether we started a forward approahc or not
+        approached(arm): { state-fluent, bool, default=false };  // Whether we just approched. To avoid approaching two arms independently
+
+        //////////////////////////////////////////////////////////////////////////////////////////
+        // Action fluents
+        // Approach jacket to person's hand
+	// verb = approach
+	// subject = I
+	// direct-object = the \1 hand
+        approachArmFrontal(arm): { action-fluent, bool, default=false }; // MP
+	// verb = approach
+	// subject = I
+	// direct-object = the \1 hand
+        approachArmRear(arm): { action-fluent, bool, default=false }; // MP
+	// verb = approach
+	// subject = I
+	// direct-object = the \1 hand
+        approachArmSide(arm): { action-fluent, bool, default=false }; // MP
+	// verb = approach
+	// subject = I
+	// direct-object = both hands
+        approachBothArms: { action-fluent, bool, default=false }; // MP
+        
+        // Insert a sleeve through the hand
+	// verb = insert
+	// subject = I
+	// direct-object = the \1 sleeve
+        insertSleeveStraight(arm): { action-fluent, bool, default=false }; // MP
+	// verb = insert
+	// subject = I
+	// direct-object = the \1 sleeve
+        insertSleeveFoldedFwd(arm): { action-fluent, bool, default=false }; // MP
+	// verb = insert
+	// subject = I
+	// direct-object = both sleeves
+        insertBothSleeves: { action-fluent, bool, default=false }; // MP
+        
+        // Drag forearm
+	// verb = drag
+	// subject = I
+	// direct-object = the \1 forearm
+        dragForearmStraight(arm): { action-fluent, bool, default=false }; // MP
+	// verb = drag
+	// subject = I
+	// direct-object = the \1 forearm
+        dragForearmFoldedFwd(arm): { action-fluent, bool, default=false }; // MP
+	// verb = drag
+	// subject = I
+	// direct-object = both forearms
+        dragBothForearms: { action-fluent, bool, default=false }; // MP
+        
+        // Drag upper arm
+	// verb = drag
+	// subject = I
+	// direct-object = the \1 upperarm
+        dragUpperarm(arm): { action-fluent, bool, default=false }; // MP
+	// verb = drag
+	// subject = I
+	// direct-object = both upperarms
+        dragBothUpperarms: { action-fluent, bool, default=false }; // MP
+        
+        // Drag over shoulder and release
+	// verb = finish
+	// subject = I
+	// direct-object = the dressing
+        finish: { action-fluent, bool, default=false };
+
+        // Interaction
+	// verb = inform
+	// subject = I
+	// direct-object = the user
+        inform: { action-fluent, bool, default=false };  // IP
+	// verb = request
+	// subject = I
+	// direct-object = the \1 arm
+	// prep = to be reachable !
+        requestReachable(arm): { action-fluent, bool, default=false };  // IP
+	// verb = request
+	// subject = I
+	// direct-object = the \1 arm
+	// prep = to be visible !
+        requestVisible(arm): { action-fluent, bool, default=false };  // IP
+
+        // Goal simulation
+	// verb = complete
+	// subject = I
+	// direct-object = the task
+        goal: { action-fluent, bool, default=false };
+        goal_reached: { state-fluent, bool, default=false };
+
+        // Fluents to force that actions are different and selectable
+        sf_approachArmFrontal(arm): { state-fluent, bool, default=false }; // State-fluent to force different action effect for each action and avoid prunning
+        sf_approachArmRear(arm): { state-fluent, bool, default=false }; // State-fluent to force different action effect for each action and avoid prunning
+        sf_approachArmSide(arm): { state-fluent, bool, default=false }; // State-fluent to force different action effect for each action and avoid prunning
+        sf_approachBothArms: { state-fluent, bool, default=false }; // State-fluent to force different action effect for each action and avoid prunning
+        sf_insertSleeveStraight(arm): { state-fluent, bool, default=false }; // State-fluent to force different action effect for each action and avoid prunning
+        sf_insertSleeveFoldedFwd(arm): { state-fluent, bool, default=false }; // State-fluent to force different action effect for each action and avoid prunning
+        sf_insertBothSleeves: { state-fluent, bool, default=false }; // State-fluent to force different action effect for each action and avoid prunning
+        sf_dragForearmStraight(arm): { state-fluent, bool, default=false }; // State-fluent to force different action effect for each action and avoid prunning
+        sf_dragForearmFoldedFwd(arm): { state-fluent, bool, default=false }; // State-fluent to force different action effect for each action and avoid prunning
+        sf_dragBothForearms: { state-fluent, bool, default=false }; // State-fluent to force different action effect for each action and avoid prunning
+        sf_dragUpperarm(arm): { state-fluent, bool, default=false }; // State-fluent to force different action effect for each action and avoid prunning
+        sf_dragBothUpperarms: { state-fluent, bool, default=false }; // State-fluent to force different action effect for each action and avoid prunning
+    };
+
+    cpfs {
+        garment_grasped' = if (finish) then false else garment_grasped;
+        
+        close_to_hand'(?a) = if (approachArmFrontal(?a) | approachArmRear(?a) | approachArmSide(?a) | approachBothArms) then true 
+                             else if (exists_{?a1: arm} [(?a ~= ?a1) ^ (approachArmFrontal(?a1) | approachArmRear(?a1) | approachArmSide(?a1))]) then false
+                             else close_to_hand(?a);
+
+        inserted_hand'(?a) = if (insertSleeveStraight(?a) | insertSleeveFoldedFwd(?a) | insertBothSleeves) then true
+                             else inserted_hand(?a);
+
+        fitted_forearm'(?a) = if (dragForearmStraight(?a) | dragForearmFoldedFwd(?a) | dragBothForearms) then true
+                              else fitted_forearm(?a);
+
+        fitted_upperarm'(?a) = if (dragUpperarm(?a) | dragBothUpperarms) then true
+                               else fitted_upperarm(?a);
+
+        hand_visible'(?a) = if (requestVisible(?a)) then true 
+                            else hand_visible(?a);
+
+        hand_reachable'(?a) = if (requestReachable(?a)) then true 
+                              else hand_reachable(?a);
+
+        interacted' = if (inform | exists_{?a: arm} [requestReachable(?a) | requestVisible(?a)]) then true
+                      else if (exists_{?a: arm} [approachArmFrontal(?a) | approachArmRear(?a) | approachArmSide(?a) | insertSleeveStraight(?a) | insertSleeveFoldedFwd(?a) | dragForearmStraight(?a) | dragForearmFoldedFwd(?a) | dragUpperarm(?a) | approachBothArms | insertBothSleeves | dragBothForearms | dragBothUpperarms | finish]) then false
+                      else interacted;
+
+        goal_reached' = if (goal) then true
+                        else goal_reached;
+
+        forward_arm'(?a) = if (approachArmFrontal(?a)) then true
+                           else if (approachArmRear(?a) | approachArmSide(?a) | approachBothArms) then false
+                           else forward_arm(?a);
+
+        approached'(?a) = if (approachArmFrontal(?a) | approachArmRear(?a) | approachArmSide(?a) | approachBothArms) then true 
+                          else if (insertSleeveStraight(?a) | insertSleeveFoldedFwd(?a) | insertBothSleeves) then false
+                          else approached(?a);
+
+
+        // Workaround fluents
+        sf_approachArmFrontal'(?a) = approachArmFrontal(?a);
+        sf_approachArmRear'(?a) = approachArmRear(?a);
+        sf_approachArmSide'(?a) = approachArmSide(?a);
+        sf_approachBothArms' = approachBothArms;
+        sf_insertSleeveStraight'(?a) = insertSleeveStraight(?a);
+        sf_insertSleeveFoldedFwd'(?a) = insertSleeveFoldedFwd(?a);
+        sf_insertBothSleeves' = insertBothSleeves;
+        sf_dragForearmStraight'(?a) = dragForearmStraight(?a);
+        sf_dragForearmFoldedFwd'(?a) = dragForearmFoldedFwd(?a);
+        sf_dragBothForearms' = dragBothForearms;
+        sf_dragUpperarm'(?a) = dragUpperarm(?a);
+        sf_dragBothUpperarms' = dragBothUpperarms;
+    };
+
+    action-preconditions {
+        forall_{?a: arm} [approachArmFrontal(?a) => (garment_grasped ^ hand_reachable(?a) ^ hand_visible(?a) ^ ~close_to_hand(?a) ^ ~exists_{?a1: arm} [inserted_hand(?a1) | approached(?a1)])];
+        forall_{?a: arm} [approachArmRear(?a) => (garment_grasped ^ hand_reachable(?a) ^ hand_visible(?a) ^ ~close_to_hand(?a) ^ ~exists_{?a1: arm} [approached(?a1)])];
+        forall_{?a: arm} [approachArmSide(?a) => (garment_grasped ^ hand_reachable(?a) ^ hand_visible(?a) ^ ~close_to_hand(?a) ^ ~exists_{?a1: arm} [approached(?a1) | fitted_forearm(?a1)])];
+        approachBothArms => (garment_grasped ^ forall_{?a: arm} [hand_reachable(?a) ^ hand_visible(?a) ^ ~close_to_hand(?a) ^ ~approached(?a)]);
+        
+
+        forall_{?a: arm} [insertSleeveStraight(?a) => (garment_grasped ^ close_to_hand(?a) ^ hand_reachable(?a) ^ hand_visible(?a) ^ ~inserted_hand(?a))];
+        forall_{?a: arm} [insertSleeveFoldedFwd(?a) => (forward_arm(?a) ^ garment_grasped ^ close_to_hand(?a) ^ hand_reachable(?a) ^ hand_visible(?a) ^ ~inserted_hand(?a) ^ ~exists_{?a1: arm} [inserted_hand(?a1)])];
+        insertBothSleeves => (garment_grasped ^ forall_{?a: arm} [close_to_hand(?a) ^ hand_reachable(?a) ^ hand_visible(?a) ^ ~inserted_hand(?a)]);
+        
+
+        forall_{?a: arm} [dragForearmStraight(?a) => (inserted_hand(?a) ^ garment_grasped ^ ~fitted_forearm(?a))];
+        forall_{?a: arm} [dragForearmFoldedFwd(?a) => (forward_arm(?a) ^ inserted_hand(?a) ^ garment_grasped ^ ~fitted_forearm(?a) ^ ~exists_{?a1: arm} [(?a1 ~= ?a) ^ inserted_hand(?a1)])];
+        dragBothForearms => (forall_{?a: arm} [inserted_hand(?a) ^ ~fitted_forearm(?a)] ^ garment_grasped);
+        
+        forall_{?a: arm} [dragUpperarm(?a) => (fitted_forearm(?a) ^ garment_grasped ^ ~fitted_upperarm(?a))];
+        dragBothUpperarms => (forall_{?a: arm} [fitted_forearm(?a) ^ ~fitted_upperarm(?a)] ^ garment_grasped);
+        
+
+        finish => (forall_{?a: arm} [fitted_upperarm(?a)] ^ garment_grasped);
+
+
+        //Interaction
+        inform => (~goal_reached ^ ~interacted);
+        forall_{?a: arm} [requestReachable(?a) => (~goal_reached ^ ~interacted ^ ~hand_reachable(?a) ^ hand_visible(?a))];
+        forall_{?a: arm} [requestVisible(?a) => (~goal_reached ^ ~interacted ^ ~hand_reachable(?a))];
+
+        // Goal
+        goal => (~goal_reached ^ forall_{?a: arm} [fitted_forearm(?a) ^ fitted_upperarm(?a) ^ inserted_hand(?a)] ^ ~garment_grasped ^ ~interacted);
+    };
+
+    state-invariants {
+        forall_{?a: arm} [hand_reachable(?a) => hand_visible(?a)] ^ ((sum_{?a1: arm} [hand_reachable(?a)]) <= 1);
+    };
+
+    reward = if (~goal_reached ^ goal) then GOAL_REWARD
+             //else if (exists_{?a: arm} [dragForearmFoldedFwd(?a)]) then 5
+             else if (goal_reached) then 0
+             //else if (approachBothArms | insertBothSleeves | dragBothForearms | dragBothUpperarms) then -3*GOAL_REWARD
+             else if (~exists_{?a: arm} [approachArmFrontal(?a) | approachArmRear(?a) | approachArmSide(?a) | approachBothArms | insertSleeveStraight(?a) | insertSleeveFoldedFwd(?a) | insertBothSleeves | dragForearmStraight(?a) | dragForearmFoldedFwd(?a) | dragBothForearms | dragUpperarm(?a) | dragBothUpperarms | finish | inform | requestReachable(?a) | requestVisible(?a) | goal]) then -2*GOAL_REWARD
+             else -1;
+}

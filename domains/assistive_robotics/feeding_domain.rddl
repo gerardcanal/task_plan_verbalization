@@ -1,0 +1,219 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// A domain for autonomous user feeding.
+//
+// Author: Gerard Canal (gcanal@iri.upc.edu)
+// 
+///////////////////////////////////////////////////////////////////////////////
+
+domain feeding {
+    types {
+        type: object;
+    };
+
+    pvariables {
+        //////////////////////////////////////////////////////////////////////////////////////////
+        // Non-fluents
+        GOAL_REWARD: { non-fluent, real, default=50 };
+
+        //////////////////////////////////////////////////////////////////////////////////////////
+        // State fluents
+    //N_SPOONFULS: { state-fluent, int, default=0 };
+	// verb = be (grasped)
+	// subject = food
+        food_grasped:  { state-fluent, bool, default=false };
+	// verb = be
+	// direct-object = close to the mouth
+        close_to_mouth:  { state-fluent, bool, default=false };
+	// verb = be (fed)
+	// subject = The user
+        user_fed: { state-fluent, bool, default=false };
+
+	// verb = have
+	// subject = the user
+	// direct-object = their mouth open
+        mouth_open: { state-fluent, bool, default=false };
+
+	// verb = have
+	// subject = I
+	// direct-object = interacted
+        interacted: { state-fluent, bool, default=false }; // Either ask or inform
+
+	// verb = have (completed)
+	// subject = I
+	// direct-object = a spoonful
+        spoonful_completed:  { state-fluent, bool, default=false }; // ready to feed
+        //finished:  { state-fluent, bool, default=false }; // ready to feed
+
+        //////////////////////////////////////////////////////////////////////////////////////////
+        // Action fluents
+	// verb = get
+	// subject = I
+	// direct-object = the food
+        getFood: { action-fluent, bool, default=false }; // MP
+
+	// verb = approach
+	// subject = I
+	// direct-object = the food
+        approachStraight: { action-fluent, bool, default=false }; // MP
+
+	// verb = approach
+	// subject = I
+	// direct-object = the food
+        approachBelow: { action-fluent, bool, default=false }; // MP
+
+	// verb = approach
+	// subject = I
+	// direct-object = the food
+        approachSide: { action-fluent, bool, default=false }; // MP
+        
+        // Feed without curving the spoon
+	// verb = feed
+	// subject = I
+	// direct-object = the user
+        feedStraight: { action-fluent, bool, default=false }; // MP
+
+	// verb = feed
+	// subject = I
+	// direct-object = the user
+        feedScooping: { action-fluent, bool, default=false }; // MP
+        
+        // Waits for the user to grasp the food from the spoon without inserting it
+	// verb = wait
+	// subject = I
+	// prep = for the user to get the food !
+        waitForUserFeeding: { action-fluent, bool, default=false }; // no pref
+
+	// verb = move (away)
+	// subject = I
+        moveAway: { action-fluent, bool, default=false }; // MP
+        
+	// verb = wait
+	// subject = I
+	// direct-object = a bit 
+	// prep = for the next spoonful !
+        shortWaitBetweenFeeds: { action-fluent, bool, default=false }; // no pref
+	// verb = wait
+	// subject = I
+	// direct-object = some time
+	// prep = for the next spoonful !
+        longWaitBetweenFeeds: { action-fluent, bool, default=false }; // no pref
+
+
+        //Interaction
+	// verb = inform
+	// subject = I
+	// direct-object = the user
+        inform: { action-fluent, bool, default=false };  // IP
+	// verb = ask
+	// subject = I
+	// direct-object = the user
+	// prep = to open the mouth !
+        requestMouthOpen: { action-fluent, bool, default=false };  // IP
+        //requestAttention: { action-fluent, bool, default=false };  // IP
+
+        // Goal simulation
+	// verb = complete
+	// subject = I
+	// direct-object = the task
+        goal: { action-fluent, bool, default=false };
+        goal_reached: { state-fluent, bool, default=false };
+
+
+        // Fluents to force that actions are different and selectable
+        sf_getFood: { state-fluent, bool, default=false }; // State-fluent to force different action effect for each action and avoid prunning
+        sf_approachStraight: { state-fluent, bool, default=false }; // State-fluent to force different action effect for each action and avoid prunning
+        sf_approachBelow: { state-fluent, bool, default=false }; // State-fluent to force different action effect for each action and avoid prunning
+        sf_approachSide: { state-fluent, bool, default=false }; // State-fluent to force different action effect for each action and avoid prunning
+        sf_feedStraight: { state-fluent, bool, default=false }; // State-fluent to force different action effect for each action and avoid prunning
+        sf_feedScooping: { state-fluent, bool, default=false }; // State-fluent to force different action effect for each action and avoid prunning
+        //sf_waitForUserFeeding: { state-fluent, bool, default=false }; // State-fluent to force different action effect for each action and avoid prunning
+        sf_moveAway: { state-fluent, bool, default=false }; // State-fluent to force different action effect for each action and avoid prunning
+        npsf_shortWaitBetweenFeeds: { state-fluent, bool, default=false }; // State-fluent to force different action effect for each action and avoid prunning
+        npsf_longWaitBetweenFeeds: { state-fluent, bool, default=false }; // State-fluent to force different action effect for each action and avoid prunning
+    };
+    cpfs {
+        food_grasped' = if (getFood) then true
+                        else if (feedStraight | feedScooping | waitForUserFeeding) then false
+                        else food_grasped;
+
+        close_to_mouth' = if (approachStraight | approachBelow | approachSide) then true
+                          else if (moveAway) then false
+                          else close_to_mouth;
+
+        user_fed' = if (feedStraight | feedScooping | waitForUserFeeding) then true
+                    else if (getFood | shortWaitBetweenFeeds | longWaitBetweenFeeds) then false
+                    else user_fed;
+
+        mouth_open' = if (requestMouthOpen) then true
+                      else if (approachStraight | approachBelow | approachSide) then true // FIXME probabilistic?
+                      else mouth_open;
+        //user_attending' = if (requestAttention) then true
+        //                  else user_attending;
+
+        interacted' = if (inform | requestMouthOpen) then true
+                      else if (approachStraight | approachBelow | approachSide) then false
+                      else if (getFood) then false
+                      else if (feedStraight | feedScooping | moveAway | waitForUserFeeding | shortWaitBetweenFeeds | longWaitBetweenFeeds) then false
+                      else interacted;
+
+        spoonful_completed' = if (shortWaitBetweenFeeds | longWaitBetweenFeeds | moveAway) then true
+                              else spoonful_completed;
+        
+        //finished' = if (spoonful_completed ^ shortWaitBetweenFeeds | longWaitBetweenFeeds) then true
+        //            else if (spoonful_completed ^ moveAway) then true
+        //            else false;
+
+        goal_reached' = if (goal) then true else goal_reached;
+
+
+        // Workaround fluents
+        sf_getFood' = getFood;
+        sf_approachStraight' = approachStraight;
+        sf_approachBelow' = approachBelow;
+        sf_approachSide' = approachSide;
+        sf_feedStraight' = feedStraight;
+        sf_feedScooping' = feedScooping;
+        //sf_waitForUserFeeding' = waitForUserFeeding;
+        sf_moveAway' = moveAway;
+        npsf_shortWaitBetweenFeeds' = shortWaitBetweenFeeds;
+        npsf_longWaitBetweenFeeds' = longWaitBetweenFeeds;
+    };
+
+    action-preconditions {
+        getFood => (~goal_reached ^ ~food_grasped ^ ~close_to_mouth);
+
+        approachStraight => (~goal_reached ^ food_grasped ^ ~close_to_mouth ^ ~user_fed);
+        approachBelow => (~goal_reached ^ food_grasped ^ ~close_to_mouth ^ ~user_fed);
+        approachSide => (~goal_reached ^ food_grasped ^ ~close_to_mouth ^ ~user_fed);
+        
+        feedStraight => (~goal_reached ^ close_to_mouth ^ ~user_fed);
+        feedScooping => (~goal_reached ^ close_to_mouth ^ ~user_fed);
+        waitForUserFeeding => (~goal_reached ^ close_to_mouth ^ ~user_fed);
+        
+        moveAway => (~goal_reached ^ user_fed ^ close_to_mouth);
+        
+        shortWaitBetweenFeeds => (~goal_reached ^ user_fed ^ ~close_to_mouth ^ ~interacted);
+        longWaitBetweenFeeds => (~goal_reached ^ user_fed ^ ~close_to_mouth ^ ~interacted);
+
+
+        inform => (~goal_reached ^ ~interacted);
+        requestMouthOpen => (~goal_reached ^ ~interacted ^ ~mouth_open); 
+        //requestAttention => (~goal_reached ^ ~interacted ^ ~user_attending); 
+
+        // Goal
+        //goal => (~goal_reached ^ finished ^ ~interacted); // Multiple feedings
+        goal => (~goal_reached ^ spoonful_completed ^ ~interacted); // only one spoonful
+    };
+
+    state-invariants {
+    };
+
+    reward = if (~goal_reached ^ goal) then GOAL_REWARD
+             else if (goal_reached) then 0
+             else if (spoonful_completed ^ getFood) then -5*GOAL_REWARD // Force 1 spoonful
+             else if (~(getFood | approachStraight | approachBelow | approachSide | feedStraight | feedScooping | waitForUserFeeding | moveAway | shortWaitBetweenFeeds | longWaitBetweenFeeds | inform | requestMouthOpen | goal)) then -2*GOAL_REWARD
+             else -1;
+
+
+}
