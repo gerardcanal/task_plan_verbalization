@@ -159,7 +159,7 @@ class PlanNarrator:
                 main_subj.add(ms)
         else:
             ms = self._subj_plans.id_to_subj(ac_script.action)
-            main_subj = {'I' if ms.lower() == self._narrator_name.lower() else ms}
+            main_subj = {'I' if self._narrator_name and ms.lower() == self._narrator_name.lower() else ms}
 
 
         # Later future justifications in the script
