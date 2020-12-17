@@ -637,18 +637,41 @@ class PlanCompressions:
         curr_action = self._plan[0]  # This will always be i-1 or the compressed action
         curr_intmd = []
         last_i = 0  # last i value for the same subject
-        for i in range(1, len(self._plan)):
+        compressing_subjects = False
+        skip_subject_comp = []  # Ids to skip for subject compression
+        i = 0
+        #The while is equivalent to: for i in range(1, len(self._plan)):
+        while i < len(self._plan)-1:
+            i = i + 1  # i will start at 1
             # Time will be the one from the start action, duration the sum
             if i in self._compression_dic:
                 continue
             result, intmd = self.compress_actions(curr_action[1], self._plan[i][1])
-            compressed_subject = self.check_compressed_subject(subj, result, intmd) and result and float(curr_action[0])-float(self._plan[i][0]) < 0.05
-            if not compressed_subject and subj_plans and not subj_plans.is_from_subj(i, subj):
+            compressed_subject = i not in skip_subject_comp and self.check_compressed_subject(subj, result, intmd) and \
+                                 result and float(curr_action[0])-float(self._plan[i][0]) < 0.05
+            if compressed_subject:
+                compressing_subjects = True
+            elif compressing_subjects:
+                # If we are compressing subjects, check if there is not a better compression for this subject (i.e.
+                # there was a compression that could be going on)
+                result_aux, intmd_aux = self.compress_actions(self._plan[last_i][1], self._plan[i][1])
+                if result_aux:
+                    # If we found a better compression, backtrack to the last state for this subject and ignore subject
+                    # compressions until we passed this point.
+                    skip_subject_comp = range(last_i, i+1)
+                    i = last_i
+                    compressing_subjects = False
+                    curr_ids = [i]
+                    curr_action = self._plan[i]  # This will always be i-1 or the compressed action
+                    curr_intmd = []
+                    continue  # Go back to the last action from this subject and keep compressing from there
+            i_from_subj = subj_plans.is_from_subj(i, subj)  # i is from subject subj
+            if not compressed_subject and subj_plans and not i_from_subj:
                 continue  # If action is not from current subject, and subject is not in the compression, skip
             if (not subj_plans or subj_plans.is_from_subj(last_i, subj)) and \
                     (last_i in self._goal_achieving_actions or i in self._goal_achieving_actions):
                 result = False  # Force avoid compression in case of goal achieving action
-            last_i = i
+            last_i = i if i_from_subj else last_i
             if result:  # Result stores the compressed action (if compression was made)
                 curr_ids.append(i)
                 curr_intmd.extend(intmd)
@@ -661,6 +684,7 @@ class PlanCompressions:
                 curr_ids = [i]
                 curr_action = self._plan[i]  # This will always be i-1 or the compressed action
                 curr_intmd = []
+                compressing_subjects = False
         # Check if last action was to be compressed outside the loop
         if len(curr_ids) > 1:  # We have compressed some actions
             self.add_compression(curr_ids, curr_action, curr_intmd)
