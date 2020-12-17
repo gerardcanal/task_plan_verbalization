@@ -647,7 +647,8 @@ class PlanCompressions:
             if i in self._compression_dic:
                 continue
             result, intmd = self.compress_actions(curr_action[1], self._plan[i][1])
-            compressed_subject = i not in skip_subject_comp and self.check_compressed_subject(subj, result, intmd) and \
+            compressed_subject = subj and i not in skip_subject_comp and \
+                                 self.check_compressed_subject(subj, result, intmd) and \
                                  result and float(curr_action[0])-float(self._plan[i][0]) < 0.05
             if compressed_subject:
                 compressing_subjects = True
