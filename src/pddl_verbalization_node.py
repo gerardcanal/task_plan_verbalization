@@ -242,7 +242,7 @@ class ROSPlanNarratorNode:
     def generate_all_verbalizations(self):
         rospy.wait_for_message('/rosplan_planner_interface/planner_output', String)
         problem_name = os.path.splitext(os.path.basename(rospy.get_param('~problem_path')))[0]
-        results_path = rospkg.RosPack().get_path(self.get_package_name()) + '/results/' + \
+        results_path = rospkg.RosPack().get_path(self.get_package_name()) + '/verbalized_examples/' + \
                        self._domain_semantics.get_name() + '_' + problem_name
         if not os.path.exists(results_path):
             os.makedirs(results_path)
