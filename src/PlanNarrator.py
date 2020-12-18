@@ -130,7 +130,7 @@ class PlanNarrator:
 
         duration = float(duration) if self._verbalization_space_params.abstraction < Abstraction.LEV3 else 0
         duration_s = 'taking {} second'.format('{0:.2f}'.format(duration).rstrip('0').rstrip('.'))
-        if duration > 1:
+        if duration != 1:
             duration_s += 's'
         if compressions and self._verbalization_space_params.abstraction < Abstraction.LEV4:
             sentence += " (via " + self.make_list_str(self.replace_object_data(compressions, domain_semantics))
