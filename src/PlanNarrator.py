@@ -428,9 +428,10 @@ class PlanNarrator:
                 # continue
                 s.justifies.remove(verbalization_script[0].action)
 
-            if s.goal and self._verbalization_space_params.explanation > Explanation.LEV3:
+            if s.goal and self._verbalization_space_params.explanation == Explanation.LEV4:
                 # Goal achieving actions are always kept. If level is >3 we print goals, otherwise we don't so there's
-                # no need to clear justifies
+                # no need to clear justifies. If it is 5 we can't clear justifications. Therefore this only happens if
+                # level is 4
                 s.justifies.clear()  # Remove justifies for this action as it achieves a goal to avoid overcluttering
             else:
                 if self._verbalization_space_params.explanation < Explanation.LEV5:
