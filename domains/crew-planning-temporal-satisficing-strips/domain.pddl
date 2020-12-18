@@ -73,10 +73,10 @@
 
 	;; To indicate that a PayloadActivity is done
 	; verb = be (completed)
-	; subject = The payload act ?ps
+	; subject = The payload act ?pa
 	(payload_act_done ?pa - PayloadAct)
 	; verb = be (completed)
-	; subject = ?ps
+	; subject = ?pa
 	; prep = on ?d
 	(payload_act_completed ?pa - PayloadAct ?d - Day)
 
