@@ -1,0 +1,11 @@
+Narrator is: rover0
+Rover2 is going to communicate soil data of (70.672, 86.948, 70.672) from (70.672, 86.948, 70.672) to general lander at (95.784, 66.188, 95.784) (taking 10 seconds).
+Rover1 will transmit image data of objective1 in low res mode from (99.464, 71.202, 99.464) to general lander at (95.784, 66.188, 95.784) (taking 15 seconds).
+Rover3 is going to transmit rock data of (74.506, 46.470, 74.506) from (99.464, 71.202, 99.464) to general lander at (95.784, 66.188, 95.784) (taking 10 seconds).
+Rover3 is going to communicate rock data of (63.591, 7.672, 63.591) from (99.464, 71.202, 99.464) to general lander at (95.784, 66.188, 95.784) (taking 10 seconds).
+Rover3 is going to communicate rock data of (70.672, 86.948, 70.672) from (43.232, 7.803, 43.232) to general lander at (95.784, 66.188, 95.784) (taking 10 seconds).
+I am going to transmit soil data of (69.893, 12.382, 69.893) from (99.464, 71.202, 99.464) to general lander at (95.784, 66.188, 95.784) (taking 10 seconds).
+I will transmit soil data of (13.355, 52.567, 13.355) from (99.464, 71.202, 99.464) to general lander at (95.784, 66.188, 95.784) (taking 10 seconds).
+I will transmit soil data of (74.506, 46.470, 74.506) from (99.464, 71.202, 99.464) to general lander at (95.784, 66.188, 95.784) (taking 10 seconds).
+I will transmit soil data of (70.754, 92.181, 70.754) from (99.464, 71.202, 99.464) to general lander at (95.784, 66.188, 95.784) (taking 10 seconds).
+I am going to communicate image data of objective1 in high res mode from (99.464, 71.202, 99.464) to general lander at (95.784, 66.188, 95.784) (taking 15 seconds).

@@ -1,0 +1,12 @@
+Narrator is: rover0
+Rover3 will sample rock to store at rover3store at (54.518, 62.486, 54.518) (taking 8 seconds) and Rover3 is going to go from (54.518, 62.486, 54.518) to (34.772, 45.833, 34.772) (taking 5 seconds) to then communicate rock data of (54.518, 62.486, 54.518) from (34.772, 45.833, 34.772) to general lander at (54.518, 62.486, 54.518) (taking 10 seconds).
+Rover1 will transmit soil data of (34.772, 45.833, 34.772) from (34.772, 45.833, 34.772) to general lander at (54.518, 62.486, 54.518) (taking 10 seconds).
+Rover1 will transmit image data of objective2 in colour mode from (34.772, 45.833, 34.772) to general lander at (54.518, 62.486, 54.518) (taking 15 seconds).
+Rover1 is going to communicate image data of objective3 in low res mode from (34.772, 45.833, 34.772) to general lander at (54.518, 62.486, 54.518) (taking 15 seconds).
+Rover1 will transmit image data of objective3 in colour mode from (34.772, 45.833, 34.772) to general lander at (54.518, 62.486, 54.518) (taking 15 seconds).
+I am going to sample soil to store at mestore at (79.754, 75.652, 79.754) (taking 10 seconds), which will allow me to communicate soil data of (79.754, 75.652, 79.754) from (87.944, 18.476, 87.944) to general lander at (54.518, 62.486, 54.518) (taking 10 seconds).
+I will move from (79.754, 75.652, 79.754) to (87.944, 18.476, 87.944) (taking 5 seconds), which will allow me to transmit soil data of (87.944, 18.476, 87.944) from (87.944, 18.476, 87.944) to general lander at (54.518, 62.486, 54.518) (taking 10 seconds).
+I am going to transmit soil data of (17.583, 72.075, 17.583) from (87.944, 18.476, 87.944) to general lander at (54.518, 62.486, 54.518) (taking 10 seconds).
+I will transmit rock data of (34.772, 45.833, 34.772) from (87.944, 18.476, 87.944) to general lander at (54.518, 62.486, 54.518) (taking 10 seconds).
+I am going to transmit rock data of (87.944, 18.476, 87.944) from (87.944, 18.476, 87.944) to general lander at (54.518, 62.486, 54.518) (taking 10 seconds).
+Rover2 will communicate rock data of (79.754, 75.652, 79.754) from (34.772, 45.833, 34.772) to general lander at (54.518, 62.486, 54.518) (taking 10 seconds).

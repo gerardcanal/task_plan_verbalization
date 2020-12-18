@@ -1,0 +1,30 @@
+Narrator is: rover0
+I will travel from waypoint2 towards waypoint14.
+Rover2 is going to sample soil to store at rover2store at waypoint0, which will allow Rover2 to later communicate soil data of waypoint0 from waypoint0 to general lander at waypoint17.
+Rover1 will calibrate camera0 for objective4 at waypoint9.
+Rover2 is going to calibrate camera1 for objective6 at waypoint0 so Rover2 can capture an image of objective3 with camera1 in low res mode at waypoint0 to later communicate image data of objective3 in low res mode from waypoint0 to general lander at waypoint17.
+Rover3 will move from waypoint18 to waypoint5 (via waypoint0 and waypoint9) to be able to sample rock to store at rover3store at waypoint5 so Rover3 can later transmit rock data of waypoint5 from waypoint0 to general lander at waypoint17.
+I will calibrate camera5 for objective2 at waypoint14.
+Rover1 will take an image of objective4 with camera0 in high res mode at waypoint9 to be able to communicate image data of objective4 in high res mode from waypoint0 to general lander at waypoint17 so Rover2 can later communicate image data of objective2 in colour mode from waypoint0 to general lander at waypoint17 and Rover1 can transmit rock data of waypoint6 from waypoint0 to general lander at waypoint17.
+Rover2 is going to calibrate camera1 for objective6 at waypoint0.
+Rover2 will leave the load at store rover2store.
+I will take an image of objective2 with camera5 in colour mode at waypoint14.
+Rover1 and Rover3 are going to go from waypoint9 to waypoint0 so Rover3 can communicate rock data of waypoint5 from waypoint0 to general lander at waypoint17.
+Rover2 is going to communicate image data of objective3 in low res mode from waypoint0 to general lander at waypoint17 to later transmit soil data of waypoint0 from waypoint0 to general lander at waypoint17.
+I will calibrate camera5 for objective2 at waypoint14 and I will travel from waypoint14 towards waypoint2 so I can take an image of objective5 with camera5 in colour mode at waypoint2 so I can later communicate image data of objective5 in colour mode from waypoint0 to general lander at waypoint17.
+Rover2 will capture an image of objective2 with camera1 in colour mode at waypoint0 to then transmit image data of objective2 in colour mode from waypoint0 to general lander at waypoint17, which will allow Rover2 to later communicate soil data of waypoint14 from waypoint0 to general lander at waypoint17.
+I am going to sample rock to store at mestore at waypoint2.
+Rover3 is going to go from waypoint5 towards waypoint9.
+Rover2 will communicate soil data of waypoint0 from waypoint0 to general lander at waypoint17, which will allow Rover1 to later transmit image data of objective4 in high res mode from waypoint0 to general lander at waypoint17 and Rover2 to communicate image data of objective2 in colour mode from waypoint0 to general lander at waypoint17.
+I am going to move from waypoint2 towards waypoint9.
+I am going to leave the load at store mestore and I will go from waypoint9 to waypoint4 to then sample rock to store at mestore at waypoint4 to later transmit rock data of waypoint2 and waypoint4 from waypoint0 to general lander at waypoint17.
+I will go from waypoint4 towards waypoint9.
+I am going to drop the load at store mestore.
+Rover1 will move from waypoint0 towards waypoint6 (via waypoint9 and waypoint3) to then sample rock to store at rover1store at waypoint6 so Rover1 can later transmit rock data of waypoint6 from waypoint0 to general lander at waypoint17.
+I will move from waypoint9 to waypoint0 (via waypoint2) so I can communicate rock data of waypoint2 and waypoint4 from waypoint0 to general lander at waypoint17 to later be able to communicate image data of objective5 in colour mode from waypoint0 to general lander at waypoint17.
+Rover2 is going to travel from waypoint0 towards waypoint14 (via waypoint9) to then sample soil to store at rover2store at waypoint14 to later communicate soil data of waypoint14 from waypoint0 to general lander at waypoint17.
+Rover1 is going to communicate rock data of waypoint6 from waypoint0 to general lander at waypoint17 because Rover1 will travel from waypoint6 to waypoint0 (via waypoint3 and waypoint9) so Rover3 can later communicate rock data of waypoint5 from waypoint0 to general lander at waypoint17.
+I am going to transmit image data of objective5 in colour mode from waypoint0 to general lander at waypoint17, which will allow me to later transmit rock data of waypoint7 from waypoint0 to general lander at waypoint17.
+Rover2 will travel from waypoint14 to waypoint0 (via waypoint9), which will allow Rover2 to communicate soil data of waypoint14 from waypoint0 to general lander at waypoint17.
+I will sample rock to store at mestore at waypoint7 because I will travel from waypoint0 towards waypoint7 (via waypoint2).
+I will move from waypoint7 to waypoint0 (via waypoint2) so I can communicate rock data of waypoint7 from waypoint0 to general lander at waypoint17.

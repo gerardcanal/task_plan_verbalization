@@ -1,0 +1,50 @@
+Narrator is: robot_assistant
+Hsr Robot will go to the wp15.
+I will go to the wp4.
+I will look around the wp4.
+I will go towards the wp2.
+I will move to the wp1.
+Hsr Robot is going to find person1.
+Hsr Robot is going to locate person2.
+I am going to grab the paper.
+I am going to travel to the wp2.
+I will travel to the wp4.
+I will leave the paper.
+I will move to the wp2.
+Hsr Robot is going to request person2.
+Hsr Robot will move to the wp36.
+I will move to the wp1.
+I am going to go to the wp2.
+I am going to grasp the mug.
+I will move to the wp1.
+I will travel towards the wp9.
+Hsr Robot will go towards the wp38.
+Hsr Robot will go to the wp36.
+I am going to go towards the wp5.
+Hsr Robot will move towards the wp38.
+Hsr Robot is going to grasp the post2.
+Hsr Robot is going to travel to the wp36.
+I will check the wp5.
+I will put the mug.
+Hsr Robot will go towards the wp15.
+I will move to the wp8.
+I am going to travel to the wp2.
+Hsr Robot is going to deliver post2 to person2.
+Hsr Robot will move towards the wp36.
+I will move to the wp1.
+I will travel to the wp2.
+I am going to move to the wp21.
+Hsr Robot is going to move to the wp38.
+Hsr Robot will grab the post1.
+Hsr Robot will travel to the wp36.
+I am going to go towards the wp15.
+Hsr Robot is going to travel towards the wp27.
+I am going to travel to the wp1.
+Hsr Robot is going to go to the wp19.
+Hsr Robot is going to move to the wp6.
+Hsr Robot is going to check the wp6.
+Hsr Robot will place the post1.
+Hsr Robot will travel to the wp19.
+Hsr Robot will go towards the wp28.
+Hsr Robot will move towards the wp16.
+Hsr Robot will travel to the wp5.

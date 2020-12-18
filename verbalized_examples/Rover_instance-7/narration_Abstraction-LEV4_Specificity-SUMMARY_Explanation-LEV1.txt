@@ -1,0 +1,20 @@
+Narrator is: rover0
+Rover1 is going to sample rock.
+I am going to calibrate camera0 for objective0.
+I will sample rock.
+Rover2 is going to sample rock.
+I will capture an image of objective0 with camera0.
+Rover1 will go to waypoint0.
+Rover2 will leave the load.
+Rover2 will sample soil.
+I am going to move towards waypoint0.
+Rover1 will transmit rock data of waypoint3 to general lander.
+Rover2 will go towards waypoint0.
+Rover2 will drop the load.
+I will communicate rock data of waypoint2 to general lander.
+Rover2 will move to waypoint1.
+Rover2 will sample soil.
+I will transmit image data of objective0 to general lander.
+Rover2 is going to go to waypoint0.
+Rover2 will communicate soil data of waypoint1 and waypoint4 to general lander.
+Rover2 will transmit rock data of waypoint4 to general lander.

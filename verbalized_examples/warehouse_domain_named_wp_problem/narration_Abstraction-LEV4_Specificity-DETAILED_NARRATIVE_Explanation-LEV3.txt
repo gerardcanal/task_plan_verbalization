@@ -1,0 +1,23 @@
+Narrator is: robot_assistant
+I am going to travel towards the entrance to look around the entrance, which will allow me to later put the mug at the entrance.
+I will travel towards the kitchen counter so I can check the kitchen counter to later be able to put the paper at the kitchen counter.
+I will look for person1.
+I am going to look for person2 and I am going to go towards the kitchen corridor to ask person2.
+I am going to travel to the microwave.
+I will take the mug and I will go towards the entrance to then place the mug.
+I will move towards the kitchen corridor.
+I will travel to the kitchen shelf to then grab the paper to later be able to put the paper at the kitchen counter.
+I am going to move to the microwave, which will allow me to later move from the microwave to the kitchen shelf.
+I will go to the kitchen counter to be able to put the paper.
+I am going to travel towards the kitchen corridor to move to the kitchen door 1.
+I will go to the office entrance 1 so I can grab the post2 to later be able to hand post2 to person2 at the kitchen corridor.
+I will travel to the kitchen door 1.
+I will move to the kitchen corridor to then deliver post2 to person2.
+I am going to go towards the kitchen door 1.
+I will move towards the office entrance 1 to grab the post1 to later be able to leave the post1 at the main office desk.
+I will travel towards the kitchen door 1.
+I will go towards the corridor centre to then go towards the main office doorway.
+I am going to travel towards the main office desk and I am going to look around the main office desk to put the post1.
+I will travel towards the main office doorway.
+I am going to travel to the meeting room hallway to be able to move towards the kitchen sink.
+I will travel to the microwave to then travel to the kitchen shelf.

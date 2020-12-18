@@ -1,0 +1,9 @@
+Narrator is: robot_assistant
+Hsr Robot will look for person1.
+I am going to go from the kitchen counter to the kitchen corridor to be able to ask person2 at the kitchen corridor.
+I am going to travel from the coffee table 1 to the kitchen counter so I can place the paper at the kitchen counter.
+I will take the mug at the kitchen corridor from the person2 and I am going to move from the kitchen corridor towards the entrance to be able to leave the mug at the entrance.
+Hsr Robot is going to move from the main office doorway to the main office desk and Hsr Robot is going to scan the main office desk, which will allow Hsr Robot to place the post1 at the main office desk.
+I will give post2 to person2 at the kitchen corridor because I will move from the kitchen door 1 to the kitchen corridor.
+I am going to travel from the kitchen corridor to the kitchen shelf.
+Hsr Robot is going to move from the meeting room hallway to the kitchen chair to then move from the kitchen chair to the entrance.

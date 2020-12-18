@@ -1,0 +1,20 @@
+CrewPlanner is going to initiate d2.
+C1 will report the result of activity pa1 1.
+C1 will report the result of activity pa1 10.
+C1 is going to report the result of activity pa1 11.
+C1 is going to report the result of activity pa1 12.
+C1 will report the result of activity pa1 13.
+C1 will report the result of activity pa1 2.
+C1 will report the result of activity pa1 3.
+C1 will report the result of activity pa1 4.
+C1 is going to report the result of activity pa1 5.
+C1 will communicate the medical state mcs1 because C1 is going to exercise with e1.
+C2 will exercise with e2 to be able to communicate the medical state mcs2.
+C1 will report the result of activity pa1 6 because C3 will conduct pa1 6.
+C1 will report the result of activity pa1 7 because C1 is going to make pa1 7.
+C1 is going to report the result of activity pa1 8.
+C1 is going to report the result of activity pa1 9.
+C3 is going to replace the rpcm1, which will allow C3 to sleep.
+C1 is going to assemble to be able to finish the rpcm1.
+C2 is going to perform the second reconfiguration, which will allow C2 to sleep.
+C1 will sleep.

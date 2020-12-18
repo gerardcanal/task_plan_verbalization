@@ -1,0 +1,9 @@
+Narrator is: robot_assistant
+Hsr Robot is going to travel to the wp15 to be able to look for person1 to achieve the goal of finding person1.
+Hsr Robot is going to find person2, which will allow Hsr Robot to request person2 to fulfill the goal of asking person2.
+I am going to put the paper because I will go towards the wp4 to fulfill the goal of the paper being at the wp4.
+I will move to the wp5 and I will look around the wp5 to leave the mug to reach the goal of the mug being at the wp5.
+Hsr Robot will go to the wp15 so Hsr Robot can deliver post2 to person2 to reach the goal of the post2 being at the person2.
+I will travel to the wp15 to go towards the wp1 to achieve the goal of me being at the wp1.
+Hsr Robot will move towards the wp6 and Hsr Robot will check the wp6, which will allow Hsr Robot to leave the post1 to reach the goal of the post1 being at the wp6.
+Hsr Robot will travel to the wp16 to then travel towards the wp5 to achieve the goal of hsr robot being at the wp5.

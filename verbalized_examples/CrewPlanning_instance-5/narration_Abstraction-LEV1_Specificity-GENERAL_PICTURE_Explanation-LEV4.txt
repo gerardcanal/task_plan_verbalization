@@ -1,0 +1,10 @@
+CrewPlanner will initiate d2 (taking 1440 seconds) to reach the goal of d2 being initiated.
+C1 is going to report the result of activity (51.482, 31.651, 51.482) on d1 (taking 1 second) to fulfill the goal of (51.482, 31.651, 51.482) being completed on d1.
+C1 is going to report the result of activity (31.380, 75.853, 31.380) on d1 (taking 1 second) to fulfill the goal of (31.380, 75.853, 31.380) being completed on d1.
+C1 will report the result of activity (5.749, 15.980, 5.749) on d1 (taking 1 second) to reach the goal of (5.749, 15.980, 5.749) being completed on d1.
+C1 is going to report the result of activity (33.027, 45.768, 33.027) on d1 (taking 1 second) to reach the goal of (33.027, 45.768, 33.027) being completed on d1.
+C1 will report the result of activity (77.539, 64.850, 77.539) on d1 (taking 1 second) to achieve the goal of (77.539, 64.850, 77.539) being completed on d1.
+C1 will report the result of activity (55.351, 52.553, 55.351) on d1 (taking 1 second) to achieve the goal of (55.351, 52.553, 55.351) being completed on d1.
+C2 is going to eat a meal on d1 (taking 60 seconds) to communicate the medical state mcs2 on d1 (taking 60 seconds) to achieve the goal of The medical state mcs2 being finished on d1.
+C1 will sleep on d1 (taking 600 seconds) because C1 is going to have a meal on d1 (taking 60 seconds) and C1 is going to exercise on d1 with e1 (taking 60 seconds) to achieve the goal of C1 completing sleep on d1.
+C2 is going to exercise on d1 with e1 (taking 60 seconds), which will allow C2 to sleep on d1 (taking 600 seconds) to fulfill the goal of C2 completing sleep on d1.

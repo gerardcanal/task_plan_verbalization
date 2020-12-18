@@ -1,0 +1,98 @@
+C1 is going to conduct (75.700, 32.237, 75.700) (taking 60 seconds).
+C2 is going to conduct (54.415, 54.798, 54.415) (taking 60 seconds).
+C3 is going to make (21.158, 27.299, 21.158) (taking 60 seconds).
+CrewPlanner is going to wake up C1 on d1 (taking 195 seconds).
+CrewPlanner is going to wake up C2 on d1 (taking 195 seconds).
+CrewPlanner will wake up C3 on d1 (taking 195 seconds).
+CrewPlanner is going to initiate d2 (taking 1440 seconds).
+C1 is going to conduct (77.100, 85.544, 77.100) (taking 60 seconds).
+C2 is going to make (49.346, 98.227, 49.346) (taking 60 seconds).
+C3 is going to make (33.027, 63.360, 33.027) (taking 60 seconds).
+C1 will make (91.235, 30.866, 91.235) (taking 60 seconds).
+C2 will make (89.682, 59.164, 89.682) (taking 60 seconds).
+C3 will make (61.156, 95.998, 61.156) (taking 60 seconds).
+C1 will report the result of activity (75.700, 32.237, 75.700) on d1 (taking 1 second).
+C1 is going to report the result of activity (54.415, 54.798, 54.415) on d1 (taking 1 second).
+C1 will report the result of activity (21.158, 27.299, 21.158) on d1 (taking 1 second).
+C1 will report the result of activity (77.100, 85.544, 77.100) on d1 (taking 1 second).
+C1 will report the result of activity (49.346, 98.227, 49.346) on d1 (taking 1 second).
+C1 is going to report the result of activity (33.027, 63.360, 33.027) on d1 (taking 1 second).
+C1 is going to report the result of activity (91.235, 30.866, 91.235) on d1 (taking 1 second).
+C1 is going to report the result of activity (89.682, 59.164, 89.682) on d1 (taking 1 second).
+C1 will report the result of activity (61.156, 95.998, 61.156) on d1 (taking 1 second).
+C1 is going to have a meal on d1 (taking 60 seconds).
+C2 will have a meal on d1 (taking 60 seconds).
+C3 will have a meal on d1 (taking 60 seconds).
+C1 is going to exercise on d1 with e1 (taking 60 seconds).
+C2 is going to exercise on d1 with e2 (taking 60 seconds).
+C3 will communicate the medical state mcs1 on d1 (taking 60 seconds).
+C3 will exercise on d1 with e1 (taking 60 seconds).
+C1 will communicate the medical state mcs2 on d1 (taking 60 seconds).
+C2 is going to make (54.856, 10.615, 54.856) (taking 60 seconds).
+C1 will report the result of activity (54.856, 10.615, 54.856) on d1 (taking 1 second).
+C1 is going to conduct (22.073, 86.019, 22.073) (taking 60 seconds).
+C2 will make (82.877, 60.105, 82.877) (taking 60 seconds).
+C3 will conduct (29.621, 35.221, 29.621) (taking 60 seconds).
+C1 will report the result of activity (22.073, 86.019, 22.073) on d1 (taking 1 second).
+C1 is going to report the result of activity (82.877, 60.105, 82.877) on d1 (taking 1 second).
+C1 will report the result of activity (29.621, 35.221, 29.621) on d1 (taking 1 second).
+C1 is going to conduct (71.574, 13.033, 71.574) (taking 60 seconds).
+C2 will conduct (80.379, 43.956, 80.379) (taking 60 seconds).
+C3 will conduct (72.605, 37.395, 72.605) (taking 60 seconds).
+C1 is going to report the result of activity (71.574, 13.033, 71.574) on d1 (taking 1 second).
+C1 will make (34.496, 43.011, 34.496) (taking 60 seconds).
+C2 will conduct (60.279, 89.785, 60.279) (taking 60 seconds).
+C3 will conduct (47.516, 52.364, 47.516) (taking 60 seconds).
+C1 will conduct (56.535, 52.091, 56.535) (taking 60 seconds).
+C2 is going to make (7.478, 37.947, 7.478) (taking 60 seconds).
+C3 will make (97.349, 10.309, 97.349) (taking 60 seconds).
+C1 will conduct (99.845, 45.622, 99.845) (taking 60 seconds).
+C2 is going to make (52.540, 36.238, 52.540) (taking 60 seconds).
+C3 will make (1.857, 85.400, 1.857) (taking 60 seconds).
+C1 will conduct (76.741, 36.336, 76.741) (taking 60 seconds).
+C2 is going to make (90.990, 59.559, 90.990) (taking 60 seconds).
+C3 is going to conduct (76.569, 66.756, 76.569) (taking 60 seconds).
+C1 will make (71.425, 96.870, 71.425) (taking 60 seconds).
+C2 will make (61.709, 83.574, 61.709) (taking 60 seconds).
+C3 will make (43.726, 56.486, 43.726) (taking 60 seconds).
+C1 is going to make (48.190, 80.059, 48.190) (taking 60 seconds).
+C2 will conduct (3.480, 31.983, 3.480) (taking 60 seconds).
+C3 is going to sleep on d1 (taking 600 seconds).
+C1 is going to sleep on d1 (taking 600 seconds).
+C2 is going to sleep on d1 (taking 600 seconds).
+CrewPlanner will wake up C3 on d2 (taking 195 seconds).
+CrewPlanner is going to initiate d3 (taking 1440 seconds).
+CrewPlanner is going to wake up C1 on d2 (taking 195 seconds).
+CrewPlanner will wake up C2 on d2 (taking 195 seconds).
+C3 will report the result of activity (80.379, 43.956, 80.379) on d2 (taking 1 second).
+C3 is going to report the result of activity (72.605, 37.395, 72.605) on d2 (taking 1 second).
+C3 is going to report the result of activity (34.496, 43.011, 34.496) on d2 (taking 1 second).
+C3 will report the result of activity (60.279, 89.785, 60.279) on d2 (taking 1 second).
+C3 will report the result of activity (47.516, 52.364, 47.516) on d2 (taking 1 second).
+C3 is going to report the result of activity (56.535, 52.091, 56.535) on d2 (taking 1 second).
+C3 is going to report the result of activity (7.478, 37.947, 7.478) on d2 (taking 1 second).
+C3 is going to report the result of activity (97.349, 10.309, 97.349) on d2 (taking 1 second).
+C3 is going to report the result of activity (99.845, 45.622, 99.845) on d2 (taking 1 second).
+C3 is going to report the result of activity (52.540, 36.238, 52.540) on d2 (taking 1 second).
+C3 is going to report the result of activity (1.857, 85.400, 1.857) on d2 (taking 1 second).
+C3 will report the result of activity (76.741, 36.336, 76.741) on d2 (taking 1 second).
+C3 will report the result of activity (90.990, 59.559, 90.990) on d2 (taking 1 second).
+C3 will report the result of activity (76.569, 66.756, 76.569) on d2 (taking 1 second).
+C3 is going to report the result of activity (71.425, 96.870, 71.425) on d2 (taking 1 second).
+C3 is going to report the result of activity (61.709, 83.574, 61.709) on d2 (taking 1 second).
+C3 will report the result of activity (43.726, 56.486, 43.726) on d2 (taking 1 second).
+C3 will report the result of activity (48.190, 80.059, 48.190) on d2 (taking 1 second).
+C3 is going to report the result of activity (3.480, 31.983, 3.480) on d2 (taking 1 second).
+C3 will eat a meal on d2 (taking 60 seconds).
+C1 will have a meal on d2 (taking 60 seconds).
+C2 will eat a meal on d2 (taking 60 seconds).
+C3 is going to exercise on d2 with e1 (taking 60 seconds).
+C1 is going to work out on d2 with e2 (taking 60 seconds).
+C2 will change the spaceshipfilter on d2 (taking 60 seconds).
+C3 will communicate the medical state mcs1 on d2 (taking 60 seconds).
+C2 will work out on d2 with e1 (taking 60 seconds).
+C1 will communicate the medical state mcs2 on d2 (taking 60 seconds).
+C3 will communicate the medical state mcs3 on d2 (taking 60 seconds).
+C1 will sleep on d2 (taking 600 seconds).
+C2 will sleep on d2 (taking 600 seconds).
+C3 is going to sleep on d2 (taking 600 seconds).

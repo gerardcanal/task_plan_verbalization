@@ -1,0 +1,25 @@
+C1 is going to report the result of activity (64.419, 73.197, 64.419) on d1 (taking 1 second).
+C1 is going to report the result of activity (84.890, 54.939, 84.890) on d1 (taking 1 second).
+C1 will report the result of activity (97.291, 82.862, 97.291) on d1 (taking 1 second).
+C1 is going to change the spaceshipfilter on d1 (taking 60 seconds).
+C1 is going to report the result of activity (70.816, 34.104, 70.816) on d1 (taking 1 second).
+C1 is going to sleep on d1 (taking 600 seconds).
+C1 is going to report the result of activity (73.279, 68.521, 73.279) on d2 (taking 1 second).
+C1 will report the result of activity (54.962, 78.927, 54.962) on d2 (taking 1 second).
+C1 will report the result of activity (50.153, 69.603, 50.153) on d2 (taking 1 second).
+C1 will report the result of activity (9.884, 18.746, 9.884) on d2 (taking 1 second).
+C1 will report the result of activity (56.386, 38.873, 56.386) on d2 (taking 1 second).
+C1 will report the result of activity (45.124, 31.838, 45.124) on d2 (taking 1 second).
+C1 is going to change the spaceshipfilter on d2 (taking 60 seconds).
+C1 will sleep on d2 (taking 600 seconds).
+CrewPlanner is going to initiate d4 (taking 1440 seconds).
+C1 is going to report the result of activity (34.484, 70.537, 34.484) on d3 (taking 1 second).
+C1 is going to report the result of activity (96.941, 2.177, 96.941) on d3 (taking 1 second).
+C1 will report the result of activity (87.831, 78.135, 87.831) on d3 (taking 1 second).
+C1 is going to report the result of activity (91.415, 50.838, 91.415) on d3 (taking 1 second).
+C1 will report the result of activity (42.573, 16.675, 42.573) on d3 (taking 1 second).
+C1 is going to report the result of activity (32.494, 90.607, 32.494) on d3 (taking 1 second).
+C1 will report the result of activity (22.381, 64.558, 22.381) on d3 (taking 1 second).
+C1 is going to change the spaceshipfilter on d3 (taking 60 seconds).
+C1 is going to communicate the medical state mcs1 on d3 (taking 60 seconds).
+C1 is going to sleep on d3 (taking 600 seconds).

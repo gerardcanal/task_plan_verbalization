@@ -1,0 +1,27 @@
+The car will move from la1a1 to la2a1 (taking 0 seconds).
+I will load the tire at la2a1 (taking 0 seconds).
+I is going to change the tire (taking 0 seconds).
+The car will move from la2a1 to la3a1 (taking 0 seconds).
+I will load the tire at la3a1 (taking 0 seconds).
+I is going to change the tire (taking 0 seconds).
+The car is going to move from la3a1 to la4a1 (taking 0 seconds).
+I is going to load the tire at la4a1 (taking 0 seconds).
+I will change the tire (taking 0 seconds).
+The car will move from la4a1 to la5a1 (taking 0 seconds).
+I will load the tire at la5a1 (taking 0 seconds).
+I will change the tire (taking 0 seconds).
+The car will move from la5a1 to la6a1 (taking 0 seconds).
+I will load the tire at la6a1 (taking 0 seconds).
+I will change the tire (taking 0 seconds).
+The car will move from la6a1 to la7a1 (taking 0 seconds).
+I will load the tire at la7a1 (taking 0 seconds).
+The car will move from la7a1 to la8a1 (taking 0 seconds).
+I is going to change the tire (taking 0 seconds).
+I is going to load the tire at la8a1 (taking 0 seconds).
+The car will move from la8a1 to la7a2 (taking 0 seconds).
+I will change the tire (taking 0 seconds).
+The car will move from la7a2 to la8a2 (taking 0 seconds).
+I will load the tire at la8a2 (taking 0 seconds).
+I is going to change the tire (taking 0 seconds).
+The car is going to move from la8a2 to la7a3 (taking 0 seconds).
+I is going to load the tire at la7a3 (taking 0 seconds).

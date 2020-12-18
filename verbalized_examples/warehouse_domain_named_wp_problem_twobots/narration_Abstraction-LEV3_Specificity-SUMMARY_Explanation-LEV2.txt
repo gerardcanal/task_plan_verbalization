@@ -1,0 +1,17 @@
+Narrator is: robot_assistant
+Hsr Robot is going to scan the entrance.
+Hsr Robot will locate person1 and person2.
+I will travel from the kitchen sink towards the kitchen counter (via entrance) to check the kitchen counter.
+Hsr Robot will travel from the entrance to the microwave (via kitchen chair, entrance, kitchen sink, entrance, kitchen table 1, and kitchen corridor).
+I am going to ask person2 at the kitchen corridor because I will move from the kitchen counter towards the kitchen corridor.
+I am going to take the paper at the kitchen shelf because I am going to go from the kitchen corridor to the kitchen shelf.
+I will move from the kitchen shelf to the kitchen counter (via coffee table 1), which will allow me to put the paper at the kitchen counter.
+Hsr Robot is going to grab the mug at the microwave and Hsr Robot will go from the microwave to the kitchen corridor to deliver mug to person2 at the kitchen corridor.
+I am going to travel from the kitchen counter to the kitchen corridor (via coffee table 1, kitchen shelf, and coffee table 1).
+Hsr Robot is going to travel from the kitchen corridor towards the office entrance 1 (via kitchen door 1) so Hsr Robot can take the post1 at the office entrance 1.
+I am going to get the mug at the kitchen corridor from the person2 and I will move from the kitchen corridor towards the entrance so I can place the mug at the entrance.
+Hsr Robot will move from the office entrance 1 to the main office desk (via kitchen door 1, corridor centre, corridor shelf 1, and main office doorway) and Hsr Robot is going to look around the main office desk, which will allow Hsr Robot to leave the post1 at the main office desk.
+I will grab the post2 at the office entrance 1 because I am going to go from the entrance towards the office entrance 1 (via kitchen corridor, kitchen hallway, and kitchen door 1).
+I will move from the office entrance 1 towards the kitchen corridor (via kitchen door 1) to be able to deliver post2 to person2 at the kitchen corridor.
+Hsr Robot will go from the main office desk towards the entrance (via main office doorway, meeting room hallway, and kitchen chair).
+I will move from the kitchen corridor to the kitchen shelf.

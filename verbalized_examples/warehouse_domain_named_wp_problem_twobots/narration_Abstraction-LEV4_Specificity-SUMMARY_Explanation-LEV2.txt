@@ -1,0 +1,17 @@
+Narrator is: robot_assistant
+Hsr Robot will look around the entrance.
+Hsr Robot will find person1 and person2.
+I will travel towards the kitchen counter to then check the kitchen counter.
+Hsr Robot will travel towards the microwave.
+I am going to move to the kitchen corridor so I can ask person2.
+I am going to go towards the kitchen shelf to take the paper.
+I will move to the kitchen counter to be able to place the paper.
+Hsr Robot is going to grasp the mug and Hsr Robot is going to travel to the kitchen corridor, which will allow Hsr Robot to hand mug to person2.
+I will travel to the kitchen corridor.
+Hsr Robot will go to the office entrance 1 to then grab the post1.
+I will get the mug from the person2 and I will travel towards the entrance so I can put the mug.
+Hsr Robot will travel to the main office desk and Hsr Robot is going to check the main office desk to leave the post1.
+I will go to the office entrance 1, which will allow me to take the post2.
+I will move towards the kitchen corridor, which will allow me to deliver post2 to person2.
+Hsr Robot is going to travel to the entrance.
+I will move to the kitchen shelf.

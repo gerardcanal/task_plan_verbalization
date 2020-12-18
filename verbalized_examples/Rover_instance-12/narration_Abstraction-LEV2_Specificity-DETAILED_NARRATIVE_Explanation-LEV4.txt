@@ -1,0 +1,24 @@
+Narrator is: rover0
+Rover1 will travel from waypoint4 towards waypoint2 (taking 5 seconds).
+I am going to travel from waypoint4 to waypoint2 (taking 5 seconds).
+Rover2 will move from waypoint7 to waypoint0 (taking 5 seconds), which will allow Rover2 to calibrate camera1 for objective1 at waypoint0 (taking 5 seconds).
+Rover3 will move from waypoint7 towards waypoint0 (taking 5 seconds) and Rover3 will calibrate camera3 for objective3 at waypoint0 (taking 5 seconds) to be able to take an image of objective2 with camera3 in low res mode at waypoint0 (taking 7 seconds) to later transmit image data of objective2 in low res mode from waypoint0 to general lander at waypoint2 (taking 15 seconds).
+I am going to travel from waypoint2 towards waypoint3 (taking 5 seconds).
+Rover2 is going to sample soil to store at rover2store at waypoint0 (taking 10 seconds), which will allow Rover2 to later communicate soil data of waypoint0 from waypoint0 to general lander at waypoint2 (taking 10 seconds).
+Rover1 will move from waypoint2 towards waypoint3 (taking 5 seconds) and Rover1 is going to sample rock to store at rover1store at waypoint3 (taking 8 seconds), which will allow Rover1 to communicate rock data of waypoint3 from waypoint3 to general lander at waypoint2 (taking 10 seconds) to fulfill the goal of rock data being communicated at waypoint3.
+Rover2 will capture an image of objective1 with camera1 in high res mode at waypoint0 (taking 7 seconds) to later be able to transmit image data of objective1 in high res mode from waypoint0 to general lander at waypoint2 (taking 15 seconds).
+I am going to go from waypoint3 towards waypoint2 (taking 5 seconds).
+Rover3 is going to calibrate camera3 for objective3 at waypoint0 (taking 5 seconds) to be able to capture an image of objective3 with camera3 in low res mode at waypoint0 (taking 7 seconds) to later communicate image data of objective3 in low res mode from waypoint0 to general lander at waypoint2 (taking 15 seconds).
+I am going to move from waypoint2 towards waypoint7 (taking 5 seconds).
+I am going to move from waypoint7 to waypoint2 (taking 5 seconds).
+Rover3 will move from waypoint0 to waypoint6 (taking 5 seconds), which will allow Rover3 to sample rock to store at rover3store at waypoint6 (taking 8 seconds) to later be able to transmit rock data of waypoint6 from waypoint0 to general lander at waypoint2 (taking 10 seconds).
+I will go from waypoint2 towards waypoint3 (taking 5 seconds).
+Rover2 will communicate soil data of waypoint0 from waypoint0 to general lander at waypoint2 (taking 10 seconds) to achieve the goal of soil data being communicated at waypoint0.
+I am going to go from waypoint3 to waypoint2 (taking 5 seconds).
+I am going to travel from waypoint2 towards waypoint4 (taking 5 seconds).
+Rover3 is going to go from waypoint6 towards waypoint0 (taking 5 seconds), which will allow Rover3 to later communicate image data of objective2 in low res mode from waypoint0 to general lander at waypoint2 (taking 15 seconds), transmit image data of objective3 in low res mode from waypoint0 to general lander at waypoint2 (taking 15 seconds), and communicate rock data of waypoint6 from waypoint0 to general lander at waypoint2 (taking 10 seconds).
+Rover3 will calibrate camera0 for objective2 at waypoint0 (taking 5 seconds).
+Rover3 will transmit image data of objective2 in low res mode from waypoint0 to general lander at waypoint2 (taking 15 seconds) to fulfill the goal of image data being communicated of objective2 in low res mode.
+Rover3 is going to transmit image data of objective3 in low res mode from waypoint0 to general lander at waypoint2 (taking 15 seconds) to reach the goal of image data being communicated of objective3 in low res mode.
+Rover3 will communicate rock data of waypoint6 from waypoint0 to general lander at waypoint2 (taking 10 seconds) to reach the goal of rock data being communicated at waypoint6.
+Rover2 is going to communicate image data of objective1 in high res mode from waypoint0 to general lander at waypoint2 (taking 15 seconds) to reach the goal of image data being communicated of objective1 in high res mode.

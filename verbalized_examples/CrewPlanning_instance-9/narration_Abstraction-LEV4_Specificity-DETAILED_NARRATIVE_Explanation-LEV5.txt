@@ -1,0 +1,25 @@
+C1 is going to conduct pa1 1 to later be able to make pa1 4 and report the result of activity pa1 1 on d1.
+C2 is going to make pa1 2 so C2 can later conduct pa1 5 and C1 can report the result of activity pa1 2 on d1.
+C3 will make pa1 3, which will allow C3 to later make pa1 6 and C1 to report the result of activity pa1 3 on d1.
+CrewPlanner is going to wake up C1, which will allow C1 to later report the result of activity pa1 1 on d1, C1 to report the result of activity pa1 2 on d1, C1 to report the result of activity pa1 3 on d1, C1 to report the result of activity pa1 4 on d1, C1 to report the result of activity pa1 5 on d1, C1 to report the result of activity pa1 6 on d1, C1 to report the result of activity pa1 7 on d1, C1 to report the result of activity pa1 8 on d1, C1 to report the result of activity pa1 9 on d1, C1 to eat a meal on d1, C1 to work out on d1 with e1, C1 to communicate the medical state mcs1 on d1, and C1 to sleep on d1.
+CrewPlanner will wake up C2, which will allow C2 to later eat a meal on d1, C2 to work out on d1 with e2, C2 to communicate the medical state mcs2 on d1, and C2 to sleep on d1.
+CrewPlanner is going to wake up C3 so C3 can later eat a meal on d1, C3 can change the spaceshipfilter on d1, C3 can work out on d1 with e1, and C3 can sleep on d1.
+CrewPlanner will initiate d2 to reach the goal of d2 being initiated.
+C1 will conduct pa1 7 because C1 is going to conduct pa1 4 so C1 can later report the result of activity pa1 7 on d1.
+C2 will conduct pa1 5 to then conduct pa1 8, which will allow C1 to later report the result of activity pa1 8 on d1.
+C3 is going to conduct pa1 6 so C3 can make pa1 9 so C1 can later report the result of activity pa1 9 on d1.
+C1 will report the result of activity pa1 1 to reach the goal of pa1 1 being completed.
+C1 is going to report the result of activity pa1 2 to reach the goal of pa1 2 being completed.
+C1 will report the result of activity pa1 3 to fulfill the goal of pa1 3 being completed.
+C1 will report the result of activity pa1 4 to achieve the goal of pa1 4 being completed.
+C1 is going to report the result of activity pa1 5 to fulfill the goal of pa1 5 being completed.
+C1 will report the result of activity pa1 6 to fulfill the goal of pa1 6 being completed.
+C1 is going to report the result of activity pa1 7 to fulfill the goal of pa1 7 being completed.
+C1 is going to report the result of activity pa1 8 to achieve the goal of pa1 8 being completed.
+C1 will report the result of activity pa1 9 to reach the goal of pa1 9 being completed.
+C3 is going to eat a meal, which will allow C3 to change the spaceshipfilter to achieve the goal of spaceshipfilter changing, which will allow C3 to later work out on d1 with e1.
+C1 is going to eat a meal and C1 is going to exercise with e1 so C1 can sleep to achieve the goal of C1 completing sleep.
+C2 will eat a meal and C2 will exercise with e2 to then sleep to fulfill the goal of C2 completing sleep.
+C1 will communicate the medical state mcs1 to reach the goal of The medical state mcs1 being finished to later be able to sleep on d1.
+C2 will communicate the medical state mcs2 to fulfill the goal of The medical state mcs2 being finished to later be able to sleep on d1.
+C3 will work out with e1 to then sleep to fulfill the goal of C3 completing sleep.

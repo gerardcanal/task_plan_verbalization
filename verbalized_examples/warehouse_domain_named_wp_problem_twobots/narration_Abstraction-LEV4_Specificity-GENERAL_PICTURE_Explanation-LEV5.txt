@@ -1,0 +1,9 @@
+Narrator is: robot_assistant
+Hsr Robot will find person1 to achieve the goal of finding person1.
+I will move to the kitchen corridor, which will allow me to request person2 to reach the goal of asking person2.
+I will put the paper because I will go to the kitchen counter to fulfill the goal of the paper being at the kitchen counter to later get the mug at the kitchen corridor from the person2.
+I am going to get the mug from the person2 and I will go to the entrance to be able to place the mug to reach the goal of the mug being at the entrance so I can later take the post2 at the office entrance 1.
+Hsr Robot will move to the main office desk and Hsr Robot is going to scan the main office desk so Hsr Robot can place the post1 to reach the goal of the post1 being at the main office desk.
+I am going to go towards the kitchen corridor to then give post2 to person2 to achieve the goal of the post2 being at the person2.
+I will move to the kitchen shelf to reach the goal of me being at the kitchen shelf.
+Hsr Robot is going to travel towards the entrance because Hsr Robot will travel towards the kitchen chair to achieve the goal of hsr robot being at the entrance.

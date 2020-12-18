@@ -1,0 +1,26 @@
+C1 is going to make pa1 1 so C1 can later report the result of activity pa1 1 on d1.
+C2 is going to make pa1 10 so C1 can later report the result of activity pa1 10 on d1.
+CrewPlanner will wake up C1 on d1, which will allow C1 to later report the result of activity pa1 1 on d1, C1 to report the result of activity pa1 10 on d1, C1 to report the result of activity pa1 11 on d1, C1 to report the result of activity pa1 2 on d1, C1 to report the result of activity pa1 3 on d1, C1 to report the result of activity pa1 4 on d1, C1 to communicate the medical state mcs1 on d1, C1 to communicate the medical state mcs2 on d1, C1 to report the result of activity pa1 5 on d1, C1 to report the result of activity pa1 6 on d1, C1 to report the result of activity pa1 7 on d1, C1 to report the result of activity pa1 8 on d1, C1 to report the result of activity pa1 9 on d1, and C1 to sleep on d1.
+CrewPlanner will wake up C2 on d1 so C2 can later change the spaceshipfilter on d1 and C2 can sleep on d1.
+CrewPlanner will initiate d2.
+C1 is going to make pa1 11 to then make pa1 3, which will allow C1 to later report the result of activity pa1 3 on d1.
+C2 is going to conduct pa1 2 to conduct pa1 4 so C1 can later report the result of activity pa1 4 on d1.
+C1 will report the result of activity pa1 1 on d1.
+C1 is going to report the result of activity pa1 10 on d1.
+C1 is going to report the result of activity pa1 11 on d1.
+C1 will report the result of activity pa1 2 on d1.
+C1 will report the result of activity pa1 3 on d1.
+C1 will report the result of activity pa1 4 on d1.
+C1 will eat a meal on d1 so C1 can later sleep on d1.
+C2 will have a meal on d1 to then change the spaceshipfilter on d1.
+C1 will work out on d1 with e1 to then communicate the medical state mcs1 on d1.
+C2 will work out on d1 with e1, which will allow C2 to later sleep on d1.
+C1 will communicate the medical state mcs2 on d1.
+C2 is going to conduct pa1 5 to be able to make pa1 7, which will allow C1 to later report the result of activity pa1 7 on d1.
+C1 will report the result of activity pa1 5 on d1.
+C1 will conduct pa1 6 to report the result of activity pa1 6 on d1.
+C1 is going to report the result of activity pa1 7 on d1.
+C1 is going to report the result of activity pa1 8 on d1 because C1 will conduct pa1 8.
+C2 is going to make pa1 9 to then sleep on d1.
+C1 will report the result of activity pa1 9 on d1.
+C1 is going to sleep on d1.

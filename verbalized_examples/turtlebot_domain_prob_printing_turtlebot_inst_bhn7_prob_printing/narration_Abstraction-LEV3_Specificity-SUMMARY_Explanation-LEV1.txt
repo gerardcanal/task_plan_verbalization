@@ -1,0 +1,10 @@
+Kenny is going to travel from the manager office towards the printer phdarea.
+Kenny is going to ask to get the papers loaded.
+Kenny is going to travel from the printer phdarea to the printer corridor.
+Kenny is going to ask to get the papers loaded.
+Kenny is going to wait to get the papers loaded.
+Kenny is going to travel from the printer corridor towards the phdarea.
+Kenny will ask to have the papers taken.
+Kenny will wait to have the papers taken.
+Kenny will travel from the phdarea towards the dock station.
+Kenny is going to dock to charge the batteries.

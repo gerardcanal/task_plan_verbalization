@@ -1,0 +1,8 @@
+Narrator is: rover0
+I will calibrate camera0 for objective1 at waypoint3 (taking 5 seconds) so I can later capture an image of objective1 with camera0 in high res mode at waypoint3 (taking 7 seconds).
+I will sample rock to store at mestore at waypoint3 (taking 8 seconds), which will allow me to later drop the load at store mestore (taking 1 second) and communicate rock data of waypoint3 from waypoint1 to general lander at waypoint0 (taking 10 seconds).
+I will capture an image of objective1 with camera0 in high res mode at waypoint3 (taking 7 seconds) to later transmit image data of objective1 in high res mode from waypoint3 to general lander at waypoint0 (taking 15 seconds).
+I will drop the load at store mestore (taking 1 second) to later be able to sample soil to store at mestore at waypoint2 (taking 10 seconds).
+I am going to transmit image data of objective1 in high res mode from waypoint3 to general lander at waypoint0 (taking 15 seconds) to reach the goal of image data being communicated of objective1 in high res mode, which will allow me to later travel from waypoint3 towards waypoint1 (taking 5 seconds).
+I am going to go from waypoint3 towards waypoint1 (taking 5 seconds) to transmit rock data of waypoint3 from waypoint1 to general lander at waypoint0 (taking 10 seconds) to fulfill the goal of rock data being communicated at waypoint3 so I can later move from waypoint1 towards waypoint2 (taking 5 seconds).
+I will travel from waypoint1 towards waypoint2 (taking 5 seconds) and I will sample soil to store at mestore at waypoint2 (taking 10 seconds) to then communicate soil data of waypoint2 from waypoint2 to general lander at waypoint0 (taking 10 seconds) to reach the goal of soil data being communicated at waypoint2.

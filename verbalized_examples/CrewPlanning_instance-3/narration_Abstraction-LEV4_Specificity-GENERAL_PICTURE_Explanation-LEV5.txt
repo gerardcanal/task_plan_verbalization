@@ -1,0 +1,4 @@
+CrewPlanner will initiate d2 to reach the goal of d2 being initiated.
+C1 is going to work out with e1, which will allow C1 to change the spaceshipfilter to reach the goal of spaceshipfilter changing to later be able to perform the first reconfiguration of the thermal loop rpcm1.
+C1 is going to do the second reconfiguration to then sleep to fulfill the goal of C1 completing sleep.
+C1 is going to finish the rpcm1 to achieve the goal of rpcm1 being completed.

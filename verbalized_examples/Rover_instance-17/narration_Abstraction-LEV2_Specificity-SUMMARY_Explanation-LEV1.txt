@@ -1,0 +1,54 @@
+Narrator is: rover0
+Rover4 is going to go from waypoint1 towards waypoint0 (taking 5 seconds).
+Rover5 will travel from waypoint8 to waypoint5 (taking 5 seconds).
+Rover3 will calibrate camera1 for objective2 at waypoint13 (taking 5 seconds).
+I will sample rock to store at mestore at waypoint12 (taking 8 seconds).
+Rover2 is going to go from waypoint5 towards waypoint0 (via waypoint1, taking 10 seconds).
+Rover3 is going to travel from waypoint13 to waypoint3 (taking 5 seconds).
+Rover4 will calibrate camera0 for objective2 at waypoint0 (taking 5 seconds).
+Rover5 is going to sample rock to store at rover5store at waypoint5 (taking 8 seconds).
+I am going to travel from waypoint12 towards waypoint0 (taking 5 seconds).
+I will leave the load at store mestore (taking 1 second).
+Rover4 will take an image of objective2 with camera0 in low res mode at waypoint0 (taking 7 seconds).
+Rover3 will sample soil to store at rover3store at waypoint3 (taking 10 seconds).
+Rover2 will calibrate camera6 for objective5 at waypoint0 (taking 5 seconds).
+Rover5 is going to travel from waypoint5 towards waypoint8 (taking 5 seconds).
+Rover5 will leave the load at store rover5store (taking 1 second).
+Rover2 will capture an image of objective5 with camera6 in colour mode at waypoint0 (taking 7 seconds).
+Rover4 is going to transmit image data of objective2 in low res mode from waypoint0 to general lander at waypoint13 (taking 15 seconds).
+Rover2 is going to calibrate camera6 for objective5 at waypoint0 (taking 5 seconds).
+Rover5 is going to travel from waypoint8 to waypoint0 (via waypoint3, taking 10 seconds).
+Rover3 will go from waypoint3 towards waypoint13 (taking 5 seconds).
+Rover3 is going to drop the load at store rover3store (taking 1 second).
+Rover2 will capture an image of objective2 with camera6 in colour mode at waypoint0 (taking 7 seconds).
+Rover2 will calibrate camera6 for objective5 at waypoint0 (taking 5 seconds).
+Rover3 is going to move from waypoint13 to waypoint0 (taking 5 seconds).
+Rover2 is going to take an image of objective3 with camera6 in colour mode at waypoint0 (taking 7 seconds).
+Rover2 will calibrate camera6 for objective5 at waypoint0 (taking 5 seconds).
+Rover2 is going to transmit image data of objective5 in colour mode from waypoint0 to general lander at waypoint13 (taking 15 seconds).
+Rover4 is going to go from waypoint0 to waypoint3 (taking 5 seconds).
+Rover2 will take an image of objective4 with camera6 in colour mode at waypoint0 (taking 7 seconds).
+Rover4 is going to sample rock to store at rover4store at waypoint3 (taking 8 seconds).
+Rover4, Rover5, Rover5, Rover5, and Rover5 will travel from waypoint3 to waypoint0 (via waypoint3, waypoint0, waypoint3, waypoint3, waypoint8, and waypoint3, taking 25 seconds).
+Rover5 will communicate rock data of waypoint5 from waypoint0 to general lander at waypoint13 (taking 10 seconds).
+Rover3 is going to communicate soil data of waypoint3 from waypoint0 to general lander at waypoint13 (taking 10 seconds).
+Rover3 will go from waypoint0 to waypoint14 (via waypoint13 and waypoint5, taking 15 seconds).
+Rover2 is going to communicate image data of objective2, objective3, and objective4 in colour mode from waypoint0 to general lander at waypoint13 (taking 45 seconds).
+Rover5 will move from waypoint8 towards waypoint9 (taking 5 seconds).
+Rover5 will sample rock to store at rover5store at waypoint9 (taking 8 seconds).
+Rover5 is going to go from waypoint9 to waypoint8 (taking 5 seconds).
+Rover3 is going to sample soil to store at rover3store at waypoint14 (taking 10 seconds).
+Rover3 is going to move from waypoint14 to waypoint5 (taking 5 seconds).
+Rover3 will drop the load at store rover3store (taking 1 second).
+Rover3 is going to move from waypoint5 to waypoint0 (via waypoint13, taking 10 seconds).
+I am going to communicate rock data of waypoint12 from waypoint0 to general lander at waypoint13 (taking 10 seconds).
+Rover4 is going to transmit rock data of waypoint3 from waypoint0 to general lander at waypoint13 (taking 10 seconds).
+Rover5 is going to transmit rock data of waypoint9 from waypoint0 to general lander at waypoint13 (taking 10 seconds).
+Rover3 is going to communicate soil data of waypoint14 from waypoint0 to general lander at waypoint13 (taking 10 seconds).
+Rover3 will move from waypoint0 towards waypoint2 (via waypoint13 and waypoint5, taking 15 seconds).
+Rover3 is going to sample soil to store at rover3store at waypoint2 (taking 10 seconds).
+Rover3 is going to travel from waypoint2 towards waypoint5 (taking 5 seconds).
+Rover3 will drop the load at store rover3store (taking 1 second).
+Rover3 will communicate soil data of waypoint2 from waypoint5 to general lander at waypoint13 (taking 10 seconds).
+Rover3 will sample soil to store at rover3store at waypoint5 (taking 10 seconds).
+Rover3 is going to communicate soil data of waypoint5 from waypoint5 to general lander at waypoint13 (taking 10 seconds).

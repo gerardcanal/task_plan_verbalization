@@ -1,0 +1,12 @@
+Narrator is: rover0
+Rover3 will sample rock to store at rover3store at waypoint1 (taking 8 seconds) and Rover3 is going to move from waypoint1 towards waypoint0 (taking 5 seconds) to be able to transmit rock data of waypoint1 from waypoint0 to general lander at waypoint1 (taking 10 seconds).
+Rover1 is going to communicate soil data of waypoint0 from waypoint0 to general lander at waypoint1 (taking 10 seconds).
+Rover1 will communicate image data of objective2 in colour mode from waypoint0 to general lander at waypoint1 (taking 15 seconds).
+Rover1 is going to transmit image data of objective3 in low res mode from waypoint0 to general lander at waypoint1 (taking 15 seconds).
+Rover1 is going to transmit image data of objective3 in colour mode from waypoint0 to general lander at waypoint1 (taking 15 seconds).
+I will sample soil to store at mestore at waypoint3 (taking 10 seconds) to transmit soil data of waypoint3 from waypoint4 to general lander at waypoint1 (taking 10 seconds).
+I will move from waypoint3 towards waypoint4 (taking 5 seconds) to communicate soil data of waypoint4 from waypoint4 to general lander at waypoint1 (taking 10 seconds).
+I am going to transmit soil data of waypoint6 from waypoint4 to general lander at waypoint1 (taking 10 seconds).
+I am going to communicate rock data of waypoint0 from waypoint4 to general lander at waypoint1 (taking 10 seconds).
+I am going to transmit rock data of waypoint4 from waypoint4 to general lander at waypoint1 (taking 10 seconds).
+Rover2 will communicate rock data of waypoint3 from waypoint0 to general lander at waypoint1 (taking 10 seconds).

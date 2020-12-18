@@ -1,0 +1,20 @@
+C1 will make pa1 1, pa1 3, and pa1 5 (taking 180 seconds).
+C2 will conduct pa1 2, pa1 4, and pa1 6 (taking 180 seconds).
+CrewPlanner is going to wake up C2 on d2 (taking 195 seconds) because CrewPlanner will wake up C1 and C2 on d1 (taking 195 seconds) and CrewPlanner is going to initiate d2 (taking 1440 seconds).
+C1 will report the result of activity pa1 1, pa1 2, pa1 3, pa1 4, pa1 5, and pa1 6 on d1 (taking 1 second).
+C1 and C2 is going to eat a meal on d1 (taking 60 seconds).
+C1 is going to work out on d1 with e1 (taking 60 seconds) so C1 can change the spaceshipfilter on d1 (taking 60 seconds).
+C2 is going to communicate the medical state mcs1 on d1 (taking 60 seconds) because C2 is going to exercise on d1 with e2 (taking 60 seconds).
+C2 is going to communicate the medical state mcs1 on d1 (taking 60 seconds) to make pa1 8, pa2 1, pa2 11, pa2 2, pa2 4, pa2 6, and pa2 8 (taking 420 seconds).
+C1 is going to conduct pa1 7 (taking 60 seconds).
+C1 is going to conduct pa1 7 (taking 60 seconds) so C1 can report the result of activity pa1 7 and pa1 8 on d1 (taking 1 second).
+C1 will conduct pa1 9 (taking 60 seconds) to then report the result of activity pa1 9 on d1 (taking 1 second).
+C1 will make pa2 10, pa2 12, pa2 3, pa2 5, pa2 7, and pa2 9 (taking 360 seconds), which will allow C2 and C1 to sleep on d1 (taking 660 seconds).
+CrewPlanner will initiate d3 (taking 1440 seconds).
+CrewPlanner is going to wake up C1 on d2 (taking 195 seconds).
+C2 will report the result of activity pa2 1, pa2 10, pa2 11, pa2 12, pa2 2, pa2 3, pa2 4, pa2 5, pa2 6, pa2 7, pa2 8, and pa2 9 on d2 (taking 1 second).
+C2 and C1 will eat a meal on d2 (taking 75.01 seconds).
+C2 is going to change the spaceshipfilter on d2 (taking 60 seconds) because C2 is going to exercise on d2 with e1 (taking 60 seconds).
+C1 will work out on d2 with e2 (taking 60 seconds) to communicate the medical state mcs1 on d2 (taking 60 seconds).
+C1 will exercise on d2 with e2 (taking 60 seconds) and C1 will communicate the medical state mcs1 on d2 (taking 60 seconds) so C1 and C2 can sleep on d2 (taking 644.99 seconds).
+C2 will communicate the medical state mcs2 on d2 (taking 60 seconds).

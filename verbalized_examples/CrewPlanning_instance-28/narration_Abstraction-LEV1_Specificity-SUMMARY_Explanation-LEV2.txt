@@ -1,0 +1,35 @@
+CrewPlanner is going to wake up C1, C2, and C3 on d1 (taking 195 seconds).
+C1 is going to conduct (95.726, 92.370, 95.726), (26.392, 60.146, 26.392), and (67.061, 21.814, 67.061) (taking 180 seconds).
+C2 will conduct (5.319, 42.848, 5.319), (7.903, 32.698, 7.903), and (23.961, 24.589, 23.961) (taking 180 seconds).
+C3 is going to conduct (45.422, 82.690, 45.422), (3.645, 98.514, 3.645), and (39.095, 99.557, 39.095) (taking 180 seconds).
+CrewPlanner will initiate d3 (via d2, taking 2880 seconds).
+C1 is going to report the result of activity (95.726, 92.370, 95.726), (5.319, 42.848, 5.319), (45.422, 82.690, 45.422), (26.392, 60.146, 26.392), (7.903, 32.698, 7.903), (3.645, 98.514, 3.645), (67.061, 21.814, 67.061), (23.961, 24.589, 23.961), and (39.095, 99.557, 39.095) on d1 (taking 1 second).
+C1, C2, and C3 will have a meal on d1 (taking 60 seconds) so C3 can communicate the medical state mcs1 on d1 (taking 60 seconds).
+C2 is going to work out on d1 with e2 (taking 60 seconds).
+C1 and C3 is going to work out on d1 with e1 (taking 120 seconds) so C1 can communicate the medical state mcs3 on d1 (taking 60 seconds).
+C2 is going to make (31.086, 78.090, 31.086), (85.719, 5.857, 85.719), (19.576, 70.932, 19.576), (36.999, 92.276, 36.999), (89.283, 34.328, 89.283), (56.385, 36.819, 56.385), (27.498, 83.878, 27.498), (29.847, 52.550, 29.847), (87.389, 4.114, 87.389), (47.338, 37.624, 47.338), (43.181, 93.482, 43.181), and (36.381, 87.980, 36.381) (taking 720 seconds) because C2 will exercise on d1 with e2 (taking 60 seconds).
+C1 is going to report the result of activity (31.086, 78.090, 31.086) on d1 (taking 1 second).
+C1 will conduct (84.479, 37.244, 84.479), (96.152, 20.640, 96.152), (77.324, 61.534, 77.324), (67.661, 99.057, 67.661), (99.228, 9.882, 99.228), (28.185, 61.319, 28.185), (48.746, 83.205, 48.746), (55.472, 77.144, 55.472), (41.274, 79.848, 41.274), (35.159, 94.857, 35.159), and (67.799, 3.895, 67.799) (taking 660 seconds).
+C3 is going to do the first reconfiguration of the thermal loop (34.703, 23.748, 34.703) (taking 60 seconds) because C3 is going to make (74.642, 78.529, 74.642), (54.625, 24.176, 54.625), (11.983, 88.323, 11.983), (42.101, 40.141, 42.101), (74.334, 59.019, 74.334), (62.204, 26.021, 62.204), (14.944, 51.655, 14.944), (86.830, 89.825, 86.830), (8.219, 41.503, 8.219), and (84.231, 33.980, 84.231) (taking 600 seconds).
+C2 will replace the (58.830, 84.076, 58.830) (taking 180 seconds) because C1 is going to perform the first reconfiguration of the thermal loop (58.830, 84.076, 58.830) (taking 60 seconds) and C2 will remove the sleep station (34.703, 23.748, 34.703) (taking 60 seconds).
+C3 will remove the sleep station (58.830, 84.076, 58.830) (taking 60 seconds) so C3 can assemble the sleep station (34.703, 23.748, 34.703) (taking 60 seconds).
+C1 is going to replace the (34.703, 23.748, 34.703) (taking 180 seconds) to assemble the sleep station (58.830, 84.076, 58.830) (taking 60 seconds).
+C2 will do the second reconfiguration of the thermal loop (34.703, 23.748, 34.703) (taking 60 seconds), which will allow C1 to finish the (34.703, 23.748, 34.703) on d1 (taking 1 second).
+C2 is going to perform the second reconfiguration of the thermal loop (34.703, 23.748, 34.703) (taking 60 seconds), C3 will assemble the sleep station (34.703, 23.748, 34.703) (taking 60 seconds), and C1 will perform the second reconfiguration of the thermal loop (58.830, 84.076, 58.830) (taking 60 seconds), which will allow C2, C3, and C1 to sleep on d1 (taking 660 seconds).
+CrewPlanner will wake up C2, C3, and C1 on d2 (taking 255 seconds).
+C2 is going to report the result of activity (84.479, 37.244, 84.479), (85.719, 5.857, 85.719), (74.642, 78.529, 74.642), (96.152, 20.640, 96.152), (19.576, 70.932, 19.576), (54.625, 24.176, 54.625), (77.324, 61.534, 77.324), (36.999, 92.276, 36.999), (11.983, 88.323, 11.983), (67.661, 99.057, 67.661), (89.283, 34.328, 89.283), (42.101, 40.141, 42.101), and (99.228, 9.882, 99.228) on d2 (taking 1 second).
+C2 will finish the (58.830, 84.076, 58.830) on d2 (taking 1 second).
+C2, C3, and C1 will have a meal on d2 (taking 120 seconds) and C3 will exercise on d2 with e2 (taking 60 seconds), which will allow C3 to sleep on d2 (taking 600 seconds).
+C1 will communicate the medical state mcs2 on d2 (taking 60 seconds) because C2 and C1 is going to work out on d2 with e1 (taking 120 seconds).
+C2 will change the spaceshipfilter on d2 (taking 60 seconds).
+C3 will communicate the medical state mcs1 on d2 (taking 60 seconds).
+C2 is going to communicate the medical state mcs3 on d2 (taking 60 seconds).
+C1 and C2 will sleep on d2 (taking 600 seconds) because C1 will communicate the medical state mcs2 on d2 (taking 60 seconds).
+CrewPlanner will initiate d4 (taking 1440 seconds).
+CrewPlanner will wake up C3, C1, and C2 on d3 (taking 255 seconds).
+C3 is going to report the result of activity (56.385, 36.819, 56.385), (74.334, 59.019, 74.334), (28.185, 61.319, 28.185), (27.498, 83.878, 27.498), (62.204, 26.021, 62.204), (48.746, 83.205, 48.746), (29.847, 52.550, 29.847), (14.944, 51.655, 14.944), (55.472, 77.144, 55.472), (87.389, 4.114, 87.389), (86.830, 89.825, 86.830), (41.274, 79.848, 41.274), (47.338, 37.624, 47.338), (8.219, 41.503, 8.219), (35.159, 94.857, 35.159), (43.181, 93.482, 43.181), (84.231, 33.980, 84.231), (67.799, 3.895, 67.799), and (36.381, 87.980, 36.381) on d3 (taking 1 second).
+C3 is going to have a meal on d3 (taking 60 seconds) and C3 and C1 will work out on d3 with e1 (taking 120 seconds), which will allow C3 to sleep on d3 (taking 600 seconds).
+C1 and C2 is going to sleep on d3 (taking 600 seconds) because C1 and C2 will have a meal on d3 (taking 60 seconds), C2 will work out on d3 with e2 (taking 60 seconds), and C1 is going to communicate the medical state mcs2 on d3 (taking 60 seconds).
+C3 is going to change the spaceshipfilter on d3 (taking 60 seconds).
+C1 is going to communicate the medical state mcs2 on d3 (taking 60 seconds).
+C2 will communicate the medical state mcs3 on d3 (taking 60 seconds).

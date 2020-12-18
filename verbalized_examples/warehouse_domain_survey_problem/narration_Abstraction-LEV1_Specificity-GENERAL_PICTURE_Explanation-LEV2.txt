@@ -1,0 +1,9 @@
+Narrator is: robot_assistant
+Tomo is going to find the secretary (taking 20 seconds).
+Asro will request the manager at the coordinate (5.007, 48.493, 5.007) (taking 2 seconds) because Asro will travel from the coordinate (87.593, 76.208, 87.593) to the coordinate (5.007, 48.493, 5.007) (taking 10 seconds).
+Asro will place the paper at the coordinate (87.593, 76.208, 87.593) (taking 2.5 seconds) because Asro will move from the coordinate (12.383, 89.122, 12.383) to the coordinate (87.593, 76.208, 87.593) (taking 8 seconds).
+Asro is going to get the mug at the coordinate (5.007, 48.493, 5.007) from the the manager (taking 2 seconds) and Asro is going to go from the coordinate (5.007, 48.493, 5.007) to the coordinate (12.424, 8.206, 12.424) (taking 18 seconds) to leave the mug at the coordinate (12.424, 8.206, 12.424) (taking 2.5 seconds).
+Tomo will place the post1 at the coordinate (48.609, 93.277, 48.609) (taking 2.5 seconds) because Tomo will travel from the coordinate (14.956, 67.551, 14.956) towards the coordinate (48.609, 93.277, 48.609) (taking 15 seconds) and Tomo will scan the coordinate (48.609, 93.277, 48.609) (taking 1 second).
+Asro will go from the coordinate (21.003, 21.632, 21.003) to the coordinate (5.007, 48.493, 5.007) (taking 26 seconds) to give post2 to the manager at the coordinate (5.007, 48.493, 5.007) (taking 2 seconds).
+Asro is going to travel from the coordinate (5.007, 48.493, 5.007) towards the coordinate (78.430, 91.824, 78.430) (taking 17 seconds).
+Tomo is going to move from the coordinate (46.803, 77.381, 46.803) to the coordinate (83.812, 89.695, 83.812) (taking 22 seconds) to go from the coordinate (83.812, 89.695, 83.812) towards the coordinate (12.424, 8.206, 12.424) (taking 12 seconds).

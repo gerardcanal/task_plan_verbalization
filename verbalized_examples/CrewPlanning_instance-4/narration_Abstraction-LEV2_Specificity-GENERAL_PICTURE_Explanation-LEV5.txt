@@ -1,0 +1,10 @@
+CrewPlanner is going to initiate d2 (taking 1440 seconds) to reach the goal of d2 being initiated.
+C1 is going to exercise on d1 with e1 (taking 60 seconds) to change the spaceshipfilter on d1 (taking 60 seconds) to reach the goal of spaceshipfilter changing on d1 so C1 can later make pa1 1 (taking 60 seconds).
+C1 will report the result of activity pa1 1 on d1 (taking 1 second) to reach the goal of pa1 1 being completed on d1.
+C1 will report the result of activity pa1 2 on d1 (taking 1 second) to achieve the goal of pa1 2 being completed on d1.
+C1 will report the result of activity pa1 3 on d1 (taking 1 second) to achieve the goal of pa1 3 being completed on d1.
+C1 will report the result of activity pa1 4 on d1 (taking 1 second) to fulfill the goal of pa1 4 being completed on d1.
+C1 will report the result of activity pa1 5 on d1 (taking 1 second) to achieve the goal of pa1 5 being completed on d1.
+C1 is going to report the result of activity pa1 6 on d1 (taking 1 second) to reach the goal of pa1 6 being completed on d1.
+C1 will sleep on d1 (taking 600 seconds) to achieve the goal of C1 completing sleep on d1.
+C1 will report the result of activity pa1 7 on d1 (taking 1 second) to fulfill the goal of pa1 7 being completed on d1.

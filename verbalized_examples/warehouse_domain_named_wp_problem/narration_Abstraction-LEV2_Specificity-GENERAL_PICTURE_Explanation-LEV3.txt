@@ -1,0 +1,8 @@
+Narrator is: robot_assistant
+I will find person1 (taking 20 seconds).
+I will find person2 (taking 20 seconds) and I will travel from the kitchen counter to the kitchen corridor (taking 10 seconds), which will allow me to ask person2 at the kitchen corridor (taking 2 seconds).
+I will grasp the mug at the microwave (taking 2 seconds) and I am going to move from the microwave towards the entrance (taking 19 seconds) to leave the mug at the entrance (taking 2.5 seconds).
+I will leave the paper at the kitchen counter (taking 2.5 seconds) because I will travel from the microwave to the kitchen counter (taking 5 seconds).
+I will travel from the kitchen door 1 towards the kitchen corridor (taking 26 seconds) to be able to give post2 to person2 at the kitchen corridor (taking 2 seconds).
+I will travel from the main office doorway to the main office desk (taking 15 seconds) and I am going to look around the main office desk (taking 1 second) to place the post1 at the main office desk (taking 2.5 seconds).
+I am going to go from the kitchen sink towards the microwave (taking 12 seconds) to be able to travel from the microwave towards the kitchen shelf (taking 7 seconds).

@@ -1,0 +1,29 @@
+Narrator is: robot_assistant
+I will travel to the entrance.
+Hsr Robot will scan the entrance so I can later leave the mug at the entrance.
+Hsr Robot is going to find person1.
+Hsr Robot is going to look for person2 so I can later ask person2 at the kitchen corridor and I can hand post2 to person2 at the kitchen corridor.
+I am going to go to the kitchen counter to check the kitchen counter to later be able to place the paper at the kitchen counter.
+Hsr Robot will move towards the kitchen chair so Hsr Robot can go towards the kitchen sink.
+I am going to request person2 because I will travel to the kitchen corridor.
+I am going to move to the kitchen shelf so I can take the paper, which will allow me to later leave the paper at the kitchen counter.
+Hsr Robot will travel to the entrance so Hsr Robot can go towards the kitchen table 1.
+I am going to travel to the coffee table 1.
+Hsr Robot will go to the kitchen corridor to then go towards the microwave.
+I am going to leave the paper because I am going to travel towards the kitchen counter.
+Hsr Robot will take the mug and Hsr Robot is going to travel towards the kitchen corridor to be able to hand mug to person2.
+I will go to the coffee table 1 to travel to the kitchen shelf.
+Hsr Robot is going to move to the kitchen door 1 and I am going to go to the coffee table 1, which will allow me to go towards the kitchen corridor.
+Hsr Robot is going to travel towards the office entrance 1, which will allow Hsr Robot to take the post1 to later leave the post1 at the main office desk.
+I am going to get the mug from the person2 and I will move towards the entrance so I can place the mug.
+Hsr Robot will move to the kitchen door 1 to go to the corridor centre.
+I am going to travel to the kitchen corridor, which will allow Hsr Robot to later go from the kitchen chair towards the entrance.
+I will go towards the kitchen hallway, which will allow me to go towards the kitchen door 1.
+Hsr Robot is going to travel towards the main office doorway because Hsr Robot will travel towards the corridor shelf 1.
+I will move to the office entrance 1 to be able to grab the post2 to later deliver post2 to person2 at the kitchen corridor.
+Hsr Robot is going to move towards the main office desk and Hsr Robot will look around the main office desk so Hsr Robot can place the post1.
+I am going to move towards the kitchen door 1.
+I am going to go to the kitchen corridor to give post2 to person2.
+Hsr Robot will travel towards the main office doorway to be able to travel to the meeting room hallway.
+I will go towards the kitchen shelf.
+Hsr Robot will move towards the kitchen chair to be able to move towards the entrance.

@@ -1,0 +1,14 @@
+Narrator is: rover0
+I am going to calibrate camera0 for objective0 to later capture an image of objective0 with camera0 in high res mode at waypoint2.
+I am going to sample rock to later be able to communicate rock data of waypoint2 from waypoint0 to general lander at waypoint3.
+Rover2 will sample rock, which will allow Rover2 to later leave the load at store rover2store and transmit rock data of waypoint4 from waypoint0 to general lander at waypoint3.
+Rover1 will sample rock and Rover1 will go to waypoint0, which will allow Rover1 to communicate rock data of waypoint3 to general lander to fulfill the goal of rock data being communicated, which will allow me to later transmit rock data of waypoint2 from waypoint0 to general lander at waypoint3.
+I will capture an image of objective0 with camera0 and I am going to go towards waypoint0 so I can communicate image data of objective0 to general lander to reach the goal of image data being communicated.
+Rover2 will leave the load to then sample soil so Rover2 can later leave the load at store rover2store and communicate soil data of waypoint4 from waypoint0 to general lander at waypoint3.
+Rover2 is going to go to waypoint0 so Rover2 can later go from waypoint0 to waypoint1.
+Rover2 is going to drop the load to later sample soil to store at rover2store at waypoint1.
+I will transmit rock data of waypoint2 to general lander to reach the goal of rock data being communicated, which will allow me to later communicate image data of objective0 in high res mode from waypoint0 to general lander at waypoint3.
+Rover2 is going to move towards waypoint1 to later sample soil to store at rover2store at waypoint1 and move from waypoint1 to waypoint0.
+Rover2 is going to sample soil to then communicate soil data of waypoint1 to general lander to achieve the goal of soil data being communicated.
+Rover2 will move to waypoint0, which will allow Rover2 to transmit soil data of waypoint4 to general lander to fulfill the goal of soil data being communicated.
+Rover2 will transmit rock data of waypoint4 to general lander to achieve the goal of rock data being communicated.

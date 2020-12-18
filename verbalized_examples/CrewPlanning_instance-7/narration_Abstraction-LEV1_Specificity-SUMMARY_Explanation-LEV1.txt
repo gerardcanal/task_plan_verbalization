@@ -1,0 +1,16 @@
+CrewPlanner is going to wake up C1 and C2 on d1 (taking 195 seconds).
+CrewPlanner is going to initiate d2 (taking 1440 seconds).
+C1 will conduct (52.867, 12.906, 52.867), (47.348, 65.577, 47.348), and (7.172, 26.174, 7.172) (taking 180 seconds).
+C2 is going to conduct (6.229, 35.303, 6.229), (53.488, 80.407, 53.488), and (82.433, 47.447, 82.433) (taking 180 seconds).
+C1 will report the result of activity (52.867, 12.906, 52.867), (6.229, 35.303, 6.229), (47.348, 65.577, 47.348), (53.488, 80.407, 53.488), (7.172, 26.174, 7.172), and (82.433, 47.447, 82.433) on d1 (taking 1 second).
+C1 and C2 is going to have a meal on d1 (taking 60 seconds).
+C2 is going to change the spaceshipfilter on d1 (taking 60 seconds).
+C1 and C2 is going to work out on d1 with e1 (taking 120 seconds).
+C1 is going to communicate the medical state mcs1 and mcs2 on d1 (taking 120 seconds).
+C2 will make (75.012, 6.262, 75.012), (86.582, 67.869, 86.582), and (98.359, 10.278, 98.359) (taking 180 seconds).
+C1 is going to report the result of activity (75.012, 6.262, 75.012) on d1 (taking 1 second).
+C1 will make (1.417, 68.404, 1.417) (taking 60 seconds).
+C1 is going to report the result of activity (1.417, 68.404, 1.417) and (86.582, 67.869, 86.582) on d1 (taking 1 second).
+C1 is going to make (56.038, 28.493, 56.038) (taking 60 seconds).
+C1 will report the result of activity (56.038, 28.493, 56.038) and (98.359, 10.278, 98.359) on d1 (taking 1 second).
+C1 and C2 is going to sleep on d1 (taking 600 seconds).

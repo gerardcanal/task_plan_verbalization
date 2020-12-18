@@ -1,0 +1,11 @@
+Narrator is: rover0
+Rover2 is going to go from waypoint9 towards waypoint8 and Rover2 is going to sample soil to store at rover2store at waypoint8 to be able to transmit soil data of waypoint8 from waypoint8 to general lander at waypoint9 to fulfill the goal of soil data being communicated at waypoint8.
+Rover1 will take an image of objective1 with camera3 in low res mode at waypoint3 to then transmit image data of objective1 in low res mode from waypoint3 to general lander at waypoint9 to fulfill the goal of image data being communicated of objective1 in low res mode.
+Rover3 is going to go from waypoint1 towards waypoint3 to then transmit rock data of waypoint2 from waypoint3 to general lander at waypoint9 to fulfill the goal of rock data being communicated at waypoint2.
+Rover3 is going to communicate rock data of waypoint1 from waypoint3 to general lander at waypoint9 to fulfill the goal of rock data being communicated at waypoint1.
+Rover3 will sample rock to store at rover3store at waypoint8 and Rover3 will travel from waypoint8 to waypoint4, which will allow Rover3 to communicate rock data of waypoint8 from waypoint4 to general lander at waypoint9 to fulfill the goal of rock data being communicated at waypoint8.
+I am going to travel from waypoint0 towards waypoint3 to be able to communicate soil data of waypoint10 from waypoint3 to general lander at waypoint9 to fulfill the goal of soil data being communicated at waypoint10.
+I am going to transmit soil data of waypoint0 from waypoint3 to general lander at waypoint9 to fulfill the goal of soil data being communicated at waypoint0.
+I will transmit soil data of waypoint2 from waypoint3 to general lander at waypoint9 to reach the goal of soil data being communicated at waypoint2.
+I am going to communicate soil data of waypoint5 from waypoint3 to general lander at waypoint9 to reach the goal of soil data being communicated at waypoint5.
+I will transmit image data of objective1 in high res mode from waypoint3 to general lander at waypoint9 to achieve the goal of image data being communicated of objective1 in high res mode.

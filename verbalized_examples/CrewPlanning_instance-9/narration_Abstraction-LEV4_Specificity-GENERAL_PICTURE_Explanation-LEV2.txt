@@ -1,0 +1,16 @@
+CrewPlanner will initiate d2.
+C1 will report the result of activity pa1 1.
+C1 will report the result of activity pa1 2.
+C1 will report the result of activity pa1 3.
+C1 will report the result of activity pa1 4.
+C1 will report the result of activity pa1 5.
+C1 is going to report the result of activity pa1 6.
+C1 is going to report the result of activity pa1 7.
+C1 will report the result of activity pa1 8.
+C1 will report the result of activity pa1 9.
+C3 will eat a meal to change the spaceshipfilter.
+C1 is going to have a meal and C1 is going to exercise with e1, which will allow C1 to sleep.
+C2 is going to eat a meal and C2 will exercise with e2 to then sleep.
+C1 is going to communicate the medical state mcs1.
+C2 is going to communicate the medical state mcs2.
+C3 is going to work out with e1, which will allow C3 to sleep.

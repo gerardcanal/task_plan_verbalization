@@ -1,0 +1,63 @@
+C1 is going to report the result of activity pa1 1 on d1 to achieve the goal of pa1 1 being completed on d1.
+C1 will report the result of activity pa1 10 on d1 to fulfill the goal of pa1 10 being completed on d1.
+C1 is going to report the result of activity pa1 2 on d1 to reach the goal of pa1 2 being completed on d1.
+C1 is going to report the result of activity pa1 3 on d1 to reach the goal of pa1 3 being completed on d1.
+C1 will report the result of activity pa1 4 on d1 to achieve the goal of pa1 4 being completed on d1.
+C1 is going to report the result of activity pa1 5 on d1 to achieve the goal of pa1 5 being completed on d1.
+C1 is going to report the result of activity pa1 6 on d1 to achieve the goal of pa1 6 being completed on d1.
+C1 is going to report the result of activity pa1 7 on d1 to achieve the goal of pa1 7 being completed on d1.
+C1 will report the result of activity pa1 8 on d1 to fulfill the goal of pa1 8 being completed on d1.
+C3 will eat a meal on d1, which will allow C3 to communicate the medical state mcs1 on d1 to fulfill the goal of The medical state mcs1 being finished on d1.
+C1 is going to work out on d1 with e1 so C1 can communicate the medical state mcs3 on d1 to achieve the goal of The medical state mcs3 being finished on d1.
+C2 will conduct pa1 9 so C1 can report the result of activity pa1 9 on d1 to reach the goal of pa1 9 being completed on d1.
+C2 will sleep on d1 because C2 will perform the second reconfiguration of the thermal loop rpcm1 to reach the goal of C2 completing sleep on d1.
+C3 is going to assemble the sleep station rpcm1 to then sleep on d1 to achieve the goal of C3 completing sleep on d1.
+C1 will finish the rpcm1 on d1 to achieve the goal of rpcm1 being completed on d1.
+C1 is going to perform the second reconfiguration of the thermal loop rpcm2 to be able to sleep on d1 to fulfill the goal of C1 completing sleep on d1.
+C2 will report the result of activity pa2 1 on d2 to achieve the goal of pa2 1 being completed on d2.
+C2 will report the result of activity pa2 10 on d2 to achieve the goal of pa2 10 being completed on d2.
+C2 will report the result of activity pa2 11 on d2 to achieve the goal of pa2 11 being completed on d2.
+C2 will report the result of activity pa2 12 on d2 to achieve the goal of pa2 12 being completed on d2.
+C2 is going to report the result of activity pa2 13 on d2 to achieve the goal of pa2 13 being completed on d2.
+C2 will report the result of activity pa2 2 on d2 to achieve the goal of pa2 2 being completed on d2.
+C2 will report the result of activity pa2 3 on d2 to achieve the goal of pa2 3 being completed on d2.
+C2 will report the result of activity pa2 4 on d2 to reach the goal of pa2 4 being completed on d2.
+C2 will report the result of activity pa2 5 on d2 to reach the goal of pa2 5 being completed on d2.
+C2 is going to report the result of activity pa2 6 on d2 to reach the goal of pa2 6 being completed on d2.
+C2 is going to report the result of activity pa2 7 on d2 to reach the goal of pa2 7 being completed on d2.
+C2 is going to report the result of activity pa2 8 on d2 to reach the goal of pa2 8 being completed on d2.
+C2 is going to report the result of activity pa2 9 on d2 to fulfill the goal of pa2 9 being completed on d2.
+C2 will finish the rpcm2 on d2 to reach the goal of rpcm2 being completed on d2.
+C3 is going to sleep on d2 because C3 will eat a meal on d2 and C3 is going to exercise on d2 with e2 to reach the goal of C3 completing sleep on d2.
+C2 will work out on d2 with e1 to then change the spaceshipfilter on d2 to achieve the goal of spaceshipfilter changing on d2.
+C1 is going to sleep on d2 because C1 is going to have a meal on d2 and C1 will work out on d2 with e1 to reach the goal of C1 completing sleep on d2.
+C3 will communicate the medical state mcs1 on d2 to reach the goal of The medical state mcs1 being finished on d2.
+C1 is going to communicate the medical state mcs2 on d2 to fulfill the goal of The medical state mcs2 being finished on d2.
+C2 will communicate the medical state mcs3 on d2 to achieve the goal of The medical state mcs3 being finished on d2.
+C2 is going to sleep on d2 to reach the goal of C2 completing sleep on d2.
+CrewPlanner is going to initiate d4 to fulfill the goal of d4 being initiated.
+C3 will report the result of activity pa3 1 on d3 to achieve the goal of pa3 1 being completed on d3.
+C3 will report the result of activity pa3 10 on d3 to reach the goal of pa3 10 being completed on d3.
+C3 will report the result of activity pa3 11 on d3 to achieve the goal of pa3 11 being completed on d3.
+C3 will report the result of activity pa3 12 on d3 to fulfill the goal of pa3 12 being completed on d3.
+C3 will report the result of activity pa3 13 on d3 to achieve the goal of pa3 13 being completed on d3.
+C3 will report the result of activity pa3 14 on d3 to reach the goal of pa3 14 being completed on d3.
+C3 is going to report the result of activity pa3 15 on d3 to reach the goal of pa3 15 being completed on d3.
+C3 is going to report the result of activity pa3 16 on d3 to reach the goal of pa3 16 being completed on d3.
+C3 is going to report the result of activity pa3 17 on d3 to achieve the goal of pa3 17 being completed on d3.
+C3 is going to report the result of activity pa3 18 on d3 to achieve the goal of pa3 18 being completed on d3.
+C3 is going to report the result of activity pa3 19 on d3 to fulfill the goal of pa3 19 being completed on d3.
+C3 will report the result of activity pa3 2 on d3 to reach the goal of pa3 2 being completed on d3.
+C3 is going to report the result of activity pa3 3 on d3 to fulfill the goal of pa3 3 being completed on d3.
+C3 will report the result of activity pa3 4 on d3 to fulfill the goal of pa3 4 being completed on d3.
+C3 is going to report the result of activity pa3 5 on d3 to achieve the goal of pa3 5 being completed on d3.
+C3 will report the result of activity pa3 6 on d3 to achieve the goal of pa3 6 being completed on d3.
+C3 will report the result of activity pa3 7 on d3 to reach the goal of pa3 7 being completed on d3.
+C3 will report the result of activity pa3 8 on d3 to achieve the goal of pa3 8 being completed on d3.
+C3 is going to report the result of activity pa3 9 on d3 to reach the goal of pa3 9 being completed on d3.
+C3 is going to have a meal on d3 and C3 will exercise on d3 with e1 to sleep on d3 to reach the goal of C3 completing sleep on d3.
+C1 will have a meal on d3 and C1 will exercise on d3 with e1 to sleep on d3 to achieve the goal of C1 completing sleep on d3.
+C2 will have a meal on d3 and C2 will exercise on d3 with e2 to be able to sleep on d3 to reach the goal of C2 completing sleep on d3.
+C3 will change the spaceshipfilter on d3 to fulfill the goal of spaceshipfilter changing on d3.
+C1 is going to communicate the medical state mcs2 on d3 to fulfill the goal of The medical state mcs2 being finished on d3.
+C2 is going to communicate the medical state mcs3 on d3 to achieve the goal of The medical state mcs3 being finished on d3.

@@ -1,0 +1,38 @@
+C1 will conduct pa1 1 (taking 60 seconds).
+C2 is going to make pa1 10 (taking 60 seconds).
+C3 will conduct pa1 11 (taking 60 seconds).
+CrewPlanner is going to wake up C1 on d1 (taking 195 seconds).
+CrewPlanner will wake up C2 on d1 (taking 195 seconds).
+CrewPlanner is going to wake up C3 on d1 (taking 195 seconds).
+CrewPlanner will initiate d2 (taking 1440 seconds).
+C1 is going to conduct pa1 12 (taking 60 seconds) to then conduct pa1 15 (taking 60 seconds).
+C2 will conduct pa1 16 (taking 60 seconds) because C2 is going to make pa1 13 (taking 60 seconds).
+C3 is going to make pa1 14 (taking 60 seconds) to conduct pa1 2 (taking 60 seconds).
+C1 will report the result of activity pa1 1 on d1 (taking 1 second).
+C1 will report the result of activity pa1 10 on d1 (taking 1 second).
+C1 will report the result of activity pa1 11 on d1 (taking 1 second).
+C1 will report the result of activity pa1 12 on d1 (taking 1 second).
+C1 is going to report the result of activity pa1 13 on d1 (taking 1 second).
+C1 will report the result of activity pa1 14 on d1 (taking 1 second).
+C1 is going to report the result of activity pa1 15 on d1 (taking 1 second).
+C1 will report the result of activity pa1 16 on d1 (taking 1 second).
+C1 will report the result of activity pa1 2 on d1 (taking 1 second).
+C1 will eat a meal on d1 (taking 60 seconds).
+C2 is going to change the spaceshipfilter on d1 (taking 60 seconds) because C2 is going to eat a meal on d1 (taking 60 seconds).
+C3 will have a meal on d1 (taking 60 seconds) to then communicate the medical state mcs2 on d1 (taking 60 seconds).
+C1 will work out on d1 with e1 (taking 60 seconds), which will allow C1 to communicate the medical state mcs3 on d1 (taking 60 seconds).
+C3 will make pa1 3 (taking 60 seconds) to be able to exercise on d1 with e1 (taking 60 seconds).
+C2 will exercise on d1 with e1 (taking 60 seconds) to then make pa1 5 (taking 60 seconds).
+C1 will report the result of activity pa1 3 on d1 (taking 1 second).
+C1 will report the result of activity pa1 4 on d1 (taking 1 second) because C1 is going to conduct pa1 4 (taking 60 seconds).
+C1 will report the result of activity pa1 5 on d1 (taking 1 second).
+C1 is going to conduct pa1 6 (taking 60 seconds) so C1 can report the result of activity pa1 6 on d1 (taking 1 second).
+C2 is going to make pa1 7 (taking 60 seconds) to be able to do the first reconfiguration of the thermal loop rpcm1 (taking 60 seconds).
+C3 will make pa1 8 (taking 60 seconds) to then remove the sleep station rpcm1 (taking 60 seconds).
+C1 will report the result of activity pa1 7 on d1 (taking 1 second).
+C1 will report the result of activity pa1 8 on d1 (taking 1 second).
+C1 will make pa1 9 (taking 60 seconds) to report the result of activity pa1 9 on d1 (taking 1 second).
+C1 is going to replace the rpcm1 (taking 180 seconds) to then sleep on d1 (taking 600 seconds).
+C2 is going to assemble the sleep station rpcm1 (taking 60 seconds), which will allow C2 to sleep on d1 (taking 600 seconds).
+C3 is going to perform the second reconfiguration of the thermal loop rpcm1 (taking 60 seconds) to be able to sleep on d1 (taking 600 seconds).
+C1 is going to finish the rpcm1 on d1 (taking 1 second).

@@ -1,0 +1,28 @@
+Narrator is: robot_assistant
+I will travel from the wp3 to the wp4 to then scan the wp4.
+Hsr Robot is going to travel from the wp5 towards the wp15 to be able to find person1.
+I am going to travel from the wp4 to the wp2.
+I am going to move from the wp2 towards the wp1 to be able to grab the paper at the wp1.
+Hsr Robot will locate person2, which will allow Hsr Robot to ask person2 at the wp15.
+I am going to go from the wp1 towards the wp2.
+I will travel from the wp2 to the wp4 to be able to leave the paper at the wp4.
+I am going to go from the wp4 towards the wp2, which will allow me to move from the wp2 towards the wp1.
+Hsr Robot will travel from the wp15 towards the wp36.
+I will take the mug at the wp2 because I am going to go from the wp1 to the wp2.
+I am going to move from the wp2 to the wp1 so I can go from the wp1 to the wp9.
+Hsr Robot will go from the wp36 towards the wp38, which will allow Hsr Robot to travel from the wp38 to the wp36.
+I am going to go from the wp9 towards the wp5 and I am going to check the wp5, which will allow me to place the mug at the wp5.
+Hsr Robot is going to travel from the wp36 to the wp38 to be able to grab the post2 at the wp38.
+Hsr Robot is going to go from the wp38 to the wp36.
+Hsr Robot is going to travel from the wp36 to the wp15 to deliver post2 to person2 at the wp15.
+I am going to move from the wp5 towards the wp8.
+I am going to move from the wp8 towards the wp2 to be able to move from the wp2 towards the wp1.
+Hsr Robot will travel from the wp15 towards the wp36.
+I am going to go from the wp1 towards the wp2 to then travel from the wp2 to the wp21.
+Hsr Robot will move from the wp36 towards the wp38 to grab the post1 at the wp38.
+Hsr Robot is going to move from the wp38 towards the wp36.
+I will go from the wp21 to the wp15 so I can travel from the wp15 to the wp1.
+Hsr Robot is going to move from the wp36 towards the wp27 to then travel from the wp27 to the wp19.
+Hsr Robot is going to move from the wp19 towards the wp6 and Hsr Robot will look around the wp6 to be able to leave the post1 at the wp6.
+Hsr Robot will travel from the wp6 towards the wp19, which will allow Hsr Robot to travel from the wp19 towards the wp28.
+Hsr Robot will go from the wp28 towards the wp16 to travel from the wp16 to the wp5.

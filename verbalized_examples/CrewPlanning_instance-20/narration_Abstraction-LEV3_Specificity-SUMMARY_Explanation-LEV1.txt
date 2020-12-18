@@ -1,0 +1,39 @@
+CrewPlanner is going to wake up C1, C2, and C3 on d1.
+C1 is going to conduct pa1 1, pa1 12, and pa1 15.
+C2 is going to make pa1 10, pa1 13, and pa1 16.
+C3 will make pa1 11, pa1 14, and pa1 17.
+CrewPlanner is going to initiate d3 (via d2).
+C1 will report the result of activity pa1 1, pa1 10, pa1 11, pa1 12, pa1 13, pa1 14, pa1 15, pa1 16, and pa1 17 on d1.
+C1, C2, and C3 will eat a meal on d1.
+C1 will exercise on d1 with e1.
+C2 is going to work out on d1 with e2.
+C3 is going to work out on d1 with e3.
+C1 will communicate the medical state mcs2 on d1.
+C2 will communicate the medical state mcs3 on d1.
+C3 is going to make pa1 18, pa1 3, pa1 6, pa1 9, pa2 11, pa2 14, pa2 17, pa2 3, pa2 6, and pa2 9.
+C1 is going to report the result of activity pa1 18 on d1.
+C1 will conduct pa1 19.
+C2 will conduct pa1 2, pa1 5, pa1 8, pa2 10, pa2 13, pa2 16, pa2 2, pa2 5, and pa2 8.
+C1 is going to report the result of activity pa1 19, pa1 2, and pa1 3 on d1.
+C1 will make pa1 4.
+C1 is going to report the result of activity pa1 4, pa1 5, and pa1 6 on d1.
+C1 will make pa1 7.
+C1 is going to report the result of activity pa1 7, pa1 8, and pa1 9 on d1.
+C1 will conduct pa2 1, pa2 12, pa2 15, pa2 18, pa2 4, and pa2 7.
+C1 will do the first reconfiguration of the thermal loop rpcm2.
+C2 is going to remove the sleep station rpcm2.
+C3 is going to replace the rpcm2.
+C1 is going to assemble the sleep station rpcm2.
+C2 will perform the second reconfiguration of the thermal loop rpcm2.
+C3 is going to sleep on d1.
+C1 and C2 will sleep on d1.
+CrewPlanner is going to wake up C3, C1, and C2 on d2.
+C3 is going to report the result of activity pa2 1, pa2 10, pa2 11, pa2 12, pa2 13, pa2 14, pa2 15, pa2 16, pa2 17, pa2 18, pa2 2, pa2 3, pa2 4, pa2 5, pa2 6, pa2 7, pa2 8, and pa2 9 on d2.
+C3 is going to finish the rpcm2 on d2.
+C3 will eat a meal on d2.
+C1 and C2 is going to have a meal on d2.
+C3 and C1 is going to exercise on d2 with e1.
+C2 is going to exercise on d2 with e2.
+C3 is going to change the spaceshipfilter on d2.
+C1 will communicate the medical state mcs2 on d2.
+C2, C3, and C1 is going to sleep on d2.

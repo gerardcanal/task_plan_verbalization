@@ -1,0 +1,13 @@
+CrewPlanner is going to wake up C1 and C2 on d1 (taking 195 seconds), which will allow C1 to later change the spaceshipfilter on d1 (taking 60 seconds), C2 to communicate the medical state mcs1 on d1 (taking 60 seconds), C1 to finish the rpcm1 on d1 (taking 1 second), and C1 and C2 to sleep on d1 (taking 600 seconds).
+CrewPlanner is going to initiate d2 (taking 1440 seconds).
+C1 will make pa1 1, pa1 3, and pa1 5 (taking 180 seconds).
+C1 is going to report the result of activity pa1 1, pa1 2, pa1 3, pa1 4, pa1 5, and pa1 6 on d1 (taking 1 second) because C2 is going to make pa1 2, pa1 4, and pa1 6 (taking 180 seconds).
+C1 and C2 will eat a meal on d1 (taking 60 seconds), which will allow C1 and C2 to later sleep on d1 (taking 600 seconds).
+C1 is going to exercise on d1 with e1 (taking 60 seconds) to be able to change the spaceshipfilter on d1 (taking 60 seconds).
+C2 will work out on d1 with e2 (taking 60 seconds) to be able to communicate the medical state mcs1 on d1 (taking 60 seconds).
+C1 is going to make pa1 7 (taking 60 seconds).
+C2 will conduct pa1 8 (taking 60 seconds).
+C1 is going to make pa1 7 (taking 60 seconds) to then report the result of activity pa1 7 and pa1 8 on d1 (taking 1 second).
+C1 is going to perform the first reconfiguration of the thermal loop rpcm1 (taking 60 seconds) and C2 will remove the sleep station rpcm1 (taking 60 seconds), which will allow C1 to replace the rpcm1 (taking 180 seconds).
+C1 will do the second reconfiguration of the thermal loop rpcm1 (taking 60 seconds) to be able to finish the rpcm1 on d1 (taking 1 second).
+C2 will assemble the sleep station rpcm1 (taking 60 seconds), which will allow C1 and C2 to sleep on d1 (taking 600 seconds).

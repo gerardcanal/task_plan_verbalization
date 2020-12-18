@@ -1,0 +1,14 @@
+Narrator is: robot_assistant
+I am going to travel towards the wp4, which will allow me to look around the wp4 so I can later place the paper at the wp4.
+Hsr Robot will go to the wp15 to find person1 and person2 to later request person2 at the wp15 and hand post2 to person2 at the wp15.
+I will travel towards the wp1 to take the paper.
+Hsr Robot will locate person1 and person2 to ask person2.
+I am going to travel towards the wp4 so I can place the paper.
+I am going to move to the wp2 to then take the mug to later be able to put the mug at the wp5.
+Hsr Robot will grab the post2 because Hsr Robot will travel to the wp38 to later be able to hand post2 to person2 at the wp15.
+I will travel to the wp5 and I will scan the wp5 to be able to put the mug.
+Hsr Robot is going to move to the wp15 to then hand post2 to person2.
+I will move to the wp1.
+Hsr Robot is going to grasp the post1 because Hsr Robot is going to move towards the wp38.
+Hsr Robot will travel to the wp6 and Hsr Robot is going to check the wp6, which will allow Hsr Robot to place the post1.
+Hsr Robot is going to move to the wp5.

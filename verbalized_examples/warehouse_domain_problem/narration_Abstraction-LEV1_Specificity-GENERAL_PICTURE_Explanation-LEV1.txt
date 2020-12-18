@@ -1,0 +1,8 @@
+Narrator is: robot_assistant
+I am going to locate person1 (taking 20 seconds).
+I am going to request person2 at the coordinate (16.191, 60.653, 16.191) (taking 2 seconds).
+I am going to leave the mug at the coordinate (72.106, 93.628, 72.106) (taking 2.5 seconds).
+I am going to place the paper at the coordinate (70.017, 50.523, 70.017) (taking 2.5 seconds).
+I am going to hand post2 to person2 at the coordinate (16.191, 60.653, 16.191) (taking 2 seconds).
+I will put the post1 at the coordinate (90.358, 91.665, 90.358) (taking 2.5 seconds).
+I am going to go from the coordinate (4.859, 80.176, 4.859) towards the coordinate (66.589, 69.605, 66.589) (taking 7 seconds).

@@ -1,0 +1,24 @@
+Narrator is: robot_assistant
+I will travel from the wp3 to the wp15.
+I will move from the wp15 towards the wp4 to then scan the wp4.
+I will travel from the wp4 towards the wp5 to then check the wp5.
+I am going to find person1.
+I am going to look for person2 and I will move from the wp5 to the wp15, which will allow me to ask person2 at the wp15.
+I am going to travel from the wp15 to the wp2.
+I will grasp the mug at the wp2 and I am going to go from the wp2 towards the wp5 to then place the mug at the wp5.
+I will move from the wp5 to the wp15.
+I will travel from the wp15 to the wp1, which will allow me to grasp the paper at the wp1.
+I am going to go from the wp1 to the wp2.
+I will travel from the wp2 towards the wp4 to be able to leave the paper at the wp4.
+I will travel from the wp4 towards the wp15 to be able to move from the wp15 to the wp36.
+I am going to move from the wp36 to the wp38, which will allow me to grasp the post2 at the wp38.
+I will move from the wp38 to the wp36.
+I am going to go from the wp36 to the wp15 to be able to give post2 to person2 at the wp15.
+I will travel from the wp15 to the wp36.
+I will move from the wp36 to the wp38 so I can take the post1 at the wp38.
+I am going to move from the wp38 towards the wp36.
+I am going to move from the wp36 to the wp27 to go from the wp27 to the wp19.
+I am going to put the post1 at the wp6 because I will go from the wp19 towards the wp6 and I am going to look around the wp6.
+I will go from the wp6 towards the wp19.
+I am going to go from the wp28 towards the wp3 because I am going to move from the wp19 to the wp28.
+I will travel from the wp3 to the wp2 to be able to travel from the wp2 to the wp1.

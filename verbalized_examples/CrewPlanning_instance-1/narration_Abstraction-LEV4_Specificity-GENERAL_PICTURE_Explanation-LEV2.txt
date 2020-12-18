@@ -1,0 +1,4 @@
+CrewPlanner is going to initiate d2.
+C1 will change the spaceshipfilter because C1 will exercise with e1.
+C1 is going to do the second reconfiguration, which will allow C1 to sleep.
+C1 will finish the rpcm1.

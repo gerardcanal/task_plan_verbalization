@@ -1,0 +1,9 @@
+Narrator is: robot_assistant
+Hsr Robot will locate person1.
+I am going to ask person2 at the kitchen corridor.
+I will leave the paper at the kitchen counter.
+I will put the mug at the entrance.
+Hsr Robot will leave the post1 at the main office desk.
+I will give post2 to person2 at the kitchen corridor.
+I am going to move from the kitchen corridor to the kitchen shelf.
+Hsr Robot is going to move from the kitchen chair towards the entrance.

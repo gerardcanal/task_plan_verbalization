@@ -1,0 +1,8 @@
+The car will move from la1a1 to la2a1.
+I will load the tire at la2a1.
+I will change the tire.
+The car is going to move from la2a1 to la3a1.
+I will load the tire at la3a1.
+I is going to change the tire.
+The car is going to move from la3a1 to la2a2.
+The car will move from la2a2 to la1a3.

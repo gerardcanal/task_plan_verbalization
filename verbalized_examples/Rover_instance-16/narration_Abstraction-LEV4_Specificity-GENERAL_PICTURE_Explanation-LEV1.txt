@@ -1,0 +1,12 @@
+Narrator is: rover0
+I am going to communicate rock data of waypoint1 to general lander.
+Rover2 is going to transmit image data of objective2 to general lander.
+I will transmit image data of objective0 to general lander.
+I will communicate image data of objective4 to general lander.
+I am going to communicate soil data of waypoint1 to general lander.
+Rover1 is going to communicate soil data of waypoint4 to general lander.
+Rover1 will communicate soil data of waypoint7 to general lander.
+Rover1 will transmit soil data of waypoint9 to general lander.
+Rover1 is going to transmit rock data of waypoint10 to general lander.
+Rover1 will transmit rock data of waypoint5 to general lander.
+I am going to communicate rock data of waypoint3 to general lander.

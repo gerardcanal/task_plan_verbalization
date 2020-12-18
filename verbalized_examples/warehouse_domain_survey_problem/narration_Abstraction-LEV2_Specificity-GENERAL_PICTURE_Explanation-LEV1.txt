@@ -1,0 +1,9 @@
+Narrator is: robot_assistant
+Tomo is going to locate the secretary (taking 20 seconds).
+Asro is going to request the manager at the kitchen corridor (taking 2 seconds).
+Asro is going to leave the paper at the kitchen counter (taking 2.5 seconds).
+Asro is going to place the mug at the entrance (taking 2.5 seconds).
+Tomo is going to place the post1 at the main office desk (taking 2.5 seconds).
+Asro will hand post2 to the manager at the kitchen corridor (taking 2 seconds).
+Asro is going to move from the kitchen corridor towards the kitchen shelf (taking 17 seconds).
+Tomo is going to travel from the kitchen chair to the entrance (taking 12 seconds).

@@ -1,0 +1,20 @@
+Narrator is: rover0
+Rover3 is going to sample soil to store at rover3store at waypoint3.
+Rover1 will calibrate camera2 for objective0 at waypoint2 to be able to capture an image of objective0 with camera2 in high res mode at waypoint2.
+Rover2 will go from waypoint2 towards waypoint4 to be able to sample rock to store at rover2store at waypoint4.
+I will move from waypoint2 towards waypoint1 (via waypoint0) to sample soil to store at mestore at waypoint1.
+Rover1 is going to calibrate camera2 for objective0 at waypoint2.
+Rover3 will travel from waypoint3 towards waypoint2.
+Rover3 is going to leave the load at store rover3store.
+Rover1 and Rover2 will travel from waypoint2 towards waypoint1 (via waypoint0), which will allow Rover2 to communicate rock data of waypoint4 from waypoint1 to general lander at waypoint0.
+Rover2 will travel from waypoint4 to waypoint2.
+Rover3 is going to transmit soil data of waypoint3 from waypoint2 to general lander at waypoint0.
+I am going to drop the load at store mestore.
+Rover1 will take an image of objective0 with camera2 in low res mode at waypoint1.
+Rover1 will calibrate camera2 for objective0 at waypoint1.
+Rover1 will transmit image data of objective0 in high res mode from waypoint1 to general lander at waypoint0.
+Rover3 is going to go from waypoint2 towards waypoint4 (via waypoint3) to be able to sample soil to store at rover3store at waypoint4.
+Rover1 will take an image of objective2 with camera2 in low res mode at waypoint1 to then communicate image data of objective0 and objective2 in low res mode from waypoint1 to general lander at waypoint0.
+Rover3 will travel from waypoint4 to waypoint1 (via waypoint3 and waypoint0) so Rover3 and me can communicate soil data of waypoint4 from waypoint1 to general lander at waypoint0 (via waypoint1).
+Rover1 will go from waypoint1 towards waypoint5 (via waypoint0 and waypoint2).
+Rover1 is going to sample rock to store at rover1store at waypoint5 and Rover1 is going to travel from waypoint5 to waypoint2 to then transmit rock data of waypoint5 from waypoint2 to general lander at waypoint0.

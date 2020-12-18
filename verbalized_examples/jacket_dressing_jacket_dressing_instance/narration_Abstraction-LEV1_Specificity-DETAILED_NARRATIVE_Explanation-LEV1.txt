@@ -1,0 +1,11 @@
+Narrator is: I
+I am going to approach the left hand (taking 0 seconds).
+I am going to insert the left sleeve (taking 0 seconds).
+I am going to approach the right hand (taking 0 seconds).
+I am going to drag the left forearm (taking 0 seconds).
+I am going to insert the right sleeve (taking 0 seconds).
+I am going to drag the right forearm (taking 0 seconds).
+I will drag the left upperarm (taking 0 seconds).
+I will drag the right upperarm (taking 0 seconds).
+I am going to finish the dressing (taking 0 seconds).
+I am going to complete the task (taking 0 seconds).

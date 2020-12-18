@@ -1,0 +1,9 @@
+Narrator is: robot_assistant
+Hsr Robot is going to look for person1 (taking 20 seconds).
+I will request person2 at the kitchen corridor (taking 2 seconds).
+I will leave the paper at the kitchen counter (taking 2.5 seconds).
+I will leave the mug at the entrance (taking 2.5 seconds).
+Hsr Robot is going to place the post1 at the main office desk (taking 2.5 seconds).
+I will give post2 to person2 at the kitchen corridor (taking 2 seconds).
+I am going to travel from the kitchen corridor towards the kitchen shelf (taking 17 seconds).
+Hsr Robot will travel from the kitchen chair towards the entrance (taking 12 seconds).

@@ -1,0 +1,11 @@
+Narrator is: rover0
+I am going to transmit image data of objective0 in colour mode from waypoint0 to general lander at waypoint3 (taking 15 seconds) to achieve the goal of image data being communicated of objective0 in colour mode.
+I am going to communicate image data of objective1 in low res mode from waypoint0 to general lander at waypoint3 (taking 15 seconds) to fulfill the goal of image data being communicated of objective1 in low res mode.
+I am going to communicate image data of objective0 in low res mode from waypoint0 to general lander at waypoint3 (taking 15 seconds) to achieve the goal of image data being communicated of objective0 in low res mode.
+I will transmit rock data of waypoint0 from waypoint0 to general lander at waypoint3 (taking 10 seconds) to reach the goal of rock data being communicated at waypoint0.
+Rover1 is going to transmit soil data of waypoint1 from waypoint0 to general lander at waypoint3 (taking 10 seconds) to fulfill the goal of soil data being communicated at waypoint1.
+I am going to communicate rock data of waypoint2 from waypoint0 to general lander at waypoint3 (taking 10 seconds) to reach the goal of rock data being communicated at waypoint2.
+Rover1 is going to travel from waypoint5 towards waypoint2 (taking 5 seconds) and Rover1 is going to sample soil to store at rover1store at waypoint2 (taking 10 seconds), which will allow Rover1 to transmit soil data of waypoint2 from waypoint2 to general lander at waypoint3 (taking 10 seconds) to reach the goal of soil data being communicated at waypoint2.
+I will sample rock to store at mestore at waypoint3 (taking 8 seconds) and I will travel from waypoint3 towards waypoint0 (taking 5 seconds) to transmit rock data of waypoint3 from waypoint0 to general lander at waypoint3 (taking 10 seconds) to achieve the goal of rock data being communicated at waypoint3.
+Rover1 is going to transmit soil data of waypoint5 from waypoint4 to general lander at waypoint3 (taking 10 seconds) to fulfill the goal of soil data being communicated at waypoint5.
+Rover1 is going to sample soil to store at rover1store at waypoint4 (taking 10 seconds) to be able to communicate soil data of waypoint4 from waypoint4 to general lander at waypoint3 (taking 10 seconds) to achieve the goal of soil data being communicated at waypoint4.

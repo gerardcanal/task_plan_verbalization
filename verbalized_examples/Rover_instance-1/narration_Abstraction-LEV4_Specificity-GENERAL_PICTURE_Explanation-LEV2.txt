@@ -1,0 +1,4 @@
+Narrator is: rover0
+I will transmit image data of objective1 to general lander.
+I will travel to waypoint1 so I can communicate rock data of waypoint3 to general lander.
+I am going to go towards waypoint2 and I will sample soil to be able to transmit soil data of waypoint2 to general lander.

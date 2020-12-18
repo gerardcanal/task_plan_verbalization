@@ -1,0 +1,23 @@
+Narrator is: robot_assistant
+I am going to move from the kitchen sink towards the entrance, which will allow me to look around the entrance to later put the mug at the entrance.
+I will travel from the entrance to the kitchen counter to be able to look around the kitchen counter so I can later place the paper at the kitchen counter.
+I will locate person1.
+I will look for person2 and I will go from the kitchen counter to the kitchen corridor to then ask person2 at the kitchen corridor.
+I am going to go from the kitchen corridor to the microwave.
+I will grasp the mug at the microwave and I am going to travel from the microwave towards the entrance so I can put the mug at the entrance.
+I will travel from the entrance to the kitchen corridor.
+I will move from the kitchen corridor to the kitchen shelf to grasp the paper at the kitchen shelf so I can later leave the paper at the kitchen counter.
+I am going to move from the kitchen shelf towards the microwave so I can later travel from the microwave towards the kitchen shelf.
+I am going to travel from the microwave towards the kitchen counter to place the paper at the kitchen counter.
+I will move from the kitchen counter towards the kitchen corridor to then go from the kitchen corridor to the kitchen door 1.
+I am going to travel from the kitchen door 1 towards the office entrance 1 to take the post2 at the office entrance 1 to later deliver post2 to person2 at the kitchen corridor.
+I will move from the office entrance 1 to the kitchen door 1.
+I will move from the kitchen door 1 to the kitchen corridor so I can hand post2 to person2 at the kitchen corridor.
+I am going to go from the kitchen corridor towards the kitchen door 1.
+I will go from the kitchen door 1 towards the office entrance 1 so I can grab the post1 at the office entrance 1 so I can later leave the post1 at the main office desk.
+I will travel from the office entrance 1 to the kitchen door 1.
+I will travel from the kitchen door 1 towards the corridor centre to then travel from the corridor centre towards the main office doorway.
+I will put the post1 at the main office desk because I am going to go from the main office doorway towards the main office desk and I will check the main office desk.
+I am going to go from the main office desk towards the main office doorway.
+I will travel from the main office doorway to the meeting room hallway to be able to travel from the meeting room hallway to the kitchen sink.
+I am going to go from the kitchen sink towards the microwave to go from the microwave to the kitchen shelf.

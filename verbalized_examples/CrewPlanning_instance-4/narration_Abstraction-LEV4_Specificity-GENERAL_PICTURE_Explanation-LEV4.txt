@@ -1,0 +1,10 @@
+CrewPlanner will initiate d2 to reach the goal of d2 being initiated.
+C1 is going to work out with e1 to be able to change the spaceshipfilter to reach the goal of spaceshipfilter changing.
+C1 will report the result of activity pa1 1 to fulfill the goal of pa1 1 being completed.
+C1 will report the result of activity pa1 2 to achieve the goal of pa1 2 being completed.
+C1 is going to report the result of activity pa1 3 to achieve the goal of pa1 3 being completed.
+C1 will report the result of activity pa1 4 to achieve the goal of pa1 4 being completed.
+C1 is going to report the result of activity pa1 5 to achieve the goal of pa1 5 being completed.
+C1 is going to report the result of activity pa1 6 to achieve the goal of pa1 6 being completed.
+C1 will sleep to achieve the goal of C1 completing sleep.
+C1 is going to report the result of activity pa1 7 to reach the goal of pa1 7 being completed.

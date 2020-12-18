@@ -1,0 +1,50 @@
+Narrator is: robot_assistant
+Hsr Robot will move from the coordinate (72.106, 93.628, 72.106) towards the coordinate (16.191, 60.653, 16.191) (taking 18 seconds).
+I am going to move from the coordinate (21.633, 70.726, 21.633) towards the coordinate (70.017, 50.523, 70.017) (taking 7 seconds).
+I am going to check the coordinate (70.017, 50.523, 70.017) (taking 1 second).
+I am going to move from the coordinate (70.017, 50.523, 70.017) to the coordinate (4.859, 80.176, 4.859) (taking 5 seconds).
+I am going to travel from the coordinate (4.859, 80.176, 4.859) to the coordinate (66.589, 69.605, 66.589) (taking 7 seconds).
+Hsr Robot is going to look for person1 (taking 20 seconds).
+Hsr Robot will find person2 (taking 20 seconds).
+I am going to take the paper at the coordinate (66.589, 69.605, 66.589) (taking 2 seconds).
+I am going to travel from the coordinate (66.589, 69.605, 66.589) towards the coordinate (4.859, 80.176, 4.859) (taking 7 seconds).
+I will go from the coordinate (4.859, 80.176, 4.859) to the coordinate (70.017, 50.523, 70.017) (taking 5 seconds).
+I am going to place the paper at the coordinate (70.017, 50.523, 70.017) (taking 2.5 seconds).
+I am going to travel from the coordinate (70.017, 50.523, 70.017) towards the coordinate (4.859, 80.176, 4.859) (taking 5 seconds).
+Hsr Robot will ask person2 at the coordinate (16.191, 60.653, 16.191) (taking 2 seconds).
+Hsr Robot will move from the coordinate (16.191, 60.653, 16.191) to the coordinate (83.583, 6.284, 83.583) (taking 26 seconds).
+I am going to travel from the coordinate (4.859, 80.176, 4.859) to the coordinate (66.589, 69.605, 66.589) (taking 7 seconds).
+I will move from the coordinate (66.589, 69.605, 66.589) towards the coordinate (4.859, 80.176, 4.859) (taking 7 seconds).
+I will take the mug at the coordinate (4.859, 80.176, 4.859) (taking 2 seconds).
+I will go from the coordinate (4.859, 80.176, 4.859) to the coordinate (66.589, 69.605, 66.589) (taking 7 seconds).
+I am going to move from the coordinate (66.589, 69.605, 66.589) towards the coordinate (35.043, 9.217, 35.043) (taking 11 seconds).
+Hsr Robot will travel from the coordinate (83.583, 6.284, 83.583) towards the coordinate (30.114, 56.380, 30.114) (taking 8 seconds).
+Hsr Robot will travel from the coordinate (30.114, 56.380, 30.114) towards the coordinate (83.583, 6.284, 83.583) (taking 8 seconds).
+I will travel from the coordinate (35.043, 9.217, 35.043) to the coordinate (72.106, 93.628, 72.106) (taking 21 seconds).
+Hsr Robot will move from the coordinate (83.583, 6.284, 83.583) to the coordinate (30.114, 56.380, 30.114) (taking 8 seconds).
+Hsr Robot will grasp the post2 at the coordinate (30.114, 56.380, 30.114) (taking 2 seconds).
+Hsr Robot will travel from the coordinate (30.114, 56.380, 30.114) to the coordinate (83.583, 6.284, 83.583) (taking 8 seconds).
+I will look around the coordinate (72.106, 93.628, 72.106) (taking 1 second).
+I am going to place the mug at the coordinate (72.106, 93.628, 72.106) (taking 2.5 seconds).
+Hsr Robot is going to travel from the coordinate (83.583, 6.284, 83.583) to the coordinate (16.191, 60.653, 16.191) (taking 26 seconds).
+I am going to go from the coordinate (72.106, 93.628, 72.106) to the coordinate (92.181, 64.363, 92.181) (taking 6 seconds).
+I am going to move from the coordinate (92.181, 64.363, 92.181) towards the coordinate (4.859, 80.176, 4.859) (taking 25 seconds).
+Hsr Robot is going to deliver post2 to person2 at the coordinate (16.191, 60.653, 16.191) (taking 2 seconds).
+Hsr Robot will move from the coordinate (16.191, 60.653, 16.191) to the coordinate (83.583, 6.284, 83.583) (taking 26 seconds).
+I am going to move from the coordinate (4.859, 80.176, 4.859) towards the coordinate (66.589, 69.605, 66.589) (taking 7 seconds).
+I am going to travel from the coordinate (66.589, 69.605, 66.589) to the coordinate (4.859, 80.176, 4.859) (taking 7 seconds).
+I am going to move from the coordinate (4.859, 80.176, 4.859) to the coordinate (88.901, 72.876, 88.901) (taking 20 seconds).
+Hsr Robot will travel from the coordinate (83.583, 6.284, 83.583) towards the coordinate (30.114, 56.380, 30.114) (taking 8 seconds).
+Hsr Robot is going to take the post1 at the coordinate (30.114, 56.380, 30.114) (taking 2 seconds).
+Hsr Robot will travel from the coordinate (30.114, 56.380, 30.114) towards the coordinate (83.583, 6.284, 83.583) (taking 8 seconds).
+I will travel from the coordinate (88.901, 72.876, 88.901) to the coordinate (16.191, 60.653, 16.191) (taking 9 seconds).
+Hsr Robot is going to travel from the coordinate (83.583, 6.284, 83.583) towards the coordinate (40.690, 12.545, 40.690) (taking 29 seconds).
+I will move from the coordinate (16.191, 60.653, 16.191) to the coordinate (66.589, 69.605, 66.589) (taking 17 seconds).
+Hsr Robot will move from the coordinate (40.690, 12.545, 40.690) to the coordinate (89.176, 36.945, 89.176) (taking 29 seconds).
+Hsr Robot is going to go from the coordinate (89.176, 36.945, 89.176) towards the coordinate (90.358, 91.665, 90.358) (taking 15 seconds).
+Hsr Robot is going to scan the coordinate (90.358, 91.665, 90.358) (taking 1 second).
+Hsr Robot is going to leave the post1 at the coordinate (90.358, 91.665, 90.358) (taking 2.5 seconds).
+Hsr Robot is going to move from the coordinate (90.358, 91.665, 90.358) to the coordinate (89.176, 36.945, 89.176) (taking 15 seconds).
+Hsr Robot is going to travel from the coordinate (89.176, 36.945, 89.176) towards the coordinate (13.733, 68.415, 13.733) (taking 21 seconds).
+Hsr Robot is going to move from the coordinate (13.733, 68.415, 13.733) to the coordinate (76.665, 31.628, 76.665) (taking 22 seconds).
+Hsr Robot will move from the coordinate (76.665, 31.628, 76.665) to the coordinate (72.106, 93.628, 72.106) (taking 12 seconds).

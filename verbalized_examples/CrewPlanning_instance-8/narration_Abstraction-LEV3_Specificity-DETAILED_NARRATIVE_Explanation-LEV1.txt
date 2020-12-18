@@ -1,0 +1,33 @@
+C1 is going to make pa1 1.
+C2 will conduct pa1 2.
+CrewPlanner will wake up C1 on d1.
+CrewPlanner will wake up C2 on d1.
+CrewPlanner will initiate d2.
+C1 will conduct pa1 3.
+C2 is going to conduct pa1 4.
+C1 is going to conduct pa1 5.
+C2 is going to make pa1 6.
+C1 will report the result of activity pa1 1 on d1.
+C1 will report the result of activity pa1 2 on d1.
+C1 is going to report the result of activity pa1 3 on d1.
+C1 is going to report the result of activity pa1 4 on d1.
+C1 is going to report the result of activity pa1 5 on d1.
+C1 will report the result of activity pa1 6 on d1.
+C1 is going to eat a meal on d1.
+C2 will have a meal on d1.
+C1 will work out on d1 with e1.
+C2 is going to exercise on d1 with e2.
+C1 is going to change the spaceshipfilter on d1.
+C2 is going to communicate the medical state mcs1 on d1.
+C1 is going to make pa1 7.
+C2 is going to conduct pa1 8.
+C1 will report the result of activity pa1 7 on d1.
+C1 is going to report the result of activity pa1 8 on d1.
+C1 is going to perform the first reconfiguration of the thermal loop rpcm1.
+C2 is going to remove the sleep station rpcm1.
+C1 is going to replace the rpcm1.
+C2 will assemble the sleep station rpcm1.
+C1 will perform the second reconfiguration of the thermal loop rpcm1.
+C1 is going to finish the rpcm1 on d1.
+C1 will sleep on d1.
+C2 will sleep on d1.

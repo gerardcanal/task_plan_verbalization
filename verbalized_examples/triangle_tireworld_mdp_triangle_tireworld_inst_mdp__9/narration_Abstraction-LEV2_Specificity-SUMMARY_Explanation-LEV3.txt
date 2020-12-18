@@ -1,0 +1,11 @@
+The car is going to move from la1a1 to la3a3 (via la2a1, la3a1, la4a1, la5a1, and la4a2, taking 0.01 seconds).
+I will load the tire at la2a1 (taking 0 seconds).
+I will change the tire (taking 0 seconds).
+I is going to load the tire at la3a1 (taking 0 seconds).
+I will change the tire (taking 0 seconds).
+I is going to load the tire at la4a1 (taking 0 seconds).
+I will change the tire (taking 0 seconds).
+I is going to load the tire at la5a1 (taking 0 seconds).
+I will change the tire (taking 0 seconds).
+I will load the tire at la4a2 (taking 0 seconds).
+I is going to change the tire (taking 0 seconds).

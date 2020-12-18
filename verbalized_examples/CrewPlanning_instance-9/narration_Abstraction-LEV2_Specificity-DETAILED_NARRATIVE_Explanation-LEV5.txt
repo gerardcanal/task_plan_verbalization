@@ -1,0 +1,25 @@
+C1 is going to conduct pa1 1 (taking 60 seconds) so C1 can later make pa1 4 (taking 60 seconds) and report the result of activity pa1 1 on d1 (taking 1 second).
+C2 is going to make pa1 2 (taking 60 seconds) so C2 can later make pa1 5 (taking 60 seconds) and C1 can report the result of activity pa1 2 on d1 (taking 1 second).
+C3 will make pa1 3 (taking 60 seconds), which will allow C3 to later conduct pa1 6 (taking 60 seconds) and C1 to report the result of activity pa1 3 on d1 (taking 1 second).
+CrewPlanner will wake up C1 on d1 (taking 195 seconds) so C1 can later report the result of activity pa1 1 on d1 (taking 1 second), C1 can report the result of activity pa1 2 on d1 (taking 1 second), C1 can report the result of activity pa1 3 on d1 (taking 1 second), C1 can report the result of activity pa1 4 on d1 (taking 1 second), C1 can report the result of activity pa1 5 on d1 (taking 1 second), C1 can report the result of activity pa1 6 on d1 (taking 1 second), C1 can report the result of activity pa1 7 on d1 (taking 1 second), C1 can report the result of activity pa1 8 on d1 (taking 1 second), C1 can report the result of activity pa1 9 on d1 (taking 1 second), C1 can have a meal on d1 (taking 60 seconds), C1 can work out on d1 with e1 (taking 60 seconds), C1 can communicate the medical state mcs1 on d1 (taking 60 seconds), and C1 can sleep on d1 (taking 600 seconds).
+CrewPlanner will wake up C2 on d1 (taking 195 seconds) so C2 can later have a meal on d1 (taking 60 seconds), C2 can exercise on d1 with e2 (taking 60 seconds), C2 can communicate the medical state mcs2 on d1 (taking 60 seconds), and C2 can sleep on d1 (taking 600 seconds).
+CrewPlanner is going to wake up C3 on d1 (taking 195 seconds), which will allow C3 to later have a meal on d1 (taking 60 seconds), C3 to change the spaceshipfilter on d1 (taking 60 seconds), C3 to exercise on d1 with e1 (taking 60 seconds), and C3 to sleep on d1 (taking 600 seconds).
+CrewPlanner is going to initiate d2 (taking 1440 seconds) to fulfill the goal of d2 being initiated.
+C1 will conduct pa1 4 (taking 60 seconds), which will allow C1 to make pa1 7 (taking 60 seconds), which will allow C1 to later report the result of activity pa1 7 on d1 (taking 1 second).
+C2 will conduct pa1 5 (taking 60 seconds) to be able to conduct pa1 8 (taking 60 seconds), which will allow C1 to later report the result of activity pa1 8 on d1 (taking 1 second).
+C3 will conduct pa1 6 (taking 60 seconds), which will allow C3 to make pa1 9 (taking 60 seconds), which will allow C1 to later report the result of activity pa1 9 on d1 (taking 1 second).
+C1 will report the result of activity pa1 1 on d1 (taking 1 second) to fulfill the goal of pa1 1 being completed on d1.
+C1 is going to report the result of activity pa1 2 on d1 (taking 1 second) to achieve the goal of pa1 2 being completed on d1.
+C1 will report the result of activity pa1 3 on d1 (taking 1 second) to fulfill the goal of pa1 3 being completed on d1.
+C1 will report the result of activity pa1 4 on d1 (taking 1 second) to fulfill the goal of pa1 4 being completed on d1.
+C1 will report the result of activity pa1 5 on d1 (taking 1 second) to achieve the goal of pa1 5 being completed on d1.
+C1 will report the result of activity pa1 6 on d1 (taking 1 second) to achieve the goal of pa1 6 being completed on d1.
+C1 will report the result of activity pa1 7 on d1 (taking 1 second) to achieve the goal of pa1 7 being completed on d1.
+C1 will report the result of activity pa1 8 on d1 (taking 1 second) to fulfill the goal of pa1 8 being completed on d1.
+C1 is going to report the result of activity pa1 9 on d1 (taking 1 second) to achieve the goal of pa1 9 being completed on d1.
+C3 will have a meal on d1 (taking 60 seconds) to be able to change the spaceshipfilter on d1 (taking 60 seconds) to achieve the goal of spaceshipfilter changing on d1 to later be able to work out on d1 with e1 (taking 60 seconds).
+C1 is going to eat a meal on d1 (taking 60 seconds) and C1 is going to exercise on d1 with e1 (taking 60 seconds) to sleep on d1 (taking 600 seconds) to fulfill the goal of C1 completing sleep on d1.
+C2 will have a meal on d1 (taking 60 seconds) and C2 is going to exercise on d1 with e2 (taking 60 seconds) to be able to sleep on d1 (taking 600 seconds) to reach the goal of C2 completing sleep on d1.
+C1 is going to communicate the medical state mcs1 on d1 (taking 60 seconds) to reach the goal of The medical state mcs1 being finished on d1 so C1 can later sleep on d1 (taking 600 seconds).
+C2 will communicate the medical state mcs2 on d1 (taking 60 seconds) to achieve the goal of The medical state mcs2 being finished on d1 so C2 can later sleep on d1 (taking 600 seconds).
+C3 is going to exercise on d1 with e1 (taking 60 seconds) to be able to sleep on d1 (taking 600 seconds) to reach the goal of C3 completing sleep on d1.

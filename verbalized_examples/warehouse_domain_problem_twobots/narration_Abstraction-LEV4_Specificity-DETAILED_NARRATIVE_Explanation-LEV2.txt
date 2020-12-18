@@ -1,0 +1,28 @@
+Narrator is: robot_assistant
+I will move towards the wp4 to be able to check the wp4.
+Hsr Robot is going to look for person1 because Hsr Robot is going to travel to the wp15.
+I am going to move towards the wp2.
+I am going to move to the wp1 to be able to take the paper.
+Hsr Robot is going to request person2 because Hsr Robot will find person2.
+I will move towards the wp2.
+I will put the paper because I will move towards the wp4.
+I am going to move to the wp2 to travel to the wp1.
+Hsr Robot will travel to the wp36.
+I am going to move to the wp2 to then grasp the mug.
+I am going to travel towards the wp9 because I will move to the wp1.
+Hsr Robot will travel towards the wp38, which will allow Hsr Robot to go to the wp36.
+I am going to move towards the wp5 and I am going to look around the wp5 to put the mug.
+Hsr Robot will go to the wp38 to take the post2.
+Hsr Robot will travel towards the wp36.
+Hsr Robot will move to the wp15 to be able to give post2 to person2.
+I am going to move towards the wp8.
+I will travel to the wp2 to then travel to the wp1.
+Hsr Robot will move towards the wp36.
+I will travel to the wp2 to then go to the wp21.
+Hsr Robot is going to go to the wp38 to be able to grasp the post1.
+Hsr Robot will move towards the wp36.
+I will move to the wp1 because I am going to go to the wp15.
+Hsr Robot will move to the wp27 to move to the wp19.
+Hsr Robot is going to travel to the wp6 and Hsr Robot will look around the wp6 so Hsr Robot can place the post1.
+Hsr Robot is going to move towards the wp19 to go to the wp28.
+Hsr Robot is going to travel towards the wp16 to be able to move towards the wp5.

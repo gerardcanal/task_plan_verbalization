@@ -1,0 +1,24 @@
+C1 will conduct pa1 1.
+C2 is going to make pa1 2.
+CrewPlanner is going to wake up C1.
+CrewPlanner will wake up C2.
+CrewPlanner will initiate d2.
+C1 will conduct pa1 3, which will allow C1 to conduct pa1 5.
+C2 will conduct pa1 4, which will allow C2 to conduct pa1 6.
+C1 will report the result of activity pa1 1.
+C1 is going to report the result of activity pa1 2.
+C1 is going to report the result of activity pa1 3.
+C1 is going to report the result of activity pa1 4.
+C1 is going to report the result of activity pa1 5.
+C1 will report the result of activity pa1 6.
+C1 will have a meal.
+C2 will have a meal.
+C1 will exercise with e1 to change the spaceshipfilter.
+C2 is going to communicate the medical state mcs1 because C2 will exercise with e2.
+C2 will conduct pa1 8.
+C1 is going to report the result of activity pa1 7 because C1 will make pa1 7.
+C1 is going to report the result of activity pa1 8.
+C1 will do the first reconfiguration and C2 will remove the sleep station rpcm1 so C1 can replace the rpcm1.
+C1 is going to finish the rpcm1 because C1 will do the second reconfiguration.
+C2 will assemble, which will allow C2 to sleep.
+C1 will sleep.

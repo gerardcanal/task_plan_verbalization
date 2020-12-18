@@ -1,0 +1,20 @@
+C1 is going to make pa1 1 so C1 can later report the result of activity pa1 1 on d1.
+C2 is going to make pa1 2 so C1 can later report the result of activity pa1 2 on d1.
+CrewPlanner is going to wake up C1 so C1 can later report the result of activity pa1 1 on d1, C1 can report the result of activity pa1 2 on d1, C1 can report the result of activity pa1 3 on d1, C1 can report the result of activity pa1 4 on d1, C1 can report the result of activity pa1 5 on d1, C1 can report the result of activity pa1 6 on d1, C1 can report the result of activity pa1 7 on d1, C1 can report the result of activity pa1 8 on d1, C1 can report the result of activity pa1 9 on d1, and C1 can sleep on d1.
+CrewPlanner will wake up C2, which will allow C2 to later communicate the medical state mcs2 on d1 and C2 to sleep on d1.
+CrewPlanner will initiate d2 to achieve the goal of d2 being initiated.
+C1 is going to conduct pa1 3, which will allow C1 to conduct pa1 5 to later be able to report the result of activity pa1 5 on d1.
+C2 will make pa1 4, which will allow C2 to conduct pa1 6 so C1 can later report the result of activity pa1 6 on d1.
+C1 will report the result of activity pa1 1 to achieve the goal of pa1 1 being completed.
+C1 is going to report the result of activity pa1 2 to reach the goal of pa1 2 being completed.
+C1 is going to report the result of activity pa1 3 to achieve the goal of pa1 3 being completed.
+C1 is going to report the result of activity pa1 4 to fulfill the goal of pa1 4 being completed.
+C1 is going to report the result of activity pa1 5 to reach the goal of pa1 5 being completed.
+C1 is going to report the result of activity pa1 6 to reach the goal of pa1 6 being completed.
+C1 is going to eat a meal, which will allow C1 to work out with e1 to later sleep on d1.
+C2 is going to communicate the medical state mcs2 because C2 will eat a meal to reach the goal of The medical state mcs2 being finished.
+C1 will report the result of activity pa1 7 because C1 is going to make pa1 7 to fulfill the goal of pa1 7 being completed.
+C2 is going to exercise with e1 and C2 is going to make pa1 9, which will allow C2 to sleep to achieve the goal of C2 completing sleep.
+C1 will report the result of activity pa1 8 because C1 is going to conduct pa1 8 to achieve the goal of pa1 8 being completed.
+C1 is going to report the result of activity pa1 9 to reach the goal of pa1 9 being completed.
+C1 will sleep to achieve the goal of C1 completing sleep.

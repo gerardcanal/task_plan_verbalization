@@ -1,0 +1,12 @@
+Narrator is: rover0
+Rover3 will transmit rock data of waypoint1 from waypoint0 to general lander at waypoint1 because Rover3 is going to sample rock to store at rover3store at waypoint1 and Rover3 will travel from waypoint1 to waypoint0 to fulfill the goal of rock data being communicated at waypoint1.
+Rover1 will transmit soil data of waypoint0 from waypoint0 to general lander at waypoint1 to achieve the goal of soil data being communicated at waypoint0.
+Rover1 will communicate image data of objective2 in colour mode from waypoint0 to general lander at waypoint1 to achieve the goal of image data being communicated of objective2 in colour mode.
+Rover1 will transmit image data of objective3 in low res mode from waypoint0 to general lander at waypoint1 to reach the goal of image data being communicated of objective3 in low res mode.
+Rover1 will communicate image data of objective3 in colour mode from waypoint0 to general lander at waypoint1 to achieve the goal of image data being communicated of objective3 in colour mode.
+I am going to communicate soil data of waypoint3 from waypoint4 to general lander at waypoint1 because I am going to sample soil to store at mestore at waypoint3 to achieve the goal of soil data being communicated at waypoint3.
+I will move from waypoint3 to waypoint4 to then communicate soil data of waypoint4 from waypoint4 to general lander at waypoint1 to achieve the goal of soil data being communicated at waypoint4.
+I am going to communicate soil data of waypoint6 from waypoint4 to general lander at waypoint1 to fulfill the goal of soil data being communicated at waypoint6.
+I will communicate rock data of waypoint0 from waypoint4 to general lander at waypoint1 to reach the goal of rock data being communicated at waypoint0.
+I am going to transmit rock data of waypoint4 from waypoint4 to general lander at waypoint1 to fulfill the goal of rock data being communicated at waypoint4.
+Rover2 will communicate rock data of waypoint3 from waypoint0 to general lander at waypoint1 to reach the goal of rock data being communicated at waypoint3.

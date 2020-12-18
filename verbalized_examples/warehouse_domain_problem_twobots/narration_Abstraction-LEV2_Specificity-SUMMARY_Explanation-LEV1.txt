@@ -1,0 +1,26 @@
+Narrator is: robot_assistant
+Hsr Robot will travel from the wp5 to the wp15 (taking 18 seconds).
+I will travel from the wp3 towards the wp4 (taking 7 seconds).
+I am going to check the wp4 (taking 1 second).
+I will move from the wp4 to the wp1 (via wp2, taking 12 seconds).
+Hsr Robot is going to locate person1 and person2 (taking 20 seconds).
+I am going to grasp the paper at the wp1 (taking 2 seconds).
+I will travel from the wp1 to the wp4 (via wp2, taking 12 seconds).
+I am going to leave the paper at the wp4 (taking 2.5 seconds).
+I am going to travel from the wp4 to the wp2 (via wp2 and wp1, taking 19 seconds).
+Hsr Robot will request person2 at the wp15 (taking 2 seconds).
+Hsr Robot is going to travel from the wp15 towards the wp38 (via wp36, wp38, and wp36, taking 50 seconds).
+I will grab the mug at the wp2 (taking 2 seconds).
+I am going to go from the wp2 to the wp5 (via wp1 and wp9, taking 39 seconds).
+Hsr Robot will grab the post2 at the wp38 (taking 2 seconds).
+Hsr Robot is going to travel from the wp38 towards the wp15 (via wp36, taking 34 seconds).
+I will look around the wp5 (taking 1 second).
+I will place the mug at the wp5 (taking 2.5 seconds).
+I am going to travel from the wp5 towards the wp1 (via wp8, wp2, wp1, wp2, wp21, and wp15, taking 91 seconds).
+Hsr Robot will give post2 to person2 at the wp15 (taking 2 seconds).
+Hsr Robot is going to move from the wp15 towards the wp38 (via wp36, taking 34 seconds).
+Hsr Robot is going to take the post1 at the wp38 (taking 2 seconds).
+Hsr Robot is going to go from the wp38 towards the wp6 (via wp36, wp27, and wp19, taking 81 seconds).
+Hsr Robot will check the wp6 (taking 1 second).
+Hsr Robot will place the post1 at the wp6 (taking 2.5 seconds).
+Hsr Robot is going to move from the wp6 to the wp5 (via wp19, wp28, and wp16, taking 70 seconds).

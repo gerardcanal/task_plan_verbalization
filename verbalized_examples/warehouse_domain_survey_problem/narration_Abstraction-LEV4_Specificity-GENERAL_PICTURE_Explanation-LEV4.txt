@@ -1,0 +1,9 @@
+Narrator is: robot_assistant
+Tomo is going to find the secretary to achieve the goal of finding the secretary.
+Asro will move to the kitchen corridor to then ask the manager to reach the goal of asking the manager.
+Asro is going to move to the kitchen counter, which will allow Asro to put the paper to fulfill the goal of the paper being at the kitchen counter.
+Asro will get the mug from the the manager and Asro will move to the entrance to be able to leave the mug to achieve the goal of the mug being at the entrance.
+Tomo is going to travel to the main office desk and Tomo will scan the main office desk so Tomo can leave the post1 to fulfill the goal of the post1 being at the main office desk.
+Asro is going to move to the kitchen corridor, which will allow Asro to hand post2 to the manager to achieve the goal of the post2 being at the the manager.
+Asro will move towards the kitchen shelf to achieve the goal of Asro being at the kitchen shelf.
+Tomo is going to move towards the kitchen chair to go towards the entrance to fulfill the goal of Tomo being at the entrance.

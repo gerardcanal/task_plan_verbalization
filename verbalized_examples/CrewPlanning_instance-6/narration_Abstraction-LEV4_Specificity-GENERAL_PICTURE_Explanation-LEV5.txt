@@ -1,0 +1,13 @@
+CrewPlanner will initiate d2 to reach the goal of d2 being initiated.
+C1 will report the result of activity pa1 1 to fulfill the goal of pa1 1 being completed.
+C1 is going to report the result of activity pa1 2 to fulfill the goal of pa1 2 being completed.
+C1 is going to report the result of activity pa1 3 to reach the goal of pa1 3 being completed.
+C1 is going to report the result of activity pa1 4 to achieve the goal of pa1 4 being completed.
+C1 will report the result of activity pa1 5 to reach the goal of pa1 5 being completed.
+C1 will report the result of activity pa1 6 to achieve the goal of pa1 6 being completed.
+C2 will eat a meal to communicate the medical state mcs2 to achieve the goal of The medical state mcs2 being finished to later exercise on d1 with e1.
+C1 will conduct pa1 7 to then report the result of activity pa1 7 to fulfill the goal of pa1 7 being completed.
+C2 will exercise with e1 and C2 will make pa1 9 so C2 can sleep to fulfill the goal of C2 completing sleep.
+C1 is going to make pa1 8 so C1 can report the result of activity pa1 8 to fulfill the goal of pa1 8 being completed.
+C1 is going to report the result of activity pa1 9 to achieve the goal of pa1 9 being completed.
+C1 is going to sleep to fulfill the goal of C1 completing sleep.

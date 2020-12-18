@@ -1,0 +1,15 @@
+CrewPlanner is going to wake up C1 on d1, which will allow C1 to later change the spaceshipfilter on d1, C1 to finish the rpcm1 on d1, and C1 to sleep on d1.
+C1 will make pa2 1, pa2 2, and pa2 3.
+CrewPlanner will initiate d3 (via d2) to later be able to wake up C1 on d2.
+C1 is going to eat a meal on d1 so C1 can later sleep on d1.
+C1 is going to change the spaceshipfilter on d1 because C1 is going to work out on d1 with e1.
+C1 is going to change the spaceshipfilter on d1 to be able to make pa2 4, pa2 5, pa2 6, and pa2 7, which will allow C1 to later report the result of activity pa2 1, pa2 2, pa2 3, pa2 4, pa2 5, pa2 6, and pa2 7 on d2.
+C1 will perform the first reconfiguration of the thermal loop rpcm1 and C1 will remove the sleep station rpcm1 to be able to replace the rpcm1.
+C1 will assemble the sleep station rpcm1 and C1 is going to perform the second reconfiguration of the thermal loop rpcm1 to then finish the rpcm1 on d1.
+C1 is going to sleep on d1.
+CrewPlanner is going to wake up C1 on d2, which will allow C1 to later change the spaceshipfilter on d2, C1 to communicate the medical state mcs1 on d2, and C1 to sleep on d2.
+C1 is going to report the result of activity pa2 1, pa2 2, pa2 3, pa2 4, pa2 5, pa2 6, and pa2 7 on d2 because CrewPlanner will wake up C1 on d2.
+C1 will eat a meal on d2 to later be able to sleep on d2.
+C1 will exercise on d2 with e1, which will allow C1 to change the spaceshipfilter on d2.
+C1 is going to communicate the medical state mcs1 on d2.
+C1 will sleep on d2.

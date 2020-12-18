@@ -1,0 +1,25 @@
+C1 is going to report the result of activity pa1 1 to achieve the goal of pa1 1 being completed.
+C1 is going to report the result of activity pa1 2 to achieve the goal of pa1 2 being completed.
+C1 will report the result of activity pa1 3 to achieve the goal of pa1 3 being completed.
+C1 will work out with e1, which will allow C1 to change the spaceshipfilter to fulfill the goal of spaceshipfilter changing, which will allow C1 to later conduct pa1 4.
+C1 will make pa1 4 to then report the result of activity pa1 4 to fulfill the goal of pa1 4 being completed.
+C1 is going to make pa3 7 to be able to sleep to reach the goal of C1 completing sleep, which will allow CrewPlanner to later wake up C1 on d2.
+CrewPlanner will wake up C1 so C1 can report the result of activity pa2 1 to fulfill the goal of pa2 1 being completed.
+C1 will report the result of activity pa2 2 to reach the goal of pa2 2 being completed.
+C1 will report the result of activity pa2 3 to fulfill the goal of pa2 3 being completed.
+C1 is going to report the result of activity pa2 4 to fulfill the goal of pa2 4 being completed.
+C1 is going to report the result of activity pa2 5 to reach the goal of pa2 5 being completed.
+C1 is going to report the result of activity pa2 6 to fulfill the goal of pa2 6 being completed.
+C1 will eat a meal and C1 will work out with e1, which will allow C1 to sleep to achieve the goal of C1 completing sleep so CrewPlanner can later wake up C1 on d3.
+C1 will change the spaceshipfilter to achieve the goal of spaceshipfilter changing.
+CrewPlanner is going to initiate d4 to fulfill the goal of d4 being initiated.
+C1 is going to report the result of activity pa3 1 to reach the goal of pa3 1 being completed.
+C1 is going to report the result of activity pa3 2 to reach the goal of pa3 2 being completed.
+C1 will report the result of activity pa3 3 to fulfill the goal of pa3 3 being completed.
+C1 is going to report the result of activity pa3 4 to fulfill the goal of pa3 4 being completed.
+C1 will report the result of activity pa3 5 to fulfill the goal of pa3 5 being completed.
+C1 is going to report the result of activity pa3 6 to fulfill the goal of pa3 6 being completed.
+C1 will report the result of activity pa3 7 to reach the goal of pa3 7 being completed.
+C1 will work out with e1, which will allow C1 to change the spaceshipfilter to achieve the goal of spaceshipfilter changing.
+C1 is going to communicate the medical state mcs1 to fulfill the goal of The medical state mcs1 being finished.
+C1 will sleep to achieve the goal of C1 completing sleep.

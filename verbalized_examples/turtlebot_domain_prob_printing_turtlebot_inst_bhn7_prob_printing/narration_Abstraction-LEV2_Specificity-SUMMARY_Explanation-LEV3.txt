@@ -1,0 +1,4 @@
+Kenny will go from the manager office towards the printer phdarea (taking 0 seconds) to be able to ask to get the papers loaded (taking 0 seconds).
+Kenny is going to go from the printer phdarea towards the printer corridor (taking 0 seconds), which will allow Kenny to ask to get the papers loaded (taking 0 seconds).
+Kenny will wait to get the papers loaded (taking 0 seconds), Kenny is going to move from the printer corridor towards the phdarea (taking 0 seconds), and Kenny is going to ask to have the papers taken (taking 0 seconds), which will allow Kenny to wait to have the papers taken (taking 0 seconds).
+Kenny is going to go from the phdarea to the dock station (taking 0 seconds), which will allow Kenny to dock to charge the batteries (taking 0 seconds).

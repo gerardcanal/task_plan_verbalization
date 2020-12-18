@@ -1,0 +1,9 @@
+Narrator is: robot_assistant
+Hsr Robot will look for person1 (taking 20 seconds).
+I am going to request person2 at the coordinate (5.007, 48.493, 5.007) (taking 2 seconds) because I am going to travel from the coordinate (87.593, 76.208, 87.593) towards the coordinate (5.007, 48.493, 5.007) (taking 10 seconds).
+I am going to go from the coordinate (12.383, 89.122, 12.383) to the coordinate (87.593, 76.208, 87.593) (taking 8 seconds), which will allow me to leave the paper at the coordinate (87.593, 76.208, 87.593) (taking 2.5 seconds).
+I will get the mug at the coordinate (5.007, 48.493, 5.007) from the person2 (taking 2 seconds) and I will move from the coordinate (5.007, 48.493, 5.007) to the coordinate (12.424, 8.206, 12.424) (taking 18 seconds), which will allow me to leave the mug at the coordinate (12.424, 8.206, 12.424) (taking 2.5 seconds).
+Hsr Robot will travel from the coordinate (14.956, 67.551, 14.956) to the coordinate (48.609, 93.277, 48.609) (taking 15 seconds) and Hsr Robot will scan the coordinate (48.609, 93.277, 48.609) (taking 1 second) to put the post1 at the coordinate (48.609, 93.277, 48.609) (taking 2.5 seconds).
+I will deliver post2 to person2 at the coordinate (5.007, 48.493, 5.007) (taking 2 seconds) because I am going to go from the coordinate (21.003, 21.632, 21.003) towards the coordinate (5.007, 48.493, 5.007) (taking 26 seconds).
+I am going to move from the coordinate (5.007, 48.493, 5.007) towards the coordinate (78.430, 91.824, 78.430) (taking 17 seconds).
+Hsr Robot will travel from the coordinate (46.803, 77.381, 46.803) towards the coordinate (83.812, 89.695, 83.812) (taking 22 seconds) to then move from the coordinate (83.812, 89.695, 83.812) towards the coordinate (12.424, 8.206, 12.424) (taking 12 seconds).

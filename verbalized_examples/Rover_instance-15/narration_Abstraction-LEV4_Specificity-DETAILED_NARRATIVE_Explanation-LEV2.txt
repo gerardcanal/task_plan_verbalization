@@ -1,0 +1,32 @@
+Narrator is: rover0
+Rover2 will travel to waypoint9.
+Rover1 is going to travel towards waypoint3 to then calibrate camera3 for objective3.
+Rover3 is going to go to waypoint2, which will allow Rover3 to sample rock.
+I am going to take an image of objective1 with camera1 because I am going to calibrate camera1 for objective4 and I am going to move to waypoint0.
+Rover2 is going to go towards waypoint8 and Rover2 will sample soil so Rover2 can communicate soil data of waypoint8 to general lander.
+Rover1 is going to transmit image data of objective1 to general lander because Rover1 will capture an image of objective1 with camera3.
+Rover3 is going to go to waypoint4.
+Rover3 will drop the load.
+I will travel to waypoint3.
+Rover3 is going to move to waypoint1.
+I will travel towards waypoint0 to then sample soil.
+Rover3 will travel to waypoint3 to then transmit rock data of waypoint2 to general lander.
+I will move towards waypoint4.
+I will drop the load and I will travel to waypoint10, which will allow me to sample soil.
+Rover3 is going to go towards waypoint1 to sample rock.
+I am going to go to waypoint4.
+I am going to leave the load and I am going to travel to waypoint2, which will allow me to sample soil.
+Rover3 will go to waypoint3.
+Rover3 will leave the load.
+Rover3 is going to transmit rock data of waypoint1 to general lander.
+I will move towards waypoint4.
+I am going to drop the load and I will go towards waypoint5 to sample soil.
+Rover3 will move to waypoint1.
+Rover3 will move towards waypoint4 to be able to travel to waypoint8.
+I will move towards waypoint4 to be able to move to waypoint0.
+Rover3 will transmit rock data of waypoint8 to general lander because Rover3 will sample rock and Rover3 is going to move to waypoint4.
+I am going to travel to waypoint3 to then communicate soil data of waypoint10 to general lander.
+I am going to communicate soil data of waypoint0 to general lander.
+I will communicate soil data of waypoint2 to general lander.
+I will transmit soil data of waypoint5 to general lander.
+I am going to communicate image data of objective1 to general lander.

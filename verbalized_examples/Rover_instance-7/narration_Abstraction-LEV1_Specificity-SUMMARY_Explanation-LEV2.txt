@@ -1,0 +1,12 @@
+Narrator is: rover0
+I am going to calibrate camera0 for objective0 at (76.351, 86.564, 76.351) (taking 5 seconds).
+I am going to sample rock to store at mestore at (76.351, 86.564, 76.351) (taking 8 seconds).
+Rover2 is going to sample rock to store at rover2store at (24.914, 29.757, 24.914) (taking 8 seconds).
+Rover1 is going to sample rock to store at rover1store at (91.745, 70.756, 91.745) (taking 8 seconds) and Rover1 is going to go from (91.745, 70.756, 91.745) towards (16.203, 3.297, 16.203) (taking 5 seconds) to be able to communicate rock data of (91.745, 70.756, 91.745) from (16.203, 3.297, 16.203) to general lander at (91.745, 70.756, 91.745) (taking 10 seconds).
+I am going to capture an image of objective0 with camera0 in high res mode at (76.351, 86.564, 76.351) (taking 7 seconds) and I will go from (76.351, 86.564, 76.351) towards (16.203, 3.297, 16.203) (taking 5 seconds) to then transmit image data of objective0 in high res mode from (16.203, 3.297, 16.203) to general lander at (91.745, 70.756, 91.745) (taking 15 seconds).
+Rover2 will drop the load at store rover2store (taking 1 second), which will allow Rover2 to sample soil to store at rover2store at (24.914, 29.757, 24.914) (taking 10 seconds).
+Rover2 is going to travel from (24.914, 29.757, 24.914) towards (16.203, 3.297, 16.203) (taking 5 seconds).
+Rover2 will sample soil to store at rover2store at (80.989, 3.464, 80.989) (taking 10 seconds) because Rover2 is going to leave the load at store rover2store (taking 1 second) and Rover2 will move from (16.203, 3.297, 16.203) to (80.989, 3.464, 80.989) (taking 5 seconds).
+I will communicate rock data of (76.351, 86.564, 76.351) from (16.203, 3.297, 16.203) to general lander at (91.745, 70.756, 91.745) (taking 10 seconds).
+Rover2 will sample soil to store at rover2store at (80.989, 3.464, 80.989) (taking 10 seconds), I am going to transmit image data of objective0 in high res mode from (16.203, 3.297, 16.203) to general lander at (91.745, 70.756, 91.745) (taking 15 seconds), and Rover2 is going to go from (80.989, 3.464, 80.989) towards (16.203, 3.297, 16.203) (taking 5 seconds) so Rover2 can communicate soil data of (80.989, 3.464, 80.989) and (24.914, 29.757, 24.914) from (16.203, 3.297, 16.203) to general lander at (91.745, 70.756, 91.745) (taking 20 seconds).
+Rover2 is going to transmit rock data of (24.914, 29.757, 24.914) from (16.203, 3.297, 16.203) to general lander at (91.745, 70.756, 91.745) (taking 10 seconds).

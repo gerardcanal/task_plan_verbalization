@@ -1,0 +1,8 @@
+Narrator is: rover0
+I am going to calibrate camera0 for objective0 at (49.517, 18.817, 49.517) (taking 5 seconds).
+I will sample soil to store at mestore at (49.517, 18.817, 49.517) (taking 10 seconds) to later be able to transmit soil data of (49.517, 18.817, 49.517) from (49.517, 18.817, 49.517) to general lander at (57.063, 44.557, 57.063) (taking 10 seconds).
+I am going to take an image of objective1 with camera0 in low res mode at (49.517, 18.817, 49.517) (taking 7 seconds) to later transmit image data of objective1 in low res mode from (49.517, 18.817, 49.517) to general lander at (57.063, 44.557, 57.063) (taking 15 seconds).
+I will leave the load at store mestore (taking 1 second) to sample rock to store at mestore at (49.517, 18.817, 49.517) (taking 8 seconds) to later be able to transmit rock data of (49.517, 18.817, 49.517) from (49.517, 18.817, 49.517) to general lander at (57.063, 44.557, 57.063) (taking 10 seconds).
+I will communicate image data of objective1 in low res mode from (49.517, 18.817, 49.517) to general lander at (57.063, 44.557, 57.063) (taking 15 seconds).
+I will transmit soil data of (49.517, 18.817, 49.517) from (49.517, 18.817, 49.517) to general lander at (57.063, 44.557, 57.063) (taking 10 seconds).
+I am going to transmit rock data of (49.517, 18.817, 49.517) from (49.517, 18.817, 49.517) to general lander at (57.063, 44.557, 57.063) (taking 10 seconds).

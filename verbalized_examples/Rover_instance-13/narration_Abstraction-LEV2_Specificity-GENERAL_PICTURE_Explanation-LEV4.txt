@@ -1,0 +1,13 @@
+Narrator is: rover0
+Rover3 will transmit rock data of waypoint8 from waypoint8 to general lander at waypoint2 (taking 10 seconds) because Rover3 is going to move from waypoint3 to waypoint8 (taking 5 seconds) and Rover3 will sample rock to store at rover3store at waypoint8 (taking 8 seconds) to achieve the goal of rock data being communicated at waypoint8.
+Rover1 is going to sample soil to store at rover1store at waypoint2 (taking 10 seconds) and Rover1 will go from waypoint2 towards waypoint0 (taking 5 seconds) to communicate soil data of waypoint2 from waypoint0 to general lander at waypoint2 (taking 10 seconds) to fulfill the goal of soil data being communicated at waypoint2.
+I will transmit soil data of waypoint7 from waypoint0 to general lander at waypoint2 (taking 10 seconds) to achieve the goal of soil data being communicated at waypoint7.
+I will communicate image data of objective1 in high res mode from waypoint0 to general lander at waypoint2 (taking 15 seconds) to reach the goal of image data being communicated of objective1 in high res mode.
+I am going to communicate image data of objective2 in high res mode from waypoint0 to general lander at waypoint2 (taking 15 seconds) to fulfill the goal of image data being communicated of objective2 in high res mode.
+I am going to communicate image data of objective3 in high res mode from waypoint0 to general lander at waypoint2 (taking 15 seconds) to reach the goal of image data being communicated of objective3 in high res mode.
+Rover2 will communicate soil data of waypoint4 from waypoint0 to general lander at waypoint2 (taking 10 seconds) to reach the goal of soil data being communicated at waypoint4.
+Rover2 will transmit soil data of waypoint5 from waypoint0 to general lander at waypoint2 (taking 10 seconds) to reach the goal of soil data being communicated at waypoint5.
+Rover2 will communicate rock data of waypoint1 from waypoint0 to general lander at waypoint2 (taking 10 seconds) to reach the goal of rock data being communicated at waypoint1.
+Rover2 is going to communicate rock data of waypoint4 from waypoint0 to general lander at waypoint2 (taking 10 seconds) to fulfill the goal of rock data being communicated at waypoint4.
+Rover2 is going to transmit rock data of waypoint6 from waypoint0 to general lander at waypoint2 (taking 10 seconds) to fulfill the goal of rock data being communicated at waypoint6.
+Rover3 will communicate rock data of waypoint7 from waypoint0 to general lander at waypoint2 (taking 10 seconds) to reach the goal of rock data being communicated at waypoint7.

@@ -1,0 +1,15 @@
+C1 is going to report the result of activity pa1 1 on d1 (taking 1 second).
+C1 is going to report the result of activity pa1 2 on d1 (taking 1 second).
+C1 will report the result of activity pa1 3 on d1 (taking 1 second).
+C1 will communicate the medical state mcs1 on d1 (taking 60 seconds).
+C1 is going to report the result of activity pa1 4 on d1 (taking 1 second).
+C1 will sleep on d1 (taking 600 seconds).
+CrewPlanner is going to initiate d3 (taking 1440 seconds).
+C1 will report the result of activity pa2 1 on d2 (taking 1 second).
+C1 will report the result of activity pa2 2 on d2 (taking 1 second).
+C1 will report the result of activity pa2 3 on d2 (taking 1 second).
+C1 is going to report the result of activity pa2 4 on d2 (taking 1 second).
+C1 is going to report the result of activity pa2 5 on d2 (taking 1 second).
+C1 is going to report the result of activity pa2 6 on d2 (taking 1 second).
+C1 is going to change the spaceshipfilter on d2 (taking 60 seconds).
+C1 will sleep on d2 (taking 600 seconds).

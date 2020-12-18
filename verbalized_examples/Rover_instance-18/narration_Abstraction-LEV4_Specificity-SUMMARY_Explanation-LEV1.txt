@@ -1,0 +1,46 @@
+Narrator is: rover0
+I am going to move towards waypoint14.
+Rover2 will sample soil.
+Rover2 is going to calibrate camera1 for objective6.
+Rover1 is going to calibrate camera0 for objective4.
+Rover3 is going to go towards waypoint5.
+Rover1 is going to take an image of objective4 with camera0.
+Rover2 will take an image of objective3 with camera1.
+I will calibrate camera5 for objective2.
+Rover2 is going to calibrate camera1 for objective6.
+Rover2 will drop the load.
+I will take an image of objective2 with camera5.
+Rover1 and Rover3 will move towards waypoint0.
+Rover2 is going to communicate image data of objective3 to general lander.
+I am going to calibrate camera5 for objective2.
+Rover2 will capture an image of objective2 with camera1.
+Rover3 is going to sample rock.
+I will move to waypoint2.
+I will take an image of objective5 with camera5.
+I will sample rock.
+Rover3 will go to waypoint9.
+Rover2 is going to transmit soil data of waypoint0 to general lander.
+I will move towards waypoint9.
+I am going to drop the load.
+I am going to move towards waypoint4.
+Rover1 is going to communicate image data of objective4 to general lander.
+I will sample rock.
+I am going to go to waypoint9.
+I will leave the load.
+Rover2 is going to communicate image data of objective2 to general lander.
+Rover1 will go to waypoint6.
+I will move towards waypoint0.
+Rover2 is going to move towards waypoint14.
+I will communicate rock data of waypoint2 and waypoint4 to general lander.
+Rover1 is going to sample rock.
+Rover1 will move towards waypoint0.
+Rover2 will sample soil.
+I am going to communicate image data of objective5 to general lander.
+Rover2 is going to go to waypoint0.
+Rover2 is going to communicate soil data of waypoint14 to general lander.
+I am going to go to waypoint7.
+Rover1 will transmit rock data of waypoint6 to general lander.
+I am going to sample rock.
+I am going to move towards waypoint0.
+Rover3 will transmit rock data of waypoint5 to general lander.
+I will transmit rock data of waypoint7 to general lander.

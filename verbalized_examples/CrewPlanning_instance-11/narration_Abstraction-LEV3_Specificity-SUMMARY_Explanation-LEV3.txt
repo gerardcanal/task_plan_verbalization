@@ -1,0 +1,16 @@
+CrewPlanner will wake up C1, C2, and C3 on d1 so C1 can later communicate the medical state mcs1 on d1, C2 can communicate the medical state mcs2 on d1, C1 can report the result of activity pa1 6 on d1, C3 can sleep on d1, and C1 can finish the rpcm1 on d1.
+CrewPlanner will initiate d2.
+C1 is going to conduct pa1 1, pa1 12, and pa1 3.
+C2 is going to make pa1 10, pa1 13, and pa1 4.
+C3 is going to conduct pa1 11, pa1 2, and pa1 5 so C1 can report the result of activity pa1 1, pa1 10, pa1 11, pa1 12, pa1 13, pa1 2, pa1 3, pa1 4, and pa1 5 on d1.
+C1, C2, and C3 is going to have a meal on d1, which will allow C3 to work out on d1 with e3, which will allow C3 to later sleep on d1.
+C1 is going to work out on d1 with e1 to then communicate the medical state mcs1 on d1.
+C2 is going to work out on d1 with e2 to communicate the medical state mcs2 on d1.
+C3 will make pa1 6 and pa1 9 and C1 will conduct pa1 7 so C1 can report the result of activity pa1 7, pa1 8, and pa1 9 on d1.
+C1 is going to report the result of activity pa1 6 on d1.
+C1 is going to make pa1 7.
+C2 will remove the sleep station rpcm1 because C2 will conduct pa1 8.
+C1 will do the first reconfiguration of the thermal loop rpcm1.
+C3 is going to replace the rpcm1, which will allow C3 to sleep on d1.
+C1 will assemble the sleep station rpcm1 to then finish the rpcm1 on d1.
+C1 and C2 is going to sleep on d1 because C2 is going to perform the second reconfiguration of the thermal loop rpcm1.

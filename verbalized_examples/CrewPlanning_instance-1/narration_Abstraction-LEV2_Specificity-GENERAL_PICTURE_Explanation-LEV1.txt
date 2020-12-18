@@ -1,0 +1,4 @@
+CrewPlanner is going to initiate d2 (taking 1440 seconds).
+C1 is going to change the spaceshipfilter on d1 (taking 60 seconds).
+C1 will sleep on d1 (taking 600 seconds).
+C1 will finish the rpcm1 on d1 (taking 1 second).

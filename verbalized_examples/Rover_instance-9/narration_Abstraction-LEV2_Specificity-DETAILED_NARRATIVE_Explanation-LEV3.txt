@@ -1,0 +1,26 @@
+Narrator is: rover0
+Rover1 will calibrate camera4 for objective1 at waypoint2 (taking 5 seconds).
+Rover3 will calibrate camera0 for objective2 at waypoint2 (taking 5 seconds).
+Rover2 is going to move from waypoint0 to waypoint6 (taking 5 seconds) to be able to sample soil to store at rover2store at waypoint6 (taking 10 seconds) to later transmit soil data of waypoint6 from waypoint1 to general lander at waypoint4 (taking 10 seconds).
+I will calibrate camera1 for objective2 at waypoint1 (taking 5 seconds) because I am going to travel from waypoint5 to waypoint1 (taking 5 seconds).
+Rover1 is going to take an image of objective2 with camera4 in colour mode at waypoint2 (taking 7 seconds).
+Rover3 will take an image of objective2 with camera0 in low res mode at waypoint2 (taking 7 seconds) so Rover3 can communicate image data of objective2 in low res mode from waypoint1 to general lander at waypoint4 (taking 15 seconds), which will allow Rover2 to later communicate soil data of waypoint0 from waypoint1 to general lander at waypoint4 (taking 10 seconds) and Rover3 to transmit soil data of waypoint4 from waypoint1 to general lander at waypoint4 (taking 10 seconds).
+Rover1 will calibrate camera4 for objective1 at waypoint2 (taking 5 seconds).
+I will capture an image of objective2 with camera1 in colour mode at waypoint1 (taking 7 seconds) so I can transmit image data of objective2 in colour mode from waypoint1 to general lander at waypoint4 (taking 15 seconds).
+Rover3 will travel from waypoint1 to waypoint4 (taking 5 seconds) because Rover3 will travel from waypoint2 towards waypoint1 (taking 5 seconds).
+Rover1 will go from waypoint2 to waypoint0 (taking 5 seconds) to sample rock to store at rover1store at waypoint0 (taking 8 seconds) so Rover1 can later transmit rock data of waypoint0 from waypoint1 to general lander at waypoint4 (taking 10 seconds).
+Rover2 is going to move from waypoint6 to waypoint0 (taking 5 seconds).
+Rover2 will leave the load at store rover2store (taking 1 second).
+Rover2 will sample soil to store at rover2store at waypoint0 (taking 10 seconds) to then transmit soil data of waypoint0 from waypoint1 to general lander at waypoint4 (taking 10 seconds).
+Rover1 is going to go from waypoint0 towards waypoint2 (taking 5 seconds).
+Rover1 is going to leave the load at store rover1store (taking 1 second).
+Rover2 will communicate soil data of waypoint6 from waypoint1 to general lander at waypoint4 (taking 10 seconds) because Rover2 is going to move from waypoint0 towards waypoint1 (taking 5 seconds).
+Rover1 is going to travel from waypoint2 to waypoint1 (taking 5 seconds) to later be able to transmit rock data of waypoint0 from waypoint1 to general lander at waypoint4 (taking 10 seconds).
+Rover3 is going to communicate soil data of waypoint4 from waypoint1 to general lander at waypoint4 (taking 10 seconds) because Rover3 is going to sample soil to store at rover3store at waypoint4 (taking 10 seconds) and Rover3 is going to go from waypoint4 to waypoint1 (taking 5 seconds).
+Rover1 will communicate rock data of waypoint0 from waypoint1 to general lander at waypoint4 (taking 10 seconds) to later communicate rock data of waypoint3 from waypoint1 to general lander at waypoint4 (taking 10 seconds).
+Rover1 will move from waypoint1 towards waypoint3 (taking 5 seconds) so Rover1 can sample rock to store at rover1store at waypoint3 (taking 8 seconds) so Rover1 can later transmit rock data of waypoint3 from waypoint1 to general lander at waypoint4 (taking 10 seconds).
+Rover1 will travel from waypoint3 to waypoint1 (taking 5 seconds) to later transmit rock data of waypoint3 from waypoint1 to general lander at waypoint4 (taking 10 seconds).
+Rover1 will leave the load at store rover1store (taking 1 second).
+Rover1 will communicate rock data of waypoint3 from waypoint1 to general lander at waypoint4 (taking 10 seconds) so Rover1 can later communicate rock data of waypoint6 from waypoint6 to general lander at waypoint4 (taking 10 seconds).
+Rover1 will move from waypoint1 towards waypoint2 (taking 5 seconds).
+Rover1 will move from waypoint2 to waypoint6 (taking 5 seconds) and Rover1 will sample rock to store at rover1store at waypoint6 (taking 8 seconds), which will allow Rover1 to transmit rock data of waypoint6 from waypoint6 to general lander at waypoint4 (taking 10 seconds).

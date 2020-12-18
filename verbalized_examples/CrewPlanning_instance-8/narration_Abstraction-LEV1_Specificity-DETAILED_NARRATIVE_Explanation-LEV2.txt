@@ -1,0 +1,24 @@
+C1 will conduct (46.750, 50.704, 46.750) (taking 60 seconds).
+C2 is going to make (37.805, 56.040, 37.805) (taking 60 seconds).
+CrewPlanner will wake up C1 on d1 (taking 195 seconds).
+CrewPlanner is going to wake up C2 on d1 (taking 195 seconds).
+CrewPlanner will initiate d2 (taking 1440 seconds).
+C1 will make (43.282, 15.718, 43.282) (taking 60 seconds) so C1 can make (12.762, 85.507, 12.762) (taking 60 seconds).
+C2 will conduct (4.732, 5.394, 4.732) (taking 60 seconds) so C2 can conduct (62.009, 9.796, 62.009) (taking 60 seconds).
+C1 will report the result of activity (46.750, 50.704, 46.750) on d1 (taking 1 second).
+C1 will report the result of activity (37.805, 56.040, 37.805) on d1 (taking 1 second).
+C1 will report the result of activity (43.282, 15.718, 43.282) on d1 (taking 1 second).
+C1 will report the result of activity (4.732, 5.394, 4.732) on d1 (taking 1 second).
+C1 will report the result of activity (12.762, 85.507, 12.762) on d1 (taking 1 second).
+C1 will report the result of activity (62.009, 9.796, 62.009) on d1 (taking 1 second).
+C1 is going to eat a meal on d1 (taking 60 seconds).
+C2 will eat a meal on d1 (taking 60 seconds).
+C1 is going to exercise on d1 with e1 (taking 60 seconds), which will allow C1 to change the spaceshipfilter on d1 (taking 60 seconds).
+C2 is going to work out on d1 with e2 (taking 60 seconds) to then communicate the medical state mcs1 on d1 (taking 60 seconds).
+C2 will conduct (91.054, 85.531, 91.054) (taking 60 seconds).
+C1 is going to make (95.000, 68.907, 95.000) (taking 60 seconds), which will allow C1 to report the result of activity (95.000, 68.907, 95.000) on d1 (taking 1 second).
+C1 is going to report the result of activity (91.054, 85.531, 91.054) on d1 (taking 1 second).
+C1 will perform the first reconfiguration of the thermal loop (76.875, 0.676, 76.875) (taking 60 seconds) and C2 will remove the sleep station (76.875, 0.676, 76.875) (taking 60 seconds), which will allow C1 to replace the (76.875, 0.676, 76.875) (taking 180 seconds).
+C1 will do the second reconfiguration of the thermal loop (76.875, 0.676, 76.875) (taking 60 seconds), which will allow C1 to finish the (76.875, 0.676, 76.875) on d1 (taking 1 second).
+C2 will assemble the sleep station (76.875, 0.676, 76.875) (taking 60 seconds) so C2 can sleep on d1 (taking 600 seconds).
+C1 is going to sleep on d1 (taking 600 seconds).

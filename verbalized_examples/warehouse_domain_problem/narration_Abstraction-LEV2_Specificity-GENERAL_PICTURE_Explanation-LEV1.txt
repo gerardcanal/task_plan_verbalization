@@ -1,0 +1,8 @@
+Narrator is: robot_assistant
+I will find person1 (taking 20 seconds).
+I will request person2 at the wp15 (taking 2 seconds).
+I am going to leave the mug at the wp5 (taking 2.5 seconds).
+I will place the paper at the wp4 (taking 2.5 seconds).
+I will deliver post2 to person2 at the wp15 (taking 2 seconds).
+I will place the post1 at the wp6 (taking 2.5 seconds).
+I will go from the wp2 towards the wp1 (taking 7 seconds).

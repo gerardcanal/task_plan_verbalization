@@ -1,0 +1,7 @@
+Narrator is: rover0
+Rover1 will communicate rock data of waypoint3 to general lander because Rover1 will go towards waypoint3 and Rover1 is going to sample rock to achieve the goal of rock data being communicated.
+Rover2 is going to communicate soil data of waypoint0 to general lander to achieve the goal of soil data being communicated, which will allow Rover2 to later communicate image data of objective1 in high res mode from waypoint0 to general lander at waypoint2.
+Rover3 is going to communicate image data of objective2 to general lander to fulfill the goal of image data being communicated.
+Rover3 is going to communicate image data of objective3 to general lander to reach the goal of image data being communicated.
+Rover3 will communicate rock data of waypoint6 to general lander to fulfill the goal of rock data being communicated.
+Rover2 is going to communicate image data of objective1 to general lander to achieve the goal of image data being communicated.

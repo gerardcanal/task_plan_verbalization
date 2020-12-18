@@ -1,0 +1,23 @@
+C1 will make pa1 1, pa1 12, and pa1 2 (taking 180 seconds).
+C2 is going to make pa1 10, pa1 13, and pa1 3 (taking 180 seconds).
+C3 will conduct pa1 11, pa1 14, and pa1 4 (taking 180 seconds) so C1 can report the result of activity pa1 1, pa1 10, pa1 11, pa1 12, pa1 13, pa1 14, pa1 2, pa1 3, and pa1 4 on d1 (taking 1 second).
+CrewPlanner will wake up C1, C2, and C3 on d1 (taking 195 seconds) and CrewPlanner will initiate d2 (taking 1440 seconds) to then wake up C3 on d2 (taking 195 seconds) so C3 can later report the result of activity pa2 1, pa2 10, pa2 11, pa2 12, pa2 13, pa2 14, pa2 15, pa2 16, pa2 17, pa2 18, pa2 19, pa2 2, pa2 3, pa2 4, pa2 5, pa2 6, pa2 7, pa2 8, and pa2 9 on d2 (taking 1 second), C3 can communicate the medical state mcs1 and mcs3 on d2 (taking 120 seconds), and C1, C2, and C3 can sleep on d2 (taking 644.99 seconds).
+C1, C2, and C3 will eat a meal on d1 (taking 60 seconds) so C3 can communicate the medical state mcs1 on d1 (taking 60 seconds).
+C2 will work out on d1 with e2 (taking 60 seconds), which will allow C1 and C2 to later sleep on d1 (taking 600 seconds).
+C1 and C3 is going to work out on d1 with e1 (taking 120 seconds), which will allow C1 to communicate the medical state mcs2 on d1 (taking 60 seconds).
+C1 and C2 is going to sleep on d1 (taking 600 seconds) because C2 will conduct pa1 5, pa1 7, pa2 1, pa2 12, pa2 15, pa2 18, pa2 3, pa2 6, and pa2 9 (taking 540 seconds).
+C1 will report the result of activity pa1 5 on d1 (taking 1 second).
+C1 is going to conduct pa1 6 (taking 60 seconds).
+C1 is going to report the result of activity pa1 6, pa1 7, and pa1 8 on d1 (taking 1 second) because C1 is going to make pa1 6 (taking 60 seconds).
+C3 is going to sleep on d1 (taking 600 seconds) because C3 will conduct pa1 8, pa2 10, pa2 13, pa2 16, pa2 19, pa2 4, and pa2 7 (taking 420 seconds).
+C1 is going to report the result of activity pa1 9 on d1 (taking 1 second) because C1 will make pa1 9 (taking 60 seconds).
+C1 is going to conduct pa2 11, pa2 14, pa2 17, pa2 2, pa2 5, and pa2 8 (taking 360 seconds).
+CrewPlanner will initiate d3 (taking 1440 seconds).
+CrewPlanner will wake up C1 and C2 on d2 (taking 195 seconds), which will allow C2 to later change the spaceshipfilter on d2 (taking 60 seconds) and C1 to communicate the medical state mcs2 on d2 (taking 60 seconds).
+C3 will report the result of activity pa2 1, pa2 10, pa2 11, pa2 12, pa2 13, pa2 14, pa2 15, pa2 16, pa2 17, pa2 18, pa2 19, pa2 2, pa2 3, pa2 4, pa2 5, pa2 6, pa2 7, pa2 8, and pa2 9 on d2 (taking 1 second).
+C3 is going to have a meal on d2 (taking 60 seconds) so C1, C2, and C3 can later sleep on d2 (taking 644.99 seconds).
+C1 and C2 is going to have a meal on d2 (taking 60 seconds) so C2 can change the spaceshipfilter on d2 (taking 60 seconds).
+C3 will work out on d2 with e1 (taking 60 seconds) so C3 can communicate the medical state mcs1 and mcs3 on d2 (taking 120 seconds).
+C1 will exercise on d2 with e2 (taking 60 seconds) to be able to communicate the medical state mcs2 on d2 (taking 60 seconds).
+C1 will exercise on d2 with e2 (taking 60 seconds), C3 will communicate the medical state mcs1 and mcs3 on d2 (taking 120 seconds), C2 is going to exercise on d2 with e1 (taking 60 seconds), and C1 is going to communicate the medical state mcs2 on d2 (taking 60 seconds), which will allow C1, C2, and C3 to sleep on d2 (taking 644.99 seconds).
+C2 will exercise on d2 with e1 (taking 60 seconds).

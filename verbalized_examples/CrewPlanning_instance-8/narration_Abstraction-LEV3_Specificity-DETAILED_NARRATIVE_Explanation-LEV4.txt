@@ -1,0 +1,24 @@
+C1 is going to conduct pa1 1 to later report the result of activity pa1 1 on d1.
+C2 will conduct pa1 2 so C1 can later report the result of activity pa1 2 on d1.
+CrewPlanner is going to wake up C1 on d1, which will allow C1 to later report the result of activity pa1 1 on d1, C1 to report the result of activity pa1 2 on d1, C1 to report the result of activity pa1 3 on d1, C1 to report the result of activity pa1 4 on d1, C1 to report the result of activity pa1 5 on d1, C1 to report the result of activity pa1 6 on d1, C1 to change the spaceshipfilter on d1, C1 to report the result of activity pa1 7 on d1, C1 to report the result of activity pa1 8 on d1, C1 to finish the rpcm1 on d1, and C1 to sleep on d1.
+CrewPlanner is going to wake up C2 on d1, which will allow C2 to later communicate the medical state mcs1 on d1 and C2 to sleep on d1.
+CrewPlanner is going to initiate d2 to reach the goal of d2 being initiated.
+C1 is going to conduct pa1 3, which will allow C1 to make pa1 5 to later be able to report the result of activity pa1 5 on d1.
+C2 is going to make pa1 6 because C2 will make pa1 4 so C1 can later report the result of activity pa1 6 on d1.
+C1 is going to report the result of activity pa1 1 on d1 to reach the goal of pa1 1 being completed on d1.
+C1 is going to report the result of activity pa1 2 on d1 to achieve the goal of pa1 2 being completed on d1.
+C1 is going to report the result of activity pa1 3 on d1 to fulfill the goal of pa1 3 being completed on d1.
+C1 will report the result of activity pa1 4 on d1 to fulfill the goal of pa1 4 being completed on d1.
+C1 will report the result of activity pa1 5 on d1 to reach the goal of pa1 5 being completed on d1.
+C1 is going to report the result of activity pa1 6 on d1 to fulfill the goal of pa1 6 being completed on d1.
+C1 is going to eat a meal on d1, which will allow C1 to later sleep on d1.
+C2 is going to eat a meal on d1 so C2 can later sleep on d1.
+C1 is going to exercise on d1 with e1 to change the spaceshipfilter on d1 to achieve the goal of spaceshipfilter changing on d1.
+C2 will work out on d1 with e2, which will allow C2 to communicate the medical state mcs1 on d1 to achieve the goal of The medical state mcs1 being finished on d1.
+C2 will make pa1 8, which will allow C1 to later report the result of activity pa1 8 on d1.
+C1 is going to make pa1 7 so C1 can report the result of activity pa1 7 on d1 to achieve the goal of pa1 7 being completed on d1.
+C1 is going to report the result of activity pa1 8 on d1 to achieve the goal of pa1 8 being completed on d1.
+C1 is going to do the first reconfiguration of the thermal loop rpcm1 and C2 will remove the sleep station rpcm1, which will allow C1 to replace the rpcm1.
+C1 is going to perform the second reconfiguration of the thermal loop rpcm1, which will allow C1 to finish the rpcm1 on d1 to fulfill the goal of rpcm1 being completed on d1.
+C2 is going to assemble the sleep station rpcm1 to sleep on d1 to reach the goal of C2 completing sleep on d1.
+C1 is going to sleep on d1 to fulfill the goal of C1 completing sleep on d1.

@@ -1,0 +1,14 @@
+Narrator is: I
+I will request the left foot to be visible.
+I am going to grasp the left shoe.
+I am going to request the left foot to be reachable.
+I will approach to the left foot.
+I am going to insert the left shoe in the left foot.
+I am going to release the left shoe from the left foot.
+I am going to request the right foot to be visible.
+I am going to grasp the right shoe.
+I am going to request the right foot to be reachable.
+I will approach to the right foot.
+I will insert the right shoe in the right foot.
+I am going to release the right shoe from the right foot.
+I will complete the task.

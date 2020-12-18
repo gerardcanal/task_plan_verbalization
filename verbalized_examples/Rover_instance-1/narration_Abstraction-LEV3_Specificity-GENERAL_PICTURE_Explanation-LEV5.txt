@@ -1,0 +1,4 @@
+Narrator is: rover0
+I will transmit image data of objective1 in high res mode from waypoint3 to general lander at waypoint0 to reach the goal of image data being communicated of objective1 in high res mode to later go from waypoint3 to waypoint1.
+I will travel from waypoint3 to waypoint1 to be able to communicate rock data of waypoint3 from waypoint1 to general lander at waypoint0 to achieve the goal of rock data being communicated at waypoint3 to later move from waypoint1 towards waypoint2.
+I will go from waypoint1 towards waypoint2 and I will sample soil to store at mestore at waypoint2 so I can transmit soil data of waypoint2 from waypoint2 to general lander at waypoint0 to achieve the goal of soil data being communicated at waypoint2.

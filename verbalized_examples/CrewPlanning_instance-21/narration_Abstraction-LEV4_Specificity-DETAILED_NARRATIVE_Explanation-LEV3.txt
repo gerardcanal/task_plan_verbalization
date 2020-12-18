@@ -1,0 +1,89 @@
+C1 will make pa1 1 to later report the result of activity pa1 1 on d1.
+C2 is going to conduct pa1 10 so C1 can later report the result of activity pa1 10 on d1.
+C3 will make pa1 11, which will allow C1 to later report the result of activity pa1 11 on d1.
+CrewPlanner is going to wake up C1, which will allow C1 to later report the result of activity pa1 1 on d1, C1 to report the result of activity pa1 10 on d1, C1 to report the result of activity pa1 11 on d1, C1 to report the result of activity pa1 12 on d1, C1 to report the result of activity pa1 13 on d1, C1 to report the result of activity pa1 14 on d1, C1 to report the result of activity pa1 15 on d1, C1 to report the result of activity pa1 16 on d1, C1 to report the result of activity pa1 17 on d1, C1 to communicate the medical state mcs1 on d1, C1 to communicate the medical state mcs3 on d1, C1 to report the result of activity pa1 18 on d1, C1 to report the result of activity pa1 19 on d1, C1 to report the result of activity pa1 2 on d1, C1 to report the result of activity pa1 20 on d1, C1 to report the result of activity pa1 21 on d1, C1 to report the result of activity pa1 22 on d1, C1 to report the result of activity pa1 3 on d1, C1 to report the result of activity pa1 4 on d1, C1 to report the result of activity pa1 5 on d1, C1 to report the result of activity pa1 6 on d1, C1 to report the result of activity pa1 7 on d1, C1 to report the result of activity pa1 8 on d1, C1 to report the result of activity pa1 9 on d1, and C1 to sleep on d1.
+CrewPlanner will wake up C2 so C2 can later communicate the medical state mcs2 on d1 and C2 can sleep on d1.
+CrewPlanner is going to wake up C3 so C3 can later change the spaceshipfilter on d1 and C3 can sleep on d1.
+CrewPlanner will initiate d2 so CrewPlanner can initiate d3.
+C1 will make pa1 12, which will allow C1 to conduct pa1 15 so C1 can later report the result of activity pa1 15 on d1.
+C2 will conduct pa1 13 so C2 can conduct pa1 16, which will allow C1 to later report the result of activity pa1 16 on d1.
+C3 is going to conduct pa1 14 to be able to conduct pa1 17, which will allow C1 to later report the result of activity pa1 17 on d1.
+C1 is going to report the result of activity pa1 1.
+C1 is going to report the result of activity pa1 10.
+C1 is going to report the result of activity pa1 11.
+C1 will report the result of activity pa1 12.
+C1 is going to report the result of activity pa1 13.
+C1 will report the result of activity pa1 14.
+C1 is going to report the result of activity pa1 15.
+C1 is going to report the result of activity pa1 16.
+C1 is going to report the result of activity pa1 17.
+C1 is going to have a meal to later sleep on d1.
+C2 is going to have a meal to later be able to sleep on d1.
+C3 will eat a meal to be able to change the spaceshipfilter.
+C1 will exercise with e1 to be able to communicate the medical state mcs1 to later communicate the medical state mcs3 on d1.
+C2 will exercise with e2 to communicate the medical state mcs2.
+C3 will work out with e1 so C3 can conduct pa1 19 so C1 can later report the result of activity pa1 19 on d1.
+C1 will communicate the medical state mcs3.
+C2 is going to make pa1 20 because C2 is going to conduct pa1 18 so C1 can later report the result of activity pa1 20 on d1.
+C1 is going to report the result of activity pa1 18.
+C1 will report the result of activity pa1 19.
+C1 will conduct pa1 2 so C1 can report the result of activity pa1 2.
+C3 will make pa1 21 to be able to conduct pa1 4 so C1 can later report the result of activity pa1 4 on d1.
+C1 will report the result of activity pa1 20.
+C1 will report the result of activity pa1 21.
+C1 will make pa1 22 to be able to report the result of activity pa1 22.
+C2 will make pa1 3 to conduct pa1 6 so C1 can later report the result of activity pa1 6 on d1.
+C1 is going to report the result of activity pa1 3.
+C1 is going to report the result of activity pa1 4.
+C1 is going to make pa1 5 to be able to report the result of activity pa1 5.
+C3 will make pa1 7 so C3 can make pa2 1 so C3 can later report the result of activity pa2 1 on d2.
+C1 is going to report the result of activity pa1 6.
+C1 will report the result of activity pa1 7.
+C1 will make pa1 8, which will allow C1 to report the result of activity pa1 8.
+C2 is going to make pa1 9 to then make pa2 11 so C3 can later report the result of activity pa2 11 on d2.
+C1 is going to report the result of activity pa1 9.
+C1 is going to make pa2 10 so C3 can later report the result of activity pa2 10 on d2.
+C3 is going to conduct pa2 12 to be able to conduct pa2 15 so C3 can later report the result of activity pa2 15 on d2.
+C1 will make pa2 13 to conduct pa2 16 so C3 can later report the result of activity pa2 16 on d2.
+C2 will make pa2 14, which will allow C2 to conduct pa2 17 so C3 can later report the result of activity pa2 17 on d2.
+C3 is going to conduct pa2 18 to conduct pa2 20 to later be able to report the result of activity pa2 20 on d2.
+C1 will make pa2 19 so C1 can conduct pa2 21, which will allow C3 to later report the result of activity pa2 21 on d2.
+C2 is going to make pa2 2 to be able to conduct pa2 22, which will allow C3 to later report the result of activity pa2 22 on d2.
+C3 is going to make pa2 23 to conduct pa2 4 to later be able to report the result of activity pa2 4 on d2.
+C1 is going to make pa2 24 to be able to conduct pa2 5, which will allow C3 to later report the result of activity pa2 5 on d2.
+C2 will make pa2 3 to conduct pa2 6 so C3 can later report the result of activity pa2 6 on d2.
+C3 will conduct pa2 7 to then sleep.
+C1 will sleep because C1 will conduct pa2 8.
+C2 will make pa2 9 to sleep.
+CrewPlanner is going to wake up C3 so C3 can later report the result of activity pa2 1 on d2, C3 can report the result of activity pa2 10 on d2, C3 can report the result of activity pa2 11 on d2, C3 can report the result of activity pa2 12 on d2, C3 can report the result of activity pa2 13 on d2, C3 can report the result of activity pa2 14 on d2, C3 can report the result of activity pa2 15 on d2, C3 can report the result of activity pa2 16 on d2, C3 can report the result of activity pa2 17 on d2, C3 can report the result of activity pa2 18 on d2, C3 can report the result of activity pa2 19 on d2, C3 can report the result of activity pa2 2 on d2, C3 can report the result of activity pa2 20 on d2, C3 can report the result of activity pa2 21 on d2, C3 can report the result of activity pa2 22 on d2, C3 can report the result of activity pa2 23 on d2, C3 can report the result of activity pa2 24 on d2, C3 can report the result of activity pa2 3 on d2, C3 can report the result of activity pa2 4 on d2, C3 can report the result of activity pa2 5 on d2, C3 can report the result of activity pa2 6 on d2, C3 can report the result of activity pa2 7 on d2, C3 can report the result of activity pa2 8 on d2, C3 can report the result of activity pa2 9 on d2, C3 can change the spaceshipfilter on d2, and C3 can sleep on d2.
+CrewPlanner is going to wake up C1, which will allow C1 to later communicate the medical state mcs2 on d2 and C1 to sleep on d2.
+CrewPlanner is going to wake up C2, which will allow C2 to later sleep on d2.
+C3 is going to report the result of activity pa2 1.
+C3 is going to report the result of activity pa2 10.
+C3 is going to report the result of activity pa2 11.
+C3 is going to report the result of activity pa2 12.
+C3 will report the result of activity pa2 13.
+C3 is going to report the result of activity pa2 14.
+C3 will report the result of activity pa2 15.
+C3 will report the result of activity pa2 16.
+C3 will report the result of activity pa2 17.
+C3 will report the result of activity pa2 18.
+C3 will report the result of activity pa2 19.
+C3 will report the result of activity pa2 2.
+C3 is going to report the result of activity pa2 20.
+C3 will report the result of activity pa2 21.
+C3 is going to report the result of activity pa2 22.
+C3 is going to report the result of activity pa2 23.
+C3 will report the result of activity pa2 24.
+C3 will report the result of activity pa2 3.
+C3 will report the result of activity pa2 4.
+C3 is going to report the result of activity pa2 5.
+C3 is going to report the result of activity pa2 6.
+C3 is going to report the result of activity pa2 7.
+C3 is going to report the result of activity pa2 8.
+C3 is going to report the result of activity pa2 9.
+C3 will eat a meal and C3 is going to work out with e1, which will allow C3 to sleep.
+C2 is going to eat a meal and C2 is going to exercise with e2 to then sleep.
+C1 will have a meal and C1 will work out with e1 to sleep.
+C3 will change the spaceshipfilter to later be able to sleep on d2.
+C1 is going to communicate the medical state mcs2 to later sleep on d2.

@@ -1,0 +1,9 @@
+Narrator is: robot_assistant
+Tomo is going to locate the secretary.
+Asro will go from the kitchen counter to the kitchen corridor to then ask the manager at the kitchen corridor.
+Asro is going to travel from the coffee table 1 to the kitchen counter to then place the paper at the kitchen counter.
+Asro is going to take the mug at the kitchen corridor from the the manager and Asro will go from the kitchen corridor towards the entrance to then put the mug at the entrance.
+Tomo is going to go from the main office doorway towards the main office desk and Tomo will check the main office desk to be able to place the post1 at the main office desk.
+Asro will move from the kitchen door 1 to the kitchen corridor so Asro can hand post2 to the manager at the kitchen corridor.
+Asro will move from the kitchen corridor to the kitchen shelf.
+Tomo is going to go from the meeting room hallway towards the kitchen chair to move from the kitchen chair to the entrance.

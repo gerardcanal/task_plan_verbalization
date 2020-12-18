@@ -1,0 +1,25 @@
+Narrator is: rover0
+Rover1 is going to sample soil so Rover1 can later transmit soil data of waypoint0 from waypoint0 to general lander at waypoint1.
+Rover1 is going to calibrate camera2 for objective1.
+Rover1 is going to calibrate camera0 for objective2.
+Rover1 is going to calibrate camera1 for objective3.
+I will go towards waypoint6 to sample soil to later be able to communicate soil data of waypoint3 and waypoint6 from waypoint4 to general lander at waypoint1.
+Rover2 is going to move to waypoint3, which will allow Rover2 to sample rock, which will allow Rover2 to later communicate rock data of waypoint3 from waypoint0 to general lander at waypoint1.
+Rover3 will sample rock and Rover3 is going to move towards waypoint0 so Rover3 can communicate rock data of waypoint1 to general lander, which will allow Rover1 to later transmit image data of objective2 in colour mode from waypoint0 to general lander at waypoint1.
+Rover1 is going to capture an image of objective2 with camera2 to later transmit image data of objective2 in colour mode from waypoint0 to general lander at waypoint1.
+Rover1 is going to capture an image of objective3 with camera0.
+Rover1 will capture an image of objective3 with camera1 to later be able to communicate image data of objective3 in low res and colour mode from waypoint0 to general lander at waypoint1.
+Rover1 will calibrate camera2 for objective1.
+Rover1 will transmit soil data of waypoint0 to general lander, which will allow Rover3 to later transmit rock data of waypoint1 from waypoint0 to general lander at waypoint1 and Rover1 to communicate image data of objective2 in colour mode from waypoint0 to general lander at waypoint1.
+I am going to move to waypoint4 and I am going to drop the load so I can sample soil.
+Rover2 will move towards waypoint0 so Rover2 can later transmit rock data of waypoint3 from waypoint0 to general lander at waypoint1.
+Rover1 is going to transmit image data of objective2 to general lander.
+I will sample rock because I will drop the load to later communicate rock data of waypoint0 from waypoint4 to general lander at waypoint1.
+Rover1 is going to transmit image data of objective3 to general lander because Rover1 will transmit image data of objective2 to general lander.
+I am going to go towards waypoint0 and I am going to leave the load so I can sample rock.
+I am going to travel to waypoint4.
+I am going to sample soil because I am going to leave the load and I am going to travel to waypoint3.
+I will sample soil and I will move to waypoint4 to transmit soil data of waypoint3 and waypoint6 to general lander.
+I will go towards waypoint4, which will allow me to later communicate soil data of waypoint3 and waypoint6 from waypoint4 to general lander at waypoint1.
+I will communicate rock data of waypoint0 to general lander.
+Rover2 is going to communicate rock data of waypoint3 to general lander.

@@ -1,0 +1,24 @@
+C1 is going to make pa1 1 (taking 60 seconds) to later conduct pa1 3 (taking 60 seconds) and report the result of activity pa1 1 on d1 (taking 1 second).
+C2 will conduct pa1 2 (taking 60 seconds) so C2 can later make pa1 4 (taking 60 seconds) and C1 can report the result of activity pa1 2 on d1 (taking 1 second).
+CrewPlanner is going to wake up C1 on d1 (taking 195 seconds) so C1 can later report the result of activity pa1 1 on d1 (taking 1 second), C1 can report the result of activity pa1 2 on d1 (taking 1 second), C1 can report the result of activity pa1 3 on d1 (taking 1 second), C1 can report the result of activity pa1 4 on d1 (taking 1 second), C1 can report the result of activity pa1 5 on d1 (taking 1 second), C1 can report the result of activity pa1 6 on d1 (taking 1 second), C1 can have a meal on d1 (taking 60 seconds), C1 can exercise on d1 with e1 (taking 60 seconds), C1 can change the spaceshipfilter on d1 (taking 60 seconds), C1 can report the result of activity pa1 7 on d1 (taking 1 second), C1 can report the result of activity pa1 8 on d1 (taking 1 second), C1 can finish the rpcm1 on d1 (taking 1 second), and C1 can sleep on d1 (taking 600 seconds).
+CrewPlanner is going to wake up C2 on d1 (taking 195 seconds) so C2 can later eat a meal on d1 (taking 60 seconds), C2 can work out on d1 with e2 (taking 60 seconds), C2 can communicate the medical state mcs1 on d1 (taking 60 seconds), and C2 can sleep on d1 (taking 600 seconds).
+CrewPlanner is going to initiate d2 (taking 1440 seconds) to fulfill the goal of d2 being initiated.
+C1 is going to conduct pa1 3 (taking 60 seconds) to conduct pa1 5 (taking 60 seconds) to later be able to report the result of activity pa1 5 on d1 (taking 1 second).
+C2 is going to conduct pa1 4 (taking 60 seconds) to conduct pa1 6 (taking 60 seconds) so C1 can later report the result of activity pa1 6 on d1 (taking 1 second).
+C1 is going to report the result of activity pa1 1 on d1 (taking 1 second) to fulfill the goal of pa1 1 being completed on d1.
+C1 will report the result of activity pa1 2 on d1 (taking 1 second) to fulfill the goal of pa1 2 being completed on d1.
+C1 is going to report the result of activity pa1 3 on d1 (taking 1 second) to achieve the goal of pa1 3 being completed on d1.
+C1 is going to report the result of activity pa1 4 on d1 (taking 1 second) to achieve the goal of pa1 4 being completed on d1.
+C1 is going to report the result of activity pa1 5 on d1 (taking 1 second) to reach the goal of pa1 5 being completed on d1.
+C1 is going to report the result of activity pa1 6 on d1 (taking 1 second) to achieve the goal of pa1 6 being completed on d1.
+C1 is going to have a meal on d1 (taking 60 seconds) to later exercise on d1 with e1 (taking 60 seconds) and sleep on d1 (taking 600 seconds).
+C2 is going to eat a meal on d1 (taking 60 seconds), which will allow C2 to later work out on d1 with e2 (taking 60 seconds) and sleep on d1 (taking 600 seconds).
+C1 is going to work out on d1 with e1 (taking 60 seconds) so C1 can change the spaceshipfilter on d1 (taking 60 seconds) to reach the goal of spaceshipfilter changing on d1 to later make pa1 7 (taking 60 seconds).
+C2 will work out on d1 with e2 (taking 60 seconds), which will allow C2 to communicate the medical state mcs1 on d1 (taking 60 seconds) to achieve the goal of The medical state mcs1 being finished on d1.
+C2 will conduct pa1 8 (taking 60 seconds) so C1 can later report the result of activity pa1 8 on d1 (taking 1 second) and C2 can remove the sleep station rpcm1 (taking 60 seconds).
+C1 is going to conduct pa1 7 (taking 60 seconds), which will allow C1 to report the result of activity pa1 7 on d1 (taking 1 second) to reach the goal of pa1 7 being completed on d1.
+C1 will report the result of activity pa1 8 on d1 (taking 1 second) to fulfill the goal of pa1 8 being completed on d1.
+C1 is going to do the first reconfiguration of the thermal loop rpcm1 (taking 60 seconds) and C2 is going to remove the sleep station rpcm1 (taking 60 seconds), which will allow C1 to replace the rpcm1 (taking 180 seconds), which will allow C2 to later assemble the sleep station rpcm1 (taking 60 seconds) and C1 to perform the second reconfiguration of the thermal loop rpcm1 (taking 60 seconds).
+C1 is going to do the second reconfiguration of the thermal loop rpcm1 (taking 60 seconds) so C1 can finish the rpcm1 on d1 (taking 1 second) to fulfill the goal of rpcm1 being completed on d1.
+C2 is going to assemble the sleep station rpcm1 (taking 60 seconds) to be able to sleep on d1 (taking 600 seconds) to fulfill the goal of C2 completing sleep on d1.
+C1 will sleep on d1 (taking 600 seconds) to reach the goal of C1 completing sleep on d1.

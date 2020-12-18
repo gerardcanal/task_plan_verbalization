@@ -1,0 +1,8 @@
+Narrator is: robot_assistant
+I will find person1 (taking 20 seconds).
+I am going to look for person2 (taking 20 seconds) and I will go from the wp5 to the wp15 (taking 18 seconds) to then request person2 at the wp15 (taking 2 seconds).
+I will grasp the mug at the wp2 (taking 2 seconds) and I will travel from the wp2 to the wp5 (taking 19 seconds), which will allow me to put the mug at the wp5 (taking 2.5 seconds).
+I am going to travel from the wp2 towards the wp4 (taking 5 seconds) to then put the paper at the wp4 (taking 2.5 seconds).
+I will move from the wp36 towards the wp15 (taking 26 seconds) to be able to deliver post2 to person2 at the wp15 (taking 2 seconds).
+I am going to travel from the wp19 towards the wp6 (taking 15 seconds) and I will scan the wp6 (taking 1 second) to then place the post1 at the wp6 (taking 2.5 seconds).
+I will go from the wp3 to the wp2 (taking 12 seconds), which will allow me to go from the wp2 towards the wp1 (taking 7 seconds).

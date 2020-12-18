@@ -1,0 +1,29 @@
+Narrator is: robot_assistant
+Asro will go to the entrance.
+Tomo will check the entrance so Asro can later place the mug at the entrance.
+Tomo is going to locate the manager so Asro can later request the manager at the kitchen corridor and Asro can deliver post2 to the manager at the kitchen corridor.
+Tomo will look for the secretary.
+Asro will move to the kitchen counter so Asro can look around the kitchen counter to later be able to put the paper at the kitchen counter.
+Tomo is going to move towards the kitchen chair, which will allow Tomo to travel towards the kitchen sink.
+Asro will go to the kitchen corridor to be able to ask the manager.
+Asro is going to grab the paper because Asro will go to the kitchen shelf so Asro can later place the paper at the kitchen counter.
+Tomo is going to move to the entrance so Tomo can go towards the kitchen table 1.
+Asro will move towards the coffee table 1.
+Tomo is going to travel towards the kitchen corridor to be able to go to the microwave.
+Asro is going to leave the paper because Asro is going to move to the kitchen counter.
+Tomo is going to take the mug and Tomo will move towards the kitchen corridor to give mug to the manager.
+Asro will move towards the coffee table 1 so Asro can travel to the kitchen shelf.
+Tomo is going to travel towards the kitchen door 1 and Asro will travel to the coffee table 1 so Asro can go to the kitchen corridor.
+Tomo will go towards the office entrance 1 to be able to take the post1 to later put the post1 at the main office desk.
+Asro is going to place the mug because Asro is going to get the mug from the the manager and Asro is going to go to the entrance.
+Tomo is going to travel to the corridor centre because Tomo is going to move to the kitchen door 1.
+Asro will move to the kitchen corridor, which will allow Tomo to later travel from the kitchen chair towards the entrance.
+Asro is going to go towards the kitchen door 1 because Asro will go towards the kitchen hallway.
+Tomo will move towards the corridor shelf 1 to then travel to the main office doorway.
+Asro will move towards the office entrance 1 to then grasp the post2 to later be able to give post2 to the manager at the kitchen corridor.
+Tomo will leave the post1 because Tomo will travel to the main office desk and Tomo is going to scan the main office desk.
+Asro is going to travel towards the kitchen door 1.
+Asro is going to travel towards the kitchen corridor to then give post2 to the manager.
+Tomo will move towards the main office doorway so Tomo can travel to the meeting room hallway.
+Asro is going to move towards the kitchen shelf.
+Tomo is going to go towards the kitchen chair so Tomo can travel to the entrance.

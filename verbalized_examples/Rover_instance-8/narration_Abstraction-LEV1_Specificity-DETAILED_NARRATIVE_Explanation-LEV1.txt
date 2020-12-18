@@ -1,0 +1,39 @@
+Narrator is: rover0
+Rover3 is going to sample soil to store at rover3store at (33.280, 9.748, 33.280) (taking 10 seconds).
+Rover1 is going to calibrate camera2 for objective0 at (23.802, 12.656, 23.802) (taking 5 seconds).
+I am going to move from (23.802, 12.656, 23.802) towards (24.700, 28.327, 24.700) (taking 5 seconds).
+Rover2 is going to travel from (23.802, 12.656, 23.802) towards (95.454, 41.700, 95.454) (taking 5 seconds).
+Rover1 is going to capture an image of objective0 with camera2 in high res mode at (23.802, 12.656, 23.802) (taking 7 seconds).
+I am going to move from (24.700, 28.327, 24.700) towards (31.979, 10.529, 31.979) (taking 5 seconds).
+Rover2 will sample rock to store at rover2store at (95.454, 41.700, 95.454) (taking 8 seconds).
+Rover1 is going to calibrate camera2 for objective0 at (23.802, 12.656, 23.802) (taking 5 seconds).
+Rover3 will go from (33.280, 9.748, 33.280) towards (23.802, 12.656, 23.802) (taking 5 seconds).
+Rover3 will drop the load at store rover3store (taking 1 second).
+I will sample soil to store at mestore at (31.979, 10.529, 31.979) (taking 10 seconds).
+Rover1 will go from (23.802, 12.656, 23.802) towards (24.700, 28.327, 24.700) (taking 5 seconds).
+Rover2 is going to travel from (95.454, 41.700, 95.454) towards (23.802, 12.656, 23.802) (taking 5 seconds).
+Rover3 will communicate soil data of (33.280, 9.748, 33.280) from (23.802, 12.656, 23.802) to general lander at (24.700, 28.327, 24.700) (taking 10 seconds).
+Rover1 is going to travel from (24.700, 28.327, 24.700) towards (31.979, 10.529, 31.979) (taking 5 seconds).
+Rover2 will move from (23.802, 12.656, 23.802) to (31.979, 10.529, 31.979) (taking 5 seconds).
+I will leave the load at store mestore (taking 1 second).
+Rover1 will capture an image of objective0 with camera2 in low res mode at (31.979, 10.529, 31.979) (taking 7 seconds).
+Rover1 is going to calibrate camera2 for objective0 at (31.979, 10.529, 31.979) (taking 5 seconds).
+Rover1 is going to communicate image data of objective0 in high res mode from (31.979, 10.529, 31.979) to general lander at (24.700, 28.327, 24.700) (taking 15 seconds).
+Rover3 will go from (23.802, 12.656, 23.802) to (33.280, 9.748, 33.280) (taking 5 seconds).
+Rover1 will capture an image of objective2 with camera2 in low res mode at (31.979, 10.529, 31.979) (taking 7 seconds).
+Rover3 will move from (33.280, 9.748, 33.280) to (95.454, 41.700, 95.454) (taking 5 seconds).
+Rover3 is going to sample soil to store at rover3store at (95.454, 41.700, 95.454) (taking 10 seconds).
+Rover1 is going to communicate image data of objective0 in low res mode from (31.979, 10.529, 31.979) to general lander at (24.700, 28.327, 24.700) (taking 15 seconds).
+Rover3 will move from (95.454, 41.700, 95.454) towards (33.280, 9.748, 33.280) (taking 5 seconds).
+Rover3 will travel from (33.280, 9.748, 33.280) towards (24.700, 28.327, 24.700) (taking 5 seconds).
+Rover1 is going to transmit image data of objective2 in low res mode from (31.979, 10.529, 31.979) to general lander at (24.700, 28.327, 24.700) (taking 15 seconds).
+Rover3 will go from (24.700, 28.327, 24.700) towards (31.979, 10.529, 31.979) (taking 5 seconds).
+I will transmit soil data of (31.979, 10.529, 31.979) from (31.979, 10.529, 31.979) to general lander at (24.700, 28.327, 24.700) (taking 10 seconds).
+Rover1 is going to go from (31.979, 10.529, 31.979) towards (24.700, 28.327, 24.700) (taking 5 seconds).
+Rover1 will move from (24.700, 28.327, 24.700) towards (23.802, 12.656, 23.802) (taking 5 seconds).
+Rover3 will communicate soil data of (95.454, 41.700, 95.454) from (31.979, 10.529, 31.979) to general lander at (24.700, 28.327, 24.700) (taking 10 seconds).
+Rover1 is going to move from (23.802, 12.656, 23.802) towards (4.844, 15.874, 4.844) (taking 5 seconds).
+Rover1 will sample rock to store at rover1store at (4.844, 15.874, 4.844) (taking 8 seconds).
+Rover2 will communicate rock data of (95.454, 41.700, 95.454) from (31.979, 10.529, 31.979) to general lander at (24.700, 28.327, 24.700) (taking 10 seconds).
+Rover1 is going to travel from (4.844, 15.874, 4.844) to (23.802, 12.656, 23.802) (taking 5 seconds).
+Rover1 will transmit rock data of (4.844, 15.874, 4.844) from (23.802, 12.656, 23.802) to general lander at (24.700, 28.327, 24.700) (taking 10 seconds).

@@ -1,0 +1,8 @@
+2: (move-car la1a1 la2a1)  [0.001]
+4: (loadtire la2a1)  [0.001]
+5: (changetire)  [0.001]
+6: (move-car la2a1 la3a1)  [0.001]
+7: (loadtire la3a1)  [0.001]
+8: (changetire)  [0.001]
+9: (move-car la3a1 la2a2)  [0.001]
+10: (move-car la2a2 la1a3)  [0.001]

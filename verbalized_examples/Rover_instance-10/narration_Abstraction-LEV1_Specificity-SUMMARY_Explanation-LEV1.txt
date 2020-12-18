@@ -1,0 +1,36 @@
+Narrator is: rover0
+Rover1 is going to sample soil to store at rover1store at (34.772, 45.833, 34.772) (taking 10 seconds).
+Rover3 will sample rock to store at rover3store at (54.518, 62.486, 54.518) (taking 8 seconds).
+Rover1 is going to calibrate camera2 for objective1 at (34.772, 45.833, 34.772) (taking 5 seconds).
+Rover1 will calibrate camera0 for objective2 at (34.772, 45.833, 34.772) (taking 5 seconds).
+Rover1 is going to calibrate camera1 for objective3 at (34.772, 45.833, 34.772) (taking 5 seconds).
+I will go from (87.944, 18.476, 87.944) towards (17.583, 72.075, 17.583) (taking 5 seconds).
+Rover2 is going to travel from (79.754, 75.652, 79.754) towards (79.754, 75.652, 79.754) (via (79.754, 75.652, 79.754) and (87.944, 18.476, 87.944), taking 10 seconds).
+Rover1 will take an image of objective2 with camera2 in colour mode at (34.772, 45.833, 34.772) (taking 7 seconds).
+Rover1 will take an image of objective3 with camera0 in low res mode at (34.772, 45.833, 34.772) (taking 7 seconds).
+Rover1 will capture an image of objective3 with camera1 in colour mode at (34.772, 45.833, 34.772) (taking 7 seconds).
+I will sample soil to store at mestore at (17.583, 72.075, 17.583) (taking 10 seconds).
+Rover1 will calibrate camera2 for objective1 at (34.772, 45.833, 34.772) (taking 5 seconds).
+Rover3 will travel from (54.518, 62.486, 54.518) towards (34.772, 45.833, 34.772) (taking 5 seconds).
+Rover1 will communicate soil data of (34.772, 45.833, 34.772) from (34.772, 45.833, 34.772) to general lander at (54.518, 62.486, 54.518) (taking 10 seconds).
+Rover2 is going to sample rock to store at rover2store at (79.754, 75.652, 79.754) (taking 8 seconds).
+I will travel from (17.583, 72.075, 17.583) towards (87.944, 18.476, 87.944) (taking 5 seconds).
+I will leave the load at store mestore (taking 1 second).
+Rover2 will go from (79.754, 75.652, 79.754) towards (34.772, 45.833, 34.772) (via (87.944, 18.476, 87.944), taking 10 seconds).
+Rover3 will transmit rock data of (54.518, 62.486, 54.518) from (34.772, 45.833, 34.772) to general lander at (54.518, 62.486, 54.518) (taking 10 seconds).
+I will sample soil to store at mestore at (87.944, 18.476, 87.944) (taking 10 seconds).
+Rover1 will communicate image data of objective2 in colour mode from (34.772, 45.833, 34.772) to general lander at (54.518, 62.486, 54.518) (taking 15 seconds).
+I am going to leave the load at store mestore (taking 1 second).
+I am going to sample rock to store at mestore at (87.944, 18.476, 87.944) (taking 8 seconds).
+I am going to move from (87.944, 18.476, 87.944) towards (34.772, 45.833, 34.772) (taking 5 seconds).
+I will drop the load at store mestore (taking 1 second).
+I am going to sample rock to store at mestore at (34.772, 45.833, 34.772) (taking 8 seconds).
+Rover1 will transmit image data of objective3 in low res and colour mode from (34.772, 45.833, 34.772) to general lander at (54.518, 62.486, 54.518) (taking 30 seconds).
+I am going to travel from (34.772, 45.833, 34.772) towards (87.944, 18.476, 87.944) (taking 5 seconds).
+I am going to leave the load at store mestore (taking 1 second).
+I will go from (87.944, 18.476, 87.944) towards (79.754, 75.652, 79.754) (taking 5 seconds).
+I am going to sample soil to store at mestore at (79.754, 75.652, 79.754) (taking 10 seconds).
+I will travel from (79.754, 75.652, 79.754) towards (87.944, 18.476, 87.944) (taking 5 seconds).
+I am going to communicate soil data of (79.754, 75.652, 79.754) and (17.583, 72.075, 17.583) from (87.944, 18.476, 87.944) to general lander at (54.518, 62.486, 54.518) (via (87.944, 18.476, 87.944), taking 30 seconds).
+I am going to transmit rock data of (34.772, 45.833, 34.772) from (87.944, 18.476, 87.944) to general lander at (54.518, 62.486, 54.518) (via (87.944, 18.476, 87.944), taking 20 seconds).
+Rover2 is going to communicate rock data of (79.754, 75.652, 79.754) from (34.772, 45.833, 34.772) to general lander at (54.518, 62.486, 54.518) (taking 10 seconds).

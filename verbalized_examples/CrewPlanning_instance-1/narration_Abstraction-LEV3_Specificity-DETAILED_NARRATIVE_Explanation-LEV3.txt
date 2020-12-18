@@ -1,0 +1,7 @@
+CrewPlanner will initiate d2.
+C1 is going to eat a meal on d1 because CrewPlanner is going to wake up C1 on d1 so C1 can later sleep on d1.
+C1 will work out on d1 with e1 to be able to change the spaceshipfilter on d1.
+C1 will do the first reconfiguration of the thermal loop rpcm1 to then remove the sleep station rpcm1.
+C1 will assemble the sleep station rpcm1 because C1 will replace the rpcm1 to later be able to finish the rpcm1 on d1.
+C1 will do the second reconfiguration of the thermal loop rpcm1 to sleep on d1.
+C1 will finish the rpcm1 on d1.

@@ -1,0 +1,29 @@
+CrewPlanner is going to wake up C1, which will allow C1 to later report the result of activity pa1 1 on d1, C1 to report the result of activity pa1 2 on d1, C1 to report the result of activity pa1 3 on d1, C1 to communicate the medical state mcs1 on d1, C1 to report the result of activity pa1 4 on d1, C1 to report the result of activity pa1 5 on d1, C1 to report the result of activity pa1 6 on d1, and C1 to sleep on d1.
+C1 will make pa1 1, pa1 2, and pa1 3 to later be able to report the result of activity pa1 1 on d1, report the result of activity pa1 2 on d1, and report the result of activity pa1 3 on d1.
+CrewPlanner will initiate d3, which will allow CrewPlanner to later initiate d4.
+C1 is going to report the result of activity pa1 1 to fulfill the goal of pa1 1 being completed.
+C1 is going to report the result of activity pa1 2 to fulfill the goal of pa1 2 being completed.
+C1 is going to report the result of activity pa1 3 to reach the goal of pa1 3 being completed.
+C1 is going to have a meal so C1 can later sleep on d1.
+C1 is going to exercise with e1, which will allow C1 to communicate the medical state mcs1 to achieve the goal of The medical state mcs1 being finished.
+C1 will make pa1 4 to be able to report the result of activity pa1 4 to achieve the goal of pa1 4 being completed.
+C1 is going to make pa1 5 so C1 can report the result of activity pa1 5 to reach the goal of pa1 5 being completed.
+C1 is going to report the result of activity pa1 6 because C1 is going to make pa1 6 to reach the goal of pa1 6 being completed.
+C1 is going to conduct pa2 1 to later report the result of activity pa2 1 on d2.
+C1 will do the first reconfiguration because C1 will conduct pa2 1.
+C1 will remove the sleep station rpcm2 and rpcm3.
+C1 is going to replace the rpcm2 and C1 is going to assemble to be able to perform the second reconfiguration to later be able to finish the rpcm2 on d2.
+C1 is going to replace the rpcm3 to be able to assemble, which will allow C1 to later finish the rpcm3 on d3.
+C1 is going to perform the second reconfiguration, which will allow C1 to sleep to achieve the goal of C1 completing sleep.
+C1 will report the result of activity pa2 1 because CrewPlanner is going to wake up C1 to reach the goal of pa2 1 being completed.
+C1 is going to finish the rpcm2 to reach the goal of rpcm2 being completed.
+C1 will eat a meal, which will allow C1 to later sleep on d2.
+C1 is going to work out with e1 so C1 can change the spaceshipfilter to reach the goal of spaceshipfilter changing.
+C1 is going to communicate the medical state mcs1 to reach the goal of The medical state mcs1 being finished.
+C1 will sleep to reach the goal of C1 completing sleep.
+CrewPlanner will initiate d4 to fulfill the goal of d4 being initiated.
+CrewPlanner will wake up C1 so C1 can finish the rpcm3 to fulfill the goal of rpcm3 being completed.
+C1 is going to have a meal, which will allow C1 to later sleep on d3.
+C1 is going to work out with e1 to be able to change the spaceshipfilter to achieve the goal of spaceshipfilter changing.
+C1 is going to communicate the medical state mcs1 to reach the goal of The medical state mcs1 being finished.
+C1 will sleep to reach the goal of C1 completing sleep.

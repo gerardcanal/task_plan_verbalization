@@ -1,0 +1,26 @@
+Narrator is: robot_assistant
+I will travel to the wp4.
+I am going to check the wp4.
+I am going to move towards the wp5.
+I will check the wp5.
+I will look for person1 and person2.
+I will travel to the wp15.
+I will ask person2.
+I am going to go to the wp2.
+I will grab the mug.
+I will move towards the wp5.
+I will put the mug.
+I will go to the wp1.
+I will grasp the paper.
+I will move towards the wp4.
+I will place the paper.
+I am going to travel to the wp38.
+I will take the post2.
+I will travel to the wp15.
+I am going to hand post2 to person2.
+I am going to go to the wp38.
+I will grab the post1.
+I am going to move to the wp6.
+I am going to look around the wp6.
+I am going to leave the post1.
+I am going to go to the wp1.

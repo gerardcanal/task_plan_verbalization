@@ -1,0 +1,18 @@
+C1 is going to report the result of activity pa1 1 on d1 (taking 1 second) to achieve the goal of pa1 1 being completed on d1.
+C1 will report the result of activity pa1 2 on d1 (taking 1 second) to fulfill the goal of pa1 2 being completed on d1.
+C1 is going to report the result of activity pa1 3 on d1 (taking 1 second) to achieve the goal of pa1 3 being completed on d1.
+C1 will work out on d1 with e1 (taking 60 seconds), which will allow C1 to communicate the medical state mcs1 on d1 (taking 60 seconds) to fulfill the goal of The medical state mcs1 being finished on d1, which will allow C1 to later make pa1 4 (taking 60 seconds).
+C1 is going to make pa1 4 (taking 60 seconds), which will allow C1 to report the result of activity pa1 4 on d1 (taking 1 second) to fulfill the goal of pa1 4 being completed on d1.
+C1 is going to conduct pa1 5 (taking 60 seconds) to be able to report the result of activity pa1 5 on d1 (taking 1 second) to reach the goal of pa1 5 being completed on d1.
+C1 will conduct pa1 6 (taking 60 seconds) to then report the result of activity pa1 6 on d1 (taking 1 second) to fulfill the goal of pa1 6 being completed on d1.
+C1 is going to perform the second reconfiguration of the thermal loop rpcm3 (taking 60 seconds) to then sleep on d1 (taking 600 seconds) to fulfill the goal of C1 completing sleep on d1, which will allow CrewPlanner to later wake up C1 on d2 (taking 195 seconds).
+CrewPlanner is going to wake up C1 on d2 (taking 195 seconds) so C1 can report the result of activity pa2 1 on d2 (taking 1 second) to fulfill the goal of pa2 1 being completed on d2.
+C1 will finish the rpcm2 on d2 (taking 1 second) to achieve the goal of rpcm2 being completed on d2.
+C1 will work out on d2 with e1 (taking 60 seconds) to be able to change the spaceshipfilter on d2 (taking 60 seconds) to achieve the goal of spaceshipfilter changing on d2.
+C1 will communicate the medical state mcs1 on d2 (taking 60 seconds) to fulfill the goal of The medical state mcs1 being finished on d2.
+C1 is going to sleep on d2 (taking 600 seconds) to achieve the goal of C1 completing sleep on d2, which will allow CrewPlanner to later wake up C1 on d3 (taking 195 seconds).
+CrewPlanner is going to initiate d4 (taking 1440 seconds) to achieve the goal of d4 being initiated.
+C1 will finish the rpcm3 on d3 (taking 1 second) because CrewPlanner is going to wake up C1 on d3 (taking 195 seconds) to fulfill the goal of rpcm3 being completed on d3.
+C1 will work out on d3 with e1 (taking 60 seconds) to be able to change the spaceshipfilter on d3 (taking 60 seconds) to fulfill the goal of spaceshipfilter changing on d3.
+C1 is going to communicate the medical state mcs1 on d3 (taking 60 seconds) to reach the goal of The medical state mcs1 being finished on d3.
+C1 is going to sleep on d3 (taking 600 seconds) to fulfill the goal of C1 completing sleep on d3.

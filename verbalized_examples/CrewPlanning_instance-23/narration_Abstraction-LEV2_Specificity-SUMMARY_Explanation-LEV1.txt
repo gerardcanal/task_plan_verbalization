@@ -1,0 +1,39 @@
+CrewPlanner will wake up C1 on d1 (taking 195 seconds).
+C1 is going to make pa1 1, pa1 2, and pa1 3 (taking 180 seconds).
+CrewPlanner will initiate d3 (via d2, taking 2880 seconds).
+C1 will report the result of activity pa1 1, pa1 2, and pa1 3 on d1 (taking 1 second).
+C1 will eat a meal on d1 (taking 60 seconds).
+C1 will exercise on d1 with e1 (taking 60 seconds).
+C1 is going to communicate the medical state mcs1 on d1 (taking 60 seconds).
+C1 will make pa1 4 (taking 60 seconds).
+C1 is going to report the result of activity pa1 4 on d1 (taking 1 second).
+C1 will conduct pa1 5 (taking 60 seconds).
+C1 is going to report the result of activity pa1 5 on d1 (taking 1 second).
+C1 is going to conduct pa1 6 (taking 60 seconds).
+C1 will report the result of activity pa1 6 on d1 (taking 1 second).
+C1 will conduct pa2 1 (taking 60 seconds).
+C1 will perform the first reconfiguration of the thermal loop rpcm2 and rpcm3 (taking 120 seconds).
+C1 is going to remove the sleep station rpcm2 and rpcm3 (taking 120 seconds).
+C1 is going to replace the rpcm2 (taking 180 seconds).
+C1 will assemble the sleep station rpcm2 (taking 60 seconds).
+C1 will perform the second reconfiguration of the thermal loop rpcm2 (taking 60 seconds).
+C1 will replace the rpcm3 (taking 180 seconds).
+C1 will assemble the sleep station rpcm3 (taking 60 seconds).
+C1 is going to do the second reconfiguration of the thermal loop rpcm3 (taking 60 seconds).
+C1 will sleep on d1 (taking 600 seconds).
+CrewPlanner is going to wake up C1 on d2 (taking 195 seconds).
+C1 is going to report the result of activity pa2 1 on d2 (taking 1 second).
+C1 is going to finish the rpcm2 on d2 (taking 1 second).
+C1 will have a meal on d2 (taking 60 seconds).
+C1 will work out on d2 with e1 (taking 60 seconds).
+C1 will change the spaceshipfilter on d2 (taking 60 seconds).
+C1 is going to communicate the medical state mcs1 on d2 (taking 60 seconds).
+C1 is going to sleep on d2 (taking 600 seconds).
+CrewPlanner will initiate d4 (taking 1440 seconds).
+CrewPlanner is going to wake up C1 on d3 (taking 195 seconds).
+C1 will finish the rpcm3 on d3 (taking 1 second).
+C1 will eat a meal on d3 (taking 60 seconds).
+C1 will work out on d3 with e1 (taking 60 seconds).
+C1 is going to change the spaceshipfilter on d3 (taking 60 seconds).
+C1 is going to communicate the medical state mcs1 on d3 (taking 60 seconds).
+C1 is going to sleep on d3 (taking 600 seconds).

@@ -1,0 +1,6 @@
+Narrator is: I
+I will get the food.
+I am going to approach the food.
+I will feed the user.
+I am going to move away.
+I will complete the task.

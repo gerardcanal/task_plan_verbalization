@@ -1,0 +1,18 @@
+Narrator is: rover0
+I will capture an image of objective0 with camera3 in high res mode at (67.059, 18.662, 67.059) (taking 7 seconds) to then transmit image data of objective0 in high res mode from (67.059, 18.662, 67.059) to general lander at (10.191, 93.460, 10.191) (taking 15 seconds).
+Rover3 is going to transmit soil data of (64.332, 55.952, 64.332) from (64.332, 55.952, 64.332) to general lander at (10.191, 93.460, 10.191) (taking 10 seconds).
+Rover5 will transmit image data of objective0 in colour mode from (16.164, 54.410, 16.164) to general lander at (10.191, 93.460, 10.191) (taking 15 seconds).
+Rover2 will sample soil to store at rover2store at (52.013, 69.821, 52.013) (taking 10 seconds) to then communicate soil data of (52.013, 69.821, 52.013) from (67.059, 18.662, 67.059) to general lander at (10.191, 93.460, 10.191) (taking 10 seconds).
+Rover3 is going to communicate image data of objective5 in colour mode from (64.332, 55.952, 64.332) to general lander at (10.191, 93.460, 10.191) (taking 15 seconds).
+Rover2 will travel from (52.013, 69.821, 52.013) towards (67.059, 18.662, 67.059) (taking 5 seconds) so Rover2 can communicate image data of objective7 in colour mode from (67.059, 18.662, 67.059) to general lander at (10.191, 93.460, 10.191) (taking 15 seconds).
+Rover5 is going to go from (52.013, 69.821, 52.013) towards (67.059, 18.662, 67.059) (taking 5 seconds) to then communicate rock data of (16.164, 54.410, 16.164) from (67.059, 18.662, 67.059) to general lander at (10.191, 93.460, 10.191) (taking 10 seconds).
+I will communicate image data of objective4 in high res mode from (67.059, 18.662, 67.059) to general lander at (10.191, 93.460, 10.191) (taking 15 seconds).
+Rover4 is going to communicate soil data of (24.380, 78.724, 24.380) from (67.059, 18.662, 67.059) to general lander at (10.191, 93.460, 10.191) (taking 10 seconds).
+Rover4 will communicate rock data of (24.508, 15.102, 24.508) from (67.059, 18.662, 67.059) to general lander at (10.191, 93.460, 10.191) (taking 10 seconds).
+Rover4 will transmit rock data of (72.741, 86.727, 72.741) from (67.059, 18.662, 67.059) to general lander at (10.191, 93.460, 10.191) (taking 10 seconds).
+Rover4 is going to transmit rock data of (10.191, 93.460, 10.191) from (67.059, 18.662, 67.059) to general lander at (10.191, 93.460, 10.191) (taking 10 seconds).
+Rover4 is going to communicate rock data of (21.764, 85.050, 21.764) from (67.059, 18.662, 67.059) to general lander at (10.191, 93.460, 10.191) (taking 10 seconds).
+Rover1 will transmit image data of objective2 in low res mode from (67.059, 18.662, 67.059) to general lander at (10.191, 93.460, 10.191) (taking 15 seconds).
+Rover1 is going to transmit image data of objective6 in low res mode from (67.059, 18.662, 67.059) to general lander at (10.191, 93.460, 10.191) (taking 15 seconds).
+Rover1 is going to transmit image data of objective7 in low res mode from (67.059, 18.662, 67.059) to general lander at (10.191, 93.460, 10.191) (taking 15 seconds).
+Rover3 will communicate rock data of (94.682, 82.055, 94.682) from (67.059, 18.662, 67.059) to general lander at (10.191, 93.460, 10.191) (taking 10 seconds).

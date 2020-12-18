@@ -1,0 +1,31 @@
+C1 is going to report the result of activity pa1 1.
+C1 is going to report the result of activity pa1 2.
+C1 will report the result of activity pa1 3.
+C1 will report the result of activity pa1 4.
+C1 is going to report the result of activity pa1 5.
+C1 is going to report the result of activity pa1 6.
+C1 will change the spaceshipfilter.
+C2 will communicate the medical state mcs1.
+C1 is going to report the result of activity pa1 7.
+C1 is going to report the result of activity pa1 8.
+C1 will report the result of activity pa1 9.
+C2 is going to sleep.
+C1 will sleep.
+CrewPlanner is going to initiate d3.
+C2 will report the result of activity pa2 1.
+C2 is going to report the result of activity pa2 10.
+C2 is going to report the result of activity pa2 11.
+C2 will report the result of activity pa2 12.
+C2 is going to report the result of activity pa2 2.
+C2 will report the result of activity pa2 3.
+C2 will report the result of activity pa2 4.
+C2 will report the result of activity pa2 5.
+C2 is going to report the result of activity pa2 6.
+C2 is going to report the result of activity pa2 7.
+C2 is going to report the result of activity pa2 8.
+C2 is going to report the result of activity pa2 9.
+C2 is going to change the spaceshipfilter.
+C1 will communicate the medical state mcs1.
+C2 will communicate the medical state mcs2.
+C1 will sleep.
+C2 will sleep.

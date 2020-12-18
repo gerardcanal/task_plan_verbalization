@@ -1,0 +1,16 @@
+C1 will make pa1 1 (taking 60 seconds) to later be able to report the result of activity pa1 1 on d1 (taking 1 second).
+C2 is going to make pa1 2 (taking 60 seconds) so C1 can later report the result of activity pa1 2 on d1 (taking 1 second).
+CrewPlanner will wake up C1 on d1 (taking 195 seconds), which will allow C1 to later report the result of activity pa1 1 on d1 (taking 1 second), C1 to report the result of activity pa1 2 on d1 (taking 1 second), C1 to report the result of activity pa1 3 on d1 (taking 1 second), C1 to report the result of activity pa1 4 on d1 (taking 1 second), C1 to report the result of activity pa1 5 on d1 (taking 1 second), C1 to report the result of activity pa1 6 on d1 (taking 1 second), and C1 to sleep on d1 (taking 600 seconds).
+CrewPlanner will wake up C2 on d1 (taking 195 seconds), which will allow C2 to later communicate the medical state mcs2 on d1 (taking 60 seconds) and C2 to sleep on d1 (taking 600 seconds).
+CrewPlanner will initiate d2 (taking 1440 seconds).
+C1 is going to conduct pa1 3 (taking 60 seconds) to be able to conduct pa1 5 (taking 60 seconds) to later be able to report the result of activity pa1 5 on d1 (taking 1 second).
+C2 is going to make pa1 4 (taking 60 seconds), which will allow C2 to conduct pa1 6 (taking 60 seconds) so C1 can later report the result of activity pa1 6 on d1 (taking 1 second).
+C1 is going to report the result of activity pa1 1 on d1 (taking 1 second).
+C1 will report the result of activity pa1 2 on d1 (taking 1 second).
+C1 will report the result of activity pa1 3 on d1 (taking 1 second).
+C1 is going to report the result of activity pa1 4 on d1 (taking 1 second).
+C1 will report the result of activity pa1 5 on d1 (taking 1 second).
+C1 will report the result of activity pa1 6 on d1 (taking 1 second).
+C2 will have a meal on d1 (taking 60 seconds), which will allow C2 to communicate the medical state mcs2 on d1 (taking 60 seconds).
+C1 will have a meal on d1 (taking 60 seconds) and C1 is going to work out on d1 with e1 (taking 60 seconds) to then sleep on d1 (taking 600 seconds).
+C2 will exercise on d1 with e1 (taking 60 seconds) to be able to sleep on d1 (taking 600 seconds).

@@ -1,0 +1,4 @@
+Narrator is: rover0
+Rover1 will move from (12.978, 96.265, 12.978) to (62.029, 24.204, 62.029) (taking 5 seconds) and Rover1 is going to sample soil to store at rover1store at (62.029, 24.204, 62.029) (taking 10 seconds) to transmit soil data of (62.029, 24.204, 62.029) from (62.029, 24.204, 62.029) to general lander at (26.035, 3.956, 26.035) (taking 10 seconds) to achieve the goal of soil data being communicated at (62.029, 24.204, 62.029).
+Rover1 will communicate image data of objective0 in colour mode from (62.029, 24.204, 62.029) to general lander at (26.035, 3.956, 26.035) (taking 15 seconds) to fulfill the goal of image data being communicated of objective0 in colour mode.
+I am going to communicate rock data of (26.035, 3.956, 26.035) from (91.781, 28.947, 91.781) to general lander at (26.035, 3.956, 26.035) (taking 10 seconds) to achieve the goal of rock data being communicated at (26.035, 3.956, 26.035).

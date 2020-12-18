@@ -1,0 +1,7 @@
+CrewPlanner will initiate d2 (taking 1440 seconds) to achieve the goal of d2 being initiated.
+CrewPlanner is going to wake up C1 on d1 (taking 195 seconds), which will allow C1 to have a meal on d1 (taking 60 seconds) to later work out on d1 with e1 (taking 60 seconds) and sleep on d1 (taking 600 seconds).
+C1 is going to exercise on d1 with e1 (taking 60 seconds) to then change the spaceshipfilter on d1 (taking 60 seconds) to reach the goal of spaceshipfilter changing on d1, which will allow C1 to later perform the first reconfiguration of the thermal loop (86.437, 82.882, 86.437) (taking 60 seconds).
+C1 will do the first reconfiguration of the thermal loop (86.437, 82.882, 86.437) (taking 60 seconds) to remove the sleep station (86.437, 82.882, 86.437) (taking 60 seconds), which will allow C1 to later replace the (86.437, 82.882, 86.437) (taking 180 seconds).
+C1 is going to replace the (86.437, 82.882, 86.437) (taking 180 seconds) to assemble the sleep station (86.437, 82.882, 86.437) (taking 60 seconds) so C1 can later do the second reconfiguration of the thermal loop (86.437, 82.882, 86.437) (taking 60 seconds) and finish the (86.437, 82.882, 86.437) on d1 (taking 1 second).
+C1 will perform the second reconfiguration of the thermal loop (86.437, 82.882, 86.437) (taking 60 seconds) to be able to sleep on d1 (taking 600 seconds) to reach the goal of C1 completing sleep on d1.
+C1 is going to finish the (86.437, 82.882, 86.437) on d1 (taking 1 second) to fulfill the goal of (86.437, 82.882, 86.437) being completed on d1.

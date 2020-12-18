@@ -1,0 +1,23 @@
+Narrator is: robot_assistant
+I am going to go to the entrance to check the entrance to later be able to place the mug at the entrance.
+I will go towards the kitchen counter to be able to look around the kitchen counter to later leave the paper at the kitchen counter.
+I will find person1 to achieve the goal of finding person1.
+I am going to locate person2 and I will go to the kitchen corridor to then request person2 to fulfill the goal of asking person2.
+I will travel to the microwave to later be able to grab the mug at the microwave, move from the microwave towards the entrance, and travel from the entrance to the kitchen corridor.
+I am going to grab the mug and I am going to travel towards the entrance to be able to put the mug to fulfill the goal of the mug being at the entrance to later grab the paper at the kitchen shelf.
+I will move towards the kitchen corridor to later travel from the kitchen corridor towards the kitchen shelf.
+I will travel towards the kitchen shelf to be able to grab the paper, which will allow me to later leave the paper at the kitchen counter.
+I will travel towards the microwave to later move from the microwave to the kitchen counter and move from the microwave to the kitchen shelf.
+I will go to the kitchen counter, which will allow me to leave the paper to fulfill the goal of the paper being at the kitchen counter to later be able to take the post2 at the office entrance 1.
+I am going to travel to the kitchen corridor, which will allow me to move to the kitchen door 1 to later move from the kitchen door 1 to the office entrance 1 and go from the kitchen door 1 towards the kitchen corridor.
+I am going to move to the office entrance 1 to be able to grab the post2 to later be able to hand post2 to person2 at the kitchen corridor.
+I am going to go towards the kitchen door 1 to later be able to move from the kitchen door 1 towards the kitchen corridor and travel from the kitchen door 1 to the office entrance 1.
+I will travel towards the kitchen corridor, which will allow me to give post2 to person2 to fulfill the goal of the post2 being at the person2 to later take the post1 at the office entrance 1.
+I am going to travel to the kitchen door 1 to later move from the kitchen door 1 towards the office entrance 1.
+I will move to the office entrance 1 to then grasp the post1 so I can later place the post1 at the main office desk.
+I will move to the kitchen door 1 to later be able to travel from the kitchen door 1 towards the corridor centre.
+I am going to move to the corridor centre so I can travel towards the main office doorway so I can later move from the main office doorway to the main office desk.
+I will leave the post1 because I am going to go towards the main office desk and I will check the main office desk to fulfill the goal of the post1 being at the main office desk.
+I will travel towards the main office doorway, which will allow me to later move from the main office doorway to the meeting room hallway.
+I am going to move towards the meeting room hallway to go to the kitchen sink so I can later go from the kitchen sink to the microwave.
+I am going to move towards the microwave to then move to the kitchen shelf to fulfill the goal of me being at the kitchen shelf.

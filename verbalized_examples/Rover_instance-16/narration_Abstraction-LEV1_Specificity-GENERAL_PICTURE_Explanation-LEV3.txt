@@ -1,0 +1,12 @@
+Narrator is: rover0
+I will transmit rock data of (6.143, 44.861, 6.143) from (6.143, 44.861, 6.143) to general lander at (70.942, 39.326, 70.942) (taking 10 seconds) to later communicate image data of objective0 in high res mode from (6.143, 44.861, 6.143) to general lander at (70.942, 39.326, 70.942) (taking 15 seconds).
+Rover2 will transmit image data of objective2 in high res mode from (6.143, 44.861, 6.143) to general lander at (70.942, 39.326, 70.942) (taking 15 seconds).
+I will communicate image data of objective0 in high res mode from (6.143, 44.861, 6.143) to general lander at (70.942, 39.326, 70.942) (taking 15 seconds).
+I am going to transmit image data of objective4 in high res mode from (6.143, 44.861, 6.143) to general lander at (70.942, 39.326, 70.942) (taking 15 seconds).
+I will transmit soil data of (6.143, 44.861, 6.143) from (6.143, 44.861, 6.143) to general lander at (70.942, 39.326, 70.942) (taking 10 seconds) to later be able to communicate rock data of (33.822, 92.929, 33.822) from (6.143, 44.861, 6.143) to general lander at (70.942, 39.326, 70.942) (taking 10 seconds).
+Rover1 will sample soil to store at rover1store at (89.457, 51.412, 89.457) (taking 10 seconds), which will allow Rover1 to communicate soil data of (89.457, 51.412, 89.457) from (89.457, 51.412, 89.457) to general lander at (70.942, 39.326, 70.942) (taking 10 seconds).
+Rover1 is going to communicate soil data of (73.970, 17.749, 73.970) from (89.457, 51.412, 89.457) to general lander at (70.942, 39.326, 70.942) (taking 10 seconds).
+Rover1 is going to communicate soil data of (75.403, 20.249, 75.403) from (89.457, 51.412, 89.457) to general lander at (70.942, 39.326, 70.942) (taking 10 seconds).
+Rover1 will transmit rock data of (4.340, 25.576, 4.340) from (89.457, 51.412, 89.457) to general lander at (70.942, 39.326, 70.942) (taking 10 seconds).
+Rover1 is going to transmit rock data of (57.537, 37.019, 57.537) from (89.457, 51.412, 89.457) to general lander at (70.942, 39.326, 70.942) (taking 10 seconds).
+I am going to transmit rock data of (33.822, 92.929, 33.822) from (6.143, 44.861, 6.143) to general lander at (70.942, 39.326, 70.942) (taking 10 seconds).

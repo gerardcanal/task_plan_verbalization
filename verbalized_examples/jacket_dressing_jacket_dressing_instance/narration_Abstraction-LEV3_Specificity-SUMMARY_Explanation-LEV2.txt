@@ -1,0 +1,9 @@
+Narrator is: I
+I will approach the left hand.
+I will insert the left sleeve.
+I am going to approach the right hand.
+I am going to drag the left forearm.
+I will insert the right sleeve, which will allow me to drag the right forearm.
+I will drag the left and right upperarm.
+I am going to finish the dressing.
+I am going to complete the task.

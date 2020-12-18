@@ -1,0 +1,18 @@
+CrewPlanner is going to initiate d2 to then initiate d3.
+C1 is going to report the result of activity pa1 1 on d1.
+C1 is going to report the result of activity pa1 2 on d1.
+C1 is going to report the result of activity pa1 3 on d1.
+C1 will change the spaceshipfilter on d1 because C1 will exercise on d1 with e1.
+C1 will conduct pa1 4 to be able to report the result of activity pa1 4 on d1.
+C1 is going to make pa1 5 to report the result of activity pa1 5 on d1.
+C1 will conduct pa1 6, which will allow C1 to report the result of activity pa1 6 on d1.
+C1 will sleep on d1 because C1 will conduct pa2 7.
+CrewPlanner is going to wake up C1 on d2 so C1 can report the result of activity pa2 1 on d2.
+C1 will report the result of activity pa2 2 on d2.
+C1 will report the result of activity pa2 3 on d2.
+C1 is going to report the result of activity pa2 4 on d2.
+C1 is going to report the result of activity pa2 5 on d2.
+C1 will report the result of activity pa2 6 on d2.
+C1 is going to report the result of activity pa2 7 on d2.
+C1 will have a meal on d2 and C1 is going to exercise on d2 with e1 to sleep on d2.
+C1 will change the spaceshipfilter on d2.

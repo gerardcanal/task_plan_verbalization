@@ -1,0 +1,14 @@
+CrewPlanner will initiate d2 to be able to initiate d3.
+C1 will exercise with e1 to then change the spaceshipfilter.
+C1 will assemble and C1 is going to do the second reconfiguration to then finish the rpcm1.
+C1 will sleep.
+CrewPlanner will wake up C1 so C1 can report the result of activity pa2 1.
+C1 is going to report the result of activity pa2 2.
+C1 is going to report the result of activity pa2 3.
+C1 is going to report the result of activity pa2 4.
+C1 is going to report the result of activity pa2 5.
+C1 is going to report the result of activity pa2 6.
+C1 will report the result of activity pa2 7.
+C1 is going to work out with e1 to change the spaceshipfilter.
+C1 is going to communicate the medical state mcs1.
+C1 will sleep.

@@ -1,0 +1,27 @@
+Narrator is: rover0
+Rover1 is going to sample soil because Rover1 will travel towards waypoint1 to later drop the load at store rover1store and transmit soil data of waypoint1 from waypoint0 to general lander at waypoint3.
+I will calibrate camera0 for objective0 and I will move towards waypoint0, which will allow me to take an image of objective0 with camera0 to later be able to communicate image data of objective0 in colour mode from waypoint0 to general lander at waypoint3.
+I am going to calibrate camera0 for objective0 so I can later take an image of objective0 with camera0 in low res mode at waypoint2.
+Rover1 will move to waypoint0 so Rover1 can later transmit soil data of waypoint1 from waypoint0 to general lander at waypoint3 and travel from waypoint0 towards waypoint2.
+Rover1 is going to drop the load so Rover1 can later sample soil to store at rover1store at waypoint2.
+I am going to transmit image data of objective0 to general lander to fulfill the goal of image data being communicated so I can later travel from waypoint0 towards waypoint2, go from waypoint2 to waypoint0, and communicate image data of objective1 in low res mode from waypoint0 to general lander at waypoint3.
+I am going to move to waypoint2 to then take an image of objective0 with camera0 to later be able to transmit image data of objective0 in low res mode from waypoint0 to general lander at waypoint3.
+I will calibrate camera0 for objective0 and I will go towards waypoint0 to take an image of objective1 with camera0 to later be able to transmit image data of objective1 in low res mode from waypoint0 to general lander at waypoint3.
+I am going to sample rock, which will allow me to later drop the load at store mestore and transmit rock data of waypoint0 from waypoint0 to general lander at waypoint3.
+I will communicate image data of objective1 to general lander to fulfill the goal of image data being communicated so I can later transmit image data of objective0 in low res mode from waypoint0 to general lander at waypoint3.
+I am going to leave the load, which will allow me to later sample rock to store at mestore at waypoint2.
+I am going to communicate image data of objective0 to general lander to fulfill the goal of image data being communicated.
+I am going to communicate rock data of waypoint0 to general lander to achieve the goal of rock data being communicated, which will allow me to later go from waypoint0 to waypoint2, travel from waypoint2 towards waypoint0, and transmit rock data of waypoint2 from waypoint0 to general lander at waypoint3.
+Rover1 will transmit soil data of waypoint1 to general lander to achieve the goal of soil data being communicated, which will allow Rover1 to later move from waypoint0 towards waypoint2, me to transmit rock data of waypoint2 from waypoint0 to general lander at waypoint3, and Rover1 to communicate soil data of waypoint2 from waypoint2 to general lander at waypoint3.
+I will sample rock because I will go to waypoint2 so I can later leave the load at store mestore and communicate rock data of waypoint2 from waypoint0 to general lander at waypoint3.
+Rover1 is going to travel towards waypoint2 and Rover1 is going to sample soil so Rover1 can transmit soil data of waypoint2 to general lander to fulfill the goal of soil data being communicated to later be able to move from waypoint2 to waypoint5, move from waypoint5 to waypoint4, and communicate soil data of waypoint5 from waypoint4 to general lander at waypoint3.
+I will move to waypoint0, which will allow me to later transmit rock data of waypoint2 from waypoint0 to general lander at waypoint3 and move from waypoint0 towards waypoint3.
+I will drop the load, which will allow me to later sample rock to store at mestore at waypoint3.
+I am going to transmit rock data of waypoint2 to general lander to achieve the goal of rock data being communicated, which will allow Rover1 to later transmit soil data of waypoint2 from waypoint2 to general lander at waypoint3, me to go from waypoint3 to waypoint0, and me to communicate rock data of waypoint3 from waypoint0 to general lander at waypoint3.
+I will go to waypoint3 to later sample rock to store at mestore at waypoint3 and move from waypoint3 to waypoint0.
+I will sample rock and I am going to move to waypoint0, which will allow me to communicate rock data of waypoint3 to general lander to fulfill the goal of rock data being communicated, which will allow Rover1 to later communicate soil data of waypoint5 from waypoint4 to general lander at waypoint3.
+Rover1 is going to drop the load and Rover1 will move towards waypoint5 to be able to sample soil to later drop the load at store rover1store and communicate soil data of waypoint5 from waypoint4 to general lander at waypoint3.
+Rover1 is going to go towards waypoint4, which will allow Rover1 to later communicate soil data of waypoint5 from waypoint4 to general lander at waypoint3, sample soil to store at rover1store at waypoint4, and transmit soil data of waypoint4 from waypoint4 to general lander at waypoint3.
+Rover1 will drop the load so Rover1 can later sample soil to store at rover1store at waypoint4.
+Rover1 will transmit soil data of waypoint5 to general lander to fulfill the goal of soil data being communicated.
+Rover1 is going to sample soil so Rover1 can communicate soil data of waypoint4 to general lander to reach the goal of soil data being communicated.

@@ -1,0 +1,8 @@
+Narrator is: rover0
+I will calibrate camera0 for objective1 at (75.730, 77.855, 75.730) (taking 5 seconds).
+I am going to sample rock to store at mestore at (75.730, 77.855, 75.730) (taking 8 seconds) to later be able to transmit rock data of (75.730, 77.855, 75.730) from (30.853, 89.894, 30.853) to general lander at (77.047, 0.818, 77.047) (taking 10 seconds).
+I am going to take an image of objective1 with camera0 in high res mode at (75.730, 77.855, 75.730) (taking 7 seconds) to later transmit image data of objective1 in high res mode from (75.730, 77.855, 75.730) to general lander at (77.047, 0.818, 77.047) (taking 15 seconds).
+I will leave the load at store mestore (taking 1 second).
+I will transmit image data of objective1 in high res mode from (75.730, 77.855, 75.730) to general lander at (77.047, 0.818, 77.047) (taking 15 seconds) to fulfill the goal of image data being communicated of objective1 in high res mode.
+I am going to move from (75.730, 77.855, 75.730) to (30.853, 89.894, 30.853) (taking 5 seconds) so I can transmit rock data of (75.730, 77.855, 75.730) from (30.853, 89.894, 30.853) to general lander at (77.047, 0.818, 77.047) (taking 10 seconds) to reach the goal of rock data being communicated at (75.730, 77.855, 75.730).
+I will move from (30.853, 89.894, 30.853) to (28.575, 53.515, 28.575) (taking 5 seconds) and I am going to sample soil to store at mestore at (28.575, 53.515, 28.575) (taking 10 seconds), which will allow me to transmit soil data of (28.575, 53.515, 28.575) from (28.575, 53.515, 28.575) to general lander at (77.047, 0.818, 77.047) (taking 10 seconds) to achieve the goal of soil data being communicated at (28.575, 53.515, 28.575).

@@ -1,0 +1,4 @@
+Narrator is: rover0
+Rover1 will travel from waypoint3 towards waypoint2 and Rover1 is going to sample soil to store at rover1store at waypoint2 to communicate soil data of waypoint2 from waypoint2 to general lander at waypoint0 to achieve the goal of soil data being communicated at waypoint2.
+Rover1 will communicate image data of objective0 in colour mode from waypoint2 to general lander at waypoint0 to achieve the goal of image data being communicated of objective0 in colour mode.
+I am going to communicate rock data of waypoint0 from waypoint1 to general lander at waypoint0 to achieve the goal of rock data being communicated at waypoint0.

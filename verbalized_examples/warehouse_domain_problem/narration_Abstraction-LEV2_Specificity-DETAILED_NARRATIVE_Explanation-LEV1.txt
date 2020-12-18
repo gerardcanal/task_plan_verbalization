@@ -1,0 +1,41 @@
+Narrator is: robot_assistant
+I will move from the wp3 towards the wp15 (taking 13 seconds).
+I will travel from the wp15 towards the wp4 (taking 10 seconds).
+I am going to look around the wp4 (taking 1 second).
+I will move from the wp4 to the wp5 (taking 14 seconds).
+I am going to scan the wp5 (taking 1 second).
+I am going to look for person1 (taking 20 seconds).
+I will locate person2 (taking 20 seconds).
+I will move from the wp5 to the wp15 (taking 18 seconds).
+I am going to request person2 at the wp15 (taking 2 seconds).
+I am going to travel from the wp15 towards the wp2 (taking 11 seconds).
+I am going to grasp the mug at the wp2 (taking 2 seconds).
+I will move from the wp2 towards the wp5 (taking 19 seconds).
+I will put the mug at the wp5 (taking 2.5 seconds).
+I am going to move from the wp5 towards the wp15 (taking 18 seconds).
+I will move from the wp15 to the wp1 (taking 17 seconds).
+I will take the paper at the wp1 (taking 2 seconds).
+I will move from the wp1 to the wp2 (taking 7 seconds).
+I will go from the wp2 towards the wp4 (taking 5 seconds).
+I am going to place the paper at the wp4 (taking 2.5 seconds).
+I am going to go from the wp4 to the wp15 (taking 10 seconds).
+I am going to travel from the wp15 towards the wp36 (taking 26 seconds).
+I will move from the wp36 towards the wp38 (taking 8 seconds).
+I will grab the post2 at the wp38 (taking 2 seconds).
+I am going to travel from the wp38 towards the wp36 (taking 8 seconds).
+I will go from the wp36 towards the wp15 (taking 26 seconds).
+I will deliver post2 to person2 at the wp15 (taking 2 seconds).
+I will go from the wp15 towards the wp36 (taking 26 seconds).
+I will move from the wp36 towards the wp38 (taking 8 seconds).
+I will take the post1 at the wp38 (taking 2 seconds).
+I am going to travel from the wp38 to the wp36 (taking 8 seconds).
+I am going to travel from the wp36 towards the wp27 (taking 29 seconds).
+I will move from the wp27 towards the wp19 (taking 29 seconds).
+I am going to move from the wp19 to the wp6 (taking 15 seconds).
+I am going to scan the wp6 (taking 1 second).
+I will leave the post1 at the wp6 (taking 2.5 seconds).
+I will go from the wp6 to the wp19 (taking 15 seconds).
+I will travel from the wp19 to the wp28 (taking 21 seconds).
+I am going to move from the wp28 to the wp3 (taking 38 seconds).
+I am going to move from the wp3 to the wp2 (taking 12 seconds).
+I will travel from the wp2 towards the wp1 (taking 7 seconds).

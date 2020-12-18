@@ -1,0 +1,5 @@
+0: (getFood)  [0.001]
+1: (approachStraight)  [0.001]
+2: (feedStraight)  [0.001]
+3: (moveAway)  [0.001]
+4: (goal)  [0.001]

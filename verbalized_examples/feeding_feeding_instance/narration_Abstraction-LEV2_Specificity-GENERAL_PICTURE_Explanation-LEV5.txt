@@ -1,0 +1,3 @@
+Narrator is: I
+I will get the food (taking 0 seconds) so I can feed the user (taking 0 seconds) to reach the goal of me not having interacted.
+I will approach the food (taking 0 seconds) to be able to move away (taking 0 seconds) to achieve the goal of me having completed a spoonful.

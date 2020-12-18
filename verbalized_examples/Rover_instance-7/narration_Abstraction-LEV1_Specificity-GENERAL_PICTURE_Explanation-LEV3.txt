@@ -1,0 +1,7 @@
+Narrator is: rover0
+Rover1 will sample rock to store at rover1store at (91.745, 70.756, 91.745) (taking 8 seconds) and Rover1 will go from (91.745, 70.756, 91.745) to (16.203, 3.297, 16.203) (taking 5 seconds) to be able to transmit rock data of (91.745, 70.756, 91.745) from (16.203, 3.297, 16.203) to general lander at (91.745, 70.756, 91.745) (taking 10 seconds).
+I am going to take an image of objective0 with camera0 in high res mode at (76.351, 86.564, 76.351) (taking 7 seconds) and I will move from (76.351, 86.564, 76.351) towards (16.203, 3.297, 16.203) (taking 5 seconds) so I can communicate image data of objective0 in high res mode from (16.203, 3.297, 16.203) to general lander at (91.745, 70.756, 91.745) (taking 15 seconds).
+I am going to transmit rock data of (76.351, 86.564, 76.351) from (16.203, 3.297, 16.203) to general lander at (91.745, 70.756, 91.745) (taking 10 seconds).
+Rover2 will communicate soil data of (80.989, 3.464, 80.989) from (16.203, 3.297, 16.203) to general lander at (91.745, 70.756, 91.745) (taking 10 seconds) because Rover2 will sample soil to store at rover2store at (80.989, 3.464, 80.989) (taking 10 seconds).
+Rover2 is going to go from (80.989, 3.464, 80.989) towards (16.203, 3.297, 16.203) (taking 5 seconds) to then transmit soil data of (24.914, 29.757, 24.914) from (16.203, 3.297, 16.203) to general lander at (91.745, 70.756, 91.745) (taking 10 seconds).
+Rover2 is going to transmit rock data of (24.914, 29.757, 24.914) from (16.203, 3.297, 16.203) to general lander at (91.745, 70.756, 91.745) (taking 10 seconds).

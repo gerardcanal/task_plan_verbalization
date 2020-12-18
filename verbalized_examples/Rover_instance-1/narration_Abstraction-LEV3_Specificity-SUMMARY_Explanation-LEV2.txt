@@ -1,0 +1,8 @@
+Narrator is: rover0
+I am going to calibrate camera0 for objective1 at waypoint3.
+I am going to sample rock to store at mestore at waypoint3.
+I am going to capture an image of objective1 with camera0 in high res mode at waypoint3.
+I am going to drop the load at store mestore.
+I will communicate image data of objective1 in high res mode from waypoint3 to general lander at waypoint0.
+I am going to go from waypoint3 to waypoint1 so I can transmit rock data of waypoint3 from waypoint1 to general lander at waypoint0.
+I will move from waypoint1 to waypoint2 and I will sample soil to store at mestore at waypoint2 to then communicate soil data of waypoint2 from waypoint2 to general lander at waypoint0.

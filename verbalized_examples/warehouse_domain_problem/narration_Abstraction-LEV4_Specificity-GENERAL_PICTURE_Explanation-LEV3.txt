@@ -1,0 +1,8 @@
+Narrator is: robot_assistant
+I will find person1.
+I will look for person2 and I am going to move towards the wp15 to then request person2.
+I will grasp the mug and I will go to the wp5 to then put the mug.
+I will go towards the wp4 to be able to put the paper.
+I will go towards the wp15 to be able to give post2 to person2.
+I will travel to the wp6 and I am going to check the wp6 to be able to leave the post1.
+I am going to go towards the wp2, which will allow me to go to the wp1.

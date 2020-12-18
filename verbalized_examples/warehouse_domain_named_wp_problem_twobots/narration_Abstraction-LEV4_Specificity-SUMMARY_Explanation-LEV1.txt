@@ -1,0 +1,30 @@
+Narrator is: robot_assistant
+Hsr Robot will look around the entrance.
+Hsr Robot will look for person1 and person2.
+I am going to go towards the kitchen counter.
+Hsr Robot will move towards the microwave.
+I am going to scan the kitchen counter.
+I will go towards the kitchen corridor.
+I am going to request person2.
+I will travel towards the kitchen shelf.
+I will grab the paper.
+I will travel towards the kitchen counter.
+I am going to put the paper.
+Hsr Robot will grab the mug.
+I will move to the kitchen corridor.
+Hsr Robot is going to travel to the kitchen corridor.
+Hsr Robot will hand mug to person2.
+Hsr Robot is going to move to the office entrance 1.
+I am going to take the mug from the person2.
+Hsr Robot will grab the post1.
+I am going to go towards the entrance.
+Hsr Robot will move towards the main office desk.
+I will leave the mug.
+I am going to travel to the office entrance 1.
+I will grab the post2.
+I will go towards the kitchen corridor.
+Hsr Robot will scan the main office desk.
+Hsr Robot will put the post1.
+Hsr Robot is going to go towards the entrance.
+I will give post2 to person2.
+I am going to move to the kitchen shelf.

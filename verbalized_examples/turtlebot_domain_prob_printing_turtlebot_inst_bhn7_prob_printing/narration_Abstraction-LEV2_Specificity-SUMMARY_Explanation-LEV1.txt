@@ -1,0 +1,10 @@
+Kenny is going to travel from the manager office to the printer phdarea (taking 0 seconds).
+Kenny will ask to get the papers loaded (taking 0 seconds).
+Kenny is going to go from the printer phdarea towards the printer corridor (taking 0 seconds).
+Kenny will ask to get the papers loaded (taking 0 seconds).
+Kenny will wait to get the papers loaded (taking 0 seconds).
+Kenny is going to move from the printer corridor to the phdarea (taking 0 seconds).
+Kenny is going to ask to have the papers taken (taking 0 seconds).
+Kenny is going to wait to have the papers taken (taking 0 seconds).
+Kenny is going to go from the phdarea towards the dock station (taking 0 seconds).
+Kenny will dock to charge the batteries (taking 0 seconds).

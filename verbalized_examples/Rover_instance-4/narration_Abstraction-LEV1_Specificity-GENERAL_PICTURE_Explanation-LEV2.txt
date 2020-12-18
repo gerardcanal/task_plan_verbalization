@@ -1,0 +1,4 @@
+Narrator is: rover0
+I will sample soil to store at mestore at (58.534, 45.013, 58.534) (taking 10 seconds) to be able to transmit soil data of (58.534, 45.013, 58.534) from (58.534, 45.013, 58.534) to general lander at (46.326, 97.252, 46.326) (taking 10 seconds).
+Rover1 will sample rock to store at rover1store at (10.798, 70.391, 10.798) (taking 8 seconds), which will allow Rover1 to transmit rock data of (10.798, 70.391, 10.798) from (10.798, 70.391, 10.798) to general lander at (46.326, 97.252, 46.326) (taking 10 seconds).
+Rover1 will transmit image data of objective0 in high res mode from (10.798, 70.391, 10.798) to general lander at (46.326, 97.252, 46.326) (taking 15 seconds).

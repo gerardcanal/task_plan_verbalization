@@ -1,0 +1,9 @@
+Narrator is: robot_assistant
+Tomo will find the secretary (taking 20 seconds) to fulfill the goal of finding the secretary.
+Asro is going to travel from the kitchen counter to the kitchen corridor (taking 10 seconds) so Asro can request the manager at the kitchen corridor (taking 2 seconds) to achieve the goal of asking the manager.
+Asro will travel from the coffee table 1 to the kitchen counter (taking 8 seconds) to place the paper at the kitchen counter (taking 2.5 seconds) to fulfill the goal of the paper being at the kitchen counter.
+Asro is going to get the mug at the kitchen corridor from the the manager (taking 2 seconds) and Asro is going to travel from the kitchen corridor to the entrance (taking 18 seconds) to then place the mug at the entrance (taking 2.5 seconds) to reach the goal of the mug being at the entrance.
+Tomo will travel from the main office doorway to the main office desk (taking 15 seconds) and Tomo will check the main office desk (taking 1 second), which will allow Tomo to place the post1 at the main office desk (taking 2.5 seconds) to fulfill the goal of the post1 being at the main office desk.
+Asro is going to give post2 to the manager at the kitchen corridor (taking 2 seconds) because Asro will travel from the kitchen door 1 towards the kitchen corridor (taking 26 seconds) to achieve the goal of the post2 being at the the manager.
+Asro will travel from the kitchen corridor to the kitchen shelf (taking 17 seconds) to achieve the goal of Asro being at the kitchen shelf.
+Tomo will move from the meeting room hallway towards the kitchen chair (taking 22 seconds) to be able to move from the kitchen chair towards the entrance (taking 12 seconds) to achieve the goal of Tomo being at the entrance.

@@ -1,0 +1,18 @@
+Narrator is: rover0
+I will capture an image of objective0 with camera3 in high res mode at waypoint0 to be able to transmit image data of objective0 in high res mode from waypoint0 to general lander at waypoint6.
+Rover3 is going to transmit soil data of waypoint8 from waypoint8 to general lander at waypoint6.
+Rover5 is going to communicate image data of objective0 in colour mode from waypoint19 to general lander at waypoint6.
+Rover2 is going to sample soil to store at rover2store at waypoint5 to transmit soil data of waypoint5 from waypoint0 to general lander at waypoint6.
+Rover3 is going to communicate image data of objective5 in colour mode from waypoint8 to general lander at waypoint6.
+Rover2 will travel from waypoint5 to waypoint0, which will allow Rover2 to communicate image data of objective7 in colour mode from waypoint0 to general lander at waypoint6.
+Rover5 is going to travel from waypoint5 towards waypoint0 to then communicate rock data of waypoint19 from waypoint0 to general lander at waypoint6.
+I will transmit image data of objective4 in high res mode from waypoint0 to general lander at waypoint6.
+Rover4 is going to transmit soil data of waypoint18 from waypoint0 to general lander at waypoint6.
+Rover4 will transmit rock data of waypoint3 from waypoint0 to general lander at waypoint6.
+Rover4 is going to transmit rock data of waypoint4 from waypoint0 to general lander at waypoint6.
+Rover4 is going to transmit rock data of waypoint6 from waypoint0 to general lander at waypoint6.
+Rover4 will transmit rock data of waypoint9 from waypoint0 to general lander at waypoint6.
+Rover1 will communicate image data of objective2 in low res mode from waypoint0 to general lander at waypoint6.
+Rover1 is going to communicate image data of objective6 in low res mode from waypoint0 to general lander at waypoint6.
+Rover1 will transmit image data of objective7 in low res mode from waypoint0 to general lander at waypoint6.
+Rover3 is going to transmit rock data of waypoint17 from waypoint0 to general lander at waypoint6.

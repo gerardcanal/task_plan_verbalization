@@ -1,0 +1,4 @@
+Narrator is: rover0
+I will transmit image data of objective1 in high res mode from waypoint3 to general lander at waypoint0 (taking 15 seconds) to fulfill the goal of image data being communicated of objective1 in high res mode to later travel from waypoint3 towards waypoint1 (taking 5 seconds).
+I will go from waypoint3 towards waypoint1 (taking 5 seconds) to be able to transmit rock data of waypoint3 from waypoint1 to general lander at waypoint0 (taking 10 seconds) to reach the goal of rock data being communicated at waypoint3 to later go from waypoint1 towards waypoint2 (taking 5 seconds).
+I will travel from waypoint1 towards waypoint2 (taking 5 seconds) and I am going to sample soil to store at mestore at waypoint2 (taking 10 seconds) to then transmit soil data of waypoint2 from waypoint2 to general lander at waypoint0 (taking 10 seconds) to achieve the goal of soil data being communicated at waypoint2.

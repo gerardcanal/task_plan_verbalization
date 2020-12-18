@@ -1,0 +1,30 @@
+C1 will make pa1 1 so C1 can later report the result of activity pa1 1 on d1.
+CrewPlanner will wake up C1 on d1 so C1 can later report the result of activity pa1 1 on d1, C1 can report the result of activity pa1 2 on d1, C1 can report the result of activity pa1 3 on d1, C1 can communicate the medical state mcs1 on d1, C1 can report the result of activity pa1 4 on d1, C1 can report the result of activity pa1 5 on d1, C1 can report the result of activity pa1 6 on d1, and C1 can sleep on d1.
+CrewPlanner will initiate d2 to initiate d3 so CrewPlanner can later initiate d4.
+C1 will conduct pa1 2 to then make pa1 3, which will allow C1 to later report the result of activity pa1 3 on d1.
+C1 will report the result of activity pa1 1 on d1 to fulfill the goal of pa1 1 being completed on d1.
+C1 is going to report the result of activity pa1 2 on d1 to reach the goal of pa1 2 being completed on d1.
+C1 is going to report the result of activity pa1 3 on d1 to reach the goal of pa1 3 being completed on d1.
+C1 is going to have a meal on d1 to later sleep on d1.
+C1 is going to work out on d1 with e1, which will allow C1 to communicate the medical state mcs1 on d1 to achieve the goal of The medical state mcs1 being finished on d1.
+C1 will make pa1 4 so C1 can report the result of activity pa1 4 on d1 to achieve the goal of pa1 4 being completed on d1.
+C1 will make pa1 5 to then report the result of activity pa1 5 on d1 to fulfill the goal of pa1 5 being completed on d1.
+C1 will make pa1 6 to be able to report the result of activity pa1 6 on d1 to reach the goal of pa1 6 being completed on d1.
+C1 will conduct pa2 1 so C1 can later report the result of activity pa2 1 on d2.
+C1 will perform the first reconfiguration of the thermal loop rpcm3 because C1 will perform the first reconfiguration of the thermal loop rpcm2.
+C1 is going to remove the sleep station rpcm3 because C1 is going to remove the sleep station rpcm2.
+C1 will replace the rpcm2 and C1 is going to assemble the sleep station rpcm2 to do the second reconfiguration of the thermal loop rpcm2 to later be able to finish the rpcm2 on d2.
+C1 is going to replace the rpcm3 to then assemble the sleep station rpcm3 to later be able to finish the rpcm3 on d3.
+C1 is going to do the second reconfiguration of the thermal loop rpcm3 so C1 can sleep on d1 to reach the goal of C1 completing sleep on d1.
+CrewPlanner will wake up C1 on d2 so C1 can report the result of activity pa2 1 on d2 to fulfill the goal of pa2 1 being completed on d2.
+C1 is going to finish the rpcm2 on d2 to reach the goal of rpcm2 being completed on d2.
+C1 will have a meal on d2 to later be able to sleep on d2.
+C1 will work out on d2 with e1 to then change the spaceshipfilter on d2 to achieve the goal of spaceshipfilter changing on d2.
+C1 is going to communicate the medical state mcs1 on d2 to achieve the goal of The medical state mcs1 being finished on d2.
+C1 is going to sleep on d2 to achieve the goal of C1 completing sleep on d2.
+CrewPlanner will initiate d4 to reach the goal of d4 being initiated.
+CrewPlanner will wake up C1 on d3 so C1 can finish the rpcm3 on d3 to fulfill the goal of rpcm3 being completed on d3.
+C1 is going to eat a meal on d3 so C1 can later sleep on d3.
+C1 will exercise on d3 with e1 to then change the spaceshipfilter on d3 to achieve the goal of spaceshipfilter changing on d3.
+C1 is going to communicate the medical state mcs1 on d3 to fulfill the goal of The medical state mcs1 being finished on d3.
+C1 will sleep on d3 to fulfill the goal of C1 completing sleep on d3.

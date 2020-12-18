@@ -1,0 +1,12 @@
+Narrator is: rover0
+Rover1 is going to capture an image of objective4 with camera0 in high res mode at waypoint9 and Rover1 is going to travel from waypoint9 to waypoint0, which will allow Rover1 to transmit image data of objective4 in high res mode from waypoint0 to general lander at waypoint17 to later communicate rock data of waypoint6 from waypoint0 to general lander at waypoint17.
+Rover2 is going to transmit image data of objective3 in low res mode from waypoint0 to general lander at waypoint17.
+Rover2 will capture an image of objective2 with camera1 in colour mode at waypoint0 to communicate image data of objective2 in colour mode from waypoint0 to general lander at waypoint17 to later transmit soil data of waypoint14 from waypoint0 to general lander at waypoint17.
+Rover2 is going to communicate soil data of waypoint0 from waypoint0 to general lander at waypoint17 so Rover2 can later communicate image data of objective2 in colour mode from waypoint0 to general lander at waypoint17.
+Rover3 will communicate rock data of waypoint5 from waypoint0 to general lander at waypoint17 because Rover3 is going to travel from waypoint9 towards waypoint0.
+I will go from waypoint2 towards waypoint0 to communicate rock data of waypoint4 from waypoint0 to general lander at waypoint17.
+I will transmit rock data of waypoint2 from waypoint0 to general lander at waypoint17.
+Rover1 will travel from waypoint9 to waypoint0 to be able to transmit rock data of waypoint6 from waypoint0 to general lander at waypoint17.
+I am going to transmit image data of objective5 in colour mode from waypoint0 to general lander at waypoint17 to later be able to transmit rock data of waypoint7 from waypoint0 to general lander at waypoint17.
+Rover2 is going to go from waypoint9 to waypoint0 to be able to communicate soil data of waypoint14 from waypoint0 to general lander at waypoint17.
+I am going to transmit rock data of waypoint7 from waypoint0 to general lander at waypoint17 because I am going to travel from waypoint2 to waypoint0.

@@ -1,0 +1,25 @@
+C1 is going to report the result of activity pa1 1 on d1.
+C1 is going to report the result of activity pa1 2 on d1.
+C1 will report the result of activity pa1 3 on d1.
+C1 is going to work out on d1 with e1 to change the spaceshipfilter on d1.
+C1 will conduct pa1 4 to report the result of activity pa1 4 on d1.
+C1 is going to make pa3 7 to be able to sleep on d1.
+CrewPlanner is going to wake up C1 on d2, which will allow C1 to report the result of activity pa2 1 on d2.
+C1 is going to report the result of activity pa2 2 on d2.
+C1 will report the result of activity pa2 3 on d2.
+C1 will report the result of activity pa2 4 on d2.
+C1 will report the result of activity pa2 5 on d2.
+C1 is going to report the result of activity pa2 6 on d2.
+C1 is going to eat a meal on d2 and C1 will exercise on d2 with e1 so C1 can sleep on d2.
+C1 is going to change the spaceshipfilter on d2.
+CrewPlanner will initiate d4.
+C1 is going to report the result of activity pa3 1 on d3.
+C1 is going to report the result of activity pa3 2 on d3.
+C1 will report the result of activity pa3 3 on d3.
+C1 will report the result of activity pa3 4 on d3.
+C1 is going to report the result of activity pa3 5 on d3.
+C1 is going to report the result of activity pa3 6 on d3.
+C1 will report the result of activity pa3 7 on d3.
+C1 is going to exercise on d3 with e1 to be able to change the spaceshipfilter on d3.
+C1 is going to communicate the medical state mcs1 on d3.
+C1 will sleep on d3.

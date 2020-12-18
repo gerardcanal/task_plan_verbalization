@@ -1,0 +1,15 @@
+C1 will report the result of activity pa1 1.
+C1 is going to report the result of activity pa1 2.
+C1 is going to report the result of activity pa1 3.
+C1 will exercise with e1 so C1 can communicate the medical state mcs1.
+C1 will conduct pa1 4 to report the result of activity pa1 4.
+C1 is going to sleep because C1 will conduct pa2 6.
+CrewPlanner will initiate d3.
+C1 is going to report the result of activity pa2 1.
+C1 will report the result of activity pa2 2.
+C1 will report the result of activity pa2 3.
+C1 will report the result of activity pa2 4.
+C1 is going to report the result of activity pa2 5.
+C1 will report the result of activity pa2 6.
+C1 is going to eat a meal and C1 will work out with e1 to be able to sleep.
+C1 is going to change the spaceshipfilter.

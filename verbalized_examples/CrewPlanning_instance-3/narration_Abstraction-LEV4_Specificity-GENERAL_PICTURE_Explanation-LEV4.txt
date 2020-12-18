@@ -1,0 +1,4 @@
+CrewPlanner will initiate d2 to fulfill the goal of d2 being initiated.
+C1 will work out with e1 to be able to change the spaceshipfilter to achieve the goal of spaceshipfilter changing.
+C1 is going to sleep because C1 will do the second reconfiguration to achieve the goal of C1 completing sleep.
+C1 will finish the rpcm1 to achieve the goal of rpcm1 being completed.

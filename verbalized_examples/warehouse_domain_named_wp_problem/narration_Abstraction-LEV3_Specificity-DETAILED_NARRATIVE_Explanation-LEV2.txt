@@ -1,0 +1,23 @@
+Narrator is: robot_assistant
+I am going to move from the kitchen sink to the entrance to be able to look around the entrance.
+I am going to move from the entrance towards the kitchen counter, which will allow me to look around the kitchen counter.
+I will find person1.
+I am going to look for person2 and I will travel from the kitchen counter to the kitchen corridor to then request person2 at the kitchen corridor.
+I will go from the kitchen corridor to the microwave.
+I will take the mug at the microwave and I am going to travel from the microwave to the entrance to then leave the mug at the entrance.
+I will travel from the entrance to the kitchen corridor.
+I am going to go from the kitchen corridor to the kitchen shelf so I can grab the paper at the kitchen shelf.
+I will travel from the kitchen shelf towards the microwave.
+I am going to travel from the microwave to the kitchen counter, which will allow me to put the paper at the kitchen counter.
+I am going to go from the kitchen counter to the kitchen corridor to then travel from the kitchen corridor towards the kitchen door 1.
+I am going to move from the kitchen door 1 to the office entrance 1, which will allow me to grab the post2 at the office entrance 1.
+I will travel from the office entrance 1 towards the kitchen door 1.
+I will give post2 to person2 at the kitchen corridor because I am going to go from the kitchen door 1 towards the kitchen corridor.
+I am going to go from the kitchen corridor towards the kitchen door 1.
+I will move from the kitchen door 1 towards the office entrance 1 to grab the post1 at the office entrance 1.
+I will travel from the office entrance 1 towards the kitchen door 1.
+I am going to move from the kitchen door 1 towards the corridor centre so I can travel from the corridor centre towards the main office doorway.
+I will travel from the main office doorway towards the main office desk and I will look around the main office desk to put the post1 at the main office desk.
+I am going to go from the main office desk towards the main office doorway.
+I am going to travel from the main office doorway towards the meeting room hallway to then move from the meeting room hallway to the kitchen sink.
+I will travel from the kitchen sink to the microwave, which will allow me to travel from the microwave to the kitchen shelf.

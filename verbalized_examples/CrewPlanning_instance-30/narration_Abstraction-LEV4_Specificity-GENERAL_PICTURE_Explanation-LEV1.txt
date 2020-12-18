@@ -1,0 +1,88 @@
+C1 will report the result of activity pa1 1.
+C1 will report the result of activity pa1 10.
+C1 will report the result of activity pa1 11.
+C1 is going to report the result of activity pa1 12.
+C1 will report the result of activity pa1 13.
+C1 is going to report the result of activity pa1 14.
+C1 is going to report the result of activity pa1 15.
+C1 will report the result of activity pa1 16.
+C1 is going to report the result of activity pa1 17.
+C1 will change the spaceshipfilter.
+C2 will communicate the medical state mcs1.
+C3 is going to communicate the medical state mcs2.
+C1 is going to communicate the medical state mcs3.
+C1 is going to report the result of activity pa1 18.
+C1 is going to report the result of activity pa1 19.
+C1 is going to report the result of activity pa1 2.
+C1 is going to report the result of activity pa1 20.
+C1 is going to report the result of activity pa1 21.
+C1 is going to report the result of activity pa1 22.
+C1 is going to report the result of activity pa1 3.
+C1 is going to report the result of activity pa1 4.
+C1 will report the result of activity pa1 5.
+C1 will report the result of activity pa1 6.
+C1 is going to report the result of activity pa1 7.
+C1 will report the result of activity pa1 8.
+C1 will report the result of activity pa1 9.
+C2 is going to sleep.
+C3 will sleep.
+C1 is going to sleep.
+C2 will report the result of activity pa2 1.
+C2 is going to report the result of activity pa2 10.
+C2 is going to report the result of activity pa2 11.
+C2 is going to report the result of activity pa2 12.
+C2 is going to report the result of activity pa2 13.
+C2 will report the result of activity pa2 14.
+C2 is going to report the result of activity pa2 15.
+C2 will report the result of activity pa2 16.
+C2 will report the result of activity pa2 17.
+C2 is going to report the result of activity pa2 18.
+C2 will report the result of activity pa2 19.
+C2 will report the result of activity pa2 2.
+C2 will report the result of activity pa2 20.
+C2 is going to report the result of activity pa2 21.
+C2 is going to report the result of activity pa2 22.
+C2 is going to report the result of activity pa2 23.
+C2 is going to report the result of activity pa2 24.
+C2 will report the result of activity pa2 3.
+C2 is going to report the result of activity pa2 4.
+C2 is going to report the result of activity pa2 5.
+C2 is going to report the result of activity pa2 6.
+C2 is going to report the result of activity pa2 7.
+C2 is going to report the result of activity pa2 8.
+C2 will report the result of activity pa2 9.
+C2 will communicate the medical state mcs1.
+C3 is going to communicate the medical state mcs3.
+C1 will sleep.
+C2 is going to sleep.
+C3 will sleep.
+CrewPlanner will initiate d4.
+C1 is going to report the result of activity pa3 1.
+C1 is going to report the result of activity pa3 10.
+C1 is going to report the result of activity pa3 11.
+C1 will report the result of activity pa3 12.
+C1 will report the result of activity pa3 13.
+C1 will report the result of activity pa3 14.
+C1 will report the result of activity pa3 15.
+C1 is going to report the result of activity pa3 16.
+C1 is going to report the result of activity pa3 17.
+C1 is going to report the result of activity pa3 18.
+C1 will report the result of activity pa3 19.
+C1 is going to report the result of activity pa3 2.
+C1 will report the result of activity pa3 20.
+C1 is going to report the result of activity pa3 21.
+C1 will report the result of activity pa3 22.
+C1 will report the result of activity pa3 23.
+C1 is going to report the result of activity pa3 3.
+C1 is going to report the result of activity pa3 4.
+C1 is going to report the result of activity pa3 5.
+C1 is going to report the result of activity pa3 6.
+C1 is going to report the result of activity pa3 7.
+C1 will report the result of activity pa3 8.
+C1 is going to report the result of activity pa3 9.
+C1 is going to change the spaceshipfilter.
+C2 will communicate the medical state mcs1.
+C3 will communicate the medical state mcs3.
+C1 will sleep.
+C2 is going to sleep.
+C3 will sleep.

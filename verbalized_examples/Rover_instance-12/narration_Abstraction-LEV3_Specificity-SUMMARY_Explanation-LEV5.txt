@@ -1,0 +1,16 @@
+Narrator is: rover0
+Rover3 and Rover2 are going to go from waypoint7 towards waypoint0 and Rover3 is going to calibrate camera3 for objective3 at waypoint0 so Rover3 can capture an image of objective2 with camera3 in low res mode at waypoint0 to later transmit image data of objective2 in low res mode from waypoint0 to general lander at waypoint2.
+Rover1 will move from waypoint4 to waypoint3 (via waypoint2) and Rover1 will sample rock to store at rover1store at waypoint3 to then transmit rock data of waypoint3 from waypoint3 to general lander at waypoint2 to achieve the goal of rock data being communicated at waypoint3.
+I will travel from waypoint4 to waypoint4 (via waypoint2, waypoint3, waypoint2, waypoint7, waypoint2, waypoint3, waypoint4, and waypoint2).
+Rover2 is going to calibrate camera1 for objective1 at waypoint0 so Rover2 can later take an image of objective1 with camera1 in high res mode at waypoint0.
+Rover2 is going to sample soil to store at rover2store at waypoint0 to later be able to communicate soil data of waypoint0 from waypoint0 to general lander at waypoint2.
+Rover2 is going to capture an image of objective1 with camera1 in high res mode at waypoint0 so Rover2 can later transmit image data of objective1 in high res mode from waypoint0 to general lander at waypoint2.
+Rover3 will take an image of objective3 with camera3 in low res mode at waypoint0 because Rover3 is going to calibrate camera3 for objective3 at waypoint0 to later communicate image data of objective3 in low res mode from waypoint0 to general lander at waypoint2.
+Rover3 is going to go from waypoint0 towards waypoint6 to then sample rock to store at rover3store at waypoint6, which will allow Rover3 to later transmit rock data of waypoint6 from waypoint0 to general lander at waypoint2.
+Rover2 will transmit soil data of waypoint0 from waypoint0 to general lander at waypoint2 to fulfill the goal of soil data being communicated at waypoint0 so Rover3 can later communicate image data of objective2 in low res mode from waypoint0 to general lander at waypoint2 and Rover2 can transmit image data of objective1 in high res mode from waypoint0 to general lander at waypoint2.
+Rover3 is going to travel from waypoint6 to waypoint0, which will allow Rover3 to later transmit image data of objective2 in low res mode from waypoint0 to general lander at waypoint2, communicate image data of objective3 in low res mode from waypoint0 to general lander at waypoint2, and communicate rock data of waypoint6 from waypoint0 to general lander at waypoint2.
+Rover3 is going to calibrate camera0 for objective2 at waypoint0.
+Rover3 will transmit image data of objective2 in low res mode from waypoint0 to general lander at waypoint2 to reach the goal of image data being communicated of objective2 in low res mode.
+Rover3 will communicate image data of objective3 in low res mode from waypoint0 to general lander at waypoint2 to reach the goal of image data being communicated of objective3 in low res mode.
+Rover3 will transmit rock data of waypoint6 from waypoint0 to general lander at waypoint2 to fulfill the goal of rock data being communicated at waypoint6.
+Rover2 will transmit image data of objective1 in high res mode from waypoint0 to general lander at waypoint2 to reach the goal of image data being communicated of objective1 in high res mode.

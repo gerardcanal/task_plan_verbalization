@@ -1,0 +1,14 @@
+Narrator is: rover0
+Rover4 is going to communicate image data of objective2 in low res mode from waypoint0 to general lander at waypoint13 because Rover4 is going to capture an image of objective2 with camera0 in low res mode at waypoint0 to later transmit rock data of waypoint3 from waypoint0 to general lander at waypoint13.
+Rover5 is going to communicate rock data of waypoint5 from waypoint0 to general lander at waypoint13 because Rover5 is going to travel from waypoint3 towards waypoint0, which will allow Rover5 to later communicate rock data of waypoint9 from waypoint0 to general lander at waypoint13.
+Rover2 will transmit image data of objective5 in colour mode from waypoint0 to general lander at waypoint13, which will allow Rover2 to later transmit image data of objective2 in colour mode from waypoint0 to general lander at waypoint13.
+Rover3 is going to transmit soil data of waypoint3 from waypoint0 to general lander at waypoint13, which will allow Rover3 to later communicate soil data of waypoint14 from waypoint0 to general lander at waypoint13.
+Rover2 will transmit image data of objective2 in colour mode from waypoint0 to general lander at waypoint13.
+Rover2 is going to transmit image data of objective3 in colour mode from waypoint0 to general lander at waypoint13.
+Rover2 is going to transmit image data of objective4 in colour mode from waypoint0 to general lander at waypoint13.
+I will communicate rock data of waypoint12 from waypoint0 to general lander at waypoint13.
+Rover4 will communicate rock data of waypoint3 from waypoint0 to general lander at waypoint13.
+Rover5 will communicate rock data of waypoint9 from waypoint0 to general lander at waypoint13.
+Rover3 will transmit soil data of waypoint14 from waypoint0 to general lander at waypoint13.
+Rover3 will communicate soil data of waypoint2 from waypoint5 to general lander at waypoint13.
+Rover3 is going to sample soil to store at rover3store at waypoint5 to transmit soil data of waypoint5 from waypoint5 to general lander at waypoint13.

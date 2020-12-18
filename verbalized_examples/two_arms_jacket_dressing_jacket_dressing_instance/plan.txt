@@ -1,0 +1,6 @@
+0: (approachBothArms)  [0.001]
+1: (insertBothSleeves)  [0.001]
+2: (dragBothForearms)  [0.001]
+3: (dragBothUpperarms)  [0.001]
+4: (finish)  [0.001]
+5: (goal)  [0.001]

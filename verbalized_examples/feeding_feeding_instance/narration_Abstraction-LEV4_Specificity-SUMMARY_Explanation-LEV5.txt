@@ -1,0 +1,4 @@
+Narrator is: I
+I am going to get the food to then feed the user to fulfill the goal of me not having interacted.
+I am going to approach the food, which will allow me to move away to fulfill the goal of me having completed a spoonful.
+I am going to complete the task.

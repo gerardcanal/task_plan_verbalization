@@ -1,0 +1,14 @@
+CrewPlanner is going to initiate d2.
+C1 will report the result of activity pa1 1.
+C1 is going to report the result of activity pa1 2.
+C1 is going to report the result of activity pa1 3.
+C1 is going to report the result of activity pa1 4.
+C1 will report the result of activity pa1 5.
+C1 will report the result of activity pa1 6.
+C1 will change the spaceshipfilter.
+C2 will communicate the medical state mcs1.
+C1 will report the result of activity pa1 7.
+C1 will report the result of activity pa1 8.
+C1 is going to finish the rpcm1.
+C1 is going to sleep.
+C2 will sleep.

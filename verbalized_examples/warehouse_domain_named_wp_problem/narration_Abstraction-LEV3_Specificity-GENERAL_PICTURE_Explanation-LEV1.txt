@@ -1,0 +1,8 @@
+Narrator is: robot_assistant
+I will look for person1.
+I will request person2 at the kitchen corridor.
+I am going to leave the mug at the entrance.
+I will leave the paper at the kitchen counter.
+I will give post2 to person2 at the kitchen corridor.
+I will place the post1 at the main office desk.
+I will move from the microwave towards the kitchen shelf.

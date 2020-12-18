@@ -1,0 +1,3 @@
+Narrator is: I
+I am going to drag the right upperarm (taking 0 seconds).
+I will finish the dressing (taking 0 seconds).

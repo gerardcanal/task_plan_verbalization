@@ -1,0 +1,11 @@
+Narrator is: rover0
+I will communicate image data of objective0 in colour mode from (80.605, 6.458, 80.605) to general lander at (37.601, 84.236, 37.601) (taking 15 seconds).
+I am going to communicate image data of objective1 in low res mode from (80.605, 6.458, 80.605) to general lander at (37.601, 84.236, 37.601) (taking 15 seconds).
+I am going to communicate image data of objective0 in low res mode from (80.605, 6.458, 80.605) to general lander at (37.601, 84.236, 37.601) (taking 15 seconds).
+I am going to communicate rock data of (80.605, 6.458, 80.605) from (80.605, 6.458, 80.605) to general lander at (37.601, 84.236, 37.601) (taking 10 seconds).
+Rover1 will transmit soil data of (62.217, 90.519, 62.217) from (80.605, 6.458, 80.605) to general lander at (37.601, 84.236, 37.601) (taking 10 seconds).
+I will communicate rock data of (44.110, 44.653, 44.110) from (80.605, 6.458, 80.605) to general lander at (37.601, 84.236, 37.601) (taking 10 seconds).
+Rover1 is going to travel from (95.301, 53.716, 95.301) to (44.110, 44.653, 44.110) (taking 5 seconds) and Rover1 will sample soil to store at rover1store at (44.110, 44.653, 44.110) (taking 10 seconds) to communicate soil data of (44.110, 44.653, 44.110) from (44.110, 44.653, 44.110) to general lander at (37.601, 84.236, 37.601) (taking 10 seconds).
+I will sample rock to store at mestore at (37.601, 84.236, 37.601) (taking 8 seconds) and I will travel from (37.601, 84.236, 37.601) towards (80.605, 6.458, 80.605) (taking 5 seconds), which will allow me to transmit rock data of (37.601, 84.236, 37.601) from (80.605, 6.458, 80.605) to general lander at (37.601, 84.236, 37.601) (taking 10 seconds).
+Rover1 will communicate soil data of (95.301, 53.716, 95.301) from (65.754, 86.881, 65.754) to general lander at (37.601, 84.236, 37.601) (taking 10 seconds).
+Rover1 is going to sample soil to store at rover1store at (65.754, 86.881, 65.754) (taking 10 seconds) to communicate soil data of (65.754, 86.881, 65.754) from (65.754, 86.881, 65.754) to general lander at (37.601, 84.236, 37.601) (taking 10 seconds).

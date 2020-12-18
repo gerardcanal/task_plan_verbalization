@@ -1,0 +1,8 @@
+Narrator is: I
+I am going to request the left foot to be visible (taking 0 seconds).
+I am going to insert the left shoe in the left foot (taking 0 seconds) because I will grasp the left shoe (taking 0 seconds), I will request the left foot to be reachable (taking 0 seconds), and I will approach to the left foot (taking 0 seconds).
+I am going to release the left shoe from the left foot (taking 0 seconds), which will allow me to request the right foot to be visible (taking 0 seconds).
+I will grasp the right shoe (taking 0 seconds).
+I am going to request the right foot to be reachable (taking 0 seconds), which will allow me to approach to the right foot (taking 0 seconds).
+I am going to release the right shoe from the right foot (taking 0 seconds) because I am going to insert the right shoe in the right foot (taking 0 seconds).
+I am going to complete the task (taking 0 seconds).

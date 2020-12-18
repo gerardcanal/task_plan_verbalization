@@ -1,0 +1,42 @@
+CrewPlanner is going to wake up C1, C2, and C3 on d1 (taking 195 seconds).
+C1 will conduct (21.400, 41.882, 21.400), (78.839, 32.143, 78.839), and (79.994, 7.742, 79.994) (taking 180 seconds).
+C2 is going to make (47.659, 49.767, 47.659), (0.885, 43.939, 0.885), and (91.145, 64.916, 91.145) (taking 180 seconds).
+C3 is going to conduct (85.170, 41.739, 85.170), (85.994, 50.707, 85.994), and (87.154, 26.960, 87.154) (taking 180 seconds).
+CrewPlanner will initiate d3 (via d2, taking 2880 seconds).
+C1 is going to report the result of activity (21.400, 41.882, 21.400), (47.659, 49.767, 47.659), (85.170, 41.739, 85.170), (78.839, 32.143, 78.839), (0.885, 43.939, 0.885), (85.994, 50.707, 85.994), (79.994, 7.742, 79.994), (91.145, 64.916, 91.145), and (87.154, 26.960, 87.154) on d1 (taking 1 second).
+C1, C2, and C3 is going to eat a meal on d1 (taking 60 seconds).
+C1 is going to exercise on d1 with e1 (taking 60 seconds).
+C2 is going to work out on d1 with e2 (taking 60 seconds).
+C3 will work out on d1 with e3 (taking 60 seconds).
+C1 will communicate the medical state mcs1 on d1 (taking 60 seconds).
+C2 will communicate the medical state mcs3 on d1 (taking 60 seconds).
+C3 will conduct (7.744, 88.420, 7.744), (36.317, 87.740, 36.317), (6.439, 14.052, 6.439), (27.922, 26.283, 27.922), (85.158, 37.486, 85.158), (51.545, 64.013, 51.545), (40.196, 52.665, 40.196), (73.282, 54.371, 73.282), (44.443, 14.539, 44.443), (24.301, 16.233, 24.301), (31.135, 58.354, 31.135), (89.856, 18.988, 89.856), (76.608, 62.870, 76.608), (18.224, 10.515, 18.224), (80.747, 99.013, 80.747), (86.765, 47.680, 86.765), (79.927, 41.477, 79.927), (94.993, 20.584, 94.993), (96.232, 41.773, 96.232), and (63.414, 66.964, 63.414) (taking 1200 seconds).
+C1 will report the result of activity (7.744, 88.420, 7.744) on d1 (taking 1 second).
+C1 is going to conduct (63.363, 11.802, 63.363) (taking 60 seconds).
+C2 is going to conduct (53.299, 70.402, 53.299), (20.927, 71.148, 20.927), (31.337, 0.024, 31.337), (58.239, 21.053, 58.239), (55.798, 84.421, 55.798), (91.379, 31.819, 91.379), (32.370, 79.972, 32.370), (95.153, 10.937, 95.153), (28.153, 94.464, 28.153), (19.084, 50.503, 19.084), (28.404, 53.206, 28.404), (97.215, 40.416, 97.215), (1.264, 50.510, 1.264), (66.195, 83.035, 66.195), (27.424, 81.920, 27.424), (62.412, 67.325, 62.412), (6.598, 84.206, 6.598), (2.876, 72.922, 2.876), and (26.388, 56.393, 26.388) (taking 1140 seconds).
+C1 is going to report the result of activity (63.363, 11.802, 63.363), (53.299, 70.402, 53.299), and (36.317, 87.740, 36.317) on d1 (taking 1 second).
+C1 will conduct (11.230, 4.329, 11.230) (taking 60 seconds).
+C1 is going to report the result of activity (11.230, 4.329, 11.230), (20.927, 71.148, 20.927), and (6.439, 14.052, 6.439) on d1 (taking 1 second).
+C1 is going to make (6.224, 44.456, 6.224) (taking 60 seconds).
+C1 is going to report the result of activity (6.224, 44.456, 6.224), (31.337, 0.024, 31.337), and (27.922, 26.283, 27.922) on d1 (taking 1 second).
+C1 is going to make (95.943, 65.417, 95.943), (54.713, 72.924, 54.713), (80.960, 78.390, 80.960), (11.642, 67.301, 11.642), (55.433, 32.978, 55.433), (33.170, 92.509, 33.170), (55.570, 30.831, 55.570), (38.515, 71.116, 38.515), (5.208, 14.491, 5.208), (49.690, 72.098, 49.690), (40.794, 57.516, 40.794), (87.902, 39.671, 87.902), (10.109, 8.391, 10.109), (23.000, 89.084, 23.000), (54.884, 39.005, 54.884), and (21.737, 80.405, 21.737) (taking 960 seconds).
+C1, C2, and C3 is going to sleep on d1 (taking 600 seconds).
+CrewPlanner will wake up C1, C2, and C3 on d2 (taking 195 seconds).
+C1 will report the result of activity (95.943, 65.417, 95.943), (58.239, 21.053, 58.239), (85.158, 37.486, 85.158), (54.713, 72.924, 54.713), (55.798, 84.421, 55.798), (51.545, 64.013, 51.545), (80.960, 78.390, 80.960), (91.379, 31.819, 91.379), (40.196, 52.665, 40.196), (11.642, 67.301, 11.642), (32.370, 79.972, 32.370), (73.282, 54.371, 73.282), (55.433, 32.978, 55.433), (95.153, 10.937, 95.153), (44.443, 14.539, 44.443), (33.170, 92.509, 33.170), (28.153, 94.464, 28.153), (24.301, 16.233, 24.301), (55.570, 30.831, 55.570), (19.084, 50.503, 19.084), (31.135, 58.354, 31.135), (38.515, 71.116, 38.515), and (28.404, 53.206, 28.404) on d2 (taking 1 second).
+C1, C2, and C3 is going to eat a meal on d2 (taking 60 seconds).
+C1 is going to work out on d2 with e1 (taking 60 seconds).
+C2 is going to exercise on d2 with e2 (taking 60 seconds).
+C3 will exercise on d2 with e3 (taking 60 seconds).
+C1 will change the spaceshipfilter on d2 (taking 60 seconds).
+C2 is going to communicate the medical state mcs2 on d2 (taking 60 seconds).
+C3 is going to sleep on d2 (taking 600 seconds).
+C1 and C2 will sleep on d2 (taking 600 seconds).
+CrewPlanner will initiate d4 (taking 1440 seconds).
+CrewPlanner is going to wake up C3, C1, and C2 on d3 (taking 255 seconds).
+C3 will report the result of activity (89.856, 18.988, 89.856), (5.208, 14.491, 5.208), (97.215, 40.416, 97.215), (76.608, 62.870, 76.608), (49.690, 72.098, 49.690), (1.264, 50.510, 1.264), (18.224, 10.515, 18.224), (40.794, 57.516, 40.794), (66.195, 83.035, 66.195), (80.747, 99.013, 80.747), (87.902, 39.671, 87.902), (27.424, 81.920, 27.424), (86.765, 47.680, 86.765), (10.109, 8.391, 10.109), (62.412, 67.325, 62.412), (79.927, 41.477, 79.927), (23.000, 89.084, 23.000), (6.598, 84.206, 6.598), (94.993, 20.584, 94.993), (54.884, 39.005, 54.884), (2.876, 72.922, 2.876), (96.232, 41.773, 96.232), (21.737, 80.405, 21.737), (26.388, 56.393, 26.388), and (63.414, 66.964, 63.414) on d3 (taking 1 second).
+C3 is going to have a meal on d3 (taking 60 seconds).
+C1 and C2 will eat a meal on d3 (taking 60 seconds).
+C3 and C1 is going to exercise on d3 with e1 (taking 120 seconds).
+C2 is going to exercise on d3 with e2 (taking 60 seconds).
+C3 is going to communicate the medical state mcs2 on d3 (taking 60 seconds).
+C1, C2, and C3 is going to sleep on d3 (taking 600 seconds).

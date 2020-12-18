@@ -1,0 +1,20 @@
+CrewPlanner will wake up C1, which will allow C1 to later change the spaceshipfilter on d1, C1 to finish the rpcm1 on d1, and C1 to sleep on d1.
+C1 is going to make pa2 1, pa2 2, and pa2 3 so C1 can later report the result of activity pa2 1 on d2, report the result of activity pa2 2 on d2, and report the result of activity pa2 3 on d2.
+CrewPlanner will initiate d2 to then initiate d3 to reach the goal of d3 being initiated.
+C1 is going to have a meal so C1 can later sleep on d1.
+C1 will work out with e1 to then change the spaceshipfilter to fulfill the goal of spaceshipfilter changing.
+C1 is going to change the spaceshipfilter, which will allow C1 to make pa2 4, pa2 5, pa2 6, and pa2 7 to later be able to report the result of activity pa2 4 on d2, report the result of activity pa2 5 on d2, report the result of activity pa2 6 on d2, and report the result of activity pa2 7 on d2.
+C1 will replace the rpcm1 because C1 is going to perform the first reconfiguration and C1 is going to remove the sleep station rpcm1.
+C1 will assemble and C1 is going to do the second reconfiguration to be able to finish the rpcm1 to achieve the goal of rpcm1 being completed.
+C1 is going to sleep to fulfill the goal of C1 completing sleep.
+CrewPlanner is going to wake up C1 so C1 can report the result of activity pa2 1 to achieve the goal of pa2 1 being completed.
+C1 is going to report the result of activity pa2 2 to fulfill the goal of pa2 2 being completed.
+C1 will report the result of activity pa2 3 to fulfill the goal of pa2 3 being completed.
+C1 is going to report the result of activity pa2 4 to fulfill the goal of pa2 4 being completed.
+C1 will report the result of activity pa2 5 to achieve the goal of pa2 5 being completed.
+C1 is going to report the result of activity pa2 6 to reach the goal of pa2 6 being completed.
+C1 will report the result of activity pa2 7 to achieve the goal of pa2 7 being completed.
+C1 is going to have a meal, which will allow C1 to later sleep on d2.
+C1 will work out with e1, which will allow C1 to change the spaceshipfilter to achieve the goal of spaceshipfilter changing.
+C1 is going to communicate the medical state mcs1 to fulfill the goal of The medical state mcs1 being finished.
+C1 will sleep to reach the goal of C1 completing sleep.

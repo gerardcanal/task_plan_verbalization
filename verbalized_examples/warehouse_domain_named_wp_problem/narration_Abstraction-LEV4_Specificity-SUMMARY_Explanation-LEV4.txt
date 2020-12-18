@@ -1,0 +1,14 @@
+Narrator is: robot_assistant
+I will check the entrance because I will travel to the entrance to later be able to leave the mug at the entrance.
+I will move to the kitchen counter to be able to check the kitchen counter so I can later put the paper at the kitchen counter.
+I will find person1 to reach the goal of finding person1.
+I am going to look for person2 and I will travel towards the kitchen corridor to ask person2 to fulfill the goal of asking person2.
+I am going to go to the microwave.
+I am going to put the mug because I am going to grasp the mug and I am going to travel towards the entrance to fulfill the goal of the mug being at the entrance.
+I am going to move towards the kitchen shelf to be able to take the paper.
+I will travel towards the kitchen counter, which will allow me to put the paper to reach the goal of the paper being at the kitchen counter.
+I am going to travel towards the office entrance 1 to then grasp the post2.
+I am going to travel towards the kitchen corridor so I can hand post2 to person2 to fulfill the goal of the post2 being at the person2.
+I will travel to the office entrance 1 to be able to grasp the post1.
+I am going to go towards the main office desk and I will look around the main office desk to then leave the post1 to achieve the goal of the post1 being at the main office desk.
+I will travel to the microwave to be able to go to the kitchen shelf to achieve the goal of me being at the kitchen shelf.

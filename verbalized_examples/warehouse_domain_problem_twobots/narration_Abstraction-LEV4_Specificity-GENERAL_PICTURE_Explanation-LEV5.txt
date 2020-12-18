@@ -1,0 +1,9 @@
+Narrator is: robot_assistant
+Hsr Robot will move towards the wp15 to be able to look for person1 to achieve the goal of finding person1.
+Hsr Robot is going to request person2 because Hsr Robot will locate person2 to achieve the goal of asking person2.
+I am going to move to the wp4 to be able to leave the paper to achieve the goal of the paper being at the wp4 so I can later grasp the mug at the wp2.
+I am going to go to the wp5 and I am going to check the wp5 to put the mug to fulfill the goal of the mug being at the wp5.
+Hsr Robot is going to move to the wp15, which will allow Hsr Robot to deliver post2 to person2 to reach the goal of the post2 being at the person2 to later grab the post1 at the wp38.
+I will go to the wp15 to be able to move towards the wp1 to fulfill the goal of me being at the wp1.
+Hsr Robot will leave the post1 because Hsr Robot is going to go to the wp6 and Hsr Robot is going to look around the wp6 to achieve the goal of the post1 being at the wp6.
+Hsr Robot will move to the wp16 to go to the wp5 to reach the goal of hsr robot being at the wp5.

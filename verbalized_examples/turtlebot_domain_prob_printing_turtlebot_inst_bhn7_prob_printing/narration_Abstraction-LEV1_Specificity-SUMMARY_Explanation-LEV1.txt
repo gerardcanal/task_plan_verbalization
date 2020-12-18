@@ -1,0 +1,10 @@
+Kenny is going to travel from the coordinate (53.280, 35.139, 53.280) to the coordinate (15.069, 77.253, 15.069) (taking 0 seconds).
+Kenny will ask to get the papers loaded (taking 0 seconds).
+Kenny will travel from the coordinate (15.069, 77.253, 15.069) towards the coordinate (98.597, 95.457, 98.597) (taking 0 seconds).
+Kenny will ask to get the papers loaded (taking 0 seconds).
+Kenny will wait to get the papers loaded (taking 0 seconds).
+Kenny will go from the coordinate (98.597, 95.457, 98.597) towards the coordinate (56.235, 56.257, 56.235) (taking 0 seconds).
+Kenny will ask to have the papers taken (taking 0 seconds).
+Kenny is going to wait to have the papers taken (taking 0 seconds).
+Kenny is going to travel from the coordinate (56.235, 56.257, 56.235) towards the coordinate (62.164, 53.039, 62.164) (taking 0 seconds).
+Kenny is going to dock to charge the batteries (taking 0 seconds).

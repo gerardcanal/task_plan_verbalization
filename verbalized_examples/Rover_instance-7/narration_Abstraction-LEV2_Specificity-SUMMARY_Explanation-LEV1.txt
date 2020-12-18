@@ -1,0 +1,20 @@
+Narrator is: rover0
+Rover1 is going to sample rock to store at rover1store at waypoint3 (taking 8 seconds).
+I am going to calibrate camera0 for objective0 at waypoint2 (taking 5 seconds).
+I am going to sample rock to store at mestore at waypoint2 (taking 8 seconds).
+Rover2 will sample rock to store at rover2store at waypoint4 (taking 8 seconds).
+I will capture an image of objective0 with camera0 in high res mode at waypoint2 (taking 7 seconds).
+Rover1 is going to move from waypoint3 towards waypoint0 (taking 5 seconds).
+Rover2 will leave the load at store rover2store (taking 1 second).
+Rover2 will sample soil to store at rover2store at waypoint4 (taking 10 seconds).
+I will go from waypoint2 to waypoint0 (taking 5 seconds).
+Rover1 will transmit rock data of waypoint3 from waypoint0 to general lander at waypoint3 (taking 10 seconds).
+Rover2 will travel from waypoint4 to waypoint0 (taking 5 seconds).
+Rover2 is going to drop the load at store rover2store (taking 1 second).
+I will transmit rock data of waypoint2 from waypoint0 to general lander at waypoint3 (taking 10 seconds).
+Rover2 will move from waypoint0 to waypoint1 (taking 5 seconds).
+Rover2 is going to sample soil to store at rover2store at waypoint1 (taking 10 seconds).
+I will transmit image data of objective0 in high res mode from waypoint0 to general lander at waypoint3 (taking 15 seconds).
+Rover2 is going to travel from waypoint1 to waypoint0 (taking 5 seconds).
+Rover2 is going to communicate soil data of waypoint1 and waypoint4 from waypoint0 to general lander at waypoint3 (taking 20 seconds).
+Rover2 is going to communicate rock data of waypoint4 from waypoint0 to general lander at waypoint3 (taking 10 seconds).

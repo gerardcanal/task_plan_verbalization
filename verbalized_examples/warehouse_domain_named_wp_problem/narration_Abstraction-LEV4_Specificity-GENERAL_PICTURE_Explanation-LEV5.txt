@@ -1,0 +1,8 @@
+Narrator is: robot_assistant
+I will find person1 to fulfill the goal of finding person1.
+I will look for person2 and I am going to go to the kitchen corridor so I can request person2 to reach the goal of asking person2.
+I will grab the mug and I am going to go towards the entrance to be able to leave the mug to reach the goal of the mug being at the entrance to later take the paper at the kitchen shelf.
+I will travel to the kitchen counter, which will allow me to place the paper to fulfill the goal of the paper being at the kitchen counter to later be able to grab the post2 at the office entrance 1.
+I am going to travel towards the kitchen corridor, which will allow me to give post2 to person2 to achieve the goal of the post2 being at the person2, which will allow me to later grasp the post1 at the office entrance 1.
+I will travel towards the main office desk and I will check the main office desk, which will allow me to put the post1 to fulfill the goal of the post1 being at the main office desk.
+I will move towards the microwave, which will allow me to move towards the kitchen shelf to achieve the goal of me being at the kitchen shelf.

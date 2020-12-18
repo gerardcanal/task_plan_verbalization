@@ -1,0 +1,15 @@
+The car is going to move from (85.999, 61.513, 85.999) to (62.502, 89.700, 62.502) (via (9.977, 1.064, 9.977), (86.291, 65.767, 86.291), (9.051, 85.772, 9.051), (43.030, 75.251, 43.030), (47.784, 24.946, 47.784), (8.083, 51.334, 8.083), (94.554, 67.775, 94.554), (64.923, 0.906, 64.923), and (87.215, 47.585, 87.215), taking 0.01 seconds).
+I is going to load the tire at (9.977, 1.064, 9.977) (taking 0 seconds).
+I is going to change the tire (taking 0 seconds).
+I is going to load the tire at (86.291, 65.767, 86.291) (taking 0 seconds).
+I will change the tire (taking 0 seconds).
+I will load the tire at (9.051, 85.772, 9.051) (taking 0 seconds).
+I will change the tire (taking 0 seconds).
+I is going to load the tire at (43.030, 75.251, 43.030) (taking 0 seconds).
+I is going to change the tire (taking 0 seconds).
+I will load the tire at (47.784, 24.946, 47.784) (taking 0 seconds).
+I is going to change the tire (taking 0 seconds).
+I is going to load the tire at (94.554, 67.775, 94.554) (taking 0 seconds).
+I will change the tire (taking 0 seconds).
+I will load the tire at (64.923, 0.906, 64.923) (taking 0 seconds).
+I will change the tire (taking 0 seconds).

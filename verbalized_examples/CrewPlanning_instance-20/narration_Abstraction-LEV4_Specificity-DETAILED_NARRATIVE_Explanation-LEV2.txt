@@ -1,0 +1,78 @@
+C1 is going to make pa1 1.
+C2 will make pa1 10.
+C3 will conduct pa1 11.
+CrewPlanner will wake up C1.
+CrewPlanner will wake up C2.
+CrewPlanner is going to wake up C3.
+CrewPlanner is going to initiate d2, which will allow CrewPlanner to initiate d3.
+C1 is going to conduct pa1 15 because C1 will make pa1 12.
+C2 will conduct pa1 13, which will allow C2 to make pa1 16.
+C3 will conduct pa1 14 to then conduct pa1 17.
+C1 is going to report the result of activity pa1 1.
+C1 will report the result of activity pa1 10.
+C1 will report the result of activity pa1 11.
+C1 is going to report the result of activity pa1 12.
+C1 is going to report the result of activity pa1 13.
+C1 is going to report the result of activity pa1 14.
+C1 is going to report the result of activity pa1 15.
+C1 will report the result of activity pa1 16.
+C1 will report the result of activity pa1 17.
+C1 will eat a meal.
+C2 will eat a meal.
+C3 is going to have a meal so C3 can work out with e3.
+C1 will work out with e1 to then communicate the medical state mcs2.
+C2 is going to exercise with e2 to be able to communicate the medical state mcs3.
+C3 is going to make pa1 18 to be able to make pa1 3.
+C1 is going to report the result of activity pa1 18.
+C1 will make pa1 19 so C1 can report the result of activity pa1 19.
+C2 is going to make pa1 2 to then conduct pa1 5.
+C1 will report the result of activity pa1 2.
+C1 will report the result of activity pa1 3.
+C1 is going to conduct pa1 4 to be able to report the result of activity pa1 4.
+C3 will make pa1 6 to conduct pa1 9.
+C1 will report the result of activity pa1 5.
+C1 will report the result of activity pa1 6.
+C1 is going to conduct pa1 7 to report the result of activity pa1 7.
+C2 will make pa2 10 because C2 is going to make pa1 8.
+C1 is going to report the result of activity pa1 8.
+C1 will report the result of activity pa1 9.
+C1 will make pa2 1.
+C3 will conduct pa2 11 to be able to make pa2 14.
+C1 will conduct pa2 12, which will allow C1 to make pa2 15.
+C2 will make pa2 13 to make pa2 16.
+C3 will make pa2 17 to be able to make pa2 3.
+C1 is going to conduct pa2 18 to be able to conduct pa2 4.
+C2 will make pa2 2, which will allow C2 to conduct pa2 5.
+C3 is going to conduct pa2 6 so C3 can conduct pa2 9.
+C1 will conduct pa2 7 to be able to perform the first reconfiguration.
+C2 will make pa2 8 so C2 can remove the sleep station rpcm2.
+C3 is going to replace the rpcm2 so C3 can sleep.
+C1 will assemble, which will allow C1 to sleep.
+C2 is going to sleep because C2 is going to do the second reconfiguration.
+CrewPlanner will wake up C3.
+CrewPlanner is going to wake up C1.
+CrewPlanner will wake up C2.
+C3 is going to report the result of activity pa2 1.
+C3 is going to report the result of activity pa2 10.
+C3 will report the result of activity pa2 11.
+C3 is going to report the result of activity pa2 12.
+C3 will report the result of activity pa2 13.
+C3 is going to report the result of activity pa2 14.
+C3 is going to report the result of activity pa2 15.
+C3 is going to report the result of activity pa2 16.
+C3 is going to report the result of activity pa2 17.
+C3 will report the result of activity pa2 18.
+C3 is going to report the result of activity pa2 2.
+C3 will report the result of activity pa2 3.
+C3 is going to report the result of activity pa2 4.
+C3 is going to report the result of activity pa2 5.
+C3 is going to report the result of activity pa2 6.
+C3 is going to report the result of activity pa2 7.
+C3 will report the result of activity pa2 8.
+C3 will report the result of activity pa2 9.
+C3 is going to finish the rpcm2.
+C3 will sleep because C3 will have a meal and C3 is going to work out with e1.
+C2 is going to sleep because C2 is going to have a meal and C2 is going to work out with e2.
+C1 will eat a meal and C1 is going to work out with e1 so C1 can sleep.
+C3 will change the spaceshipfilter.
+C1 is going to communicate the medical state mcs2.

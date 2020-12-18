@@ -1,0 +1,23 @@
+Narrator is: robot_assistant
+I will travel from the kitchen sink towards the entrance (taking 8 seconds) to scan the entrance (taking 1 second), which will allow me to later put the mug at the entrance (taking 2.5 seconds).
+I will travel from the entrance towards the kitchen counter (taking 14 seconds) to be able to check the kitchen counter (taking 1 second) to later place the paper at the kitchen counter (taking 2.5 seconds).
+I will locate person1 (taking 20 seconds).
+I am going to look for person2 (taking 20 seconds) and I will move from the kitchen counter to the kitchen corridor (taking 10 seconds) so I can ask person2 at the kitchen corridor (taking 2 seconds).
+I will travel from the kitchen corridor towards the microwave (taking 11 seconds).
+I will take the mug at the microwave (taking 2 seconds) and I will move from the microwave to the entrance (taking 19 seconds) to place the mug at the entrance (taking 2.5 seconds).
+I will travel from the entrance towards the kitchen corridor (taking 18 seconds).
+I will move from the kitchen corridor towards the kitchen shelf (taking 17 seconds) so I can take the paper at the kitchen shelf (taking 2 seconds), which will allow me to later put the paper at the kitchen counter (taking 2.5 seconds).
+I am going to move from the kitchen shelf to the microwave (taking 7 seconds) to later go from the microwave towards the kitchen shelf (taking 7 seconds).
+I am going to travel from the microwave to the kitchen counter (taking 5 seconds) to be able to place the paper at the kitchen counter (taking 2.5 seconds).
+I will travel from the kitchen counter towards the kitchen corridor (taking 10 seconds), which will allow me to travel from the kitchen corridor towards the kitchen door 1 (taking 26 seconds).
+I am going to go from the kitchen door 1 to the office entrance 1 (taking 8 seconds) to then take the post2 at the office entrance 1 (taking 2 seconds) to later be able to hand post2 to person2 at the kitchen corridor (taking 2 seconds).
+I am going to go from the office entrance 1 to the kitchen door 1 (taking 8 seconds).
+I will move from the kitchen door 1 to the kitchen corridor (taking 26 seconds) to be able to hand post2 to person2 at the kitchen corridor (taking 2 seconds).
+I am going to move from the kitchen corridor towards the kitchen door 1 (taking 26 seconds).
+I will travel from the kitchen door 1 towards the office entrance 1 (taking 8 seconds) to then grasp the post1 at the office entrance 1 (taking 2 seconds), which will allow me to later place the post1 at the main office desk (taking 2.5 seconds).
+I will travel from the office entrance 1 towards the kitchen door 1 (taking 8 seconds).
+I will travel from the kitchen door 1 towards the corridor centre (taking 29 seconds) to then travel from the corridor centre towards the main office doorway (taking 29 seconds).
+I am going to move from the main office doorway to the main office desk (taking 15 seconds) and I will look around the main office desk (taking 1 second), which will allow me to put the post1 at the main office desk (taking 2.5 seconds).
+I am going to move from the main office desk towards the main office doorway (taking 15 seconds).
+I will travel from the main office doorway to the meeting room hallway (taking 21 seconds) to go from the meeting room hallway to the kitchen sink (taking 38 seconds).
+I am going to move from the microwave towards the kitchen shelf (taking 7 seconds) because I am going to travel from the kitchen sink towards the microwave (taking 12 seconds).

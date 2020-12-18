@@ -1,0 +1,30 @@
+CrewPlanner will wake up C1, C2, and C3.
+CrewPlanner will initiate d2.
+C1 is going to make pa1 1, pa1 12, and pa1 15.
+C2 will make pa1 10, pa1 13, and pa1 16.
+C3 will conduct pa1 11, pa1 14, and pa1 2.
+C1 will report the result of activity pa1 1, pa1 10, pa1 11, pa1 12, pa1 13, pa1 14, pa1 15, pa1 16, and pa1 2.
+C1, C2, and C3 is going to eat a meal.
+C2 will change the spaceshipfilter.
+C3 will communicate the medical state mcs2.
+C1 and C2 will work out with e1.
+C1 is going to communicate the medical state mcs3.
+C3 will conduct pa1 3.
+C1 will report the result of activity pa1 3.
+C3 will work out with e1.
+C1 is going to make pa1 4.
+C2 will conduct pa1 5 and pa1 7.
+C1 will report the result of activity pa1 4 and pa1 5.
+C1 will conduct pa1 6.
+C3 is going to make pa1 8.
+C1 is going to report the result of activity pa1 6, pa1 7, and pa1 8.
+C1 will make pa1 9.
+C2 will do the first reconfiguration.
+C3 will remove the sleep station rpcm1.
+C1 is going to report the result of activity pa1 9.
+C1 will replace the rpcm1.
+C2 will assemble.
+C3 will do the second reconfiguration.
+C1 will sleep.
+C1 is going to finish the rpcm1.
+C2 and C3 is going to sleep.

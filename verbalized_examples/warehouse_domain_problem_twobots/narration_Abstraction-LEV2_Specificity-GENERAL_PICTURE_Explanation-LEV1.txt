@@ -1,0 +1,9 @@
+Narrator is: robot_assistant
+Hsr Robot will look for person1 (taking 20 seconds).
+I will place the paper at the wp4 (taking 2.5 seconds).
+Hsr Robot is going to request person2 at the wp15 (taking 2 seconds).
+I will place the mug at the wp5 (taking 2.5 seconds).
+Hsr Robot will hand post2 to person2 at the wp15 (taking 2 seconds).
+I will go from the wp15 to the wp1 (taking 17 seconds).
+Hsr Robot is going to put the post1 at the wp6 (taking 2.5 seconds).
+Hsr Robot is going to move from the wp16 to the wp5 (taking 12 seconds).

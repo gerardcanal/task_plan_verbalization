@@ -1,0 +1,31 @@
+C1 is going to report the result of activity (82.874, 60.416, 82.874) on d1 (taking 1 second) to reach the goal of (82.874, 60.416, 82.874) being completed on d1.
+C1 is going to report the result of activity (66.178, 42.657, 66.178) on d1 (taking 1 second) to fulfill the goal of (66.178, 42.657, 66.178) being completed on d1.
+C1 will report the result of activity (29.115, 77.138, 29.115) on d1 (taking 1 second) to reach the goal of (29.115, 77.138, 29.115) being completed on d1.
+C1 will report the result of activity (51.794, 1.051, 51.794) on d1 (taking 1 second) to achieve the goal of (51.794, 1.051, 51.794) being completed on d1.
+C1 is going to report the result of activity (83.615, 54.616, 83.615) on d1 (taking 1 second) to achieve the goal of (83.615, 54.616, 83.615) being completed on d1.
+C1 will report the result of activity (79.609, 5.665, 79.609) on d1 (taking 1 second) to fulfill the goal of (79.609, 5.665, 79.609) being completed on d1.
+C1 is going to exercise on d1 with e1 (taking 60 seconds) to then change the spaceshipfilter on d1 (taking 60 seconds) to fulfill the goal of spaceshipfilter changing on d1.
+C2 will exercise on d1 with e2 (taking 60 seconds) so C2 can communicate the medical state mcs1 on d1 (taking 60 seconds) to reach the goal of The medical state mcs1 being finished on d1.
+C1 is going to conduct (76.325, 95.621, 76.325) (taking 60 seconds), which will allow C1 to report the result of activity (76.325, 95.621, 76.325) on d1 (taking 1 second) to fulfill the goal of (76.325, 95.621, 76.325) being completed on d1.
+C1 will report the result of activity (70.249, 21.569, 70.249) on d1 (taking 1 second) to reach the goal of (70.249, 21.569, 70.249) being completed on d1.
+C1 is going to conduct (1.452, 27.694, 1.452) (taking 60 seconds) to then report the result of activity (1.452, 27.694, 1.452) on d1 (taking 1 second) to fulfill the goal of (1.452, 27.694, 1.452) being completed on d1.
+C2 will conduct (94.436, 8.447, 94.436) (taking 60 seconds) to be able to sleep on d1 (taking 600 seconds) to fulfill the goal of C2 completing sleep on d1.
+C1 will sleep on d1 (taking 600 seconds) because C1 is going to make (55.491, 63.776, 55.491) (taking 60 seconds) to reach the goal of C1 completing sleep on d1.
+CrewPlanner is going to initiate d3 (taking 1440 seconds) to fulfill the goal of d3 being initiated.
+C2 is going to report the result of activity (83.432, 45.956, 83.432) on d2 (taking 1 second) to reach the goal of (83.432, 45.956, 83.432) being completed on d2.
+C2 will report the result of activity (3.314, 99.158, 3.314) on d2 (taking 1 second) to fulfill the goal of (3.314, 99.158, 3.314) being completed on d2.
+C2 will report the result of activity (44.423, 22.691, 44.423) on d2 (taking 1 second) to achieve the goal of (44.423, 22.691, 44.423) being completed on d2.
+C2 will report the result of activity (86.512, 69.529, 86.512) on d2 (taking 1 second) to reach the goal of (86.512, 69.529, 86.512) being completed on d2.
+C2 is going to report the result of activity (91.494, 62.323, 91.494) on d2 (taking 1 second) to fulfill the goal of (91.494, 62.323, 91.494) being completed on d2.
+C2 will report the result of activity (93.308, 15.336, 93.308) on d2 (taking 1 second) to reach the goal of (93.308, 15.336, 93.308) being completed on d2.
+C2 is going to report the result of activity (22.039, 71.260, 22.039) on d2 (taking 1 second) to fulfill the goal of (22.039, 71.260, 22.039) being completed on d2.
+C2 will report the result of activity (42.143, 90.066, 42.143) on d2 (taking 1 second) to reach the goal of (42.143, 90.066, 42.143) being completed on d2.
+C2 is going to report the result of activity (3.620, 91.895, 3.620) on d2 (taking 1 second) to fulfill the goal of (3.620, 91.895, 3.620) being completed on d2.
+C2 is going to report the result of activity (36.520, 86.371, 36.520) on d2 (taking 1 second) to fulfill the goal of (36.520, 86.371, 36.520) being completed on d2.
+C2 is going to report the result of activity (94.436, 8.447, 94.436) on d2 (taking 1 second) to fulfill the goal of (94.436, 8.447, 94.436) being completed on d2.
+C2 is going to report the result of activity (55.491, 63.776, 55.491) on d2 (taking 1 second) to fulfill the goal of (55.491, 63.776, 55.491) being completed on d2.
+C1 will sleep on d2 (taking 600 seconds) because C1 is going to eat a meal on d2 (taking 60 seconds) and C1 will work out on d2 with e2 (taking 60 seconds) to fulfill the goal of C1 completing sleep on d2.
+C2 is going to exercise on d2 with e1 (taking 60 seconds), which will allow C2 to change the spaceshipfilter on d2 (taking 60 seconds) to fulfill the goal of spaceshipfilter changing on d2.
+C1 will communicate the medical state mcs1 on d2 (taking 60 seconds) to fulfill the goal of The medical state mcs1 being finished on d2.
+C2 will communicate the medical state mcs2 on d2 (taking 60 seconds) to achieve the goal of The medical state mcs2 being finished on d2.
+C2 is going to sleep on d2 (taking 600 seconds) to fulfill the goal of C2 completing sleep on d2.

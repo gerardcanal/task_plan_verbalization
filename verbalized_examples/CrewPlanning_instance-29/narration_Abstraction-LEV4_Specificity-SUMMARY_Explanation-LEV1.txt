@@ -1,0 +1,42 @@
+CrewPlanner will wake up C1, C2, and C3.
+C1 will conduct pa1 1, pa1 12, and pa1 15.
+C2 will make pa1 10, pa1 13, and pa1 16.
+C3 is going to conduct pa1 11, pa1 14, and pa1 17.
+CrewPlanner will initiate d3.
+C1 will report the result of activity pa1 1, pa1 10, pa1 11, pa1 12, pa1 13, pa1 14, pa1 15, pa1 16, and pa1 17.
+C1, C2, and C3 will have a meal.
+C1 is going to exercise with e1.
+C2 will work out with e2.
+C3 is going to work out with e3.
+C1 is going to communicate the medical state mcs1.
+C2 will communicate the medical state mcs3.
+C3 is going to conduct pa1 18, pa1 3, pa1 6, pa1 9, pa2 11, pa2 14, pa2 17, pa2 2, pa2 22, pa2 4, pa2 7, pa3 1, pa3 12, pa3 15, pa3 18, pa3 20, pa3 23, pa3 3, pa3 6, and pa3 9.
+C1 will report the result of activity pa1 18.
+C1 is going to make pa1 19.
+C2 will make pa1 2, pa1 5, pa1 8, pa2 10, pa2 13, pa2 16, pa2 19, pa2 21, pa2 3, pa2 6, pa2 9, pa3 11, pa3 14, pa3 17, pa3 2, pa3 22, pa3 25, pa3 5, and pa3 8.
+C1 will report the result of activity pa1 19, pa1 2, and pa1 3.
+C1 will make pa1 4.
+C1 will report the result of activity pa1 4, pa1 5, and pa1 6.
+C1 will conduct pa1 7.
+C1 is going to report the result of activity pa1 7, pa1 8, and pa1 9.
+C1 is going to conduct pa2 1, pa2 12, pa2 15, pa2 18, pa2 20, pa2 23, pa2 5, pa2 8, pa3 10, pa3 13, pa3 16, pa3 19, pa3 21, pa3 24, pa3 4, and pa3 7.
+C1, C2, and C3 is going to sleep.
+CrewPlanner will wake up C1, C2, and C3.
+C1 will report the result of activity pa2 1, pa2 10, pa2 11, pa2 12, pa2 13, pa2 14, pa2 15, pa2 16, pa2 17, pa2 18, pa2 19, pa2 2, pa2 20, pa2 21, pa2 22, pa2 23, pa2 3, pa2 4, pa2 5, pa2 6, pa2 7, pa2 8, and pa2 9.
+C1, C2, and C3 is going to have a meal.
+C1 is going to exercise with e1.
+C2 will exercise with e2.
+C3 will work out with e3.
+C1 will change the spaceshipfilter.
+C2 will communicate the medical state mcs2.
+C3 will sleep.
+C1 and C2 is going to sleep.
+CrewPlanner will initiate d4.
+CrewPlanner will wake up C3, C1, and C2.
+C3 is going to report the result of activity pa3 1, pa3 10, pa3 11, pa3 12, pa3 13, pa3 14, pa3 15, pa3 16, pa3 17, pa3 18, pa3 19, pa3 2, pa3 20, pa3 21, pa3 22, pa3 23, pa3 24, pa3 25, pa3 3, pa3 4, pa3 5, pa3 6, pa3 7, pa3 8, and pa3 9.
+C3 is going to eat a meal.
+C1 and C2 will eat a meal.
+C3 and C1 will work out with e1.
+C2 will work out with e2.
+C3 will communicate the medical state mcs2.
+C1, C2, and C3 will sleep.

@@ -1,0 +1,63 @@
+C1 will report the result of activity pa1 1 to reach the goal of pa1 1 being completed.
+C1 is going to report the result of activity pa1 10 to achieve the goal of pa1 10 being completed.
+C1 is going to report the result of activity pa1 2 to achieve the goal of pa1 2 being completed.
+C1 will report the result of activity pa1 3 to reach the goal of pa1 3 being completed.
+C1 is going to report the result of activity pa1 4 to fulfill the goal of pa1 4 being completed.
+C1 will report the result of activity pa1 5 to achieve the goal of pa1 5 being completed.
+C1 is going to report the result of activity pa1 6 to achieve the goal of pa1 6 being completed.
+C1 is going to report the result of activity pa1 7 to achieve the goal of pa1 7 being completed.
+C1 will report the result of activity pa1 8 to fulfill the goal of pa1 8 being completed.
+C3 is going to have a meal to be able to communicate the medical state mcs1 to fulfill the goal of The medical state mcs1 being finished.
+C1 is going to work out with e1 to then communicate the medical state mcs3 to fulfill the goal of The medical state mcs3 being finished.
+C2 is going to conduct pa1 9, which will allow C1 to report the result of activity pa1 9 to reach the goal of pa1 9 being completed.
+C2 is going to perform the second reconfiguration to be able to sleep to achieve the goal of C2 completing sleep.
+C3 will assemble, which will allow C3 to sleep to achieve the goal of C3 completing sleep.
+C1 will finish the rpcm1 to achieve the goal of rpcm1 being completed.
+C1 will perform the second reconfiguration to then sleep to achieve the goal of C1 completing sleep.
+C2 will report the result of activity pa2 1 to reach the goal of pa2 1 being completed.
+C2 is going to report the result of activity pa2 10 to fulfill the goal of pa2 10 being completed.
+C2 is going to report the result of activity pa2 11 to reach the goal of pa2 11 being completed.
+C2 is going to report the result of activity pa2 12 to reach the goal of pa2 12 being completed.
+C2 will report the result of activity pa2 13 to fulfill the goal of pa2 13 being completed.
+C2 will report the result of activity pa2 2 to achieve the goal of pa2 2 being completed.
+C2 is going to report the result of activity pa2 3 to reach the goal of pa2 3 being completed.
+C2 is going to report the result of activity pa2 4 to fulfill the goal of pa2 4 being completed.
+C2 will report the result of activity pa2 5 to achieve the goal of pa2 5 being completed.
+C2 will report the result of activity pa2 6 to achieve the goal of pa2 6 being completed.
+C2 will report the result of activity pa2 7 to reach the goal of pa2 7 being completed.
+C2 will report the result of activity pa2 8 to achieve the goal of pa2 8 being completed.
+C2 will report the result of activity pa2 9 to achieve the goal of pa2 9 being completed.
+C2 is going to finish the rpcm2 to achieve the goal of rpcm2 being completed.
+C3 will eat a meal and C3 is going to exercise with e2, which will allow C3 to sleep to achieve the goal of C3 completing sleep.
+C2 will work out with e1 to change the spaceshipfilter to achieve the goal of spaceshipfilter changing.
+C1 is going to eat a meal and C1 is going to work out with e1 to be able to sleep to reach the goal of C1 completing sleep.
+C3 will communicate the medical state mcs1 to achieve the goal of The medical state mcs1 being finished.
+C1 is going to communicate the medical state mcs2 to fulfill the goal of The medical state mcs2 being finished.
+C2 is going to communicate the medical state mcs3 to achieve the goal of The medical state mcs3 being finished.
+C2 is going to sleep to reach the goal of C2 completing sleep.
+CrewPlanner will initiate d4 to reach the goal of d4 being initiated.
+C3 is going to report the result of activity pa3 1 to fulfill the goal of pa3 1 being completed.
+C3 is going to report the result of activity pa3 10 to fulfill the goal of pa3 10 being completed.
+C3 will report the result of activity pa3 11 to reach the goal of pa3 11 being completed.
+C3 is going to report the result of activity pa3 12 to fulfill the goal of pa3 12 being completed.
+C3 will report the result of activity pa3 13 to reach the goal of pa3 13 being completed.
+C3 is going to report the result of activity pa3 14 to fulfill the goal of pa3 14 being completed.
+C3 is going to report the result of activity pa3 15 to fulfill the goal of pa3 15 being completed.
+C3 will report the result of activity pa3 16 to achieve the goal of pa3 16 being completed.
+C3 will report the result of activity pa3 17 to achieve the goal of pa3 17 being completed.
+C3 will report the result of activity pa3 18 to achieve the goal of pa3 18 being completed.
+C3 will report the result of activity pa3 19 to reach the goal of pa3 19 being completed.
+C3 will report the result of activity pa3 2 to fulfill the goal of pa3 2 being completed.
+C3 will report the result of activity pa3 3 to reach the goal of pa3 3 being completed.
+C3 will report the result of activity pa3 4 to reach the goal of pa3 4 being completed.
+C3 will report the result of activity pa3 5 to fulfill the goal of pa3 5 being completed.
+C3 is going to report the result of activity pa3 6 to reach the goal of pa3 6 being completed.
+C3 will report the result of activity pa3 7 to fulfill the goal of pa3 7 being completed.
+C3 is going to report the result of activity pa3 8 to achieve the goal of pa3 8 being completed.
+C3 will report the result of activity pa3 9 to reach the goal of pa3 9 being completed.
+C3 is going to have a meal and C3 will exercise with e1 to be able to sleep to reach the goal of C3 completing sleep.
+C1 is going to eat a meal and C1 is going to work out with e1 to sleep to fulfill the goal of C1 completing sleep.
+C2 is going to have a meal and C2 will work out with e2 to sleep to fulfill the goal of C2 completing sleep.
+C3 will change the spaceshipfilter to achieve the goal of spaceshipfilter changing.
+C1 is going to communicate the medical state mcs2 to reach the goal of The medical state mcs2 being finished.
+C2 will communicate the medical state mcs3 to reach the goal of The medical state mcs3 being finished.

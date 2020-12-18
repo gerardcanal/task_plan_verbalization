@@ -1,0 +1,24 @@
+Narrator is: robot_assistant
+I will travel from the wp3 towards the wp15 (taking 13 seconds).
+I will scan the wp4 (taking 1 second) because I am going to travel from the wp15 to the wp4 (taking 10 seconds), which will allow me to later place the paper at the wp4 (taking 2.5 seconds).
+I am going to go from the wp4 to the wp5 (taking 14 seconds) to be able to look around the wp5 (taking 1 second) so I can later place the mug at the wp5 (taking 2.5 seconds).
+I am going to locate person1 (taking 20 seconds).
+I am going to look for person2 (taking 20 seconds) and I will move from the wp5 towards the wp15 (taking 18 seconds) so I can request person2 at the wp15 (taking 2 seconds).
+I am going to go from the wp15 to the wp2 (taking 11 seconds).
+I will put the mug at the wp5 (taking 2.5 seconds) because I am going to grasp the mug at the wp2 (taking 2 seconds) and I will move from the wp2 to the wp5 (taking 19 seconds).
+I am going to travel from the wp5 towards the wp15 (taking 18 seconds).
+I will go from the wp15 towards the wp1 (taking 17 seconds), which will allow me to grasp the paper at the wp1 (taking 2 seconds) to later be able to place the paper at the wp4 (taking 2.5 seconds).
+I will move from the wp1 to the wp2 (taking 7 seconds) to later travel from the wp2 towards the wp1 (taking 7 seconds).
+I am going to move from the wp2 to the wp4 (taking 5 seconds) to place the paper at the wp4 (taking 2.5 seconds).
+I am going to move from the wp4 to the wp15 (taking 10 seconds) to move from the wp15 towards the wp36 (taking 26 seconds).
+I will move from the wp36 towards the wp38 (taking 8 seconds) to then grab the post2 at the wp38 (taking 2 seconds) to later deliver post2 to person2 at the wp15 (taking 2 seconds).
+I am going to travel from the wp38 to the wp36 (taking 8 seconds).
+I am going to go from the wp36 towards the wp15 (taking 26 seconds), which will allow me to hand post2 to person2 at the wp15 (taking 2 seconds).
+I will travel from the wp15 towards the wp36 (taking 26 seconds).
+I will travel from the wp36 to the wp38 (taking 8 seconds) to be able to take the post1 at the wp38 (taking 2 seconds) to later be able to put the post1 at the wp6 (taking 2.5 seconds).
+I am going to go from the wp38 to the wp36 (taking 8 seconds).
+I will travel from the wp36 towards the wp27 (taking 29 seconds) to be able to go from the wp27 to the wp19 (taking 29 seconds).
+I am going to put the post1 at the wp6 (taking 2.5 seconds) because I will travel from the wp19 to the wp6 (taking 15 seconds) and I am going to scan the wp6 (taking 1 second).
+I am going to move from the wp6 towards the wp19 (taking 15 seconds).
+I am going to go from the wp19 towards the wp28 (taking 21 seconds) to be able to travel from the wp28 towards the wp3 (taking 38 seconds).
+I will move from the wp2 towards the wp1 (taking 7 seconds) because I am going to travel from the wp3 to the wp2 (taking 12 seconds).

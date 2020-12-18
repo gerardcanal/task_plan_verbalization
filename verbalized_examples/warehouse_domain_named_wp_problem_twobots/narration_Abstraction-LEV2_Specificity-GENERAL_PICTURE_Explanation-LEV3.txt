@@ -1,0 +1,9 @@
+Narrator is: robot_assistant
+Hsr Robot is going to locate person1 (taking 20 seconds).
+I am going to go from the kitchen counter towards the kitchen corridor (taking 10 seconds), which will allow me to request person2 at the kitchen corridor (taking 2 seconds).
+I am going to travel from the coffee table 1 towards the kitchen counter (taking 8 seconds) to place the paper at the kitchen counter (taking 2.5 seconds).
+I am going to take the mug at the kitchen corridor from the person2 (taking 2 seconds) and I will travel from the kitchen corridor to the entrance (taking 18 seconds) to then leave the mug at the entrance (taking 2.5 seconds).
+Hsr Robot will travel from the main office doorway to the main office desk (taking 15 seconds) and Hsr Robot is going to look around the main office desk (taking 1 second), which will allow Hsr Robot to put the post1 at the main office desk (taking 2.5 seconds).
+I am going to travel from the kitchen door 1 to the kitchen corridor (taking 26 seconds), which will allow me to give post2 to person2 at the kitchen corridor (taking 2 seconds).
+I will move from the kitchen corridor towards the kitchen shelf (taking 17 seconds).
+Hsr Robot is going to go from the meeting room hallway to the kitchen chair (taking 22 seconds) so Hsr Robot can go from the kitchen chair to the entrance (taking 12 seconds).

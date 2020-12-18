@@ -1,0 +1,15 @@
+C1 will report the result of activity pa1 1 on d1 to fulfill the goal of pa1 1 being completed on d1.
+C1 will report the result of activity pa1 2 on d1 to fulfill the goal of pa1 2 being completed on d1.
+C1 will report the result of activity pa1 3 on d1 to reach the goal of pa1 3 being completed on d1.
+C1 will communicate the medical state mcs1 on d1 because C1 is going to exercise on d1 with e1 to reach the goal of The medical state mcs1 being finished on d1 to later make pa1 4.
+C1 is going to make pa1 4 to report the result of activity pa1 4 on d1 to fulfill the goal of pa1 4 being completed on d1.
+C1 is going to make pa2 6, which will allow C1 to sleep on d1 to fulfill the goal of C1 completing sleep on d1, which will allow CrewPlanner to later wake up C1 on d2.
+CrewPlanner is going to initiate d3 to fulfill the goal of d3 being initiated.
+C1 will report the result of activity pa2 1 on d2 to reach the goal of pa2 1 being completed on d2.
+C1 is going to report the result of activity pa2 2 on d2 to fulfill the goal of pa2 2 being completed on d2.
+C1 will report the result of activity pa2 3 on d2 to fulfill the goal of pa2 3 being completed on d2.
+C1 will report the result of activity pa2 4 on d2 to reach the goal of pa2 4 being completed on d2.
+C1 is going to report the result of activity pa2 5 on d2 to achieve the goal of pa2 5 being completed on d2.
+C1 will report the result of activity pa2 6 on d2 to fulfill the goal of pa2 6 being completed on d2.
+C1 will have a meal on d2 and C1 is going to work out on d2 with e1 to sleep on d2 to reach the goal of C1 completing sleep on d2.
+C1 is going to change the spaceshipfilter on d2 to reach the goal of spaceshipfilter changing on d2.

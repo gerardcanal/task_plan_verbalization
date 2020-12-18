@@ -1,0 +1,9 @@
+Narrator is: robot_assistant
+Tomo is going to locate the secretary.
+Asro will ask the manager at the kitchen corridor.
+Asro will put the paper at the kitchen counter.
+Asro will place the mug at the entrance.
+Tomo is going to place the post1 at the main office desk.
+Asro will give post2 to the manager at the kitchen corridor.
+Asro is going to go from the kitchen corridor to the kitchen shelf.
+Tomo will go from the kitchen chair to the entrance.

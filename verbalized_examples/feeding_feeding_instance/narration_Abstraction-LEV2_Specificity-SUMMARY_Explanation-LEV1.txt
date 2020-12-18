@@ -1,0 +1,6 @@
+Narrator is: I
+I will get the food (taking 0 seconds).
+I will approach the food (taking 0 seconds).
+I will feed the user (taking 0 seconds).
+I am going to move away (taking 0 seconds).
+I am going to complete the task (taking 0 seconds).

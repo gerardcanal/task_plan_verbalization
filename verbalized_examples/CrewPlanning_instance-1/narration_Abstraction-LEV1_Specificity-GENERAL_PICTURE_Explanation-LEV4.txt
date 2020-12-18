@@ -1,0 +1,4 @@
+CrewPlanner is going to initiate d2 (taking 1440 seconds) to achieve the goal of d2 being initiated.
+C1 is going to exercise on d1 with e1 (taking 60 seconds) to be able to change the spaceshipfilter on d1 (taking 60 seconds) to reach the goal of spaceshipfilter changing on d1.
+C1 is going to sleep on d1 (taking 600 seconds) because C1 is going to perform the second reconfiguration of the thermal loop (86.437, 82.882, 86.437) (taking 60 seconds) to reach the goal of C1 completing sleep on d1.
+C1 will finish the (86.437, 82.882, 86.437) on d1 (taking 1 second) to fulfill the goal of (86.437, 82.882, 86.437) being completed on d1.

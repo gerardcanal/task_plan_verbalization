@@ -1,0 +1,4 @@
+Kenny will move towards the printer phdarea, which will allow Kenny to ask to get the papers loaded.
+Kenny will travel to the printer corridor, which will allow Kenny to ask to get the papers loaded so Kenny can later wait to get the papers loaded.
+Kenny will wait to get the papers loaded, Kenny will travel towards the phdarea, and Kenny will ask to have the papers taken, which will allow Kenny to wait to have the papers taken.
+Kenny is going to dock to charge the batteries because Kenny will move towards the dock station.

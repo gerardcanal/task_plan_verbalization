@@ -1,0 +1,17 @@
+Narrator is: robot_assistant
+Tomo is going to scan the entrance.
+Tomo is going to locate the manager and the secretary.
+Asro is going to go from the kitchen sink towards the kitchen counter (via entrance) to be able to scan the kitchen counter.
+Tomo is going to move from the entrance towards the microwave (via kitchen chair, entrance, kitchen sink, entrance, kitchen table 1, and kitchen corridor).
+Asro is going to go from the kitchen counter towards the kitchen corridor so Asro can request the manager at the kitchen corridor.
+Asro is going to move from the kitchen corridor to the kitchen shelf so Asro can grab the paper at the kitchen shelf.
+Asro will move from the kitchen shelf to the kitchen counter (via coffee table 1) to then put the paper at the kitchen counter.
+Tomo is going to take the mug at the microwave and Tomo will move from the microwave to the kitchen corridor to then hand mug to the manager at the kitchen corridor.
+Asro will travel from the kitchen counter towards the kitchen corridor (via coffee table 1, kitchen shelf, and coffee table 1).
+Tomo is going to grab the post1 at the office entrance 1 because Tomo is going to go from the kitchen corridor towards the office entrance 1 (via kitchen door 1).
+Asro is going to take the mug at the kitchen corridor from the the manager and Asro is going to move from the kitchen corridor to the entrance to then put the mug at the entrance.
+Tomo will travel from the office entrance 1 to the main office desk (via kitchen door 1, corridor centre, corridor shelf 1, and main office doorway) and Tomo is going to scan the main office desk so Tomo can place the post1 at the main office desk.
+Asro is going to travel from the entrance towards the office entrance 1 (via kitchen corridor, kitchen hallway, and kitchen door 1) so Asro can grab the post2 at the office entrance 1.
+Asro will go from the office entrance 1 towards the kitchen corridor (via kitchen door 1) to give post2 to the manager at the kitchen corridor.
+Tomo will move from the main office desk to the entrance (via main office doorway, meeting room hallway, and kitchen chair).
+Asro will go from the kitchen corridor towards the kitchen shelf.

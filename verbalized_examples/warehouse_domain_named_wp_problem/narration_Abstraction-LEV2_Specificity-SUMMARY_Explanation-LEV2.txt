@@ -1,0 +1,14 @@
+Narrator is: robot_assistant
+I will go from the kitchen sink to the entrance (taking 8 seconds), which will allow me to check the entrance (taking 1 second).
+I am going to go from the entrance towards the kitchen counter (taking 14 seconds) to be able to look around the kitchen counter (taking 1 second).
+I will locate person1 and person2 (taking 20 seconds).
+I am going to ask person2 at the kitchen corridor (taking 2 seconds) because I will look for person1 and person2 (taking 20 seconds) and I am going to travel from the kitchen counter to the kitchen corridor (taking 10 seconds).
+I will travel from the kitchen corridor towards the microwave (taking 11 seconds).
+I am going to grab the mug at the microwave (taking 2 seconds) and I am going to go from the microwave towards the entrance (taking 19 seconds) so I can put the mug at the entrance (taking 2.5 seconds).
+I will move from the entrance to the kitchen shelf (via kitchen corridor, taking 35 seconds), which will allow me to take the paper at the kitchen shelf (taking 2 seconds).
+I will move from the kitchen shelf to the kitchen counter (via microwave, taking 12 seconds), which will allow me to leave the paper at the kitchen counter (taking 2.5 seconds).
+I am going to grab the post2 at the office entrance 1 (taking 2 seconds) because I will go from the kitchen counter to the office entrance 1 (via kitchen corridor and kitchen door 1, taking 44 seconds).
+I am going to move from the office entrance 1 towards the kitchen corridor (via kitchen door 1, taking 34 seconds) to deliver post2 to person2 at the kitchen corridor (taking 2 seconds).
+I am going to go from the kitchen corridor to the office entrance 1 (via kitchen door 1, taking 34 seconds), which will allow me to take the post1 at the office entrance 1 (taking 2 seconds).
+I am going to go from the office entrance 1 towards the main office desk (via kitchen door 1, corridor centre, and main office doorway, taking 81 seconds) and I am going to look around the main office desk (taking 1 second) to be able to leave the post1 at the main office desk (taking 2.5 seconds).
+I will move from the main office desk to the kitchen shelf (via main office doorway, meeting room hallway, kitchen sink, and microwave, taking 93 seconds).

@@ -1,0 +1,28 @@
+CrewPlanner will wake up C1, C2, and C3 on d1 so C1 can later report the result of activity pa1 1 on d1, C1 can report the result of activity pa1 10 on d1, C1 can report the result of activity pa1 11 on d1, C1 can report the result of activity pa1 12 on d1, C1 can report the result of activity pa1 13 on d1, C1 can report the result of activity pa1 2 on d1, C1 can report the result of activity pa1 3 on d1, C1 can report the result of activity pa1 4 on d1, C1 can report the result of activity pa1 5 on d1, C1, C2, and C3 can have a meal on d1, C3 can exercise on d1 with e3, C1 can communicate the medical state mcs1 on d1, C2 can communicate the medical state mcs2 on d1, C1 can report the result of activity pa1 6 on d1, C1 can report the result of activity pa1 7 on d1, C1 can report the result of activity pa1 8 on d1, C1 can report the result of activity pa1 9 on d1, C3 can sleep on d1, C1 can finish the rpcm1 on d1, C1 can sleep on d1, and C2 can sleep on d1.
+CrewPlanner will initiate d2 to reach the goal of d2 being initiated.
+C1 will make pa1 1, pa1 12, and pa1 3, which will allow C1 to later report the result of activity pa1 1 on d1, report the result of activity pa1 12 on d1, and report the result of activity pa1 3 on d1.
+C2 will make pa1 10, pa1 13, and pa1 4 so C1 can later report the result of activity pa1 10 on d1, C1 can report the result of activity pa1 13 on d1, and C1 can report the result of activity pa1 4 on d1.
+C3 will make pa1 11, pa1 2, and pa1 5 so C1 can later report the result of activity pa1 11 on d1, C1 can report the result of activity pa1 2 on d1, and C1 can report the result of activity pa1 5 on d1.
+C1 will report the result of activity pa1 1 on d1 to reach the goal of pa1 1 being completed on d1.
+C1 will report the result of activity pa1 10 on d1 to fulfill the goal of pa1 10 being completed on d1.
+C1 is going to report the result of activity pa1 11 on d1 to achieve the goal of pa1 11 being completed on d1.
+C1 is going to report the result of activity pa1 12 on d1 to reach the goal of pa1 12 being completed on d1.
+C1 will report the result of activity pa1 13 on d1 to fulfill the goal of pa1 13 being completed on d1.
+C1 is going to report the result of activity pa1 2 on d1 to reach the goal of pa1 2 being completed on d1.
+C1 is going to report the result of activity pa1 3 on d1 to fulfill the goal of pa1 3 being completed on d1.
+C1 is going to report the result of activity pa1 4 on d1 to achieve the goal of pa1 4 being completed on d1.
+C1 will report the result of activity pa1 5 on d1 to reach the goal of pa1 5 being completed on d1.
+C1, C2, and C3 will have a meal on d1 so C3 can work out on d1 with e3, which will allow C3 to later make pa1 6 and pa1 9 and sleep on d1.
+C1 is going to communicate the medical state mcs1 on d1 because C1 is going to work out on d1 with e1 to reach the goal of The medical state mcs1 being finished on d1 to later be able to conduct pa1 7.
+C2 will communicate the medical state mcs2 on d1 because C2 will work out on d1 with e2 to fulfill the goal of The medical state mcs2 being finished on d1 to later be able to conduct pa1 8.
+C3 is going to exercise on d1 with e3 to be able to make pa1 6 and pa1 9, which will allow C1 to later report the result of activity pa1 9 on d1 and C3 to replace the rpcm1.
+C1 is going to report the result of activity pa1 6 on d1 to fulfill the goal of pa1 6 being completed on d1.
+C1 is going to make pa1 7 so C1 can report the result of activity pa1 7 on d1 to achieve the goal of pa1 7 being completed on d1.
+C2 is going to make pa1 8 to remove the sleep station rpcm1 so C3 can later replace the rpcm1 and C2 can perform the second reconfiguration of the thermal loop rpcm1.
+C1 will report the result of activity pa1 8 on d1 to reach the goal of pa1 8 being completed on d1.
+C1 is going to report the result of activity pa1 9 on d1 to reach the goal of pa1 9 being completed on d1.
+C1 will do the first reconfiguration of the thermal loop rpcm1, which will allow C3 to later replace the rpcm1 and C1 to assemble the sleep station rpcm1.
+C3 is going to replace the rpcm1 to then sleep on d1 to achieve the goal of C3 completing sleep on d1.
+C1 will assemble the sleep station rpcm1 to then finish the rpcm1 on d1 to achieve the goal of rpcm1 being completed on d1.
+C2 will perform the second reconfiguration of the thermal loop rpcm1 to be able to sleep on d1 to achieve the goal of C2 completing sleep on d1.
+C1 will sleep on d1 to achieve the goal of C1 completing sleep on d1.

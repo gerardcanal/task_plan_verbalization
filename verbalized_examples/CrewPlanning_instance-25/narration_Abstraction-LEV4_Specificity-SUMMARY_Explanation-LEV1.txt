@@ -1,0 +1,30 @@
+CrewPlanner will wake up C1 and C2.
+C1 will make pa1 1, pa1 3, and pa1 5.
+C2 is going to make pa1 2, pa1 4, and pa1 6.
+CrewPlanner is going to initiate d3.
+C1 will report the result of activity pa1 1, pa1 2, pa1 3, pa1 4, pa1 5, and pa1 6.
+C1 and C2 will have a meal.
+C2 will communicate the medical state mcs1.
+C1 and C2 is going to work out with e1.
+C1 will communicate the medical state mcs2.
+C1 is going to conduct pa1 7.
+C2 is going to make pa1 8, pa2 1, pa2 11, pa2 13, pa2 3, pa2 5, pa2 7, pa2 9, pa3 10, pa3 12, pa3 14, pa3 3, pa3 5, pa3 7, and pa3 9.
+C1 is going to report the result of activity pa1 7 and pa1 8.
+C1 will conduct pa1 9.
+C1 is going to report the result of activity pa1 9.
+C1 is going to make pa2 10, pa2 12, pa2 2, pa2 4, pa2 6, pa2 8, pa3 1, pa3 11, pa3 13, pa3 2, pa3 4, pa3 6, and pa3 8.
+C1 and C2 will sleep.
+CrewPlanner will wake up C1 and C2.
+C1 is going to report the result of activity pa2 1, pa2 10, pa2 11, pa2 12, pa2 13, pa2 2, pa2 3, pa2 4, pa2 5, pa2 6, pa2 7, pa2 8, and pa2 9.
+C1 and C2 will eat a meal.
+C1 and C2 will exercise with e1.
+C2 will change the spaceshipfilter.
+C1 will communicate the medical state mcs2.
+C1 and C2 will sleep.
+CrewPlanner is going to wake up C1 and C2.
+CrewPlanner will initiate d4.
+C1 will report the result of activity pa3 1, pa3 10, pa3 11, pa3 12, pa3 13, pa3 14, pa3 2, pa3 3, pa3 4, pa3 5, pa3 6, pa3 7, pa3 8, and pa3 9.
+C1 and C2 will have a meal.
+C1 and C2 will work out with e1.
+C1 is going to communicate the medical state mcs1.
+C1 and C2 is going to sleep.

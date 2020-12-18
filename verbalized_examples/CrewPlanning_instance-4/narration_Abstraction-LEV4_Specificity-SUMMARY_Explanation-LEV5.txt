@@ -1,0 +1,17 @@
+CrewPlanner will initiate d2 to achieve the goal of d2 being initiated.
+CrewPlanner will wake up C1, which will allow C1 to have a meal to later work out on d1 with e1 and sleep on d1.
+C1 is going to work out with e1 to change the spaceshipfilter to reach the goal of spaceshipfilter changing.
+C1 is going to change the spaceshipfilter to be able to conduct pa1 1 and pa1 2 so C1 can later make pa1 3 and report the result of activity pa1 2 on d1.
+C1 will report the result of activity pa1 1 to achieve the goal of pa1 1 being completed.
+C1 will make pa1 3 so C1 can later conduct pa1 4 and report the result of activity pa1 3 on d1.
+C1 is going to report the result of activity pa1 2 to fulfill the goal of pa1 2 being completed.
+C1 will make pa1 4 so C1 can later make pa1 5 and report the result of activity pa1 4 on d1.
+C1 is going to report the result of activity pa1 3 to reach the goal of pa1 3 being completed.
+C1 is going to conduct pa1 5 to later make pa1 6 and report the result of activity pa1 5 on d1.
+C1 is going to report the result of activity pa1 4 to achieve the goal of pa1 4 being completed.
+C1 will conduct pa1 6 to later make pa1 7 and report the result of activity pa1 6 on d1.
+C1 will report the result of activity pa1 5 to fulfill the goal of pa1 5 being completed.
+C1 will conduct pa1 7 to later be able to sleep on d1 and report the result of activity pa1 7 on d1.
+C1 is going to report the result of activity pa1 6 to achieve the goal of pa1 6 being completed.
+C1 will sleep to fulfill the goal of C1 completing sleep.
+C1 is going to report the result of activity pa1 7 to reach the goal of pa1 7 being completed.

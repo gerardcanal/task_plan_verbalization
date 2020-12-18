@@ -1,0 +1,9 @@
+Narrator is: robot_assistant
+Hsr Robot will look for person1 (taking 20 seconds) because Hsr Robot is going to travel from the wp5 towards the wp15 (taking 18 seconds).
+Hsr Robot will ask person2 at the wp15 (taking 2 seconds) because Hsr Robot will locate person2 (taking 20 seconds).
+I will travel from the wp2 towards the wp4 (taking 5 seconds) to place the paper at the wp4 (taking 2.5 seconds).
+I will go from the wp9 towards the wp5 (taking 21 seconds) and I will scan the wp5 (taking 1 second), which will allow me to put the mug at the wp5 (taking 2.5 seconds).
+Hsr Robot is going to move from the wp36 to the wp15 (taking 26 seconds) so Hsr Robot can give post2 to person2 at the wp15 (taking 2 seconds).
+I am going to go from the wp15 to the wp1 (taking 17 seconds) because I am going to move from the wp21 to the wp15 (taking 9 seconds).
+Hsr Robot is going to travel from the wp19 towards the wp6 (taking 15 seconds) and Hsr Robot will check the wp6 (taking 1 second) to then leave the post1 at the wp6 (taking 2.5 seconds).
+Hsr Robot is going to travel from the wp28 towards the wp16 (taking 22 seconds) to be able to travel from the wp16 towards the wp5 (taking 12 seconds).

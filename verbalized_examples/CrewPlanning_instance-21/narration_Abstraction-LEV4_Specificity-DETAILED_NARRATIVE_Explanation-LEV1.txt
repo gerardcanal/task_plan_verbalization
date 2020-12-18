@@ -1,0 +1,124 @@
+C1 will make pa1 1.
+C2 is going to conduct pa1 10.
+C3 will conduct pa1 11.
+CrewPlanner is going to wake up C1.
+CrewPlanner will wake up C2.
+CrewPlanner will wake up C3.
+CrewPlanner will initiate d2.
+C1 is going to make pa1 12.
+C2 will conduct pa1 13.
+C3 will conduct pa1 14.
+C1 will make pa1 15.
+C2 is going to make pa1 16.
+C3 is going to make pa1 17.
+C1 will report the result of activity pa1 1.
+C1 is going to report the result of activity pa1 10.
+C1 is going to report the result of activity pa1 11.
+C1 will report the result of activity pa1 12.
+C1 will report the result of activity pa1 13.
+C1 will report the result of activity pa1 14.
+C1 is going to report the result of activity pa1 15.
+C1 will report the result of activity pa1 16.
+C1 is going to report the result of activity pa1 17.
+C1 is going to have a meal.
+C2 is going to have a meal.
+C3 is going to have a meal.
+C1 will exercise with e1.
+C2 is going to work out with e2.
+C3 is going to change the spaceshipfilter.
+C3 will exercise with e1.
+C1 will communicate the medical state mcs1.
+C2 is going to communicate the medical state mcs2.
+C1 is going to communicate the medical state mcs3.
+C2 is going to make pa1 18.
+C3 is going to conduct pa1 19.
+C1 will report the result of activity pa1 18.
+C1 is going to report the result of activity pa1 19.
+C1 will make pa1 2.
+C2 will conduct pa1 20.
+C3 is going to make pa1 21.
+C1 is going to report the result of activity pa1 2.
+C1 will report the result of activity pa1 20.
+C1 is going to report the result of activity pa1 21.
+C1 will conduct pa1 22.
+C2 will make pa1 3.
+C3 will conduct pa1 4.
+C1 will report the result of activity pa1 22.
+C1 will report the result of activity pa1 3.
+C1 will report the result of activity pa1 4.
+C1 is going to conduct pa1 5.
+C2 is going to conduct pa1 6.
+C3 will make pa1 7.
+C1 will report the result of activity pa1 5.
+C1 is going to report the result of activity pa1 6.
+C1 is going to report the result of activity pa1 7.
+C1 is going to make pa1 8.
+C2 is going to conduct pa1 9.
+C3 is going to conduct pa2 1.
+C1 will report the result of activity pa1 8.
+C1 will report the result of activity pa1 9.
+C1 will make pa2 10.
+C2 will conduct pa2 11.
+C3 is going to make pa2 12.
+C1 will conduct pa2 13.
+C2 will make pa2 14.
+C3 is going to conduct pa2 15.
+C1 will conduct pa2 16.
+C2 will make pa2 17.
+C3 is going to make pa2 18.
+C1 will conduct pa2 19.
+C2 will conduct pa2 2.
+C3 is going to conduct pa2 20.
+C1 will make pa2 21.
+C2 is going to conduct pa2 22.
+C3 is going to make pa2 23.
+C1 will make pa2 24.
+C2 is going to conduct pa2 3.
+C3 is going to conduct pa2 4.
+C1 is going to make pa2 5.
+C2 will make pa2 6.
+C3 will make pa2 7.
+C1 is going to conduct pa2 8.
+C2 will make pa2 9.
+C3 is going to sleep.
+C1 is going to sleep.
+C2 is going to sleep.
+CrewPlanner is going to initiate d3.
+CrewPlanner is going to wake up C3.
+CrewPlanner is going to wake up C1.
+CrewPlanner is going to wake up C2.
+C3 is going to report the result of activity pa2 1.
+C3 will report the result of activity pa2 10.
+C3 will report the result of activity pa2 11.
+C3 is going to report the result of activity pa2 12.
+C3 will report the result of activity pa2 13.
+C3 will report the result of activity pa2 14.
+C3 is going to report the result of activity pa2 15.
+C3 will report the result of activity pa2 16.
+C3 will report the result of activity pa2 17.
+C3 will report the result of activity pa2 18.
+C3 will report the result of activity pa2 19.
+C3 will report the result of activity pa2 2.
+C3 is going to report the result of activity pa2 20.
+C3 is going to report the result of activity pa2 21.
+C3 is going to report the result of activity pa2 22.
+C3 will report the result of activity pa2 23.
+C3 will report the result of activity pa2 24.
+C3 is going to report the result of activity pa2 3.
+C3 will report the result of activity pa2 4.
+C3 is going to report the result of activity pa2 5.
+C3 will report the result of activity pa2 6.
+C3 is going to report the result of activity pa2 7.
+C3 is going to report the result of activity pa2 8.
+C3 is going to report the result of activity pa2 9.
+C3 will have a meal.
+C1 is going to have a meal.
+C2 is going to have a meal.
+C3 will work out with e1.
+C1 will work out with e1.
+C2 will exercise with e2.
+C3 is going to change the spaceshipfilter.
+C1 will communicate the medical state mcs2.
+C2 is going to sleep.
+C3 is going to sleep.
+C1 will sleep.

@@ -1,0 +1,12 @@
+Narrator is: rover0
+I will communicate rock data of waypoint1 from waypoint1 to general lander at waypoint6 to fulfill the goal of rock data being communicated at waypoint1 to later transmit image data of objective0 in high res mode from waypoint1 to general lander at waypoint6.
+Rover2 is going to transmit image data of objective2 in high res mode from waypoint1 to general lander at waypoint6 to achieve the goal of image data being communicated of objective2 in high res mode.
+I am going to communicate image data of objective0 in high res mode from waypoint1 to general lander at waypoint6 to reach the goal of image data being communicated of objective0 in high res mode.
+I am going to transmit image data of objective4 in high res mode from waypoint1 to general lander at waypoint6 to reach the goal of image data being communicated of objective4 in high res mode.
+I am going to communicate soil data of waypoint1 from waypoint1 to general lander at waypoint6 to fulfill the goal of soil data being communicated at waypoint1, which will allow me to later travel from waypoint1 towards waypoint3, travel from waypoint3 to waypoint1, and communicate rock data of waypoint3 from waypoint1 to general lander at waypoint6.
+Rover1 will sample soil to store at rover1store at waypoint7, which will allow Rover1 to transmit soil data of waypoint7 from waypoint7 to general lander at waypoint6 to reach the goal of soil data being communicated at waypoint7.
+Rover1 is going to transmit soil data of waypoint4 from waypoint7 to general lander at waypoint6 to achieve the goal of soil data being communicated at waypoint4.
+Rover1 will communicate soil data of waypoint9 from waypoint7 to general lander at waypoint6 to achieve the goal of soil data being communicated at waypoint9.
+Rover1 is going to transmit rock data of waypoint10 from waypoint7 to general lander at waypoint6 to fulfill the goal of rock data being communicated at waypoint10.
+Rover1 will transmit rock data of waypoint5 from waypoint7 to general lander at waypoint6 to fulfill the goal of rock data being communicated at waypoint5.
+I am going to communicate rock data of waypoint3 from waypoint1 to general lander at waypoint6 to fulfill the goal of rock data being communicated at waypoint3.

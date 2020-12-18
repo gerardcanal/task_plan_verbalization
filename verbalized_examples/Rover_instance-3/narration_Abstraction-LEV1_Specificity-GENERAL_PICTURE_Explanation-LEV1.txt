@@ -1,0 +1,4 @@
+Narrator is: rover0
+Rover1 is going to transmit image data of objective0 in colour mode from (62.029, 24.204, 62.029) to general lander at (26.035, 3.956, 26.035) (taking 15 seconds).
+Rover1 will communicate soil data of (62.029, 24.204, 62.029) from (62.029, 24.204, 62.029) to general lander at (26.035, 3.956, 26.035) (taking 10 seconds).
+I will transmit rock data of (26.035, 3.956, 26.035) from (91.781, 28.947, 91.781) to general lander at (26.035, 3.956, 26.035) (taking 10 seconds).

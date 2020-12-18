@@ -1,0 +1,7 @@
+CrewPlanner is going to wake up C1 and C2.
+CrewPlanner will initiate d2.
+C1 is going to make pa1 1, pa1 3, and pa1 5.
+C2 will make pa1 2, pa1 4, and pa1 6.
+C1 will report the result of activity pa1 1, pa1 2, pa1 3, pa1 4, pa1 5, and pa1 6.
+C2 is going to communicate the medical state mcs2 because C1 and C2 is going to eat a meal.
+C1 and C2 will exercise with e1 so C1 and C2 can sleep.

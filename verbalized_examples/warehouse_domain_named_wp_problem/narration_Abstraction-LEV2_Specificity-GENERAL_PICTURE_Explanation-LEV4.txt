@@ -1,0 +1,8 @@
+Narrator is: robot_assistant
+I will look for person1 (taking 20 seconds) to reach the goal of finding person1.
+I will request person2 at the kitchen corridor (taking 2 seconds) because I am going to locate person2 (taking 20 seconds) and I am going to travel from the kitchen counter towards the kitchen corridor (taking 10 seconds) to reach the goal of asking person2.
+I am going to take the mug at the microwave (taking 2 seconds) and I am going to move from the microwave towards the entrance (taking 19 seconds) to be able to leave the mug at the entrance (taking 2.5 seconds) to reach the goal of the mug being at the entrance.
+I will travel from the microwave towards the kitchen counter (taking 5 seconds) to leave the paper at the kitchen counter (taking 2.5 seconds) to reach the goal of the paper being at the kitchen counter.
+I will travel from the kitchen door 1 towards the kitchen corridor (taking 26 seconds), which will allow me to hand post2 to person2 at the kitchen corridor (taking 2 seconds) to fulfill the goal of the post2 being at the person2.
+I am going to leave the post1 at the main office desk (taking 2.5 seconds) because I will travel from the main office doorway to the main office desk (taking 15 seconds) and I will look around the main office desk (taking 1 second) to reach the goal of the post1 being at the main office desk.
+I am going to move from the kitchen sink towards the microwave (taking 12 seconds) so I can go from the microwave towards the kitchen shelf (taking 7 seconds) to fulfill the goal of me being at the kitchen shelf.

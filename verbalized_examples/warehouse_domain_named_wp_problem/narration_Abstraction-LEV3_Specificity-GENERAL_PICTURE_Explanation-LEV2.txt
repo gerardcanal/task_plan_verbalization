@@ -1,0 +1,8 @@
+Narrator is: robot_assistant
+I will look for person1.
+I am going to find person2 and I am going to travel from the kitchen counter to the kitchen corridor to be able to ask person2 at the kitchen corridor.
+I will grasp the mug at the microwave and I am going to move from the microwave towards the entrance to be able to leave the mug at the entrance.
+I will move from the microwave to the kitchen counter to place the paper at the kitchen counter.
+I will give post2 to person2 at the kitchen corridor because I am going to go from the kitchen door 1 to the kitchen corridor.
+I am going to go from the main office doorway towards the main office desk and I will look around the main office desk, which will allow me to leave the post1 at the main office desk.
+I will travel from the kitchen sink to the microwave to be able to go from the microwave to the kitchen shelf.

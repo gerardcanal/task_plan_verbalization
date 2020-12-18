@@ -1,0 +1,5 @@
+The car will move from (47.997, 63.797, 47.997) to (54.428, 85.784, 54.428) (via (29.436, 95.074, 29.436), (78.032, 8.751, 78.032), and (36.617, 11.168, 36.617), taking 0 seconds).
+I will load the tire at (29.436, 95.074, 29.436) (taking 0 seconds).
+I is going to change the tire (taking 0 seconds).
+I will load the tire at (78.032, 8.751, 78.032) (taking 0 seconds).
+I will change the tire (taking 0 seconds).

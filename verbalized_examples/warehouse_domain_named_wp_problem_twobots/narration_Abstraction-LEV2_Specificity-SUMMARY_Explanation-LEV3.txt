@@ -1,0 +1,17 @@
+Narrator is: robot_assistant
+Hsr Robot will look around the entrance (taking 1 second) so I can later put the mug at the entrance (taking 2.5 seconds).
+Hsr Robot is going to find person1 and person2 (taking 20 seconds) so I can later ask person2 at the kitchen corridor (taking 2 seconds) and I can deliver post2 to person2 at the kitchen corridor (taking 2 seconds).
+I will move from the kitchen sink towards the kitchen counter (via entrance, taking 22 seconds), which will allow me to scan the kitchen counter (taking 1 second) to later place the paper at the kitchen counter (taking 2.5 seconds).
+Hsr Robot is going to move from the entrance towards the microwave (via kitchen chair, entrance, kitchen sink, entrance, kitchen table 1, and kitchen corridor, taking 65 seconds).
+I will go from the kitchen counter to the kitchen corridor (taking 10 seconds) so I can request person2 at the kitchen corridor (taking 2 seconds).
+I will go from the kitchen corridor to the kitchen shelf (taking 17 seconds) to be able to grasp the paper at the kitchen shelf (taking 2 seconds).
+I will travel from the kitchen shelf towards the kitchen counter (via coffee table 1, taking 19 seconds) to then place the paper at the kitchen counter (taking 2.5 seconds).
+Hsr Robot will grab the mug at the microwave (taking 2 seconds) and Hsr Robot is going to travel from the microwave to the kitchen corridor (taking 11 seconds) to then deliver mug to person2 at the kitchen corridor (taking 2 seconds).
+I will go from the kitchen counter to the kitchen corridor (via coffee table 1, kitchen shelf, and coffee table 1, taking 36 seconds).
+Hsr Robot will move from the kitchen corridor to the office entrance 1 (via kitchen door 1, taking 34 seconds) to then grab the post1 at the office entrance 1 (taking 2 seconds) to later be able to place the post1 at the main office desk (taking 2.5 seconds).
+I am going to take the mug at the kitchen corridor from the person2 (taking 2 seconds) and I will move from the kitchen corridor towards the entrance (taking 18 seconds) to then place the mug at the entrance (taking 2.5 seconds).
+Hsr Robot will travel from the office entrance 1 towards the main office desk (via kitchen door 1, corridor centre, corridor shelf 1, and main office doorway, taking 87 seconds) and Hsr Robot will check the main office desk (taking 1 second) to be able to put the post1 at the main office desk (taking 2.5 seconds).
+I am going to go from the entrance towards the office entrance 1 (via kitchen corridor, kitchen hallway, and kitchen door 1, taking 52 seconds) so I can grab the post2 at the office entrance 1 (taking 2 seconds).
+I am going to move from the office entrance 1 to the kitchen corridor (via kitchen door 1, taking 34 seconds) to then give post2 to person2 at the kitchen corridor (taking 2 seconds).
+Hsr Robot is going to go from the main office desk to the entrance (via main office doorway, meeting room hallway, and kitchen chair, taking 70 seconds).
+I am going to move from the kitchen corridor to the kitchen shelf (taking 17 seconds).

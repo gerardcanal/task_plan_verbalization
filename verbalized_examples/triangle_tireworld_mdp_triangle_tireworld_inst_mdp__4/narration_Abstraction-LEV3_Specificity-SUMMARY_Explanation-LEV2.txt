@@ -1,0 +1,11 @@
+The car is going to move from la1a1 to la1a5 (via la2a1, la3a1, la4a1, la5a1, la4a2, la3a3, and la2a4).
+I will load the tire at la2a1.
+I will change the tire.
+I is going to load the tire at la3a1.
+I is going to change the tire.
+I will load the tire at la5a1.
+I will change the tire.
+I will load the tire at la4a2.
+I is going to change the tire.
+I will load the tire at la2a4.
+I is going to change the tire.

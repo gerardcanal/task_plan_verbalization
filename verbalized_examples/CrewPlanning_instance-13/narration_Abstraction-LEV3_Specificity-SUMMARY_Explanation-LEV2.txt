@@ -1,0 +1,13 @@
+CrewPlanner is going to wake up C1 on d1.
+CrewPlanner is going to initiate d2.
+C1 will make pa1 1, pa1 2, and pa1 3.
+C1 will report the result of activity pa1 1, pa1 2, and pa1 3 on d1.
+C1 is going to have a meal on d1.
+C1 will work out on d1 with e1 to then communicate the medical state mcs1 on d1.
+C1 will make pa1 4 to be able to report the result of activity pa1 4 on d1.
+C1 will conduct pa2 1, pa2 2, pa2 3, pa2 4, pa2 5, and pa2 6 to then sleep on d1.
+CrewPlanner will wake up C1 on d2.
+CrewPlanner will initiate d3.
+C1 will report the result of activity pa2 1, pa2 2, pa2 3, pa2 4, pa2 5, and pa2 6 on d2.
+C1 will have a meal on d2 and C1 is going to exercise on d2 with e1 to be able to sleep on d2.
+C1 is going to change the spaceshipfilter on d2.

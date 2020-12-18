@@ -1,0 +1,16 @@
+Narrator is: rover0
+I will calibrate camera2 for objective1 at waypoint0.
+Rover1 is going to calibrate camera0 for objective1 at waypoint0.
+I am going to sample rock to store at mestore at waypoint0 to later communicate rock data of waypoint0 from waypoint0 to general lander at waypoint3.
+I am going to take an image of objective0 with camera2 in colour mode at waypoint0 to later communicate image data of objective0 in colour mode from waypoint0 to general lander at waypoint3.
+Rover1 will take an image of objective0 with camera0 in high res mode at waypoint0 to then transmit image data of objective0 in high res mode from waypoint0 to general lander at waypoint3, which will allow Rover1 to later transmit soil data of waypoint1 from waypoint1 to general lander at waypoint3.
+I am going to calibrate camera2 for objective1 at waypoint0.
+I am going to leave the load at store mestore.
+I am going to take an image of objective2 with camera2 in high res mode at waypoint0 so I can communicate image data of objective2 in high res mode from waypoint0 to general lander at waypoint3 so I can later communicate rock data of waypoint0 from waypoint0 to general lander at waypoint3.
+I am going to communicate image data of objective0 in colour mode from waypoint0 to general lander at waypoint3 to later transmit image data of objective2 in high res mode from waypoint0 to general lander at waypoint3.
+Rover1 is going to move from waypoint0 towards waypoint1 to later be able to communicate soil data of waypoint1 from waypoint1 to general lander at waypoint3.
+Rover1 is going to sample soil to store at rover1store at waypoint1 to drop the load at store rover1store.
+I am going to transmit rock data of waypoint0 from waypoint0 to general lander at waypoint3.
+I am going to go from waypoint0 towards waypoint1 and I am going to sample rock to store at mestore at waypoint1 to then transmit rock data of waypoint1 from waypoint1 to general lander at waypoint3.
+Rover1 is going to transmit soil data of waypoint1 from waypoint1 to general lander at waypoint3.
+Rover1 is going to move from waypoint1 towards waypoint2 and Rover1 is going to sample soil to store at rover1store at waypoint2 to communicate soil data of waypoint2 from waypoint2 to general lander at waypoint3.

@@ -1,0 +1,13 @@
+CrewPlanner is going to wake up C1 on d1 (taking 195 seconds) so C1 can later change the spaceshipfilter on d1 (taking 60 seconds), C1 can report the result of activity (11.476, 17.303, 11.476) on d1 (taking 1 second), C1 can report the result of activity (23.585, 27.758, 23.585) on d1 (taking 1 second), C1 can report the result of activity (75.587, 80.979, 75.587) on d1 (taking 1 second), and C1 can sleep on d1 (taking 600 seconds).
+C1 will conduct (3.303, 51.216, 3.303), (56.326, 68.140, 56.326), and (21.814, 43.762, 21.814) (taking 180 seconds), which will allow C1 to report the result of activity (3.303, 51.216, 3.303), (56.326, 68.140, 56.326), and (21.814, 43.762, 21.814) on d1 (taking 1 second).
+CrewPlanner is going to initiate d3 (via d2, taking 2880 seconds) to later be able to wake up C1 on d2 (taking 195 seconds).
+C1 is going to eat a meal on d1 (taking 60 seconds) to later sleep on d1 (taking 600 seconds).
+C1 will work out on d1 with e1 (taking 60 seconds), which will allow C1 to change the spaceshipfilter on d1 (taking 60 seconds).
+C1 will make (11.476, 17.303, 11.476) (taking 60 seconds) to be able to report the result of activity (11.476, 17.303, 11.476) on d1 (taking 1 second).
+C1 is going to conduct (23.585, 27.758, 23.585) (taking 60 seconds), which will allow C1 to report the result of activity (23.585, 27.758, 23.585) on d1 (taking 1 second).
+C1 will make (75.587, 80.979, 75.587) (taking 60 seconds), which will allow C1 to report the result of activity (75.587, 80.979, 75.587) on d1 (taking 1 second).
+C1 is going to make (45.222, 98.923, 45.222), (98.084, 25.852, 98.084), (71.612, 93.529, 71.612), (89.556, 58.259, 89.556), (8.571, 68.288, 8.571), (58.173, 9.756, 58.173), and (96.871, 93.300, 96.871) (taking 420 seconds) to then sleep on d1 (taking 600 seconds).
+CrewPlanner will wake up C1 on d2 (taking 195 seconds), which will allow C1 to later change the spaceshipfilter on d2 (taking 60 seconds) and C1 to sleep on d2 (taking 600 seconds).
+CrewPlanner is going to wake up C1 on d2 (taking 195 seconds) so C1 can report the result of activity (45.222, 98.923, 45.222), (98.084, 25.852, 98.084), (71.612, 93.529, 71.612), (89.556, 58.259, 89.556), (8.571, 68.288, 8.571), (58.173, 9.756, 58.173), and (96.871, 93.300, 96.871) on d2 (taking 1 second).
+C1 is going to sleep on d2 (taking 600 seconds) because C1 will eat a meal on d2 (taking 60 seconds) and C1 is going to exercise on d2 with e1 (taking 60 seconds).
+C1 is going to change the spaceshipfilter on d2 (taking 60 seconds).

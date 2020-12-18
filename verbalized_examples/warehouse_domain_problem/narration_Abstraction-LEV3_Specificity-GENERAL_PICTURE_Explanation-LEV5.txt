@@ -1,0 +1,8 @@
+Narrator is: robot_assistant
+I am going to locate person1 to reach the goal of finding person1.
+I am going to locate person2 and I will go from the wp5 towards the wp15 so I can ask person2 at the wp15 to fulfill the goal of asking person2.
+I will take the mug at the wp2 and I will travel from the wp2 towards the wp5 to be able to leave the mug at the wp5 to fulfill the goal of the mug being at the wp5 so I can later grab the paper at the wp1.
+I am going to go from the wp2 to the wp4 to then put the paper at the wp4 to reach the goal of the paper being at the wp4 to later be able to grasp the post2 at the wp38.
+I am going to move from the wp36 to the wp15, which will allow me to deliver post2 to person2 at the wp15 to reach the goal of the post2 being at the person2 to later grasp the post1 at the wp38.
+I will go from the wp19 towards the wp6 and I am going to scan the wp6 to be able to place the post1 at the wp6 to fulfill the goal of the post1 being at the wp6.
+I am going to go from the wp3 towards the wp2 to travel from the wp2 to the wp1 to achieve the goal of me being at the wp1.

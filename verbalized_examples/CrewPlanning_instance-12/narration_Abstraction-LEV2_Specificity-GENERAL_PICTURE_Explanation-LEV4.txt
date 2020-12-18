@@ -1,0 +1,24 @@
+CrewPlanner will initiate d2 (taking 1440 seconds) to fulfill the goal of d2 being initiated.
+C1 is going to report the result of activity pa1 1 on d1 (taking 1 second) to achieve the goal of pa1 1 being completed on d1.
+C1 will report the result of activity pa1 10 on d1 (taking 1 second) to reach the goal of pa1 10 being completed on d1.
+C1 is going to report the result of activity pa1 11 on d1 (taking 1 second) to reach the goal of pa1 11 being completed on d1.
+C1 is going to report the result of activity pa1 12 on d1 (taking 1 second) to achieve the goal of pa1 12 being completed on d1.
+C1 will report the result of activity pa1 13 on d1 (taking 1 second) to fulfill the goal of pa1 13 being completed on d1.
+C1 will report the result of activity pa1 14 on d1 (taking 1 second) to achieve the goal of pa1 14 being completed on d1.
+C1 is going to report the result of activity pa1 15 on d1 (taking 1 second) to fulfill the goal of pa1 15 being completed on d1.
+C1 will report the result of activity pa1 16 on d1 (taking 1 second) to fulfill the goal of pa1 16 being completed on d1.
+C1 will report the result of activity pa1 2 on d1 (taking 1 second) to reach the goal of pa1 2 being completed on d1.
+C2 is going to eat a meal on d1 (taking 60 seconds) to be able to change the spaceshipfilter on d1 (taking 60 seconds) to achieve the goal of spaceshipfilter changing on d1.
+C3 is going to have a meal on d1 (taking 60 seconds) to be able to communicate the medical state mcs2 on d1 (taking 60 seconds) to reach the goal of The medical state mcs2 being finished on d1.
+C1 will work out on d1 with e1 (taking 60 seconds), which will allow C1 to communicate the medical state mcs3 on d1 (taking 60 seconds) to achieve the goal of The medical state mcs3 being finished on d1.
+C1 will report the result of activity pa1 3 on d1 (taking 1 second) because C3 is going to make pa1 3 (taking 60 seconds) to fulfill the goal of pa1 3 being completed on d1.
+C1 is going to report the result of activity pa1 4 on d1 (taking 1 second) because C1 is going to conduct pa1 4 (taking 60 seconds) to fulfill the goal of pa1 4 being completed on d1.
+C1 will report the result of activity pa1 5 on d1 (taking 1 second) to achieve the goal of pa1 5 being completed on d1.
+C1 will make pa1 6 (taking 60 seconds) to then report the result of activity pa1 6 on d1 (taking 1 second) to achieve the goal of pa1 6 being completed on d1.
+C1 will report the result of activity pa1 7 on d1 (taking 1 second) to fulfill the goal of pa1 7 being completed on d1.
+C1 is going to report the result of activity pa1 8 on d1 (taking 1 second) to reach the goal of pa1 8 being completed on d1.
+C1 is going to conduct pa1 9 (taking 60 seconds) to report the result of activity pa1 9 on d1 (taking 1 second) to fulfill the goal of pa1 9 being completed on d1.
+C1 is going to replace the rpcm1 (taking 180 seconds), which will allow C1 to sleep on d1 (taking 600 seconds) to reach the goal of C1 completing sleep on d1.
+C2 will assemble the sleep station rpcm1 (taking 60 seconds) so C2 can sleep on d1 (taking 600 seconds) to achieve the goal of C2 completing sleep on d1.
+C3 will perform the second reconfiguration of the thermal loop rpcm1 (taking 60 seconds) to sleep on d1 (taking 600 seconds) to reach the goal of C3 completing sleep on d1.
+C1 will finish the rpcm1 on d1 (taking 1 second) to reach the goal of rpcm1 being completed on d1.

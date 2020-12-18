@@ -1,0 +1,11 @@
+Narrator is: rover0
+I will transmit image data of objective0 in colour mode from waypoint0 to general lander at waypoint3.
+I will transmit image data of objective1 in low res mode from waypoint0 to general lander at waypoint3.
+I will transmit image data of objective0 in low res mode from waypoint0 to general lander at waypoint3.
+I will communicate rock data of waypoint0 from waypoint0 to general lander at waypoint3.
+Rover1 is going to transmit soil data of waypoint1 from waypoint0 to general lander at waypoint3.
+I will transmit rock data of waypoint2 from waypoint0 to general lander at waypoint3.
+Rover1 will transmit soil data of waypoint2 from waypoint2 to general lander at waypoint3.
+I will transmit rock data of waypoint3 from waypoint0 to general lander at waypoint3.
+Rover1 is going to communicate soil data of waypoint5 from waypoint4 to general lander at waypoint3.
+Rover1 will transmit soil data of waypoint4 from waypoint4 to general lander at waypoint3.

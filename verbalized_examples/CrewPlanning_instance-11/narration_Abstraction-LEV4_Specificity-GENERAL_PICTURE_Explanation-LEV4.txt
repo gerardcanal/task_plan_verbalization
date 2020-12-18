@@ -1,0 +1,20 @@
+CrewPlanner will initiate d2 to achieve the goal of d2 being initiated.
+C1 will report the result of activity pa1 1 to reach the goal of pa1 1 being completed.
+C1 will report the result of activity pa1 10 to achieve the goal of pa1 10 being completed.
+C1 is going to report the result of activity pa1 11 to fulfill the goal of pa1 11 being completed.
+C1 is going to report the result of activity pa1 12 to reach the goal of pa1 12 being completed.
+C1 is going to report the result of activity pa1 13 to fulfill the goal of pa1 13 being completed.
+C1 is going to report the result of activity pa1 2 to achieve the goal of pa1 2 being completed.
+C1 is going to report the result of activity pa1 3 to achieve the goal of pa1 3 being completed.
+C1 is going to report the result of activity pa1 4 to fulfill the goal of pa1 4 being completed.
+C1 is going to report the result of activity pa1 5 to reach the goal of pa1 5 being completed.
+C1 will communicate the medical state mcs1 because C1 is going to exercise with e1 to achieve the goal of The medical state mcs1 being finished.
+C2 is going to exercise with e2, which will allow C2 to communicate the medical state mcs2 to fulfill the goal of The medical state mcs2 being finished.
+C3 is going to conduct pa1 6, which will allow C1 to report the result of activity pa1 6 to achieve the goal of pa1 6 being completed.
+C1 is going to conduct pa1 7 to be able to report the result of activity pa1 7 to fulfill the goal of pa1 7 being completed.
+C1 will report the result of activity pa1 8 to achieve the goal of pa1 8 being completed.
+C1 is going to report the result of activity pa1 9 to reach the goal of pa1 9 being completed.
+C3 will replace the rpcm1, which will allow C3 to sleep to achieve the goal of C3 completing sleep.
+C1 is going to assemble, which will allow C1 to finish the rpcm1 to fulfill the goal of rpcm1 being completed.
+C2 is going to sleep because C2 will do the second reconfiguration to fulfill the goal of C2 completing sleep.
+C1 will sleep to reach the goal of C1 completing sleep.

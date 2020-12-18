@@ -1,0 +1,53 @@
+Narrator is: robot_assistant
+Asro will move from the kitchen sink to the entrance (taking 8 seconds).
+Tomo will check the entrance (taking 1 second).
+Tomo will look for the manager (taking 20 seconds).
+Tomo is going to find the secretary (taking 20 seconds).
+Asro is going to go from the entrance towards the kitchen counter (taking 14 seconds).
+Tomo will travel from the entrance to the kitchen chair (taking 12 seconds).
+Asro is going to check the kitchen counter (taking 1 second).
+Tomo is going to travel from the kitchen chair to the kitchen sink (taking 16 seconds).
+Asro is going to travel from the kitchen counter towards the kitchen corridor (taking 10 seconds).
+Asro is going to ask the manager at the kitchen corridor (taking 2 seconds).
+Asro is going to move from the kitchen corridor towards the kitchen shelf (taking 17 seconds).
+Tomo is going to go from the kitchen sink towards the entrance (taking 8 seconds).
+Tomo will move from the entrance towards the kitchen table 1 (taking 12 seconds).
+Asro will take the paper at the kitchen shelf (taking 2 seconds).
+Asro will travel from the kitchen shelf to the coffee table 1 (taking 11 seconds).
+Tomo will go from the kitchen table 1 to the kitchen corridor (taking 6 seconds).
+Tomo is going to go from the kitchen corridor towards the microwave (taking 11 seconds).
+Asro is going to go from the coffee table 1 towards the kitchen counter (taking 8 seconds).
+Asro is going to leave the paper at the kitchen counter (taking 2.5 seconds).
+Tomo will take the mug at the microwave (taking 2 seconds).
+Asro will move from the kitchen counter to the coffee table 1 (taking 8 seconds).
+Tomo is going to move from the microwave to the kitchen corridor (taking 11 seconds).
+Asro is going to travel from the coffee table 1 towards the kitchen shelf (taking 11 seconds).
+Tomo is going to give mug to the manager at the kitchen corridor (taking 2 seconds).
+Tomo is going to go from the kitchen corridor towards the kitchen door 1 (taking 26 seconds).
+Asro will move from the kitchen shelf towards the coffee table 1 (taking 11 seconds).
+Asro will move from the coffee table 1 to the kitchen corridor (taking 6 seconds).
+Tomo will travel from the kitchen door 1 to the office entrance 1 (taking 8 seconds).
+Asro will get the mug at the kitchen corridor from the the manager (taking 2 seconds).
+Tomo will take the post1 at the office entrance 1 (taking 2 seconds).
+Asro will travel from the kitchen corridor towards the entrance (taking 18 seconds).
+Tomo will move from the office entrance 1 towards the kitchen door 1 (taking 8 seconds).
+Tomo will travel from the kitchen door 1 towards the corridor centre (taking 29 seconds).
+Asro is going to leave the mug at the entrance (taking 2.5 seconds).
+Asro is going to move from the entrance towards the kitchen corridor (taking 18 seconds).
+Asro is going to travel from the kitchen corridor to the kitchen hallway (taking 9 seconds).
+Tomo is going to go from the corridor centre to the corridor shelf 1 (taking 9 seconds).
+Asro is going to go from the kitchen hallway to the kitchen door 1 (taking 17 seconds).
+Tomo is going to go from the corridor shelf 1 to the main office doorway (taking 26 seconds).
+Asro is going to travel from the kitchen door 1 towards the office entrance 1 (taking 8 seconds).
+Asro is going to grab the post2 at the office entrance 1 (taking 2 seconds).
+Tomo will move from the main office doorway towards the main office desk (taking 15 seconds).
+Asro will travel from the office entrance 1 to the kitchen door 1 (taking 8 seconds).
+Asro is going to move from the kitchen door 1 to the kitchen corridor (taking 26 seconds).
+Tomo is going to check the main office desk (taking 1 second).
+Tomo will put the post1 at the main office desk (taking 2.5 seconds).
+Tomo will travel from the main office desk to the main office doorway (taking 15 seconds).
+Tomo is going to move from the main office doorway to the meeting room hallway (taking 21 seconds).
+Asro is going to hand post2 to the manager at the kitchen corridor (taking 2 seconds).
+Asro will travel from the kitchen corridor towards the kitchen shelf (taking 17 seconds).
+Tomo is going to move from the meeting room hallway to the kitchen chair (taking 22 seconds).
+Tomo is going to move from the kitchen chair to the entrance (taking 12 seconds).

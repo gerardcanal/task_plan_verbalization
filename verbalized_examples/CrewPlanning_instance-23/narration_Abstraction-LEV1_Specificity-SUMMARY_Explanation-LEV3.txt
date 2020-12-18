@@ -1,0 +1,26 @@
+CrewPlanner is going to wake up C1 on d1 (taking 195 seconds), which will allow C1 to later communicate the medical state mcs1 on d1 (taking 60 seconds), C1 to report the result of activity (86.054, 23.896, 86.054) on d1 (taking 1 second), C1 to report the result of activity (53.813, 99.889, 53.813) on d1 (taking 1 second), C1 to report the result of activity (18.250, 57.016, 18.250) on d1 (taking 1 second), and C1 to sleep on d1 (taking 600 seconds).
+C1 will conduct (61.581, 0.900, 61.581), (93.699, 98.847, 93.699), and (20.061, 42.794, 20.061) (taking 180 seconds) so C1 can report the result of activity (61.581, 0.900, 61.581), (93.699, 98.847, 93.699), and (20.061, 42.794, 20.061) on d1 (taking 1 second).
+CrewPlanner will initiate d3 (via d2, taking 2880 seconds) so CrewPlanner can later initiate d4 (taking 1440 seconds).
+C1 will eat a meal on d1 (taking 60 seconds), which will allow C1 to later sleep on d1 (taking 600 seconds).
+C1 will exercise on d1 with e1 (taking 60 seconds) to be able to communicate the medical state mcs1 on d1 (taking 60 seconds).
+C1 will make (86.054, 23.896, 86.054) (taking 60 seconds) so C1 can report the result of activity (86.054, 23.896, 86.054) on d1 (taking 1 second).
+C1 will make (53.813, 99.889, 53.813) (taking 60 seconds) to report the result of activity (53.813, 99.889, 53.813) on d1 (taking 1 second).
+C1 will conduct (18.250, 57.016, 18.250) (taking 60 seconds) to be able to report the result of activity (18.250, 57.016, 18.250) on d1 (taking 1 second).
+C1 is going to conduct (80.954, 31.439, 80.954) (taking 60 seconds) to later report the result of activity (80.954, 31.439, 80.954) on d2 (taking 1 second).
+C1 is going to make (80.954, 31.439, 80.954) (taking 60 seconds) so C1 can perform the first reconfiguration of the thermal loop (14.045, 78.214, 14.045) and (7.461, 9.984, 7.461) (taking 120 seconds).
+C1 is going to remove the sleep station (14.045, 78.214, 14.045) and (7.461, 9.984, 7.461) (taking 120 seconds).
+C1 will replace the (14.045, 78.214, 14.045) (taking 180 seconds) and C1 is going to assemble the sleep station (14.045, 78.214, 14.045) (taking 60 seconds) to be able to perform the second reconfiguration of the thermal loop (14.045, 78.214, 14.045) (taking 60 seconds), which will allow C1 to later finish the (14.045, 78.214, 14.045) on d2 (taking 1 second).
+C1 is going to replace the (7.461, 9.984, 7.461) (taking 180 seconds), which will allow C1 to assemble the sleep station (7.461, 9.984, 7.461) (taking 60 seconds) so C1 can later finish the (7.461, 9.984, 7.461) on d3 (taking 1 second).
+C1 will perform the second reconfiguration of the thermal loop (7.461, 9.984, 7.461) (taking 60 seconds) so C1 can sleep on d1 (taking 600 seconds).
+CrewPlanner is going to wake up C1 on d2 (taking 195 seconds), which will allow C1 to report the result of activity (80.954, 31.439, 80.954) on d2 (taking 1 second).
+C1 is going to finish the (14.045, 78.214, 14.045) on d2 (taking 1 second).
+C1 is going to eat a meal on d2 (taking 60 seconds) to later be able to sleep on d2 (taking 600 seconds).
+C1 is going to work out on d2 with e1 (taking 60 seconds) to then change the spaceshipfilter on d2 (taking 60 seconds).
+C1 is going to communicate the medical state mcs1 on d2 (taking 60 seconds).
+C1 is going to sleep on d2 (taking 600 seconds).
+CrewPlanner will initiate d4 (taking 1440 seconds).
+CrewPlanner is going to wake up C1 on d3 (taking 195 seconds), which will allow C1 to finish the (7.461, 9.984, 7.461) on d3 (taking 1 second).
+C1 will eat a meal on d3 (taking 60 seconds), which will allow C1 to later sleep on d3 (taking 600 seconds).
+C1 will exercise on d3 with e1 (taking 60 seconds) so C1 can change the spaceshipfilter on d3 (taking 60 seconds).
+C1 is going to communicate the medical state mcs1 on d3 (taking 60 seconds).
+C1 is going to sleep on d3 (taking 600 seconds).

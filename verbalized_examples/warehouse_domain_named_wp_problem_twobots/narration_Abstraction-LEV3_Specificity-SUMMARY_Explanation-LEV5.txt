@@ -1,0 +1,18 @@
+Narrator is: robot_assistant
+Hsr Robot will scan the entrance so I can later leave the mug at the entrance.
+Hsr Robot will look for person1 to reach the goal of finding person1.
+Hsr Robot will find person2 so I can later ask person2 at the kitchen corridor, Hsr Robot can hand mug to person2 at the kitchen corridor, I can get the mug at the kitchen corridor from the person2, and I can hand post2 to person2 at the kitchen corridor.
+I will travel from the kitchen sink to the kitchen counter (via entrance) to be able to scan the kitchen counter so I can later put the paper at the kitchen counter.
+Hsr Robot is going to move from the entrance towards the microwave (via kitchen chair, entrance, kitchen sink, entrance, kitchen table 1, and kitchen corridor), which will allow Hsr Robot to later grab the mug at the microwave and travel from the microwave towards the kitchen corridor.
+I am going to move from the kitchen counter towards the kitchen corridor to then ask person2 at the kitchen corridor to achieve the goal of asking person2.
+I am going to grab the paper at the kitchen shelf because I am going to go from the kitchen corridor to the kitchen shelf.
+I am going to travel from the kitchen shelf towards the kitchen counter (via coffee table 1), which will allow me to put the paper at the kitchen counter to fulfill the goal of the paper being at the kitchen counter, which will allow me to later take the mug at the kitchen corridor from the person2.
+Hsr Robot is going to grab the mug at the microwave and Hsr Robot will travel from the microwave to the kitchen corridor to be able to hand mug to person2 at the kitchen corridor so I can later get the mug at the kitchen corridor from the person2 and Hsr Robot can grab the post1 at the office entrance 1.
+I will go from the kitchen counter towards the kitchen corridor (via coffee table 1, kitchen shelf, and coffee table 1) to later take the mug at the kitchen corridor from the person2 and go from the kitchen corridor towards the entrance.
+Hsr Robot is going to grab the post1 at the office entrance 1 because Hsr Robot will travel from the kitchen corridor to the office entrance 1 (via kitchen door 1) to later be able to place the post1 at the main office desk.
+I am going to get the mug at the kitchen corridor from the person2 and I will move from the kitchen corridor to the entrance to then place the mug at the entrance to reach the goal of the mug being at the entrance.
+Hsr Robot will move from the office entrance 1 to the main office desk (via kitchen door 1, corridor centre, corridor shelf 1, and main office doorway) and Hsr Robot is going to scan the main office desk to then place the post1 at the main office desk to reach the goal of the post1 being at the main office desk.
+I will move from the entrance towards the office entrance 1 (via kitchen corridor, kitchen hallway, and kitchen door 1), which will allow me to take the post2 at the office entrance 1.
+I am going to travel from the office entrance 1 to the kitchen corridor (via kitchen door 1), which will allow me to hand post2 to person2 at the kitchen corridor to achieve the goal of the post2 being at the person2.
+Hsr Robot will go from the main office desk to the kitchen chair (via main office doorway and meeting room hallway) to then go from the kitchen chair to the entrance to achieve the goal of hsr robot being at the entrance.
+I will travel from the kitchen corridor towards the kitchen shelf to reach the goal of me being at the kitchen shelf.

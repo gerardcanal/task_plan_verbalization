@@ -1,0 +1,9 @@
+Narrator is: robot_assistant
+Hsr Robot is going to go towards the wp15 to be able to look for person1.
+Hsr Robot will look for person2 to request person2.
+I am going to travel towards the wp4 to be able to leave the paper.
+I am going to place the mug because I am going to go towards the wp5 and I will scan the wp5.
+Hsr Robot is going to go towards the wp15 to be able to deliver post2 to person2.
+I will move towards the wp15 to move towards the wp1.
+Hsr Robot is going to place the post1 because Hsr Robot is going to go towards the wp6 and Hsr Robot is going to check the wp6.
+Hsr Robot is going to go towards the wp16, which will allow Hsr Robot to go towards the wp5.

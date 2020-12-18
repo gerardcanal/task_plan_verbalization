@@ -1,0 +1,31 @@
+C1 will report the result of activity pa1 1 on d1.
+C1 is going to report the result of activity pa1 10 on d1.
+C1 is going to report the result of activity pa1 11 on d1.
+C1 will report the result of activity pa1 12 on d1.
+C1 is going to report the result of activity pa1 2 on d1.
+C1 will report the result of activity pa1 3 on d1.
+C2 is going to change the spaceshipfilter on d1.
+C1 is going to communicate the medical state mcs2 on d1.
+C1 will report the result of activity pa1 4 on d1.
+C1 is going to report the result of activity pa1 5 on d1.
+C1 will report the result of activity pa1 6 on d1.
+C1 will report the result of activity pa1 7 on d1.
+C1 is going to report the result of activity pa1 8 on d1.
+C1 will report the result of activity pa1 9 on d1.
+C1 is going to sleep on d1.
+C2 is going to sleep on d1.
+CrewPlanner will initiate d3.
+C1 is going to report the result of activity pa2 1 on d2.
+C1 will report the result of activity pa2 10 on d2.
+C1 is going to report the result of activity pa2 2 on d2.
+C1 will report the result of activity pa2 3 on d2.
+C1 is going to report the result of activity pa2 4 on d2.
+C1 is going to report the result of activity pa2 5 on d2.
+C1 is going to report the result of activity pa2 6 on d2.
+C1 will report the result of activity pa2 7 on d2.
+C1 will report the result of activity pa2 8 on d2.
+C1 is going to report the result of activity pa2 9 on d2.
+C1 will finish the rpcm2 on d2.
+C2 will communicate the medical state mcs1 on d2.
+C1 will sleep on d2.
+C2 is going to sleep on d2.

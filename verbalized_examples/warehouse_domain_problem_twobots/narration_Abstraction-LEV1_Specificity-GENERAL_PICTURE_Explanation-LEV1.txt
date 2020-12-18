@@ -1,0 +1,9 @@
+Narrator is: robot_assistant
+Hsr Robot is going to locate person1 (taking 20 seconds).
+I am going to leave the paper at the coordinate (70.017, 50.523, 70.017) (taking 2.5 seconds).
+Hsr Robot is going to request person2 at the coordinate (16.191, 60.653, 16.191) (taking 2 seconds).
+I will leave the mug at the coordinate (72.106, 93.628, 72.106) (taking 2.5 seconds).
+Hsr Robot will hand post2 to person2 at the coordinate (16.191, 60.653, 16.191) (taking 2 seconds).
+I will travel from the coordinate (16.191, 60.653, 16.191) to the coordinate (66.589, 69.605, 66.589) (taking 17 seconds).
+Hsr Robot is going to leave the post1 at the coordinate (90.358, 91.665, 90.358) (taking 2.5 seconds).
+Hsr Robot will travel from the coordinate (76.665, 31.628, 76.665) to the coordinate (72.106, 93.628, 72.106) (taking 12 seconds).

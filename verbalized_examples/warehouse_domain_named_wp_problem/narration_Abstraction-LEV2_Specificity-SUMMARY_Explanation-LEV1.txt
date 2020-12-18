@@ -1,0 +1,26 @@
+Narrator is: robot_assistant
+I am going to travel from the kitchen sink towards the entrance (taking 8 seconds).
+I am going to check the entrance (taking 1 second).
+I will travel from the entrance towards the kitchen counter (taking 14 seconds).
+I am going to look around the kitchen counter (taking 1 second).
+I am going to find person1 and person2 (taking 20 seconds).
+I am going to move from the kitchen counter to the kitchen corridor (taking 10 seconds).
+I will ask person2 at the kitchen corridor (taking 2 seconds).
+I will go from the kitchen corridor to the microwave (taking 11 seconds).
+I will grasp the mug at the microwave (taking 2 seconds).
+I will go from the microwave towards the entrance (taking 19 seconds).
+I am going to place the mug at the entrance (taking 2.5 seconds).
+I will go from the entrance towards the kitchen shelf (via kitchen corridor, taking 35 seconds).
+I will grasp the paper at the kitchen shelf (taking 2 seconds).
+I am going to move from the kitchen shelf towards the kitchen counter (via microwave, taking 12 seconds).
+I am going to place the paper at the kitchen counter (taking 2.5 seconds).
+I am going to move from the kitchen counter to the office entrance 1 (via kitchen corridor and kitchen door 1, taking 44 seconds).
+I am going to grasp the post2 at the office entrance 1 (taking 2 seconds).
+I am going to move from the office entrance 1 towards the kitchen corridor (via kitchen door 1, taking 34 seconds).
+I am going to give post2 to person2 at the kitchen corridor (taking 2 seconds).
+I am going to move from the kitchen corridor to the office entrance 1 (via kitchen door 1, taking 34 seconds).
+I am going to grab the post1 at the office entrance 1 (taking 2 seconds).
+I will go from the office entrance 1 towards the main office desk (via kitchen door 1, corridor centre, and main office doorway, taking 81 seconds).
+I will scan the main office desk (taking 1 second).
+I will leave the post1 at the main office desk (taking 2.5 seconds).
+I am going to move from the main office desk towards the kitchen shelf (via main office doorway, meeting room hallway, kitchen sink, and microwave, taking 93 seconds).

@@ -1,0 +1,27 @@
+The car is going to move from (64.925, 54.965, 64.925) to (42.371, 47.226, 42.371) (taking 0 seconds).
+I is going to load the tire at (42.371, 47.226, 42.371) (taking 0 seconds).
+I will change the tire (taking 0 seconds).
+The car is going to move from (42.371, 47.226, 42.371) to (20.787, 85.531, 20.787) (taking 0 seconds).
+I will load the tire at (20.787, 85.531, 20.787) (taking 0 seconds).
+I will change the tire (taking 0 seconds).
+The car is going to move from (20.787, 85.531, 20.787) to (80.473, 97.399, 80.473) (taking 0 seconds).
+I is going to load the tire at (80.473, 97.399, 80.473) (taking 0 seconds).
+I will change the tire (taking 0 seconds).
+The car will move from (80.473, 97.399, 80.473) to (46.246, 12.378, 46.246) (taking 0 seconds).
+I is going to load the tire at (46.246, 12.378, 46.246) (taking 0 seconds).
+I is going to change the tire (taking 0 seconds).
+The car is going to move from (46.246, 12.378, 46.246) to (88.684, 99.507, 88.684) (taking 0 seconds).
+I is going to load the tire at (88.684, 99.507, 88.684) (taking 0 seconds).
+I is going to change the tire (taking 0 seconds).
+The car is going to move from (88.684, 99.507, 88.684) to (58.966, 81.370, 58.966) (taking 0 seconds).
+I will load the tire at (58.966, 81.370, 58.966) (taking 0 seconds).
+The car is going to move from (58.966, 81.370, 58.966) to (90.036, 26.259, 90.036) (taking 0 seconds).
+I will change the tire (taking 0 seconds).
+I is going to load the tire at (90.036, 26.259, 90.036) (taking 0 seconds).
+The car will move from (90.036, 26.259, 90.036) to (36.503, 4.951, 36.503) (taking 0 seconds).
+I will change the tire (taking 0 seconds).
+The car is going to move from (36.503, 4.951, 36.503) to (98.881, 29.651, 98.881) (taking 0 seconds).
+I will load the tire at (98.881, 29.651, 98.881) (taking 0 seconds).
+I is going to change the tire (taking 0 seconds).
+The car will move from (98.881, 29.651, 98.881) to (33.333, 44.975, 33.333) (taking 0 seconds).
+I will load the tire at (33.333, 44.975, 33.333) (taking 0 seconds).

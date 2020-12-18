@@ -1,0 +1,7 @@
+CrewPlanner will initiate d2.
+C1 will exercise on d1 with e1 to then communicate the medical state mcs1 on d1.
+C1 will report the result of activity pa1 1 on d1.
+C1 will report the result of activity pa1 2 on d1.
+C1 is going to report the result of activity pa1 3 on d1.
+C1 is going to sleep on d1.
+C1 is going to report the result of activity pa1 4 on d1.

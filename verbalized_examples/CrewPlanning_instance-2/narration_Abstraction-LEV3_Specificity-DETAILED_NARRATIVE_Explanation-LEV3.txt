@@ -1,0 +1,11 @@
+CrewPlanner is going to initiate d2.
+C1 is going to have a meal on d1 because CrewPlanner is going to wake up C1 on d1, which will allow C1 to later sleep on d1.
+C1 is going to exercise on d1 with e1 so C1 can communicate the medical state mcs1 on d1.
+C1 will make pa1 1 to then conduct pa1 2 to later be able to report the result of activity pa1 2 on d1.
+C1 will report the result of activity pa1 1 on d1.
+C1 is going to make pa1 3 so C1 can later report the result of activity pa1 3 on d1.
+C1 is going to report the result of activity pa1 2 on d1.
+C1 is going to make pa1 4 to later sleep on d1 and report the result of activity pa1 4 on d1.
+C1 is going to report the result of activity pa1 3 on d1.
+C1 is going to sleep on d1.
+C1 will report the result of activity pa1 4 on d1.

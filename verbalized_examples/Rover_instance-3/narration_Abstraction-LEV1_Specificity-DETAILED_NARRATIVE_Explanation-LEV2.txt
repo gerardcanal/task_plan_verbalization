@@ -1,0 +1,8 @@
+Narrator is: rover0
+I will sample rock to store at mestore at (26.035, 3.956, 26.035) (taking 8 seconds) because I will go from (91.781, 28.947, 91.781) towards (26.035, 3.956, 26.035) (taking 5 seconds).
+Rover1 will capture an image of objective0 with camera1 in colour mode at (26.035, 3.956, 26.035) (taking 7 seconds) because Rover1 will move from (12.978, 96.265, 12.978) towards (26.035, 3.956, 26.035) (taking 5 seconds) and Rover1 will calibrate camera1 for objective0 at (26.035, 3.956, 26.035) (taking 5 seconds).
+I am going to travel from (26.035, 3.956, 26.035) towards (91.781, 28.947, 91.781) (taking 5 seconds).
+Rover1 will travel from (26.035, 3.956, 26.035) towards (12.978, 96.265, 12.978) (taking 5 seconds).
+Rover1 is going to go from (12.978, 96.265, 12.978) to (62.029, 24.204, 62.029) (taking 5 seconds) and Rover1 is going to sample soil to store at rover1store at (62.029, 24.204, 62.029) (taking 10 seconds) to communicate soil data of (62.029, 24.204, 62.029) from (62.029, 24.204, 62.029) to general lander at (26.035, 3.956, 26.035) (taking 10 seconds).
+Rover1 will communicate image data of objective0 in colour mode from (62.029, 24.204, 62.029) to general lander at (26.035, 3.956, 26.035) (taking 15 seconds).
+I will communicate rock data of (26.035, 3.956, 26.035) from (91.781, 28.947, 91.781) to general lander at (26.035, 3.956, 26.035) (taking 10 seconds).

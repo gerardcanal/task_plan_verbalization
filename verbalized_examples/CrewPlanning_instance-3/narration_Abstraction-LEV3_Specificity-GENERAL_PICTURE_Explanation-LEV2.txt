@@ -1,0 +1,4 @@
+CrewPlanner will initiate d2.
+C1 is going to work out on d1 with e1 to be able to change the spaceshipfilter on d1.
+C1 will perform the second reconfiguration of the thermal loop rpcm1, which will allow C1 to sleep on d1.
+C1 is going to finish the rpcm1 on d1.

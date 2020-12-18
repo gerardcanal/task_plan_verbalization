@@ -1,0 +1,35 @@
+Narrator is: rover0
+Rover2 will move towards waypoint0.
+I will calibrate camera4 for objective1.
+I will sample soil.
+Rover1 will travel to waypoint0, which will allow Rover1 to go to waypoint2.
+Rover3 will move towards waypoint0 to then go towards waypoint3.
+Rover2 is going to go to waypoint1 to be able to sample rock.
+I will go to waypoint0 to be able to take an image of objective1 with camera4.
+Rover3 is going to travel to waypoint8 and Rover3 is going to sample rock to transmit rock data of waypoint8 to general lander.
+Rover1 is going to sample soil and Rover1 is going to go towards waypoint0 to then communicate soil data of waypoint2 to general lander.
+I will calibrate camera4 for objective1 to take an image of objective2 with camera4.
+Rover2 is going to go towards waypoint0.
+Rover2 is going to drop the load and Rover2 will move to waypoint4 to be able to sample soil.
+Rover3 is going to drop the load.
+I will calibrate camera4 for objective1, which will allow me to take an image of objective3 with camera4.
+I will transmit soil data of waypoint7 to general lander.
+Rover3 will move to waypoint3.
+Rover2 is going to leave the load to be able to sample rock.
+Rover3 will sample rock because Rover3 is going to go towards waypoint7.
+Rover2 will go towards waypoint0.
+Rover2 is going to leave the load and Rover2 is going to go to waypoint5, which will allow Rover2 to sample soil.
+Rover3 will move towards waypoint3 so Rover3 can go towards waypoint0.
+I will transmit image data of objective1 to general lander.
+Rover2 will travel to waypoint0.
+Rover2 will leave the load and Rover2 is going to travel to waypoint6 to then sample rock.
+I am going to transmit image data of objective2 to general lander.
+I am going to transmit image data of objective3 to general lander.
+Rover2 will travel towards waypoint0.
+Rover2 will drop the load.
+Rover2 will transmit soil data of waypoint4 to general lander.
+Rover2 will transmit soil data of waypoint5 to general lander.
+Rover2 is going to communicate rock data of waypoint1 to general lander.
+Rover2 will communicate rock data of waypoint4 to general lander.
+Rover2 will communicate rock data of waypoint6 to general lander.
+Rover3 will communicate rock data of waypoint7 to general lander.

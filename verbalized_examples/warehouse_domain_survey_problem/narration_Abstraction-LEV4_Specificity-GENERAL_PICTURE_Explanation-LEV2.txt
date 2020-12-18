@@ -1,0 +1,9 @@
+Narrator is: robot_assistant
+Tomo is going to locate the secretary.
+Asro will travel towards the kitchen corridor to be able to request the manager.
+Asro will travel towards the kitchen counter to then put the paper.
+Asro will put the mug because Asro is going to take the mug from the the manager and Asro is going to travel to the entrance.
+Tomo will travel to the main office desk and Tomo is going to check the main office desk, which will allow Tomo to place the post1.
+Asro will move to the kitchen corridor to then deliver post2 to the manager.
+Asro is going to travel towards the kitchen shelf.
+Tomo will move to the kitchen chair, which will allow Tomo to travel to the entrance.

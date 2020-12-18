@@ -1,0 +1,10 @@
+CrewPlanner will initiate d2 (taking 1440 seconds).
+C1 is going to change the spaceshipfilter on d1 (taking 60 seconds) because C1 is going to work out on d1 with e1 (taking 60 seconds).
+C1 is going to report the result of activity pa1 1 on d1 (taking 1 second).
+C1 will report the result of activity pa1 2 on d1 (taking 1 second).
+C1 will report the result of activity pa1 3 on d1 (taking 1 second).
+C1 is going to report the result of activity pa1 4 on d1 (taking 1 second).
+C1 will report the result of activity pa1 5 on d1 (taking 1 second).
+C1 will report the result of activity pa1 6 on d1 (taking 1 second).
+C1 is going to sleep on d1 (taking 600 seconds).
+C1 is going to report the result of activity pa1 7 on d1 (taking 1 second).

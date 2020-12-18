@@ -1,0 +1,23 @@
+Narrator is: robot_assistant
+I am going to go from the coordinate (63.178, 28.853, 63.178) to the coordinate (12.424, 8.206, 12.424) (taking 8 seconds) to then check the coordinate (12.424, 8.206, 12.424) (taking 1 second).
+I will look around the coordinate (87.593, 76.208, 87.593) (taking 1 second) because I will move from the coordinate (12.424, 8.206, 12.424) to the coordinate (87.593, 76.208, 87.593) (taking 14 seconds).
+I will locate person1 (taking 20 seconds).
+I will locate person2 (taking 20 seconds) and I will move from the coordinate (87.593, 76.208, 87.593) towards the coordinate (5.007, 48.493, 5.007) (taking 10 seconds) to be able to ask person2 at the coordinate (5.007, 48.493, 5.007) (taking 2 seconds).
+I will go from the coordinate (5.007, 48.493, 5.007) to the coordinate (88.029, 12.802, 88.029) (taking 11 seconds).
+I will put the mug at the coordinate (12.424, 8.206, 12.424) (taking 2.5 seconds) because I will grab the mug at the coordinate (88.029, 12.802, 88.029) (taking 2 seconds) and I will go from the coordinate (88.029, 12.802, 88.029) to the coordinate (12.424, 8.206, 12.424) (taking 19 seconds).
+I will go from the coordinate (12.424, 8.206, 12.424) towards the coordinate (5.007, 48.493, 5.007) (taking 18 seconds).
+I am going to grasp the paper at the coordinate (78.430, 91.824, 78.430) (taking 2 seconds) because I will move from the coordinate (5.007, 48.493, 5.007) to the coordinate (78.430, 91.824, 78.430) (taking 17 seconds).
+I will travel from the coordinate (78.430, 91.824, 78.430) towards the coordinate (88.029, 12.802, 88.029) (taking 7 seconds).
+I am going to travel from the coordinate (88.029, 12.802, 88.029) to the coordinate (87.593, 76.208, 87.593) (taking 5 seconds), which will allow me to put the paper at the coordinate (87.593, 76.208, 87.593) (taking 2.5 seconds).
+I will travel from the coordinate (87.593, 76.208, 87.593) towards the coordinate (5.007, 48.493, 5.007) (taking 10 seconds) to travel from the coordinate (5.007, 48.493, 5.007) towards the coordinate (21.003, 21.632, 21.003) (taking 26 seconds).
+I will travel from the coordinate (21.003, 21.632, 21.003) towards the coordinate (18.078, 84.845, 18.078) (taking 8 seconds) to be able to grab the post2 at the coordinate (18.078, 84.845, 18.078) (taking 2 seconds).
+I will go from the coordinate (18.078, 84.845, 18.078) towards the coordinate (21.003, 21.632, 21.003) (taking 8 seconds).
+I am going to go from the coordinate (21.003, 21.632, 21.003) to the coordinate (5.007, 48.493, 5.007) (taking 26 seconds) to hand post2 to person2 at the coordinate (5.007, 48.493, 5.007) (taking 2 seconds).
+I will travel from the coordinate (5.007, 48.493, 5.007) towards the coordinate (21.003, 21.632, 21.003) (taking 26 seconds).
+I am going to move from the coordinate (21.003, 21.632, 21.003) to the coordinate (18.078, 84.845, 18.078) (taking 8 seconds) to grab the post1 at the coordinate (18.078, 84.845, 18.078) (taking 2 seconds).
+I am going to travel from the coordinate (18.078, 84.845, 18.078) towards the coordinate (21.003, 21.632, 21.003) (taking 8 seconds).
+I am going to travel from the coordinate (58.375, 38.662, 58.375) towards the coordinate (14.956, 67.551, 14.956) (taking 29 seconds) because I am going to travel from the coordinate (21.003, 21.632, 21.003) towards the coordinate (58.375, 38.662, 58.375) (taking 29 seconds).
+I am going to put the post1 at the coordinate (48.609, 93.277, 48.609) (taking 2.5 seconds) because I will travel from the coordinate (14.956, 67.551, 14.956) to the coordinate (48.609, 93.277, 48.609) (taking 15 seconds) and I am going to scan the coordinate (48.609, 93.277, 48.609) (taking 1 second).
+I will move from the coordinate (48.609, 93.277, 48.609) towards the coordinate (14.956, 67.551, 14.956) (taking 15 seconds).
+I am going to travel from the coordinate (14.956, 67.551, 14.956) to the coordinate (46.803, 77.381, 46.803) (taking 21 seconds) to then move from the coordinate (46.803, 77.381, 46.803) towards the coordinate (63.178, 28.853, 63.178) (taking 38 seconds).
+I will travel from the coordinate (63.178, 28.853, 63.178) towards the coordinate (88.029, 12.802, 88.029) (taking 12 seconds) to then move from the coordinate (88.029, 12.802, 88.029) towards the coordinate (78.430, 91.824, 78.430) (taking 7 seconds).

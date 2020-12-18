@@ -1,0 +1,13 @@
+Narrator is: rover0
+Rover3 is going to transmit rock data of (60.148, 86.116, 60.148) from (60.148, 86.116, 60.148) to general lander at (36.078, 13.863, 36.078) (taking 10 seconds) because Rover3 will move from (78.785, 8.455, 78.785) to (60.148, 86.116, 60.148) (taking 5 seconds) and Rover3 will sample rock to store at rover3store at (60.148, 86.116, 60.148) (taking 8 seconds) to later be able to communicate rock data of (60.633, 44.803, 60.633) from (99.572, 6.682, 99.572) to general lander at (36.078, 13.863, 36.078) (taking 10 seconds).
+Rover1 is going to transmit soil data of (36.078, 13.863, 36.078) from (99.572, 6.682, 99.572) to general lander at (36.078, 13.863, 36.078) (taking 10 seconds) because Rover1 is going to sample soil to store at rover1store at (36.078, 13.863, 36.078) (taking 10 seconds) and Rover1 will go from (36.078, 13.863, 36.078) towards (99.572, 6.682, 99.572) (taking 5 seconds).
+I will transmit soil data of (60.633, 44.803, 60.633) from (99.572, 6.682, 99.572) to general lander at (36.078, 13.863, 36.078) (taking 10 seconds).
+I am going to transmit image data of objective1 in high res mode from (99.572, 6.682, 99.572) to general lander at (36.078, 13.863, 36.078) (taking 15 seconds).
+I will transmit image data of objective2 in high res mode from (99.572, 6.682, 99.572) to general lander at (36.078, 13.863, 36.078) (taking 15 seconds).
+I am going to transmit image data of objective3 in high res mode from (99.572, 6.682, 99.572) to general lander at (36.078, 13.863, 36.078) (taking 15 seconds).
+Rover2 is going to transmit soil data of (46.117, 37.284, 46.117) from (99.572, 6.682, 99.572) to general lander at (36.078, 13.863, 36.078) (taking 10 seconds).
+Rover2 will transmit soil data of (78.830, 39.000, 78.830) from (99.572, 6.682, 99.572) to general lander at (36.078, 13.863, 36.078) (taking 10 seconds).
+Rover2 is going to communicate rock data of (43.953, 99.022, 43.953) from (99.572, 6.682, 99.572) to general lander at (36.078, 13.863, 36.078) (taking 10 seconds).
+Rover2 will communicate rock data of (46.117, 37.284, 46.117) from (99.572, 6.682, 99.572) to general lander at (36.078, 13.863, 36.078) (taking 10 seconds).
+Rover2 will transmit rock data of (96.773, 7.919, 96.773) from (99.572, 6.682, 99.572) to general lander at (36.078, 13.863, 36.078) (taking 10 seconds).
+Rover3 is going to communicate rock data of (60.633, 44.803, 60.633) from (99.572, 6.682, 99.572) to general lander at (36.078, 13.863, 36.078) (taking 10 seconds).

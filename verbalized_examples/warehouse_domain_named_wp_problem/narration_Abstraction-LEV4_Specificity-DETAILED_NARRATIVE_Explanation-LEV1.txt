@@ -1,0 +1,40 @@
+Narrator is: robot_assistant
+I am going to go to the entrance.
+I am going to check the entrance.
+I am going to move towards the kitchen counter.
+I am going to look around the kitchen counter.
+I am going to find person1.
+I am going to find person2.
+I am going to go towards the kitchen corridor.
+I will ask person2.
+I am going to move towards the microwave.
+I am going to grasp the mug.
+I will move to the entrance.
+I am going to put the mug.
+I will go to the kitchen corridor.
+I will go towards the kitchen shelf.
+I will grab the paper.
+I am going to move to the microwave.
+I will move to the kitchen counter.
+I am going to leave the paper.
+I am going to travel to the kitchen corridor.
+I am going to travel towards the kitchen door 1.
+I am going to travel to the office entrance 1.
+I will take the post2.
+I am going to travel towards the kitchen door 1.
+I will move to the kitchen corridor.
+I am going to give post2 to person2.
+I will move to the kitchen door 1.
+I will travel to the office entrance 1.
+I will grab the post1.
+I am going to move towards the kitchen door 1.
+I will go towards the corridor centre.
+I am going to travel towards the main office doorway.
+I am going to go towards the main office desk.
+I am going to check the main office desk.
+I am going to put the post1.
+I am going to travel towards the main office doorway.
+I am going to go to the meeting room hallway.
+I will move to the kitchen sink.
+I will go to the microwave.
+I am going to move to the kitchen shelf.

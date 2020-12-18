@@ -1,0 +1,25 @@
+C1 is going to make pa1 1 to later report the result of activity pa1 1 on d1.
+C2 is going to make pa1 2 so C1 can later report the result of activity pa1 2 on d1.
+C3 will make pa1 3, which will allow C1 to later report the result of activity pa1 3 on d1.
+CrewPlanner will wake up C1 so C1 can later report the result of activity pa1 1 on d1, C1 can report the result of activity pa1 2 on d1, C1 can report the result of activity pa1 3 on d1, C1 can report the result of activity pa1 4 on d1, C1 can report the result of activity pa1 5 on d1, C1 can report the result of activity pa1 6 on d1, C1 can report the result of activity pa1 7 on d1, C1 can report the result of activity pa1 8 on d1, C1 can report the result of activity pa1 9 on d1, C1 can communicate the medical state mcs1 on d1, and C1 can sleep on d1.
+CrewPlanner will wake up C2 so C2 can later communicate the medical state mcs2 on d1 and C2 can sleep on d1.
+CrewPlanner will wake up C3, which will allow C3 to later change the spaceshipfilter on d1 and C3 to sleep on d1.
+CrewPlanner is going to initiate d2.
+C1 will make pa1 4 to then conduct pa1 7, which will allow C1 to later report the result of activity pa1 7 on d1.
+C2 is going to conduct pa1 5 to be able to make pa1 8, which will allow C1 to later report the result of activity pa1 8 on d1.
+C3 will conduct pa1 6, which will allow C3 to make pa1 9, which will allow C1 to later report the result of activity pa1 9 on d1.
+C1 will report the result of activity pa1 1.
+C1 is going to report the result of activity pa1 2.
+C1 will report the result of activity pa1 3.
+C1 will report the result of activity pa1 4.
+C1 is going to report the result of activity pa1 5.
+C1 will report the result of activity pa1 6.
+C1 will report the result of activity pa1 7.
+C1 will report the result of activity pa1 8.
+C1 is going to report the result of activity pa1 9.
+C3 is going to have a meal so C3 can change the spaceshipfilter.
+C1 is going to have a meal and C1 is going to exercise with e1 so C1 can sleep.
+C2 is going to sleep because C2 is going to eat a meal and C2 is going to exercise with e2.
+C1 is going to communicate the medical state mcs1, which will allow C1 to later sleep on d1.
+C2 is going to communicate the medical state mcs2 so C2 can later sleep on d1.
+C3 will work out with e1, which will allow C3 to sleep.

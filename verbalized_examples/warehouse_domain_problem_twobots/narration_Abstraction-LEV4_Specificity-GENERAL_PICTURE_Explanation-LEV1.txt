@@ -1,0 +1,9 @@
+Narrator is: robot_assistant
+Hsr Robot is going to locate person1.
+I will place the paper.
+Hsr Robot will ask person2.
+I am going to place the mug.
+Hsr Robot will hand post2 to person2.
+I am going to travel to the wp1.
+Hsr Robot is going to put the post1.
+Hsr Robot is going to travel towards the wp5.

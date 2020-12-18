@@ -1,0 +1,8 @@
+Narrator is: robot_assistant
+I am going to look for person1.
+I will request person2.
+I will leave the mug.
+I am going to leave the paper.
+I am going to deliver post2 to person2.
+I am going to leave the post1.
+I am going to go to the kitchen shelf.

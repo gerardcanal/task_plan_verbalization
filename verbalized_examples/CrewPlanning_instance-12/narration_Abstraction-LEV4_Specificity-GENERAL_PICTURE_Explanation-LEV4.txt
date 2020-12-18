@@ -1,0 +1,24 @@
+CrewPlanner will initiate d2 to achieve the goal of d2 being initiated.
+C1 will report the result of activity pa1 1 to reach the goal of pa1 1 being completed.
+C1 will report the result of activity pa1 10 to reach the goal of pa1 10 being completed.
+C1 is going to report the result of activity pa1 11 to fulfill the goal of pa1 11 being completed.
+C1 is going to report the result of activity pa1 12 to achieve the goal of pa1 12 being completed.
+C1 will report the result of activity pa1 13 to reach the goal of pa1 13 being completed.
+C1 is going to report the result of activity pa1 14 to fulfill the goal of pa1 14 being completed.
+C1 is going to report the result of activity pa1 15 to reach the goal of pa1 15 being completed.
+C1 is going to report the result of activity pa1 16 to fulfill the goal of pa1 16 being completed.
+C1 will report the result of activity pa1 2 to fulfill the goal of pa1 2 being completed.
+C2 will eat a meal, which will allow C2 to change the spaceshipfilter to fulfill the goal of spaceshipfilter changing.
+C3 will communicate the medical state mcs2 because C3 will have a meal to reach the goal of The medical state mcs2 being finished.
+C1 will exercise with e1 to then communicate the medical state mcs3 to achieve the goal of The medical state mcs3 being finished.
+C1 will report the result of activity pa1 3 because C3 will make pa1 3 to fulfill the goal of pa1 3 being completed.
+C1 is going to report the result of activity pa1 4 because C1 is going to make pa1 4 to fulfill the goal of pa1 4 being completed.
+C1 is going to report the result of activity pa1 5 to achieve the goal of pa1 5 being completed.
+C1 will report the result of activity pa1 6 because C1 is going to make pa1 6 to achieve the goal of pa1 6 being completed.
+C1 will report the result of activity pa1 7 to fulfill the goal of pa1 7 being completed.
+C1 is going to report the result of activity pa1 8 to fulfill the goal of pa1 8 being completed.
+C1 is going to make pa1 9, which will allow C1 to report the result of activity pa1 9 to fulfill the goal of pa1 9 being completed.
+C1 will replace the rpcm1 so C1 can sleep to fulfill the goal of C1 completing sleep.
+C2 is going to assemble to then sleep to reach the goal of C2 completing sleep.
+C3 will do the second reconfiguration so C3 can sleep to achieve the goal of C3 completing sleep.
+C1 is going to finish the rpcm1 to achieve the goal of rpcm1 being completed.

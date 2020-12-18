@@ -1,0 +1,14 @@
+CrewPlanner is going to initiate d3 (taking 1440 seconds) because CrewPlanner will initiate d2 (taking 1440 seconds) to reach the goal of d3 being initiated.
+C1 will exercise on d1 with e1 (taking 60 seconds) so C1 can change the spaceshipfilter on d1 (taking 60 seconds) to reach the goal of spaceshipfilter changing on d1 so C1 can later make (97.551, 3.602, 97.551) (taking 60 seconds).
+C1 will assemble the sleep station (0.305, 82.112, 0.305) (taking 60 seconds) and C1 is going to perform the second reconfiguration of the thermal loop (0.305, 82.112, 0.305) (taking 60 seconds) to finish the (0.305, 82.112, 0.305) on d1 (taking 1 second) to achieve the goal of (0.305, 82.112, 0.305) being completed on d1.
+C1 is going to sleep on d1 (taking 600 seconds) to achieve the goal of C1 completing sleep on d1, which will allow CrewPlanner to later wake up C1 on d2 (taking 195 seconds).
+C1 will report the result of activity (54.291, 30.462, 54.291) on d2 (taking 1 second) because CrewPlanner will wake up C1 on d2 (taking 195 seconds) to fulfill the goal of (54.291, 30.462, 54.291) being completed on d2.
+C1 will report the result of activity (7.567, 58.913, 7.567) on d2 (taking 1 second) to reach the goal of (7.567, 58.913, 7.567) being completed on d2.
+C1 will report the result of activity (84.232, 38.117, 84.232) on d2 (taking 1 second) to reach the goal of (84.232, 38.117, 84.232) being completed on d2.
+C1 will report the result of activity (97.551, 3.602, 97.551) on d2 (taking 1 second) to reach the goal of (97.551, 3.602, 97.551) being completed on d2.
+C1 will report the result of activity (69.050, 57.060, 69.050) on d2 (taking 1 second) to reach the goal of (69.050, 57.060, 69.050) being completed on d2.
+C1 is going to report the result of activity (83.032, 73.536, 83.032) on d2 (taking 1 second) to reach the goal of (83.032, 73.536, 83.032) being completed on d2.
+C1 will report the result of activity (79.765, 92.907, 79.765) on d2 (taking 1 second) to achieve the goal of (79.765, 92.907, 79.765) being completed on d2.
+C1 is going to work out on d2 with e1 (taking 60 seconds) to be able to change the spaceshipfilter on d2 (taking 60 seconds) to fulfill the goal of spaceshipfilter changing on d2.
+C1 is going to communicate the medical state mcs1 on d2 (taking 60 seconds) to achieve the goal of The medical state mcs1 being finished on d2.
+C1 will sleep on d2 (taking 600 seconds) to fulfill the goal of C1 completing sleep on d2.

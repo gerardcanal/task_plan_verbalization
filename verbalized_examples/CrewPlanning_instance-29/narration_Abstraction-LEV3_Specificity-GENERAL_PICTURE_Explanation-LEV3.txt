@@ -1,0 +1,82 @@
+C1 is going to report the result of activity pa1 1 on d1.
+C1 is going to report the result of activity pa1 10 on d1.
+C1 will report the result of activity pa1 11 on d1.
+C1 will report the result of activity pa1 12 on d1.
+C1 is going to report the result of activity pa1 13 on d1.
+C1 will report the result of activity pa1 14 on d1.
+C1 will report the result of activity pa1 15 on d1.
+C1 is going to report the result of activity pa1 16 on d1.
+C1 will report the result of activity pa1 17 on d1.
+C1 will communicate the medical state mcs1 on d1 because C1 is going to exercise on d1 with e1.
+C2 will exercise on d1 with e2 to be able to communicate the medical state mcs3 on d1.
+C3 will conduct pa1 18 so C1 can report the result of activity pa1 18 on d1.
+C1 is going to make pa1 19 to report the result of activity pa1 19 on d1.
+C1 will report the result of activity pa1 2 on d1.
+C1 will report the result of activity pa1 3 on d1.
+C1 is going to conduct pa1 4 to be able to report the result of activity pa1 4 on d1.
+C1 will report the result of activity pa1 5 on d1.
+C1 will report the result of activity pa1 6 on d1.
+C1 will make pa1 7 so C1 can report the result of activity pa1 7 on d1.
+C1 is going to report the result of activity pa1 8 on d1.
+C1 is going to report the result of activity pa1 9 on d1.
+C1 will conduct pa3 7 to sleep on d1.
+C2 will make pa3 8 to sleep on d1.
+C3 is going to sleep on d1 because C3 is going to conduct pa3 9.
+C1 will report the result of activity pa2 1 on d2.
+C1 is going to report the result of activity pa2 10 on d2.
+C1 is going to report the result of activity pa2 11 on d2.
+C1 is going to report the result of activity pa2 12 on d2.
+C1 is going to report the result of activity pa2 13 on d2.
+C1 is going to report the result of activity pa2 14 on d2.
+C1 is going to report the result of activity pa2 15 on d2.
+C1 will report the result of activity pa2 16 on d2.
+C1 is going to report the result of activity pa2 17 on d2.
+C1 is going to report the result of activity pa2 18 on d2.
+C1 is going to report the result of activity pa2 19 on d2.
+C1 is going to report the result of activity pa2 2 on d2.
+C1 will report the result of activity pa2 20 on d2.
+C1 is going to report the result of activity pa2 21 on d2.
+C1 is going to report the result of activity pa2 22 on d2.
+C1 will report the result of activity pa2 23 on d2.
+C1 is going to report the result of activity pa2 3 on d2.
+C1 is going to report the result of activity pa2 4 on d2.
+C1 is going to report the result of activity pa2 5 on d2.
+C1 is going to report the result of activity pa2 6 on d2.
+C1 is going to report the result of activity pa2 7 on d2.
+C1 is going to report the result of activity pa2 8 on d2.
+C1 will report the result of activity pa2 9 on d2.
+C3 will have a meal on d2 and C3 is going to exercise on d2 with e3 to sleep on d2.
+C1 will eat a meal on d2 and C1 is going to work out on d2 with e1 to then sleep on d2.
+C2 will have a meal on d2 and C2 will work out on d2 with e2 to sleep on d2.
+C1 will change the spaceshipfilter on d2 to later be able to sleep on d2.
+C2 is going to communicate the medical state mcs2 on d2 to later sleep on d2.
+CrewPlanner is going to initiate d4.
+C3 will report the result of activity pa3 1 on d3.
+C3 is going to report the result of activity pa3 10 on d3.
+C3 is going to report the result of activity pa3 11 on d3.
+C3 is going to report the result of activity pa3 12 on d3.
+C3 is going to report the result of activity pa3 13 on d3.
+C3 will report the result of activity pa3 14 on d3.
+C3 will report the result of activity pa3 15 on d3.
+C3 will report the result of activity pa3 16 on d3.
+C3 is going to report the result of activity pa3 17 on d3.
+C3 will report the result of activity pa3 18 on d3.
+C3 is going to report the result of activity pa3 19 on d3.
+C3 is going to report the result of activity pa3 2 on d3.
+C3 is going to report the result of activity pa3 20 on d3.
+C3 is going to report the result of activity pa3 21 on d3.
+C3 will report the result of activity pa3 22 on d3.
+C3 will report the result of activity pa3 23 on d3.
+C3 is going to report the result of activity pa3 24 on d3.
+C3 is going to report the result of activity pa3 25 on d3.
+C3 will report the result of activity pa3 3 on d3.
+C3 is going to report the result of activity pa3 4 on d3.
+C3 will report the result of activity pa3 5 on d3.
+C3 is going to report the result of activity pa3 6 on d3.
+C3 will report the result of activity pa3 7 on d3.
+C3 will report the result of activity pa3 8 on d3.
+C3 is going to report the result of activity pa3 9 on d3.
+C3 is going to eat a meal on d3 and C3 will work out on d3 with e1 so C3 can sleep on d3.
+C1 is going to have a meal on d3 and C1 will work out on d3 with e1 to sleep on d3.
+C2 will eat a meal on d3 and C2 is going to exercise on d3 with e2, which will allow C2 to sleep on d3.
+C3 will communicate the medical state mcs2 on d3 to later be able to sleep on d3.

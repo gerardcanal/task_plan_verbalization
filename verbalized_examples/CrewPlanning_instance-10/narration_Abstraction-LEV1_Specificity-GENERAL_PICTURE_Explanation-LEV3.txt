@@ -1,0 +1,20 @@
+CrewPlanner will initiate d2 (taking 1440 seconds).
+C1 is going to report the result of activity (46.172, 54.066, 46.172) on d1 (taking 1 second).
+C1 is going to report the result of activity (51.000, 69.545, 51.000) on d1 (taking 1 second).
+C1 is going to report the result of activity (30.573, 10.729, 30.573) on d1 (taking 1 second).
+C1 will report the result of activity (36.975, 81.816, 36.975) on d1 (taking 1 second).
+C1 is going to report the result of activity (1.179, 85.913, 1.179) on d1 (taking 1 second).
+C1 is going to report the result of activity (15.740, 28.021, 15.740) on d1 (taking 1 second).
+C1 will report the result of activity (3.572, 2.972, 3.572) on d1 (taking 1 second).
+C1 will report the result of activity (23.207, 21.684, 23.207) on d1 (taking 1 second).
+C1 is going to report the result of activity (6.581, 4.581, 6.581) on d1 (taking 1 second).
+C1 will work out on d1 with e1 (taking 60 seconds), which will allow C1 to communicate the medical state mcs2 on d1 (taking 60 seconds).
+C2 will exercise on d1 with e2 (taking 60 seconds) to communicate the medical state mcs3 on d1 (taking 60 seconds).
+C3 will conduct (26.615, 99.551, 26.615) (taking 60 seconds) so C1 can report the result of activity (26.615, 99.551, 26.615) on d1 (taking 1 second).
+C1 will make (5.694, 40.352, 5.694) (taking 60 seconds), which will allow C1 to report the result of activity (5.694, 40.352, 5.694) on d1 (taking 1 second).
+C2 is going to conduct (52.108, 25.722, 52.108) (taking 60 seconds) to sleep on d1 (taking 600 seconds).
+C3 will conduct (2.937, 91.861, 2.937) (taking 60 seconds) to sleep on d1 (taking 600 seconds).
+C1 is going to report the result of activity (52.108, 25.722, 52.108) on d1 (taking 1 second).
+C1 will report the result of activity (2.937, 91.861, 2.937) on d1 (taking 1 second).
+C1 is going to report the result of activity (64.618, 4.425, 64.618) on d1 (taking 1 second) because C1 is going to make (64.618, 4.425, 64.618) (taking 60 seconds).
+C1 is going to sleep on d1 (taking 600 seconds).

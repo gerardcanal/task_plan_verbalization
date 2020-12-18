@@ -1,0 +1,12 @@
+Narrator is: rover0
+Rover1 will take an image of objective4 with camera0 in high res mode at waypoint9 (taking 7 seconds) and Rover1 is going to travel from waypoint9 towards waypoint0 (taking 5 seconds), which will allow Rover1 to transmit image data of objective4 in high res mode from waypoint0 to general lander at waypoint17 (taking 15 seconds).
+Rover2 is going to transmit image data of objective3 in low res mode from waypoint0 to general lander at waypoint17 (taking 15 seconds).
+Rover2 will capture an image of objective2 with camera1 in colour mode at waypoint0 (taking 7 seconds) so Rover2 can transmit image data of objective2 in colour mode from waypoint0 to general lander at waypoint17 (taking 15 seconds).
+Rover2 is going to communicate soil data of waypoint0 from waypoint0 to general lander at waypoint17 (taking 10 seconds).
+Rover3 will transmit rock data of waypoint5 from waypoint0 to general lander at waypoint17 (taking 10 seconds) because Rover3 will travel from waypoint9 towards waypoint0 (taking 5 seconds).
+I am going to go from waypoint2 towards waypoint0 (taking 5 seconds) so I can transmit rock data of waypoint4 from waypoint0 to general lander at waypoint17 (taking 10 seconds).
+I am going to communicate rock data of waypoint2 from waypoint0 to general lander at waypoint17 (taking 10 seconds).
+Rover1 is going to travel from waypoint9 to waypoint0 (taking 5 seconds) so Rover1 can transmit rock data of waypoint6 from waypoint0 to general lander at waypoint17 (taking 10 seconds).
+I will transmit image data of objective5 in colour mode from waypoint0 to general lander at waypoint17 (taking 15 seconds).
+Rover2 is going to travel from waypoint9 to waypoint0 (taking 5 seconds) to be able to transmit soil data of waypoint14 from waypoint0 to general lander at waypoint17 (taking 10 seconds).
+I will travel from waypoint2 to waypoint0 (taking 5 seconds) to be able to transmit rock data of waypoint7 from waypoint0 to general lander at waypoint17 (taking 10 seconds).

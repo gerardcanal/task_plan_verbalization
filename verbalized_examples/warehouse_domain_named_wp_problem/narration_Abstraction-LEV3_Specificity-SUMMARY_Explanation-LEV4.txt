@@ -1,0 +1,14 @@
+Narrator is: robot_assistant
+I am going to check the entrance because I will go from the kitchen sink towards the entrance to later be able to leave the mug at the entrance.
+I am going to travel from the entrance towards the kitchen counter, which will allow me to scan the kitchen counter to later be able to put the paper at the kitchen counter.
+I am going to find person1 to reach the goal of finding person1.
+I will locate person2 and I am going to go from the kitchen counter towards the kitchen corridor to ask person2 at the kitchen corridor to fulfill the goal of asking person2.
+I am going to move from the kitchen corridor towards the microwave.
+I will grab the mug at the microwave and I will go from the microwave to the entrance to be able to put the mug at the entrance to fulfill the goal of the mug being at the entrance.
+I will travel from the entrance to the kitchen shelf (via kitchen corridor), which will allow me to grab the paper at the kitchen shelf.
+I will go from the kitchen shelf towards the kitchen counter (via microwave), which will allow me to leave the paper at the kitchen counter to reach the goal of the paper being at the kitchen counter.
+I am going to travel from the kitchen counter to the office entrance 1 (via kitchen corridor and kitchen door 1) so I can grab the post2 at the office entrance 1.
+I will move from the office entrance 1 towards the kitchen corridor (via kitchen door 1) to then give post2 to person2 at the kitchen corridor to achieve the goal of the post2 being at the person2.
+I will go from the kitchen corridor towards the office entrance 1 (via kitchen door 1) so I can take the post1 at the office entrance 1.
+I am going to leave the post1 at the main office desk because I am going to travel from the office entrance 1 towards the main office desk (via kitchen door 1, corridor centre, and main office doorway) and I am going to scan the main office desk to achieve the goal of the post1 being at the main office desk.
+I am going to move from the main office desk towards the microwave (via main office doorway, meeting room hallway, and kitchen sink) to then go from the microwave towards the kitchen shelf to achieve the goal of me being at the kitchen shelf.
