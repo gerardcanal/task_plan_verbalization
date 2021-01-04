@@ -45,7 +45,7 @@ IMMEDIATE_JUSTIFICATION_TEMPLATES = ['<MAIN_SUBJECT> <MAIN_ACTION> because <JUST
                                      '<JUSTIFICATION> to then <MAIN_ACTION>',
                                      '<JUSTIFICATION> so <MAIN_SUBJECT> <VERB=can> <MAIN_ACTION>']
 
-DEFERRED_JUSTIFICATIONS_LINKERS = ['to later', 'to later be able to', ', which <VERB=allow> <SUBJECT-OBJ> to later',
+DEFERRED_JUSTIFICATION_LINKERS = ['to later', 'to later be able to', ', which <VERB=allow> <SUBJECT-OBJ> to later',
                                    'so <SUBJECT> <VERB=can> later']
 GOAL_LINKERS = ['to achieve the goal of', 'to reach the goal of', 'to fulfill the goal of']
 
@@ -173,11 +173,11 @@ class PlanNarrator:
             deferred_justifications_subjects = deferred_justifications_subjects.union(main_subj)
             if len(deferred_justifications_subjects) > 1:
                 # If we have more than one subject, we need to adapt the linker based on the selected one, ensuring the subject is there
-                deferred_justif_linker = random.choice([j for j in DEFERRED_JUSTIFICATIONS_LINKERS if 'SUBJECT' in j])
+                deferred_justif_linker = random.choice([j for j in DEFERRED_JUSTIFICATION_LINKERS if 'SUBJECT' in j])
                 subj_aux = re.search(r'<SUBJECT.*?> (?:<VERB=.*?>|to)', deferred_justif_linker).group(0)
                 deferred_just_verb = [deferred_just_verb[0]] + [(p, subj, subj_aux + ' ' + v) for p, subj, v in deferred_just_verb[1:]]
             else:
-                deferred_justif_linker = random.choice(DEFERRED_JUSTIFICATIONS_LINKERS)
+                deferred_justif_linker = random.choice(DEFERRED_JUSTIFICATION_LINKERS)
             if ',' != deferred_justif_linker[0]:
                 deferred_justif_linker = ' ' + deferred_justif_linker
 
