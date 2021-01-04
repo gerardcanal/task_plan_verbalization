@@ -1,5 +1,5 @@
 # PlanVerb: Domain-Independent Verbalization and Summary of Task Plans
-Verbalization and summarization of task plans. Examples can be found in the branch [`with_examples`](https://github.com/gerardcanal/task_plan_verbalization/tree/with_examples). 
+Verbalization and summarization of task plans. Examples can be found in the branch [`with_examples`](https://github.com/gerardcanal/task_plan_verbalization/tree/with_examples/verbalized_examples). 
 
 **Authors:** Gerard Canal, Senka Krivić, Paul Luff, and Andrew Coles
 
