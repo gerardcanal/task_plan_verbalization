@@ -37,7 +37,7 @@ import rospkg
 from std_srvs.srv import Empty, EmptyResponse, Trigger, TriggerResponse
 from std_msgs.msg import String
 from PlanNarrator import PlanNarrator, DomainParser, RegularExpressions, PlanCompressions
-from pddl_verbalization.srv import NarratePlan, NarratePlanResponse, SetVerbalizationParams, SetVerbalizationParamsResponse
+from task_plan_verbalization.srv import NarratePlan, NarratePlanResponse, SetVerbalizationParams, SetVerbalizationParamsResponse
 from rosplan_knowledge_msgs.srv import GetAttributeService, GetDomainOperatorService, GetDomainOperatorDetailsService
 from rosplan_dispatch_msgs.msg import EsterelPlan
 from EsterelProcessing import EsterelProcessing

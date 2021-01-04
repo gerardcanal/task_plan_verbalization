@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <launch>
-	<arg name="domain_path"		default="$(find pddl_verbalization)/domains/office_robot/domain.pddl" />
-	<arg name="problem_path"	default="$(find pddl_verbalization)/domains/office_robot/problem.pddl" />
+	<arg name="domain_path"		default="$(find task_plan_verbalization)/domains/office_robot/domain.pddl" />
+	<arg name="problem_path"	default="$(find task_plan_verbalization)/domains/office_robot/problem.pddl" />
 	<arg name="narrator_name"	default="" />
 	<arg name="print_actions"	default="false" />
 	<arg name="evaluation"	 	default="false" />
 
 	<!-- Include rosplan -->
-	<include file="$(find pddl_verbalization)/launch/rosplan_full.launch">
+	<include file="$(find task_plan_verbalization)/launch/rosplan_full.launch">
 		<arg name="domain_path"		 		value="$(arg domain_path)" />
 		<arg name="problem_path" 			value="$(arg problem_path)" />
 		<arg name="planning_language" 		value="PDDL" />
@@ -20,7 +20,7 @@
 		<arg name="planner_interface"    	value="popf_planner_interface" />
 	</include>
 
-  	<node name="rosplan_narrator" pkg="pddl_verbalization" type="pddl_verbalization_node.py" respawn="false" output="screen" required="$(eval evaluation == true)">
+  	<node name="rosplan_narrator" pkg="task_plan_verbalization" type="task_plan_verbalization_node.py" respawn="false" output="screen" required="$(eval evaluation == true)">
     	<param name="domain_path"   value="$(arg domain_path)" />
     	<param name="problem_path"  value="$(arg problem_path)" />
     	<param name="narrator_name" value="$(arg narrator_name)" />
