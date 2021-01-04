@@ -162,7 +162,7 @@ class PlanNarrator:
             main_subj = {'I' if ms.lower() == self._narrator_name.lower() else ms}
 
 
-        # Later future immediate_justifications in the script
+        # Later future (deferred) justifications in the script
         if ac_script.deferred_justifications:
             deferred_justifications = [(i, compressions.id_to_action_str(i)) for i in sorted(ac_script.deferred_justifications)]
             deferred_just_verb = [self.make_action_sentence_IPC(ja[1][0], ja[1][1:], domain_semantics,
