@@ -197,7 +197,7 @@ class ROSPlanNarratorNode:
 
     def script_debug_str(self, ac_script, compressions):
         PDDL_justifications = ''
-        for i, x in enumerate(ac_script.justifications):
+        for i, x in enumerate(ac_script.immediate_justifications):
             if i > 0:
                 PDDL_justifications += ' '
             if compressions.is_compressed(x):
@@ -209,11 +209,11 @@ class ROSPlanNarratorNode:
                 PDDL_justifications += ']'
             else:
                 PDDL_justifications += '(' + ' '.join(compressions.id_to_action_str(x)[1]) + ')'
-        if ac_script.justifications:
+        if ac_script.immediate_justifications:
             PDDL_justifications += ' -> '
 
-        PDDL_justifies = ' -> ' if ac_script.justifies else ''
-        for i, x in enumerate(ac_script.justifies):
+        PDDL_justifies = ' -> ' if ac_script.deferred_justifications else ''
+        for i, x in enumerate(ac_script.deferred_justifications):
             if i > 0:
                 PDDL_justifies += ' '
             if compressions.is_compressed(x):

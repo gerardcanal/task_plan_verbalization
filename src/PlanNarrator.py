@@ -39,14 +39,14 @@ from PatternMatcher import PatternMatcher
 from VerbalizationSpace import VerbalizationSpace, Abstraction, Locality, Specificity, Explanation
 
 CORRECT_PERSONS = ['1s', '1p', '2s', '2p', '3s', '3p']
-JUSTIFICATION_TEMPLATES = ['<MAIN_SUBJECT> <MAIN_ACTION> because <JUSTIFICATION>', '<JUSTIFICATION> to <MAIN_ACTION>',
-                           '<JUSTIFICATION> to be able to <MAIN_ACTION>',
-                           '<JUSTIFICATION>, which <VERB=allow> <MAIN_SUBJECT-OBJ> to <MAIN_ACTION>',
-                           '<JUSTIFICATION> to then <MAIN_ACTION>',
-                           '<JUSTIFICATION> so <MAIN_SUBJECT> <VERB=can> <MAIN_ACTION>']
+IMMEDIATE_JUSTIFICATION_TEMPLATES = ['<MAIN_SUBJECT> <MAIN_ACTION> because <JUSTIFICATION>',
+                                     '<JUSTIFICATION> to <MAIN_ACTION>', '<JUSTIFICATION> to be able to <MAIN_ACTION>',
+                                     '<JUSTIFICATION>, which <VERB=allow> <MAIN_SUBJECT-OBJ> to <MAIN_ACTION>',
+                                     '<JUSTIFICATION> to then <MAIN_ACTION>',
+                                     '<JUSTIFICATION> so <MAIN_SUBJECT> <VERB=can> <MAIN_ACTION>']
 
-JUSTIFIES_LINKERS = ['to later', 'to later be able to', ', which <VERB=allow> <SUBJECT-OBJ> to later',
-                     'so <SUBJECT> <VERB=can> later']
+DEFERRED_JUSTIFICATIONS_LINKERS = ['to later', 'to later be able to', ', which <VERB=allow> <SUBJECT-OBJ> to later',
+                                   'so <SUBJECT> <VERB=can> later']
 GOAL_LINKERS = ['to achieve the goal of', 'to reach the goal of', 'to fulfill the goal of']
 
 
@@ -162,77 +162,77 @@ class PlanNarrator:
             main_subj = {'I' if ms.lower() == self._narrator_name.lower() else ms}
 
 
-        # Later future justifications in the script
-        if ac_script.justifies:
-            justifies = [(i, compressions.id_to_action_str(i)) for i in sorted(ac_script.justifies)]
-            justifies_verb = [self.make_action_sentence_IPC(ja[1][0], ja[1][1:], domain_semantics,
+        # Later future immediate_justifications in the script
+        if ac_script.deferred_justifications:
+            deferred_justifications = [(i, compressions.id_to_action_str(i)) for i in sorted(ac_script.deferred_justifications)]
+            deferred_just_verb = [self.make_action_sentence_IPC(ja[1][0], ja[1][1:], domain_semantics,
                                                             compressions.get_compressed_params(i), ja[2], 'infinitive',
                                                             True)  # Ignore importance flag for later actions.
-                              for i, ja in sorted(justifies, key=lambda x: float(x[1][0]))]
-            justifies_subjects = {s[1] for s in justifies_verb}
-            justifies_subjects = justifies_subjects.union(main_subj)
-            if len(justifies_subjects) > 1:
+                              for i, ja in sorted(deferred_justifications, key=lambda x: float(x[1][0]))]
+            deferred_justifications_subjects = {s[1] for s in deferred_just_verb}
+            deferred_justifications_subjects = deferred_justifications_subjects.union(main_subj)
+            if len(deferred_justifications_subjects) > 1:
                 # If we have more than one subject, we need to adapt the linker based on the selected one, ensuring the subject is there
-                justifies_linker = random.choice([j for j in JUSTIFIES_LINKERS if 'SUBJECT' in j])
-                subj_aux = re.search(r'<SUBJECT.*?> (?:<VERB=.*?>|to)', justifies_linker).group(0)
-                justifies_verb = [justifies_verb[0]] + [(p, subj, subj_aux + ' ' + v) for p, subj, v in justifies_verb[1:]]
+                deferred_justif_linker = random.choice([j for j in DEFERRED_JUSTIFICATIONS_LINKERS if 'SUBJECT' in j])
+                subj_aux = re.search(r'<SUBJECT.*?> (?:<VERB=.*?>|to)', deferred_justif_linker).group(0)
+                deferred_just_verb = [deferred_just_verb[0]] + [(p, subj, subj_aux + ' ' + v) for p, subj, v in deferred_just_verb[1:]]
             else:
-                justifies_linker = random.choice(JUSTIFIES_LINKERS)
-            if ',' != justifies_linker[0]:
-                justifies_linker = ' ' + justifies_linker
+                deferred_justif_linker = random.choice(DEFERRED_JUSTIFICATIONS_LINKERS)
+            if ',' != deferred_justif_linker[0]:
+                deferred_justif_linker = ' ' + deferred_justif_linker
 
-            justifies_sentence = justifies_linker + ' ' + self.make_list_str([s[2] for s in justifies_verb]) if justifies_verb else ''
-            person = justifies_verb[0][0]
-            verb = get_verb.findall(justifies_linker)
+            deferred_justif_sentence = deferred_justif_linker + ' ' + self.make_list_str([s[2] for s in deferred_just_verb]) if deferred_just_verb else ''
+            person = deferred_just_verb[0][0]
+            verb = get_verb.findall(deferred_justif_linker)
             if verb:
-                first_justifies = justifies[0][0]
-                if compressions.is_compressed(justifies[0][0]):
-                    first_justifies = sorted(compressions.get_ids_compressed_action(justifies[0][0]))[0]
-                if self._current_step > first_justifies:
-                    person = justifies_verb[0][0]
+                first_deferred_just = deferred_justifications[0][0]
+                if compressions.is_compressed(deferred_justifications[0][0]):
+                    first_deferred_just = sorted(compressions.get_ids_compressed_action(deferred_justifications[0][0]))[0]
+                if self._current_step > first_deferred_just:
+                    person = deferred_just_verb[0][0]
                     verb = self.conjugate_verb(verb[0], 'past', '1s')
                 else:
                     verb = ('will ' if verb[0] != 'can' else '') + verb[0]
-                justifies_sentence = get_verb.sub(verb, justifies_sentence)
-            for p, s, _ in justifies_verb:
-                justifies_sentence = justifies_sentence.replace('<SUBJECT-OBJ>',
+                deferred_justif_sentence = get_verb.sub(verb, deferred_justif_sentence)
+            for p, s, _ in deferred_just_verb:
+                deferred_justif_sentence = deferred_justif_sentence.replace('<SUBJECT-OBJ>',
                                                                 'me' if '1' in p else s, 1)
-                justifies_sentence = justifies_sentence.replace('<SUBJECT>', s, 1)
-            justifies_sentence = justifies_sentence.replace('canned',
+                deferred_justif_sentence = deferred_justif_sentence.replace('<SUBJECT>', s, 1)
+            deferred_justif_sentence = deferred_justif_sentence.replace('canned',
                                                             'could')  # As mlconjug conjugates past of can as canned
 
         # Justifications in the script
-        if ac_script.justifications:
-            template_choice = random.randint(0, len(JUSTIFICATION_TEMPLATES) - 1) if tense != 'present' else 0
-            justification_template = JUSTIFICATION_TEMPLATES[template_choice]
+        if ac_script.immediate_justifications:
+            template_choice = random.randint(0, len(IMMEDIATE_JUSTIFICATION_TEMPLATES) - 1) if tense != 'present' else 0
+            immediate_justification_template = IMMEDIATE_JUSTIFICATION_TEMPLATES[template_choice]
             jtense = 'past'
             if tense != 'present':
                 jtense = tense
                 tense = 'infinitive' if template_choice != 0 else tense  # Template 0 must be conjugated as main action goes first
-            justifications = [(i, compressions.id_to_action_str(i)) for i in ac_script.justifications]
-            justifications_verb = [self.make_action_sentence_IPC(ja[1][0], ja[1][1:], domain_semantics,
+            immediate_justifications = [(i, compressions.id_to_action_str(i)) for i in ac_script.immediate_justifications]
+            immediate_justifications_verb = [self.make_action_sentence_IPC(ja[1][0], ja[1][1:], domain_semantics,
                                                                  compressions.get_compressed_params(i), ja[2], jtense)
-                                   for i, ja in sorted(justifications, key=lambda x: float(x[1][0]))]
+                                   for i, ja in sorted(immediate_justifications, key=lambda x: float(x[1][0]))]
 
-            justifications_subjects = {s[1] for s in justifications_verb}
-            justifications_subjects = justifications_subjects.union(main_subj)
-            if len(justifications_subjects) > 1 and 'MAIN_SUBJECT' not in justification_template:
+            immediate_justifications_subjects = {s[1] for s in immediate_justifications_verb}
+            immediate_justifications_subjects = immediate_justifications_subjects.union(main_subj)
+            if len(immediate_justifications_subjects) > 1 and 'MAIN_SUBJECT' not in immediate_justification_template:
                 # We need a template with MAIN_SUBJECT as we have multiple subjects. Skip 0 as it's the weird tense one
-                justification_template = random.choice([j for j in JUSTIFICATION_TEMPLATES[1:] if 'MAIN_SUBJECT' in j])
-            if jtense == 'future' or len(justifications_subjects) > 1:  # Keep subject always for future or multiple subj
-                justifications_sentence = self.make_list_str([j[1] + ' ' + j[2] for j in justifications_verb])
+                immediate_justification_template = random.choice([j for j in IMMEDIATE_JUSTIFICATION_TEMPLATES[1:] if 'MAIN_SUBJECT' in j])
+            if jtense == 'future' or len(immediate_justifications_subjects) > 1:  # Keep subject always for future or multiple subj
+                immediate_justifications_sentence = self.make_list_str([j[1] + ' ' + j[2] for j in immediate_justifications_verb])
             else:
-                 justifications_sentence = justifications_verb[0][1] + ' '  # Subject + rest of sentence without subj
-                 justifications_sentence += self.make_list_str([s[2] for s in justifications_verb])
+                 immediate_justifications_sentence = immediate_justifications_verb[0][1] + ' '  # Subject + rest of sentence without subj
+                 immediate_justifications_sentence += self.make_list_str([s[2] for s in immediate_justifications_verb])
 
-            verb = get_verb.findall(justification_template)
-            person = justifications_verb[0][0]
+            verb = get_verb.findall(immediate_justification_template)
+            person = immediate_justifications_verb[0][0]
             if verb:
                 verb = self.conjugate_verb(verb[0], jtense, person) if jtense != 'future' else 'will ' + verb[0]
-                justification_template = get_verb.sub(verb, justification_template)
-            justification_template = justification_template.replace('canned',
+                immediate_justification_template = get_verb.sub(verb, immediate_justification_template)
+            immediate_justification_template = immediate_justification_template.replace('canned',
                                                                     'could')  # As mlconjug conjugates past of can as canned
-            justification_template = justification_template.replace('will can', 'can')  # Workaround for mlconjug
+            immediate_justification_template = immediate_justification_template.replace('will can', 'can')  # Workaround for mlconjug
 
         ## Main action in the script
         main_action = compressions.id_to_action_str(ac_script.action)
@@ -249,9 +249,9 @@ class PlanNarrator:
                 goal_sentence.append(self.make_predicate_sentence(goal[0], goal[1:], domain_semantics, g[1]))
             goal = random.choice(GOAL_LINKERS) + ' ' + self.make_list_str(goal_sentence)
 
-        # Sentence will be: justifications + main action + goals + justifies
-        if ac_script.justifications:
-            s = justification_template.replace('<JUSTIFICATION>', justifications_sentence)
+        # Sentence will be: immediate_justifications + main action + goals + deferred_justifications
+        if ac_script.immediate_justifications:
+            s = immediate_justification_template.replace('<JUSTIFICATION>', immediate_justifications_sentence)
             s = s.replace('<MAIN_ACTION>', main_action_verb[2])
             s = s.replace('<MAIN_SUBJECT-OBJ>', 'me' if '1' in main_action_verb[0] else main_action_verb[1])
             s = s.replace('<MAIN_SUBJECT>', main_action_verb[1])
@@ -260,7 +260,7 @@ class PlanNarrator:
 
         # Add rest of sentence
         s += (' ' + goal if ac_script.goal else '') + \
-             (justifies_sentence if ac_script.justifies else '')
+             (deferred_justif_sentence if ac_script.deferred_justifications else '')
 
         return self.capitalize_first(s) + '.'
 
@@ -416,38 +416,38 @@ class PlanNarrator:
 
             # Check VerbalizationSpace for Explanations
             if self._verbalization_space_params.explanation < Explanation.LEV3:
-                s.justifies.clear()
+                s.deferred_justifications.clear()
             if self._verbalization_space_params.explanation < Explanation.LEV2:
-                s.justifications.clear()
+                s.immediate_justifications.clear()
 
             # It may happen that after compression two actions that were not consecutive become consecutive (all
-            # intermediate actions were compressed). If that's the case, A) skip it and add it as a justification to the
-            # previous action. B) Remove the previous action from the justifies and go on.
-            if verbalization_script and verbalization_script[0].action in s.justifies:
-                # verbalization_script[0].justifications.add(s.action)
+            # intermediate actions were compressed). If that's the case, A) skip it and add it as an immediate
+            # justification to the previous action. B) Remove the previous action from the deferred justifications and go on.
+            if verbalization_script and verbalization_script[0].action in s.deferred_justifications:
+                # verbalization_script[0].immediate_justifications.add(s.action)
                 # continue
-                s.justifies.remove(verbalization_script[0].action)
+                s.deferred_justifications.remove(verbalization_script[0].action)
 
             if s.goal and self._verbalization_space_params.explanation == Explanation.LEV4:
                 # Goal achieving actions are always kept. If level is >3 we print goals, otherwise we don't so there's
-                # no need to clear justifies. If it is 5 we can't clear justifications. Therefore this only happens if
-                # level is 4
-                s.justifies.clear()  # Remove justifies for this action as it achieves a goal to avoid overcluttering
+                # no need to clear deferred justifications. If it is 5 we can't clear justifications. Therefore this
+                # only happens if level is 4
+                s.deferred_justifications.clear()  # Remove deferred justif. for this action as it achieves a goal to avoid overcluttering
             else:
                 if self._verbalization_space_params.explanation < Explanation.LEV5:
                     if compress:
-                        s.justifies = {compressions.get_compressed_id(j) for j in s.justifies if causality_script[j].goal
-                                       and not skipped_actions[j]}
+                        s.deferred_justifications = {compressions.get_compressed_id(j) for j in s.deferred_justifications if causality_script[j].goal
+                                                     and not skipped_actions[j]}
                     else:
-                        s.justifies = {j for j in s.justifies if causality_script[j].goal and not skipped_actions[j]}
+                        s.deferred_justifications = {j for j in s.deferred_justifications if causality_script[j].goal and not skipped_actions[j]}
                 else:  # self._verbalization_space_params.explanation == Explanation.LEV5
-                    s.justifies = {compressions.get_compressed_id(j) for j in s.justifies}
+                    s.deferred_justifications = {compressions.get_compressed_id(j) for j in s.deferred_justifications}
 
             if self._verbalization_space_params.explanation < Explanation.LEV4:  # Level <4 does not include goals
                 s.goal = None
 
-            keep_justifications = []  # Justifications to keep
-            for j in s.justifications:
+            keep_justifications = []  # Immediate justifications to keep
+            for j in s.immediate_justifications:
                 if skipped_actions[j]:
                     continue
                 if not causality_script[j].goal:  # If justification achieves a goal, we'll not use it here
@@ -460,35 +460,35 @@ class PlanNarrator:
                             for jj in compressions.get_ids_compressed_action(j):
                                 skipped_actions[jj] = True if not causality_script[jj].goal else False
                     keep_justifications.append(j)
-            s.justifications = set(keep_justifications)
+            s.immediate_justifications = set(keep_justifications)
 
-            # If action i is compressed, update action id accordingly to the compression as well as justifications and
-            # justifies
+            # If action i is compressed, update action id accordingly to the compression as well as immediate justifications
+            # and deferred justifications
             if compress and compressions.is_compressed(i):
                 cid = compressions.get_compressed_id(i)
                 s.action = cid
-                if verbalization_script and verbalization_script[0].action in s.justifies:
-                    # If last added action (next in the plan) is in justifies of this action, remove it and add it
-                    # to justifications
-                    s.justifies.remove(verbalization_script[0].action)
-                    verbalization_script[0].justifications.add(cid)
+                if verbalization_script and verbalization_script[0].action in s.deferred_justifications:
+                    # If last added action (next in the plan) is in deferred justifications of this action, remove it
+                    # and add it to immediate justifications
+                    s.deferred_justifications.remove(verbalization_script[0].action)
+                    verbalization_script[0].immediate_justifications.add(cid)
                     skipped_actions[i] = True
                     continue
-                # Add the compressed ids accordingly to justifies and justifications of this action
+                # Add the compressed ids accordingly to deferred and immediate justifications of this action
                 for k in compressions.get_ids_compressed_action(cid):
                     if k != i or skipped_actions[k]:
                         skipped_actions[k] = True
                         if self._verbalization_space_params.explanation > Explanation.LEV1:
-                            j = {compressions.get_compressed_id(j) for j in causality_script[k].justifications
+                            j = {compressions.get_compressed_id(j) for j in causality_script[k].immediate_justifications
                                  if not compressions.is_compressed(j) and not skipped_actions[j]}
-                            s.justifications = s.justifications.union(j)
+                            s.immediate_justifications = s.immediate_justifications.union(j)
                         if self._verbalization_space_params.explanation > Explanation.LEV2:
-                            j = {compressions.get_compressed_id(j) for j in causality_script[k].justifies
+                            j = {compressions.get_compressed_id(j) for j in causality_script[k].deferred_justifications
                                  if not compressions.is_compressed(j) and not skipped_actions[j]}
-                            s.justifies = s.justifies.union(j)
+                            s.deferred_justifications = s.deferred_justifications.union(j)
                 # Clear justifications (remove itself)
-                s.justifications.discard(cid)
-                s.justifies.discard(cid)
+                s.immediate_justifications.discard(cid)
+                s.deferred_justifications.discard(cid)
             verbalization_script.appendleft(s)
         if self._subj_plans:
             verbalization_script = sorted(verbalization_script, key=lambda x: self.script_sort_time_key(x, compressions))
@@ -498,8 +498,8 @@ class PlanNarrator:
         for i in range(len(verbalization_script)-1):
             a_next = verbalization_script[i+1].action
             a_i_script = verbalization_script[i]
-            if a_next in a_i_script.justifies:
-                a_i_script.justifies.remove(a_next)
+            if a_next in a_i_script.deferred_justifications:
+                a_i_script.deferred_justifications.remove(a_next)
         return verbalization_script
 
     def compute_causality_scripts(self, plan, operators, causal_chains, subj_plans):
@@ -521,16 +521,16 @@ class PlanNarrator:
         for n in sorted_children:
             if abs(consecutive_id - n.action_id) == 1 or subj_plans.are_subj_consecutive(consecutive_id, n.action_id):
                 # Actions are consecutive in the plan, add them as justifying the parent
-                verbalization_script[node.action_id].justifications.add(n.action_id)
+                verbalization_script[node.action_id].immediate_justifications.add(n.action_id)
                 consecutive_id = n.action_id
                 # Add symmetrical justification, and a flag to skip this action as it's already used to justify another
                 # one. This action will be verbalized nonetheless to justify a different action.
-                verbalization_script[n.action_id].justifies.add(node.action_id)
+                verbalization_script[n.action_id].deferred_justifications.add(node.action_id)
             else:
                 # In this case, the action is not consecutive so it will be used to justify a later action (so it'll be
                 # written two times)
-                verbalization_script[n.action_id].justifies.add(node.action_id)
-            # Recursive call with this child. We will skip the justifies of the following actions in the chain
+                verbalization_script[n.action_id].deferred_justifications.add(node.action_id)
+            # Recursive call with this child. We will skip the deferred justifications of the following actions in the chain
             self.add_action_scripts_rec(n, goal_params, operators, plan, verbalization_script, subj_plans)
 
     def set_current_step(self, current_step):
@@ -542,15 +542,15 @@ class PlanNarrator:
     # Method to sort a verbalization script by smallest time
     def script_sort_time_key(self, script, compressions):
         return min([float(compressions.compressed_id_to_action_str(script.action)[0])] +
-                   [float(compressions.compressed_id_to_action_str(a)[0]) for a in script.justifications])
+                   [float(compressions.compressed_id_to_action_str(a)[0]) for a in script.immediate_justifications])
 
 
 # Helper class to store information on an action used in an plan script
 class ActionScript:
     def __init__(self, main_action_id, goal=None):
         self.action = main_action_id
-        self.justifications = set()  # This action is justified by the actions in the list
-        self.justifies = set()  # This action justifies the actions in the list
+        self.immediate_justifications = set()  # This action is justified by the actions in the list - previously called 'justifications'
+        self.deferred_justifications = set()  # This action justifies the actions in the list - previously called 'justifies'
         self.goal = goal
 
 
