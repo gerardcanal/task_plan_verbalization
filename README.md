@@ -43,6 +43,7 @@ To generate a new verbalization of the same plan with different verbalization sp
 ### Optional arguments
  - `narrator_name:=NAME` will set the narrator to be "NAME". This means that the actions made by the subject with name = "NAME" will be verbalized in first person.
  - `evaluation:=true` will generate all the combination of verbalizations for all the verbalization space parameters for a single plan and store them in the verbalization_examples folder.
+ - `print_actions:=true` will print the PDDL/RDDL actions that generated each sentence, showing the causal relations and compressions.
  
 ### Example
 Example with one of the domains available in the package:
