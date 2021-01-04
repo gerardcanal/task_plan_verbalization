@@ -9,7 +9,7 @@ To increase user trust in planning algorithms, users must be able to understand 
 
 ## Usage
 ### Prerequisites
-To run the verbalization node, you need to install [ROSPlan](https://github.com/KCL-Planning/ROSPlan#installation) and [mlconjuig3](https://github.com/SekouDiaoNlp/mlconjug3/blob/master/INSTALL.rst).
+To run the verbalization node, you need to install [ROSPlan](https://github.com/KCL-Planning/ROSPlan#installation) and [mlconjug3](https://github.com/SekouDiaoNlp/mlconjug3/blob/master/INSTALL.rst).
 
 ### PDDL verbalization launch
 ```
