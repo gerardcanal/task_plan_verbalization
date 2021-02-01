@@ -1,4 +1,4 @@
-string input_plan
+string input_plan  # May be empty, and the previous plan will be used instead (if any)
 int8 current_step
 ---
 string narration

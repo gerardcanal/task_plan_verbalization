@@ -157,7 +157,12 @@ class ROSPlanNarratorNode:
         return TriggerResponse(True, n)
 
     def narrate_plan_srv(self, req):
-        self._plan = req.input_plan
+        if req.input_plan:
+            self._plan = req.input_plan
+        elif not self._plan:
+            rospy.logerr(rospy.get_name() + ": narrate_plan service: no plan supplied and no previous plan available to be verbalized")
+        else:
+            rospy.loginfo(rospy.get_name() + ": narrate_plan service: using previous plan as input_plan was empty")
         n = self.narrate_plan(current_step=req.current_step)
         return NarratePlanResponse(n)
 
