@@ -145,9 +145,23 @@ class PlanNarrator:
 
         return person, subject, sentence
 
-    # Tense is the tense for the main action
-    def make_action_sentence_from_script(self, ac_script, domain_semantics, compressions, tense="future"):
+    # Tense is the tense for the main action. If set to None, tense will be taken from the current_step variable
+    def make_action_sentence_from_script(self, ac_script, domain_semantics, compressions, tense=None):
         get_verb = re.compile(r'<VERB=(\w+)>')  # To get verbs from linkers
+
+        # Check tense for main action
+        compressed_ids = compressions.get_ids_compressed_action(ac_script.action) \
+                         if compressions.is_compressed(ac_script.action) else None
+        if not tense:
+            if self._current_step == ac_script.action or (compressed_ids and self._current_step in compressed_ids):
+                tense = 'present'
+            elif (compressed_ids and self._current_step < compressed_ids[0]) or \
+                 (not compressed_ids and self._current_step < ac_script.action):
+                tense = 'future'
+            else:
+                tense = 'past'
+        else:
+            self._current_step = compressed_ids[0] if compressed_ids else ac_script.action
 
         if compressions.is_compressed(ac_script.action):
             ids = compressions.get_ids_compressed_action(ac_script.action)
@@ -205,21 +219,32 @@ class PlanNarrator:
         if ac_script.immediate_justifications:
             template_choice = random.randint(0, len(IMMEDIATE_JUSTIFICATION_TEMPLATES) - 1) if tense != 'present' else 0
             immediate_justification_template = IMMEDIATE_JUSTIFICATION_TEMPLATES[template_choice]
-            jtense = 'past'
-            if tense != 'present':
-                jtense = tense
+            # Check if current step is an immediate justification
+            jtense = ['past']*len(ac_script.immediate_justifications)
+            if tense == 'future':
+                jtense = []
+                for j in ac_script.immediate_justifications:
+                    j_compressed_ids = compressions.get_ids_compressed_action(j) if compressions.is_compressed(j) else None
+                    if self._current_step == j or (j_compressed_ids and self._current_step in j_compressed_ids):
+                        jtense.append('present')
+                        tense = 'infinitive'
+                    elif j < self._current_step or (j_compressed_ids and j_compressed_ids[-1] < self._current_step):
+                        jtense.append('past')
+                    else:
+                        jtense.append('future')
+            elif tense == 'past':
                 tense = 'infinitive' if template_choice != 0 else tense  # Template 0 must be conjugated as main action goes first
             immediate_justifications = [(i, compressions.id_to_action_str(i)) for i in ac_script.immediate_justifications]
             immediate_justifications_verb = [self.make_action_sentence_IPC(ja[1][0], ja[1][1:], domain_semantics,
-                                                                 compressions.get_compressed_params(i), ja[2], jtense)
-                                   for i, ja in sorted(immediate_justifications, key=lambda x: float(x[1][0]))]
+                                                                 compressions.get_compressed_params(i), ja[2], jtense[k])
+                                   for k, (i, ja) in sorted(enumerate(immediate_justifications), key=lambda x: float(x[1][1][0]))]
 
             immediate_justifications_subjects = {s[1] for s in immediate_justifications_verb}
             immediate_justifications_subjects = immediate_justifications_subjects.union(main_subj)
-            if len(immediate_justifications_subjects) > 1 and 'MAIN_SUBJECT' not in immediate_justification_template:
+            if 'present' in jtense or (len(immediate_justifications_subjects) > 1 and 'MAIN_SUBJECT' not in immediate_justification_template):
                 # We need a template with MAIN_SUBJECT as we have multiple subjects. Skip 0 as it's the weird tense one
                 immediate_justification_template = random.choice([j for j in IMMEDIATE_JUSTIFICATION_TEMPLATES[1:] if 'MAIN_SUBJECT' in j])
-            if jtense == 'future' or len(immediate_justifications_subjects) > 1:  # Keep subject always for future or multiple subj
+            if 'present' in jtense or 'future' in jtense or len(immediate_justifications_subjects) > 1:  # Keep subject always for future or multiple subj
                 immediate_justifications_sentence = self.make_list_str([j[1] + ' ' + j[2] for j in immediate_justifications_verb])
             else:
                  immediate_justifications_sentence = immediate_justifications_verb[0][1] + ' '  # Subject + rest of sentence without subj

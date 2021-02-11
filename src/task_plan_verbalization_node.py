@@ -121,20 +121,22 @@ class ROSPlanNarratorNode:
         goal_achieving_actions = sorted([c.achieving_action.action_id for c in causal_chains])
         compressions = PlanCompressions(plan, goal_achieving_actions)  # Compute action compressions
 
+        if random_step:
+            current_step = random.randint(0, len(plan)+1)
+        self._narrator.set_current_step(current_step)
+
         verbalization_script = self._narrator.create_verbalization_script(plan, self.operators, self._domain_semantics,
                                                                           causal_chains, compressions)
-
-        if random_step:
-            current_step = random.randint(0, len(verbalization_script))
-        self._narrator.set_current_step(current_step)
+        # Find current step in the verbalization script/sentence (to mark with an asterisk)
+        if 0 <= current_step < len(plan):
+            current_step = self._plan_to_verbalization_id(current_step, verbalization_script, compressions)
         narration = "Narrator is: " + self._narrator_name + '\n' if self._narrator_name else ""
         for i, ac_script in enumerate(verbalization_script):
-            tense = 'present' if i == current_step else 'past' if i < current_step else 'future'
-            s = self._narrator.make_action_sentence_from_script(ac_script, self._domain_semantics, compressions, tense)
+            s = self._narrator.make_action_sentence_from_script(ac_script, self._domain_semantics, compressions)
 
             if self._print_actions:
                 s = self.script_debug_str(ac_script, compressions) + ':\n ' + s
-            if tense == 'present':
+            if i == current_step:
                 s = '* ' + s
 
             narration += s + "\n"
@@ -272,6 +274,18 @@ class ROSPlanNarratorNode:
         if pkg_name in ['src', 'bin', 'python']:  # typical sub dirs
             pkg_name = os.path.basename(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
         return pkg_name
+
+    def _plan_to_verbalization_id(self, current_step, verbalization_script, compressions):
+        for i, vs in enumerate(verbalization_script):
+            if vs.action == current_step or \
+                    (compressions.is_compressed(vs.action) and
+                     current_step in compressions.get_ids_compressed_action(vs.action)):
+                return i
+            for j in vs.immediate_justifications:
+                if j == current_step or (compressions.is_compressed(j) and
+                                         current_step in compressions.get_ids_compressed_action(j)):
+                    return i
+        return current_step
 
 
 if __name__ == "__main__":
