@@ -228,7 +228,7 @@ class PlanNarrator:
             verb = get_verb.findall(immediate_justification_template)
             person = immediate_justifications_verb[0][0]
             if verb:
-                verb = self.conjugate_verb(verb[0], jtense, person) if jtense != 'future' else 'will ' + verb[0]
+                verb = self.conjugate_verb(verb[0], tense, person) if tense != 'future' else 'will ' + verb[0]
                 immediate_justification_template = get_verb.sub(verb, immediate_justification_template)
             immediate_justification_template = immediate_justification_template.replace('canned',
                                                                     'could')  # As mlconjug conjugates past of can as canned
