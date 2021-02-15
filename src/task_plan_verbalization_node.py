@@ -165,6 +165,10 @@ class ROSPlanNarratorNode:
             rospy.logerr(rospy.get_name() + ": narrate_plan service: no plan supplied and no previous plan available to be verbalized")
         else:
             rospy.loginfo(rospy.get_name() + ": narrate_plan service: using previous plan as input_plan was empty")
+        if req.seed > 0:
+            random.seed(req.seed)
+        else:
+            random.seed()
         n = self.narrate_plan(current_step=req.current_step)
         return NarratePlanResponse(n)
 

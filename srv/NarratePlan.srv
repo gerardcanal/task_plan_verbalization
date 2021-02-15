@@ -1,4 +1,5 @@
 string input_plan  # May be empty, and the previous plan will be used instead (if any)
 int8 current_step
+int8 seed # Randome seed to be used when narrating a plan. If 0, random will be initialized to time
 ---
 string narration
