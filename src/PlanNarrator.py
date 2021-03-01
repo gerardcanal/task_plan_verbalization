@@ -314,7 +314,7 @@ class PlanNarrator:
                     elif found_narrator and v in subj_params:
                         subject = subject.replace(v, 'me')
                     break
-                if subject == 'I':
+                if subject == 'I' and tense == 'continuous':
                     subject = subject.replace('I', 'me')
             sentence = subject + ' '
 
