@@ -312,7 +312,7 @@ class PlanNarrator:
                         subject = self.make_list_str(predicate_ground_params[i])
                         person = '1p'
                     elif found_narrator and v in subj_params:
-                        subject = subject.replace(v, 'me')
+                        subject = subject.replace(v, 'me') if tense == 'continuous' else subject.replace(v, 'I')
                     break
                 if subject == 'I' and tense == 'continuous':
                     subject = subject.replace('I', 'me')
