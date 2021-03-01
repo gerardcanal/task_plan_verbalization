@@ -7,5 +7,5 @@ if [ ! -z "$1" ]; then
     OUTPUT=$1
 fi
 rostopic echo /rosplan_plan_dispatcher/plan_graph -n 1 -p | sed "N;s/.*digraph/digraph/g" | dot -Tpdf > $OUTPUT
-xdg-open $OUTPUT
+xdg-open $OUTPUT &
 echo "Esterel plan has been printed in $OUTPUT"
