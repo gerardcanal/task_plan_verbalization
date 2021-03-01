@@ -54,6 +54,7 @@ add_service_files(
   FILES
 	NarratePlan.srv
 	SetVerbalizationParams.srv
+	NarratePredicate.srv
 )
 
 ## Generate actions in the 'action' folder

@@ -289,7 +289,7 @@ class PlanNarrator:
 
         return self.capitalize_first(s) + '.'
 
-    def make_predicate_sentence(self, predicate_name, predicate_ground_params, domain_semantics, sign=True):
+    def make_predicate_sentence(self, predicate_name, predicate_ground_params, domain_semantics, sign=True, tense='continuous'):
         try:
             predicate_semantics = domain_semantics.get_predicate(predicate_name)
         except KeyError:
@@ -320,8 +320,8 @@ class PlanNarrator:
 
         if not sign:
             sentence += 'not '
-        sentence += self.conjugate_verb(predicate_semantics.get_rnd_verb(), 'continuous',
-                                        '1s')  # Person is not important here
+        sentence += self.conjugate_verb(predicate_semantics.get_rnd_verb(), tense,
+                                        '3s')  # Person is not important here
         if predicate_semantics.has_semantics('direct-object'):
             sentence += ' ' + predicate_semantics.get_rnd_semantics('direct-object')
         if predicate_semantics.has_semantics('indirect-object'):

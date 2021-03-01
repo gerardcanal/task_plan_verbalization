@@ -37,7 +37,8 @@ import rospkg
 from std_srvs.srv import Empty, EmptyResponse, Trigger, TriggerResponse
 from std_msgs.msg import String
 from PlanNarrator import PlanNarrator, DomainParser, RegularExpressions, PlanCompressions
-from task_plan_verbalization.srv import NarratePlan, NarratePlanResponse, SetVerbalizationParams, SetVerbalizationParamsResponse
+from task_plan_verbalization.srv import NarratePlan, NarratePlanResponse, SetVerbalizationParams, \
+                                        SetVerbalizationParamsResponse, NarratePredicate, NarratePredicateResponse
 from rosplan_knowledge_msgs.srv import GetAttributeService, GetDomainOperatorService, GetDomainOperatorDetailsService
 from rosplan_dispatch_msgs.msg import EsterelPlan
 from EsterelProcessing import EsterelProcessing
@@ -60,6 +61,7 @@ class ROSPlanNarratorNode:
         self._verbalization_pub = rospy.Publisher("~plan_narration", String, queue_size=1)
         self._trigger_plan_srv = rospy.Service("~trigger_planning", Empty, self.trigger_plan_srv)
         self._narrate_plan_srv = rospy.Service("~narrate_plan", NarratePlan, self.narrate_plan_srv)
+        self._narrate_predicate_srv = rospy.Service("~narrate_predicate", NarratePredicate, self.narrate_predicate_srv)
         self._set_narration_params = rospy.Service("~set_params", SetVerbalizationParams, self.set_params_srv)
         self._update_narration_srv = rospy.Service("~narrate_current_plan", Trigger, self.update_narration_srv)
         self._plan_received = False
@@ -165,8 +167,18 @@ class ROSPlanNarratorNode:
             rospy.logerr(rospy.get_name() + ": narrate_plan service: no plan supplied and no previous plan available to be verbalized")
         else:
             rospy.loginfo(rospy.get_name() + ": narrate_plan service: using previous plan as input_plan was empty")
+        if req.seed > 0:
+            random.seed(req.seed)
+        else:
+            random.seed()
         n = self.narrate_plan(current_step=req.current_step)
         return NarratePlanResponse(n)
+
+    def narrate_predicate_srv(self, req):
+        pred = req.grounded_predicate.replace(')', '').replace('(', '').split(' ')
+        name = pred[0]
+        params = pred[1:]
+        return self._narrator.make_predicate_sentence(name, params, self._domain_semantics, tense='future').capitalize()
 
     def set_params_srv(self, req):
         self._verbalization_space_params = VerbalizationSpace.from_params_srv(req)
