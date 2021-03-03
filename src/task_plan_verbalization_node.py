@@ -178,7 +178,7 @@ class ROSPlanNarratorNode:
         pred = req.grounded_predicate.replace(')', '').replace('(', '').split(' ')
         name = pred[0]
         params = pred[1:]
-        return self._narrator.make_predicate_sentence(name, params, self._domain_semantics, tense='future').capitalize()
+        return self._narrator.make_predicate_sentence(name, params, self._domain_semantics, tense='future', replace_narrator=False).capitalize()
 
     def set_params_srv(self, req):
         self._verbalization_space_params = VerbalizationSpace.from_params_srv(req)

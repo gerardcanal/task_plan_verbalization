@@ -289,7 +289,7 @@ class PlanNarrator:
 
         return self.capitalize_first(s) + '.'
 
-    def make_predicate_sentence(self, predicate_name, predicate_ground_params, domain_semantics, sign=True, tense='continuous'):
+    def make_predicate_sentence(self, predicate_name, predicate_ground_params, domain_semantics, sign=True, tense='continuous', replace_narrator=True):
         try:
             predicate_semantics = domain_semantics.get_predicate(predicate_name)
         except KeyError:
@@ -297,10 +297,11 @@ class PlanNarrator:
 
         sentence = ''
         predicate_params = predicate_semantics.get_params()
+        person = '3s'
         if predicate_semantics.has_semantics('subject'):
             subject = predicate_semantics.get_rnd_semantics('subject')
             subj_params = re.findall(RegularExpressions.PARAM, subject)
-            if self._narrator_name:
+            if self._narrator_name and replace_narrator:
                 for i, (v, _) in enumerate(predicate_params):
                     found_narrator = any([self._narrator_name.lower() == x for x in predicate_ground_params[i]]) \
                         if type(predicate_ground_params[i]) is list else self._narrator_name.lower() == \
@@ -313,15 +314,17 @@ class PlanNarrator:
                         person = '1p'
                     elif found_narrator and v in subj_params:
                         subject = subject.replace(v, 'me') if tense == 'continuous' else subject.replace(v, 'I')
+                        person = '1s' if len(subj_params) == 1 else '1p'
                     break
                 if subject == 'I' and tense == 'continuous':
                     subject = subject.replace('I', 'me')
+                    person = '1s'
             sentence = subject + ' '
 
         if not sign:
             sentence += 'not '
         sentence += self.conjugate_verb(predicate_semantics.get_rnd_verb(), tense,
-                                        '3s')  # Person is not important here
+                                        person)  # Person is not important here
         if predicate_semantics.has_semantics('direct-object'):
             sentence += ' ' + predicate_semantics.get_rnd_semantics('direct-object')
         if predicate_semantics.has_semantics('indirect-object'):
