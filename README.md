@@ -1,4 +1,4 @@
-# PlanVerb: Domain-Independent Verbalization and Summary of Task Plans
+# Task Plan verbalizations with causal justifications
 Verbalization and summarization of task plans. Examples can be found in the branch [`with_examples`](https://github.com/gerardcanal/task_plan_verbalization/tree/with_examples/verbalized_examples). 
 
 **Authors:** Gerard Canal, Senka Krivić, Paul Luff, and Andrew Coles
@@ -54,7 +54,7 @@ roslaunch task_plan_verbalization rosplan_verbalization.launch domain_path:=$(ro
 And then trigger the planner:
 `rosservice call /rosplan_narrator/trigger_planning`
 
-## Citation
-If you use our work, please cite us as:
+<!-- ## Citation
+If you use our work, please cite us as:-->
 
-TBD
+<!-- TBD-->
