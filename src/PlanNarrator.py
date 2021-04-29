@@ -221,8 +221,10 @@ class PlanNarrator:
             immediate_justification_template = IMMEDIATE_JUSTIFICATION_TEMPLATES[template_choice]
             # Check if current step is an immediate justification
             jtense = ['past']*len(ac_script.immediate_justifications)
+            auxtense = tense  # Tense for auxiliar structures in the template
             if tense == 'future':
                 jtense = []
+                tense = 'infinitive' if template_choice != 0 else tense  # Template 0 must be conjugated as main action goes first
                 for j in ac_script.immediate_justifications:
                     j_compressed_ids = compressions.get_ids_compressed_action(j) if compressions.is_compressed(j) else None
                     if self._current_step == j or (j_compressed_ids and self._current_step in j_compressed_ids):
@@ -232,7 +234,7 @@ class PlanNarrator:
                         jtense.append('past')
                     else:
                         jtense.append('future')
-            elif tense == 'past':
+            if tense == 'past':
                 tense = 'infinitive' if template_choice != 0 else tense  # Template 0 must be conjugated as main action goes first
             immediate_justifications = [(i, compressions.id_to_action_str(i)) for i in ac_script.immediate_justifications]
             immediate_justifications_verb = [self.make_action_sentence_IPC(ja[1][0], ja[1][1:], domain_semantics,
@@ -253,7 +255,7 @@ class PlanNarrator:
             verb = get_verb.findall(immediate_justification_template)
             person = immediate_justifications_verb[0][0]
             if verb:
-                verb = self.conjugate_verb(verb[0], tense, person) if tense != 'future' else 'will ' + verb[0]
+                verb = self.conjugate_verb(verb[0], auxtense, person) if auxtense != 'future' else 'will ' + verb[0]
                 immediate_justification_template = get_verb.sub(verb, immediate_justification_template)
             immediate_justification_template = immediate_justification_template.replace('canned',
                                                                     'could')  # As mlconjug conjugates past of can as canned
