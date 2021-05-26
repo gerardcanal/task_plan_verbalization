@@ -46,6 +46,15 @@ class DomainSemantics:
         self._name = name
         self._object_data = {}
 
+    def actions_iter(self):
+        return iter(self._actions.values())
+
+    def predicates_iter(self):
+        return iter(self._predicates.values())
+
+    def objects_iter(self):
+        return iter(self._object_data.values())
+
     def add_action(self, a):
         self._actions[a.get_action_name()] = a
 
@@ -98,6 +107,9 @@ class AbstractSemantics:
 
     def get_semantics(self, stype):
         return self._semantic[stype]
+
+    def get_all_semantics(self):
+        return self._semantic
 
     def has_semantics(self, stype):
         return stype in self._semantic
