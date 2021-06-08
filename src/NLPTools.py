@@ -35,7 +35,7 @@ import copy
 from DomainParser import DomainParser
 
 
-class NLP_tools:
+class NLPTools:
     def __init__(self):
         self._nlp = spacy.load('en_core_web_sm')
         self._supported_deps = ['nsubj', 'nsubjpass', 'prep', 'dobj', 'iobj']
@@ -45,7 +45,7 @@ class NLP_tools:
                             "indirect-object": "iobj"}
 
     def parse_question(self, question):
-        doc = nlp(question)
+        doc = self._nlp(question)
         verbs = [(i, v) for i, v in enumerate(doc) if
                  v.dep_ == "ROOT"]  # TODO check how to handle multiple-verb sentences
         sent = []
@@ -149,6 +149,7 @@ if __name__ == "__main__":
     document_string = "Why did Asro go from the corridor to the kitchen?"
     document_string = "Why was the coke taken by Asro?"
     document_string = "Why is the robot going to find Senka?"
+    document_string = "Can we find a plan where Asro doesn't go to the living room?"
     # document_string = "Why did Asro take the can at the corridor?"
     # Load a language model and parse a document.
     nlp = spacy.load('en_core_web_sm')
@@ -165,7 +166,7 @@ if __name__ == "__main__":
         print(token.text, token.dep_, token.head.text, token.head.pos_,
               [child for child in token.children])
 
-    n = NLP_tools()
+    n = NLPTools()
     while True:
         try:
             document_string = input("Question: ")

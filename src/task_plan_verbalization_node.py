@@ -33,16 +33,19 @@ import sys
 import re
 import random
 import os
+import string
 import rospkg
 from std_srvs.srv import Empty, EmptyResponse, Trigger, TriggerResponse
 from std_msgs.msg import String
 from PlanNarrator import PlanNarrator, DomainParser, RegularExpressions, PlanCompressions
 from task_plan_verbalization.srv import NarratePlan, NarratePlanResponse, SetVerbalizationParams, \
-                                        SetVerbalizationParamsResponse, NarratePredicate, NarratePredicateResponse
+                                        SetVerbalizationParamsResponse, NarratePredicate, NarratePredicateResponse, \
+                                        QuestionAnswer, QuestionAnswerResponse
 from rosplan_knowledge_msgs.srv import GetAttributeService, GetDomainOperatorService, GetDomainOperatorDetailsService
 from rosplan_dispatch_msgs.msg import EsterelPlan
 from EsterelProcessing import EsterelProcessing
 from VerbalizationSpace import VerbalizationSpace, Abstraction, Locality, Specificity, Explanation
+from NLPTools import NLPTools
 
 ESTEREL_TIMEOUT = 15  # seconds
 
@@ -64,6 +67,7 @@ class ROSPlanNarratorNode:
         self._narrate_predicate_srv = rospy.Service("~narrate_predicate", NarratePredicate, self.narrate_predicate_srv)
         self._set_narration_params = rospy.Service("~set_params", SetVerbalizationParams, self.set_params_srv)
         self._update_narration_srv = rospy.Service("~narrate_current_plan", Trigger, self.update_narration_srv)
+        self._q_and_a_srv = rospy.Service("~question_plan", QuestionAnswer, self.question_plan_srv)
         self._plan_received = False
         self._plan = None
         self._verbalization_space_params = VerbalizationSpace(3, 1, 2, 4)  # Default parameters
@@ -76,6 +80,7 @@ class ROSPlanNarratorNode:
         self.parse_domain()
         self.operators = {}
         self.get_all_operators_info()
+        self.nlptools = NLPTools()
 
     def raw_plan_cb(self, msg):
         self._plan_received = True
@@ -185,6 +190,28 @@ class ROSPlanNarratorNode:
         if self._plan:
             self.narrate_plan(random_step=True)
         return SetVerbalizationParamsResponse(True)
+
+    def question_plan_srv(self, req):
+        question = self.nlptools.parse_question(req.question)
+        pddl_action = self.nlptools.match_question_domain(question, self._domain_semantics)
+        if not self._plan:
+            rospy.loginfo(rospy.get_name() + ": No plan yet received")
+            return "No plan yet received"
+
+        rm = str.maketrans(dict.fromkeys(string.punctuation + string.whitespace))
+        plan = re.findall(RegularExpressions.PLAN_ACTION, self._plan)
+        matches = []
+        for ai, a in enumerate(plan):
+            a = a[1].split()
+            if len(a) != len(pddl_action):
+                continue
+            for i in range(len(pddl_action)):
+                if pddl_action[i][0] != '?' and pddl_action[i].translate(rm) != a[i].translate(rm):
+                    break
+            else:
+                matches.append((ai, a))
+        print(matches)
+        return "nothing"
 
     def parse_domain(self):
         domain_path = rospy.get_param("~domain_path")
