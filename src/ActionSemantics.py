@@ -106,7 +106,10 @@ class AbstractSemantics:
         return random.choice(self._semantic['verb'])
 
     def get_semantics(self, stype):
-        return self._semantic[stype]
+        try:
+            return self._semantic[stype]
+        except KeyError as e:
+            raise RuntimeError(self._type + " " + self._name + " does not have semantic key " + stype)
 
     def get_all_semantics(self):
         return self._semantic

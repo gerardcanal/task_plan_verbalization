@@ -90,6 +90,8 @@ class PlanNarrator:
                         break
                     else:  # If multi subject and not narrator, set person accordingly
                         person = '3p' if type(ground_params[i]) is list else '3s'
+            if self._narrator_name in subject:  # it means narrator is constant
+                subject = subject.replace(self._narrator_name, 'I')
             if subject == 'I':
                 person = '1p' if len(subj_params) > 1 else '1s'
 
@@ -366,11 +368,11 @@ class PlanNarrator:
         return ground_param
 
     @staticmethod
-    def make_list_str(l):
+    def make_list_str(l, conj="and"):
         if not l:
             return ''
         n = len(l)
-        f = "{}{}" if n < 2 else "{}, and {}" if n > 2 else "{} and {}"
+        f = "{}{}" if n < 2 else "{}, " + conj + " {}" if n > 2 else "{} " + conj + " {}"
         return f.format(', '.join(l[:-1]), l[-1])
 
     @staticmethod
@@ -405,6 +407,8 @@ class PlanNarrator:
         else:
             raise ValueError("Unknown tense " + tense)
 
+    # Filters the causality script to keep only the actions and justifications needed based on the verbalization space
+    # parameters
     def create_verbalization_script(self, plan, operators, domain_semantics, causal_chains, compressions):
         self._subj_plans.split_plan_by_subjects(plan, domain_semantics, operators)
         self._subjects = self._subj_plans.get_subjects()
@@ -456,7 +460,7 @@ class PlanNarrator:
             if verbalization_script and verbalization_script[0].action in s.deferred_justifications:
                 # verbalization_script[0].immediate_justifications.add(s.action)
                 # continue
-                s.deferred_justifications.remove(verbalization_script[0].action)
+                s.deferred_justifications.remove(verbalization_script[0].action)  # FIXME 2021 check if there's better options for this
 
             if s.goal and self._verbalization_space_params.explanation == Explanation.LEV4:
                 # Goal achieving actions are always kept. If level is >3 we print goals, otherwise we don't so there's
@@ -481,7 +485,7 @@ class PlanNarrator:
                 if skipped_actions[j]:
                     continue
                 if not causality_script[j].goal:  # If justification achieves a goal, we'll not use it here
-                    skipped_actions[j] = True
+                    skipped_actions[j] = True  # FIXME 2021 is this correct? Conflicts with line 491?
                     if compress:
                         j = compressions.get_compressed_id(j)
                         # If j has been compressed, we need to skip the original compressed actions as those will be
@@ -532,7 +536,10 @@ class PlanNarrator:
                 a_i_script.deferred_justifications.remove(a_next)
         return verbalization_script
 
-    def compute_causality_scripts(self, plan, operators, causal_chains, subj_plans):
+    # Computes a causality script, for each action of the plan including all their justifications
+    def compute_causality_scripts(self, plan, operators, causal_chains, subj_plans=None):
+        if not subj_plans:
+            subj_plans = self._subj_plans
         # Traverse causal chains to start to write the script.
         causality_script = [ActionScript(n) for n in range(len(plan))]
         for c in causal_chains:
@@ -545,6 +552,8 @@ class PlanNarrator:
             self.add_action_scripts_rec(c.achieving_action, goal_params, operators, plan, causality_script, subj_plans)
         return causality_script
 
+    # Recursively add all the justifications from the node and their children into the verbalization script
+    # Node is a pointer to the parent of a causality chain
     def add_action_scripts_rec(self, node, goal_params, operators, plan, verbalization_script, subj_plans):
         consecutive_id = node.action_id
         sorted_children = sorted(node.children, key=lambda x: x.action_id, reverse=True)
@@ -565,6 +574,9 @@ class PlanNarrator:
 
     def set_current_step(self, current_step):
         self._current_step = current_step
+
+    def get_current_step(self):
+        return self._current_step
 
     def set_verbalization_space(self, verbalization_space_params):
         self._verbalization_space_params = verbalization_space_params
