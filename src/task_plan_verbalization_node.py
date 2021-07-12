@@ -83,6 +83,7 @@ class ROSPlanNarratorNode:
         # Lastly subscribe to the plan after everything is loaded to prevent errors from plans already computed
         self._raw_plan_subs = rospy.Subscriber("/rosplan_planner_interface/planner_output", String, self.raw_plan_cb)
         self._q_and_a_srv = rospy.Service("~question_plan", QuestionAnswer, self.question_plan_srv)
+        self._prev_quest = None
 
 
     def raw_plan_cb(self, msg):
@@ -187,6 +188,13 @@ class ROSPlanNarratorNode:
             rospy.loginfo(rospy.get_name() + ": No plan yet received")
             return "No plan yet received"
 
+        if self._prev_quest and len(question) == 1:  # We have the missing argument
+            for i, p in enumerate(self._prev_quest):
+                if '?' in p:
+                    self._prev_quest[i] = question['verb']
+            pddl_action = self._prev_quest
+
+
         rm = str.maketrans(dict.fromkeys(string.punctuation + string.whitespace))
         matches = []
         for ai, a in enumerate(self._plan):
@@ -200,9 +208,14 @@ class ROSPlanNarratorNode:
                 matches.append((ai, a))
         # TODO check if only match, otherwise ask for specifics with potential options! -> HOW?
 
+        if not matches and self._prev_quest:
+            return '', 'Please tell me the missing parameter only.'
+
+
         # If only match: compute full verbalization script, create sentence with that? -> Take into account space?
         if len(matches) > 3:
             # Too many options to ask for
+            self._prev_quest = None
             return '', 'There were many possible options. Could you ask again providing more information?'
         elif len(matches) > 1:  # Ask providing alternatives
             args = []
@@ -224,6 +237,7 @@ class ROSPlanNarratorNode:
             # alternatives = []
             # for a in zip(*args):
             #     alternatives.append('|'.join(a))
+            self._prev_quest = pddl_action
             return '', alternative_queston
         elif len(matches) == 1:
             causality_script = self._narrator.compute_causality_scripts(self._plan, self.operators, self._causal_chains)
@@ -231,8 +245,9 @@ class ROSPlanNarratorNode:
             matched_script.immediate_justifications.clear()
             current_step = self._narrator.get_current_step()
             s = self._narrator.make_action_sentence_from_script(matched_script, self._domain_semantics, self._compressions, tense)
+            self._prev_quest = None
             return s, ''
-        return 'I could not understand the referred action', ''  # FIXME return something that makes sense here
+        return 'I could not understand the referred action.', ''  # FIXME return something that makes sense here
 
     def _process_input_plan(self, raw_plan):
         self._plan = re.findall(RegularExpressions.PLAN_ACTION, raw_plan)

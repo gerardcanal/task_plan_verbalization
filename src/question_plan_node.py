@@ -52,10 +52,10 @@ class QuestionPlanNode:
         res = self.question_srv(question)
         if res.alternatives:
             if res.alternatives:
-                return 'There were many possible options. Could you ask again providing more information?'
-            print("Answer: Do you refer to...?")  # TODO complete this, create sentence, etc
-            question = input("Question: ")
-            return self.process_question(question)
+                #return 'There were many possible options. Could you ask again providing more information?'
+                print("Answer: " + res.alternatives)  # TODO complete this, create sentence, etc
+                question = input("Question: ")
+                return self.process_question(question)
         return res.verbalization_answer
 
 
