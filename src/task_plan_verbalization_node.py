@@ -182,18 +182,38 @@ class ROSPlanNarratorNode:
         return SetVerbalizationParamsResponse(True)
 
     def question_plan_srv(self, req):
+        nwords = len(req.question.split())
         question, tense = self.nlptools.parse_question(req.question)
         pddl_action = self.nlptools.match_question_domain(question, self._domain_semantics)
         if not self._plan:
             rospy.loginfo(rospy.get_name() + ": No plan yet received")
             return "No plan yet received"
 
-        if self._prev_quest and len(question) == 1:  # We have the missing argument
-            for i, p in enumerate(self._prev_quest):
-                if '?' in p:
-                    self._prev_quest[i] = question['verb']
+        if self._prev_quest and not pddl_action:
             pddl_action = self._prev_quest
-
+            if nwords == 1:  # We have the missing argument
+                for i, p in enumerate(self._prev_quest):
+                    if '?' in p:
+                        self._prev_quest[i] = question['verb']
+            else:  # if nwords > 1:
+                sem = self._domain_semantics.get_action(self._prev_quest[0])
+                for stype, value in sem.get_all_semantics().items():
+                    if stype == 'subject' or stype == 'verb':
+                        continue
+                    if type(value) is list:
+                        for s in value:
+                            match = self.nlptools.match_semantic_tag(s[0] if type(s) is tuple else s, req.question)
+                            if match:
+                                break
+                    else:
+                        match = self.nlptools.match_semantic_tag(value[0] if type(value) is tuple else value, req.question)
+                    if match:
+                        for i, p in enumerate(pddl_action):
+                            if p == match[2]:
+                                pddl_action[i] = match[1]
+                        break
+                else:
+                    return '', 'Please tell me the missing parameter only.'
 
         rm = str.maketrans(dict.fromkeys(string.punctuation + string.whitespace))
         matches = []
@@ -206,11 +226,9 @@ class ROSPlanNarratorNode:
                     break
             else:
                 matches.append((ai, a))
-        # TODO check if only match, otherwise ask for specifics with potential options! -> HOW?
 
         if not matches and self._prev_quest:
             return '', 'Please tell me the missing parameter only.'
-
 
         # If only match: compute full verbalization script, create sentence with that? -> Take into account space?
         if len(matches) > 3:
