@@ -189,12 +189,12 @@ class ROSPlanNarratorNode:
             rospy.loginfo(rospy.get_name() + ": No plan yet received")
             return "No plan yet received"
 
-        if self._prev_quest and not pddl_action:
+        if not pddl_action and self._prev_quest:
             pddl_action = self._prev_quest
             if nwords == 1:  # We have the missing argument
-                for i, p in enumerate(self._prev_quest):
+                for i, p in enumerate(pddl_action):
                     if '?' in p:
-                        self._prev_quest[i] = question['verb']
+                        pddl_action[i] = question['verb']
             else:  # if nwords > 1:
                 sem = self._domain_semantics.get_action(self._prev_quest[0])
                 for stype, value in sem.get_all_semantics().items():
@@ -265,7 +265,7 @@ class ROSPlanNarratorNode:
             s = self._narrator.make_action_sentence_from_script(matched_script, self._domain_semantics, self._compressions, tense)
             self._prev_quest = None
             return s, ''
-        return 'I could not understand the referred action.', ''  # FIXME return something that makes sense here
+        return 'I could not understand the referred action.', ''
 
     def _process_input_plan(self, raw_plan):
         self._plan = re.findall(RegularExpressions.PLAN_ACTION, raw_plan)
