@@ -192,9 +192,7 @@ class ROSPlanNarratorNode:
         if not pddl_action and self._prev_quest:
             pddl_action = self._prev_quest
             if nwords == 1:  # We have the missing argument
-                for i, p in enumerate(pddl_action):
-                    if '?' in p:
-                        pddl_action[i] = question['verb']
+                param_value = req.question
             else:  # if nwords > 1:
                 sem = self._domain_semantics.get_action(self._prev_quest[0])
                 for stype, value in sem.get_all_semantics().items():
@@ -208,12 +206,13 @@ class ROSPlanNarratorNode:
                     else:
                         match = self.nlptools.match_semantic_tag(value[0] if type(value) is tuple else value, req.question)
                     if match:
-                        for i, p in enumerate(pddl_action):
-                            if p == match[2]:
-                                pddl_action[i] = match[1]
+                        param_value = match[1]
                         break
                 else:
                     return '', 'Please tell me the missing parameter only.'
+            for i, p in enumerate(pddl_action):
+                if '?' in p:
+                    pddl_action[i] = param_value
 
         rm = str.maketrans(dict.fromkeys(string.punctuation + string.whitespace))
         matches = []
