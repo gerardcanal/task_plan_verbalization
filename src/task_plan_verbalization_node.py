@@ -226,9 +226,6 @@ class ROSPlanNarratorNode:
             else:
                 matches.append((ai, a))
 
-        if not matches and self._prev_quest:
-            return '', 'Please tell me the missing parameter only.'
-
         # If only match: compute full verbalization script, create sentence with that? -> Take into account space?
         if len(matches) > 3:
             # Too many options to ask for
