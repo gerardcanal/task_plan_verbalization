@@ -231,13 +231,16 @@ class ROSPlanNarratorNode:
             # Too many options to ask for
             self._prev_quest = None
             return '', 'There were many possible options. Could you ask again providing more information?'
-        elif len(matches) > 1:  # Ask providing alternatives
-            args = []
-            for i, arg in enumerate(pddl_action[1:]):
-                if '?' in arg:
-                    args.append((arg, [m[1][i+1] for m in matches]))
-                # else:
-                #     args.append(arg)
+
+        args = []
+        for i, arg in enumerate(pddl_action[1:]):
+            if '?' in arg:
+                match_arg = list(set(m[1][i+1] for m in matches))
+                args.append((arg, match_arg))
+        if len(args) == 1 and len(args[0][1]) == 1:
+            matches = [matches[0]]  # All of them are the same action, pick first. In the future: check for order in the plan?
+
+        if len(matches) > 1:  # Ask providing alternatives
             # create question with alternatives
             subj = question['nsubj'] if question['nsubj'] != 'you' else 'I'
             verb = self._narrator.conjugate_verb(question['verb'], tense, '3s' if subj != 'I' else '1s')
