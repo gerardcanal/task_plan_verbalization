@@ -81,7 +81,7 @@ class NLPTools:
                         stype = self.dep_to_stype[t[0]]
                         if stype in semantics:  # If corresponding tag from the question is in the action semantics
                             stag = copy.deepcopy(a.get_semantics(stype))
-                            stag = self._filter_determiners(stag)
+                            stag = self.filter_determiners(stag)
                             if type(stag) is list:
                                 for i, s in stag:
                                     match = self.match_semantic_tag(s[0] if type(s) is tuple else s, t[1])
@@ -145,7 +145,7 @@ class NLPTools:
                 action.append(p)  # leave ungrounded parameter if missing
         return action
 
-    def _filter_determiners(self, stag):
+    def filter_determiners(self, stag):
         for i in range(len(stag)):
             if type(stag[i]) is tuple:
                 for j in range(len(stag[i][0])):

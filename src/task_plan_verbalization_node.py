@@ -35,6 +35,7 @@ import random
 import os
 import string
 import rospkg
+import copy
 from std_srvs.srv import Empty, EmptyResponse, Trigger, TriggerResponse
 from std_msgs.msg import String
 from PlanNarrator import PlanNarrator, DomainParser, RegularExpressions, PlanCompressions
@@ -184,7 +185,7 @@ class ROSPlanNarratorNode:
     def question_plan_srv(self, req):
         nwords = len(req.question.split())
         question, tense = self.nlptools.parse_question(req.question)
-        if question['nsubj'] == "you" and self._narrator_name:
+        if 'nsubj' in question and question['nsubj'] == "you" and self._narrator_name:
             question['nsubj'] = self._narrator_name
         pddl_action = self.nlptools.match_question_domain(question, self._domain_semantics)
         if not self._plan:
@@ -201,7 +202,8 @@ class ROSPlanNarratorNode:
                     if stype == 'subject' or stype == 'verb':
                         continue
                     if type(value) is list:
-                        for s in value:
+                        value = self.nlptools.filter_determiners(copy.deepcopy(value))
+                        for i, s in value:
                             match = self.nlptools.match_semantic_tag(s[0] if type(s) is tuple else s, req.question)
                             if match:
                                 break
@@ -246,7 +248,10 @@ class ROSPlanNarratorNode:
             # create question with alternatives
             subj = question['nsubj'] if question['nsubj'] != 'you' else 'I'
             verb = self._narrator.conjugate_verb(question['verb'], tense, '3s' if subj != 'I' else '1s')
-            alternative_queston = 'Did you refer to when ' + question['nsubj'] + ' ' + verb
+            subject = question['nsubj']
+            if self._narrator_name and subject.translate(rm).lower() == self._narrator_name.translate(rm).lower():
+                subject = "I"
+            alternative_queston = 'Did you refer to when ' + subject + ' ' + verb
             _, _, sent = self._narrator.make_action_sentence_IPC(pddl_action[0], pddl_action[1:], self._domain_semantics, tense=tense)
             sent = sent[sent.find(' '):]  # remove verb
             for arg, values in args:
