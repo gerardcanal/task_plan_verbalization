@@ -184,6 +184,8 @@ class ROSPlanNarratorNode:
     def question_plan_srv(self, req):
         nwords = len(req.question.split())
         question, tense = self.nlptools.parse_question(req.question)
+        if question['nsubj'] == "you" and self._narrator_name:
+            question['nsubj'] = self._narrator_name
         pddl_action = self.nlptools.match_question_domain(question, self._domain_semantics)
         if not self._plan:
             rospy.loginfo(rospy.get_name() + ": No plan yet received")
