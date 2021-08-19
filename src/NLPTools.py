@@ -80,18 +80,19 @@ class NLPTools:
                     for t in question[1:]:
                         stype = self.dep_to_stype[t[0]]
                         if stype in semantics:  # If corresponding tag from the question is in the action semantics
-                            stag = a.get_semantics(stype)
+                            stag = copy.deepcopy(a.get_semantics(stype))
+                            stag = self._filter_determiners(stag)
                             if type(stag) is list:
-                                for s in stag:
+                                for i, s in stag:
                                     match = self.match_semantic_tag(s[0] if type(s) is tuple else s, t[1])
                                     if match:
-                                        semantics[stype].remove(s)
+                                        semantics[stype].pop(i)
                                         if not semantics[stype]:
                                             semantics.pop(stype)
                                         groundings[match[2]] = match[1].replace(' ', '-')
                                         break
                             else:
-                                match = self.match_semantic_tag(stag, t[1])
+                                match = self.match_semantic_tag(stag[1], t[1])
                                 if match:
                                     semantics.pop(stype)
                                     groundings[match[2]] = match[1].replace(' ', '-')
@@ -144,6 +145,30 @@ class NLPTools:
                 action.append(p)  # leave ungrounded parameter if missing
         return action
 
+    def _filter_determiners(self, stag):
+        for i in range(len(stag)):
+            if type(stag[i]) is tuple:
+                for j in range(len(stag[i][0])):
+                    filtered, s = self._filter_determiner_string(stag[i][0][j])
+                    if filtered:
+                        stag[i][0].append(s)  # Append so we can match questions with and without determiner
+            else:
+                filtered, s = self._filter_determiner_string(stag[i])
+                if filtered:
+                    stag.append(s) # Append so we can match questions with and without determiner
+            stag[i] = (i, stag[i])
+        return stag
+
+    def _filter_determiner_string(self, s):
+        doc = self._nlp(s)
+        filtered_s = []
+        filtered = False
+        for t in doc:
+            if 'DT' not in t.tag_:
+                filtered_s.append(t.text)
+            else:
+                filtered = True
+        return filtered, ' '.join(filtered_s).replace('? ', '?')
 
 def tok_format(tok):
     # return "_".join([tok.orth_, tok.tag_, tok.pos_, tok.dep_])
