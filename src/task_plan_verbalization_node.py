@@ -251,7 +251,7 @@ class ROSPlanNarratorNode:
             subject = question['nsubj']
             if self._narrator_name and subject.translate(rm).lower() == self._narrator_name.translate(rm).lower():
                 subject = "I"
-            alternative_queston = 'Did you refer to when ' + subject + ' ' + verb
+            alternative_queston = 'Do you refer to when ' + subject + ' ' + verb
             _, _, sent = self._narrator.make_action_sentence_IPC(pddl_action[0], pddl_action[1:], self._domain_semantics, tense=tense)
             sent = sent[sent.find(' '):]  # remove verb
             for arg, values in args:
