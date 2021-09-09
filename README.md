@@ -54,7 +54,15 @@ roslaunch task_plan_verbalization rosplan_verbalization.launch domain_path:=$(ro
 And then trigger the planner:
 `rosservice call /rosplan_narrator/trigger_planning`
 
-<!-- ## Citation
-If you use our work, please cite us as:-->
+## Citation
+If you use our work, please cite us as:
 
-<!-- TBD-->
+```
+@inproceedings{Canal_xaip2021,
+    author = "Gerard Canal and Senka Krivić and Paul Luff and Andrew Coles",
+    title = "{Task Plan verbalizations with causal justifications}",
+    booktitle = "ICAPS 2021 Workshop on Explainable AI Planning (XAIP)",
+    year = "2021",
+    url = "https://openreview.net/forum?id=4T9oO\_MrhEm"
+}
+```
