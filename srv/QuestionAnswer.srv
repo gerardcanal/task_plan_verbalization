@@ -1,0 +1,4 @@
+string question
+---
+string verbalization_answer  # If action was matched, it will return a verbalised answer
+string alternatives # if single action was not matched, return possible arguments for deambiguation.

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # coding=utf-8
 #######################################################################################
-# Copyright (c) 2020, Gerard Canal, Senka Krivić, Andrew Coles - King's College London
+# Copyright (c) 2022, Gerard Canal, Senka Krivić, Andrew Coles - King's College London
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
@@ -33,16 +33,20 @@ import sys
 import re
 import random
 import os
+import string
 import rospkg
+import copy
 from std_srvs.srv import Empty, EmptyResponse, Trigger, TriggerResponse
 from std_msgs.msg import String
 from PlanNarrator import PlanNarrator, DomainParser, RegularExpressions, PlanCompressions
 from task_plan_verbalization.srv import NarratePlan, NarratePlanResponse, SetVerbalizationParams, \
-                                        SetVerbalizationParamsResponse, NarratePredicate, NarratePredicateResponse
+                                        SetVerbalizationParamsResponse, NarratePredicate, NarratePredicateResponse, \
+                                        QuestionAnswer, QuestionAnswerResponse
 from rosplan_knowledge_msgs.srv import GetAttributeService, GetDomainOperatorService, GetDomainOperatorDetailsService
 from rosplan_dispatch_msgs.msg import EsterelPlan
 from EsterelProcessing import EsterelProcessing
 from VerbalizationSpace import VerbalizationSpace, Abstraction, Locality, Specificity, Explanation
+from NLPTools import NLPTools
 
 ESTEREL_TIMEOUT = 15  # seconds
 
@@ -57,7 +61,6 @@ class ROSPlanNarratorNode:
         self._problem_gen = rospy.ServiceProxy("/rosplan_problem_interface/problem_generation_server", Empty)
         self._planner = rospy.ServiceProxy("/rosplan_planner_interface/planning_server", Empty)
         self._parse_plan = rospy.ServiceProxy("/rosplan_parsing_interface/parse_plan", Empty)
-        self._raw_plan_subs = rospy.Subscriber("/rosplan_planner_interface/planner_output", String, self.raw_plan_cb)
         self._verbalization_pub = rospy.Publisher("~plan_narration", String, queue_size=1)
         self._trigger_plan_srv = rospy.Service("~trigger_planning", Empty, self.trigger_plan_srv)
         self._narrate_plan_srv = rospy.Service("~narrate_plan", NarratePlan, self.narrate_plan_srv)
@@ -76,10 +79,17 @@ class ROSPlanNarratorNode:
         self.parse_domain()
         self.operators = {}
         self.get_all_operators_info()
+        self.nlptools = NLPTools()
+
+        # Lastly subscribe to the plan after everything is loaded to prevent errors from plans already computed
+        self._raw_plan_subs = rospy.Subscriber("/rosplan_planner_interface/planner_output", String, self.raw_plan_cb)
+        self._q_and_a_srv = rospy.Service("~question_plan", QuestionAnswer, self.question_plan_srv)
+        self._prev_quest = None
+
 
     def raw_plan_cb(self, msg):
+        self._process_input_plan(msg.data)
         self._plan_received = True
-        self._plan = msg.data
 
     def main_loop(self):
         r = rospy.Rate(10) # 10hz
@@ -106,38 +116,24 @@ class ROSPlanNarratorNode:
             self._plan_received = False
             rospy.loginfo(rospy.get_name() + ": No plan was found")
             return "No plan was found"
-        plan = re.findall(RegularExpressions.PLAN_ACTION, self._plan)
-        plan = [(p[0], p[1].split(' '), p[2]) for p in plan]  # Split actions and parameters
 
         self._narrator.set_verbalization_space(self._verbalization_space_params)
 
-        goals = self.get_goals()
-        try:
-            plan_topic = '/rosplan_parsing_interface/complete_plan'
-            esterel_plan = rospy.wait_for_message(plan_topic, EsterelPlan, ESTEREL_TIMEOUT)
-            causal_chains = EsterelProcessing.find_causal_chains(self.operators, goals, plan, esterel_plan)
-        except rospy.ROSException:
-            rospy.logwarn(rospy.get_name() + ': Esterel plan not received in ' + str(ESTEREL_TIMEOUT) + ' seconds. ' +
-                                             'Causality will not be checked.')
-            causal_chains = []
-        goal_achieving_actions = sorted([c.achieving_action.action_id for c in causal_chains])
-        compressions = PlanCompressions(plan, goal_achieving_actions)  # Compute action compressions
-
         if random_step:
-            current_step = random.randint(0, len(plan)+1)
+            current_step = random.randint(0, len(self._plan)+1)
         self._narrator.set_current_step(current_step)
 
-        verbalization_script = self._narrator.create_verbalization_script(plan, self.operators, self._domain_semantics,
-                                                                          causal_chains, compressions)
+        verbalization_script = self._narrator.create_verbalization_script(self._plan, self.operators, self._domain_semantics,
+                                                                          self._causal_chains, self._compressions)
         # Find current step in the verbalization script/sentence (to mark with an asterisk)
-        if 0 <= current_step < len(plan):
-            current_step = self._plan_to_verbalization_id(current_step, verbalization_script, compressions)
+        if 0 <= current_step < len(self._plan):
+            current_step = self._plan_to_verbalization_id(current_step, verbalization_script, self._compressions)
         narration = "Narrator is: " + self._narrator_name + '\n' if self._narrator_name else ""
         for i, ac_script in enumerate(verbalization_script):
-            s = self._narrator.make_action_sentence_from_script(ac_script, self._domain_semantics, compressions)
+            s = self._narrator.make_action_sentence_from_script(ac_script, self._domain_semantics, self._compressions)
 
             if self._print_actions:
-                s = self.script_debug_str(ac_script, compressions) + ':\n ' + s
+                s = self.script_debug_str(ac_script, self._compressions) + ':\n ' + s
             if i == current_step:
                 s = '* ' + s
 
@@ -162,7 +158,7 @@ class ROSPlanNarratorNode:
 
     def narrate_plan_srv(self, req):
         if req.input_plan:
-            self._plan = req.input_plan
+            self._process_input_plan(req.input_plan)
         elif not self._plan:
             rospy.logerr(rospy.get_name() + ": narrate_plan service: no plan supplied and no previous plan available to be verbalized")
         else:
@@ -185,6 +181,113 @@ class ROSPlanNarratorNode:
         if self._plan:
             self.narrate_plan(random_step=True)
         return SetVerbalizationParamsResponse(True)
+
+    def question_plan_srv(self, req):
+        nwords = len(req.question.split())
+        question, tense = self.nlptools.parse_question(req.question)
+        if 'nsubj' in question and question['nsubj'] == "you" and self._narrator_name:
+            question['nsubj'] = self._narrator_name
+        pddl_action = self.nlptools.match_question_domain(question, self._domain_semantics)
+        if not self._plan:
+            rospy.loginfo(rospy.get_name() + ": No plan yet received")
+            return "No plan yet received"
+
+        if not pddl_action and self._prev_quest:
+            pddl_action = self._prev_quest
+            if nwords == 1:  # We have the missing argument
+                param_value = req.question
+            else:  # if nwords > 1:
+                sem = self._domain_semantics.get_action(self._prev_quest[0])
+                for stype, value in sem.get_all_semantics().items():
+                    if stype == 'subject' or stype == 'verb':
+                        continue
+                    if type(value) is list:
+                        value = self.nlptools.filter_determiners(copy.deepcopy(value))
+                        for i, s in value:
+                            match = self.nlptools.match_semantic_tag(s[0] if type(s) is tuple else s, req.question)
+                            if match:
+                                break
+                    else:
+                        match = self.nlptools.match_semantic_tag(value[0] if type(value) is tuple else value, req.question)
+                    if match:
+                        param_value = match[1]
+                        break
+                else:
+                    return '', 'Please tell me the missing parameter only.'
+            for i, p in enumerate(pddl_action):
+                if '?' in p:
+                    pddl_action[i] = param_value
+
+        rm = str.maketrans(dict.fromkeys(string.punctuation + string.whitespace))
+        matches = []
+        for ai, a in enumerate(self._plan):
+            a = a[1]
+            if len(a) != len(pddl_action):
+                continue
+            for i in range(len(pddl_action)):
+                if pddl_action[i][0] != '?' and pddl_action[i].translate(rm) != a[i].translate(rm):
+                    break
+            else:
+                matches.append((ai, a))
+
+        # If only match: compute full verbalization script, create sentence with that? -> Take into account space?
+        if len(matches) > 3:
+            # Too many options to ask for
+            self._prev_quest = None
+            return '', 'There were many possible options. Could you ask again providing more information?'
+
+        args = []
+        for i, arg in enumerate(pddl_action[1:]):
+            if '?' in arg:
+                match_arg = list(set(m[1][i+1] for m in matches))
+                args.append((arg, match_arg))
+        if len(args) == 1 and len(args[0][1]) == 1:
+            matches = [matches[0]]  # All of them are the same action, pick first. In the future: check for order in the plan?
+
+        if len(matches) > 1:  # Ask providing alternatives
+            # create question with alternatives
+            subj = question['nsubj'] if question['nsubj'] != 'you' else 'I'
+            verb = self._narrator.conjugate_verb(question['verb'], tense, '3s' if subj != 'I' else '1s')
+            subject = question['nsubj']
+            if self._narrator_name and subject.translate(rm).lower() == self._narrator_name.translate(rm).lower():
+                subject = "I"
+            alternative_queston = 'Do you refer to when ' + subject + ' ' + verb
+            _, _, sent = self._narrator.make_action_sentence_IPC(pddl_action[0], pddl_action[1:], self._domain_semantics, tense=tense)
+            sent = sent[sent.find(' '):]  # remove verb
+            for arg, values in args:
+                v_str = self._narrator.make_list_str(values, 'or')
+                sent = sent.replace(arg, v_str)
+            alternative_queston += sent + '?'
+            # alternatives = []
+            # for a in zip(*args):
+            #     alternatives.append('|'.join(a))
+            self._prev_quest = pddl_action
+            return '', alternative_queston
+        elif len(matches) == 1:
+            causality_script = self._narrator.compute_causality_scripts(self._plan, self.operators, self._causal_chains)
+            matched_script = causality_script[matches[0][0]]
+            matched_script.immediate_justifications.clear()
+            current_step = self._narrator.get_current_step()
+            s = self._narrator.make_action_sentence_from_script(matched_script, self._domain_semantics, self._compressions, tense)
+            self._prev_quest = None
+            return s, ''
+        return 'I could not understand the referred action.', ''
+
+    def _process_input_plan(self, raw_plan):
+        self._plan = re.findall(RegularExpressions.PLAN_ACTION, raw_plan)
+        self._plan = [(p[0], p[1].split(' '), p[2]) for p in self._plan]  # Split actions and parameters
+
+        goals = self.get_goals()
+        try:
+            plan_topic = '/rosplan_parsing_interface/complete_plan'
+            esterel_plan = rospy.wait_for_message(plan_topic, EsterelPlan, ESTEREL_TIMEOUT)
+            self._causal_chains = EsterelProcessing.find_causal_chains(self.operators, goals, self._plan, esterel_plan)
+        except rospy.ROSException:
+            rospy.logwarn(rospy.get_name() + ': Esterel plan not received in ' + str(ESTEREL_TIMEOUT) + ' seconds. ' +
+                                             'Causality will not be checked.')
+            self._causal_chains = []
+        self._goal_achieving_actions = sorted([c.achieving_action.action_id for c in self._causal_chains])
+        self._compressions = PlanCompressions(self._plan, self._goal_achieving_actions)  # Compute action compressions
 
     def parse_domain(self):
         domain_path = rospy.get_param("~domain_path")
@@ -214,7 +317,8 @@ class ROSPlanNarratorNode:
         for o in operator_list.operators:
             self.operators[o.name] = self._get_operator_details.call(o.name).op
 
-    def script_debug_str(self, ac_script, compressions):
+    @staticmethod
+    def script_debug_str(ac_script, compressions):
         PDDL_justifications = ''
         for i, x in enumerate(ac_script.immediate_justifications):
             if i > 0:

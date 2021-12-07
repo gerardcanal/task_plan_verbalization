@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 #######################################################################################
-# Copyright (c) 2020, Gerard Canal, Senka Krivić, Andrew Coles - King's College London
+# Copyright (c) 2022, Gerard Canal, Senka Krivić, Andrew Coles - King's College London
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
@@ -45,6 +45,15 @@ class DomainSemantics:
         self._predicates = {}
         self._name = name
         self._object_data = {}
+
+    def actions_iter(self):
+        return iter(self._actions.values())
+
+    def predicates_iter(self):
+        return iter(self._predicates.values())
+
+    def objects_iter(self):
+        return iter(self._object_data.values())
 
     def add_action(self, a):
         self._actions[a.get_action_name()] = a
@@ -97,7 +106,13 @@ class AbstractSemantics:
         return random.choice(self._semantic['verb'])
 
     def get_semantics(self, stype):
-        return self._semantic[stype]
+        try:
+            return self._semantic[stype]
+        except KeyError as e:
+            raise RuntimeError(self._type + " " + self._name + " does not have semantic key " + stype)
+
+    def get_all_semantics(self):
+        return self._semantic
 
     def has_semantics(self, stype):
         return stype in self._semantic

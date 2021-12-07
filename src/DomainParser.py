@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 #######################################################################################
-# Copyright (c) 2020, Gerard Canal, Senka Krivić, Andrew Coles - King's College London
+# Copyright (c) 2022, Gerard Canal, Senka Krivić, Andrew Coles - King's College London
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without
@@ -42,7 +42,7 @@ class RegularExpressions:
 
     # Matches the action name and parameter list
     #  The first group is the action name, second is the param list
-    PDDL_SUBACTION = re.compile(r"(?s)\(:.*action(?:[ \t]*;[ \t\S]*$)?\s([\w-]+).*:parameters\s?\((.*?)\)", re.MULTILINE)
+    PDDL_SUBACTION = re.compile(r"(?s)\(:.*action(?:[ \t]*;[ \t\S]*$)?\s([\w-]+).*:parameters\s*\((.*?)\)", re.MULTILINE)
     RDDL_SUBACTION = re.compile(r"(?s)^[ \t]*([\w-]+)(?:\s*\((.*?)\))?", re.MULTILINE)
 
     # Matches each parameter in the list and the type
@@ -74,8 +74,8 @@ class RegularExpressions:
     RDDL_PREDICATES_SECTION = re.compile(r'(?s)pvariables\s*{(.*?)^\s*};', re.MULTILINE)
     PDDL_SINGLE_PREDICATE_DESCRIPTION = re.compile(r'(?s)\s*((?:;.*?$)*\s*\(.*?\))', re.MULTILINE)  # Covers semantic comments and predicates
     RDDL_SINGLE_PREDICATE_DESCRIPTION = re.compile(r"(?s)((?:^[\t ]*//[ \t\S]*[\r\n\f\v])+[ \t\S]+state-fluent.*?;)", re.MULTILINE)
-    PDDL_SINGLE_PREDICATE = re.compile(r'\(([\w_]+)\s+(.*)\)')  # Covers only the predicate (predicate ?x - type)
-    RDDL_SINGLE_PREDICATE = re.compile(r'([\w-]+)(?:\((.*)\))?\s*:')  # Covers only the predicate predicate(type)
+    PDDL_SINGLE_PREDICATE = re.compile(r'^\s*\(([\w-]+)\s+(.*)\)', re.MULTILINE)  # Covers only the predicate (predicate ?x - type)
+    RDDL_SINGLE_PREDICATE = re.compile(r'^\s*([\w-]+)(?:\((.*)\))?\s*:', re.MULTILINE)  # Covers only the predicate predicate(type)
 
     # Proxy method to get regexs for different languages
     @staticmethod

@@ -28,18 +28,39 @@
 #######################################################################################
 
 # Author: Gerard Canal <gerard.canal@kcl.ac.uk>, King's College London
+import rospy
+import sys
+from task_plan_verbalization.srv import QuestionAnswer
 
-class PatternMatcher:
+
+class QuestionPlanNode:
     def __init__(self):
-        pass
+        rospy.init_node("question_plan_node", sys.argv)
+        self.question_srv = rospy.ServiceProxy('/rosplan_narrator/question_plan', QuestionAnswer)
 
-    @staticmethod
-    def get_param_pattern(param_list_a, param_list_b):
-        pattern = []
-        for i, p in enumerate(param_list_a):
+    def main_loop(self):
+        r = rospy.Rate(10)  # 10hz
+        while not rospy.is_shutdown():
             try:
-                j = param_list_b.index(p)
-                pattern.append((i, j))
-            except ValueError:
-                pass  # Not in list
-        return pattern
+                question = input("Question: ")
+                answer = self.process_question(question)
+                print("  Answer: " + answer)
+            except Exception as e:
+                rospy.signal_shutdown('EOF question: ' + str(e))
+
+    def process_question(self, question):
+        res = self.question_srv(question)
+        if res.alternatives:
+            if res.alternatives:
+                #return 'There were many possible options. Could you ask again providing more information?'
+                print("Answer: " + res.alternatives)  # TODO complete this, create sentence, etc
+                question = input("Question: ")
+                return self.process_question(question)
+        return res.verbalization_answer
+
+
+if __name__ == "__main__":
+    node = QuestionPlanNode()
+    rospy.loginfo(rospy.get_name() + ": Ready.")
+    node.main_loop()
+    rospy.spin()
