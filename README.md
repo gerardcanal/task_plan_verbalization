@@ -1,4 +1,4 @@
-# Task Plan verbalizations with causal justifications
+# PlanVerb: Domain-Independent Verbalization and Summary of Task Plans
 Verbalization and summarization of task plans. Examples can be found in the branch [`with_examples`](https://github.com/gerardcanal/task_plan_verbalization/tree/with_examples/verbalized_examples). 
 
 **Authors:** Gerard Canal, Senka Krivić, Paul Luff, and Andrew Coles
@@ -58,11 +58,13 @@ And then trigger the planner:
 If you use our work, please cite us as:
 
 ```
-@inproceedings{Canal_xaip2021,
+@inproceedings{Canal_aaai2022,
     author = "Gerard Canal and Senka Krivić and Paul Luff and Andrew Coles",
     title = "{Task Plan verbalizations with causal justifications}",
-    booktitle = "ICAPS 2021 Workshop on Explainable AI Planning (XAIP)",
-    year = "2021",
-    url = "https://openreview.net/forum?id=4T9oO\_MrhEm"
+    booktitle = {Proceedings of the AAAI Conference on Artificial Intelligence},
+    volume = {36},
+    number = {1},
+    pages = {},
+    year = {2022}
 }
 ```
