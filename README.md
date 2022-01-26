@@ -58,9 +58,9 @@ And then trigger the planner:
 If you use our work, please cite us as:
 
 ```
-@inproceedings{Canal_aaai2022,
+@inproceedings{Canal_AAAI2022,
     author = "Gerard Canal and Senka Krivić and Paul Luff and Andrew Coles",
-    title = "{Task Plan verbalizations with causal justifications}",
+    title = "{PlanVerb: Domain-Independent Verbalization and Summary of Task Plans}",
     booktitle = {Proceedings of the AAAI Conference on Artificial Intelligence},
     volume = {36},
     number = {1},
