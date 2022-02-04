@@ -9,7 +9,7 @@ To increase user trust in planning algorithms, users must be able to understand 
 
 ## Usage
 ### Prerequisites
-To run the verbalization node, you need to install [ROSPlan](https://github.com/KCL-Planning/ROSPlan#installation) and [mlconjug3](https://github.com/SekouDiaoNlp/mlconjug3/blob/master/INSTALL.rst). PlanVerb is written in Python 3.
+To run the verbalization node, you need to install [ROSPlan](https://github.com/KCL-Planning/ROSPlan#installation), [mlconjug3](https://github.com/SekouDiaoNlp/mlconjug3/blob/master/INSTALL.rst), and [spaCy](https://spacy.io/usage). PlanVerb is written in Python 3.
 
 For ROS Melodic (Ubuntu 18.04), you may need to install some packages for Python 3:
 
