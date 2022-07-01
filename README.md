@@ -68,10 +68,10 @@ If you use our work, please cite us as:
 @inproceedings{Canal_AAAI2022,
     author = "Gerard Canal and Senka Krivić and Paul Luff and Andrew Coles",
     title = "{PlanVerb: Domain-Independent Verbalization and Summary of Task Plans}",
-    booktitle = {Proceedings of the AAAI Conference on Artificial Intelligence},
-    volume = {36},
-    number = {1},
-    pages = {},
-    year = {2022}
+    booktitle = "Proceedings of the AAAI Conference on Artificial Intelligence",
+    volume = "36(9)",
+    pages = "9698-9706",
+    year = "2022",
+    url = "https://ojs.aaai.org/index.php/AAAI/article/view/21204"
 }
 ```
