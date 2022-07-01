@@ -1,0 +1,56 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: >-
+  PlanVerb: Domain-Independent Verbalization and Summary of Task Plans
+message: >-
+  If you use this software, please cite it using the AAAI paper refered below.
+type: software
+authors:
+  - given-names: Gerard
+    family-names: Canal
+    email: gerard.canal@kcl.ac.uk
+    affiliation: >-
+      Department of Informatics, King’s College
+      London
+    orcid: 'https://orcid.org/0000-0002-6718-1198'
+
+preferred-citation:
+  title: >-
+    PlanVerb: Domain-Independent Verbalization and Summary of Task Plans
+  authors:
+    - given-names: Gerard
+      family-names: Canal
+      email: gerard.canal@kcl.ac.uk
+      affiliation: >-
+        Department of Informatics, King’s College
+        London
+      orcid: 'https://orcid.org/0000-0002-6718-1198'
+    - given-names: Senka
+      family-names: Krivić
+      affiliation: ' Department of Informatics, King’s College London'
+      orcid: 'https://orcid.org/0000-0001-8045-427X'
+    - given-names: Paul
+      family-names: Luff
+      email: paul.luff@kcl.ac.uk
+      affiliation: 'King’s Business School, King’s College London'
+      orcid: 'https://orcid.org/0000-0001-5046-2279'
+    - given-names: Andrew
+      family-names: Coles
+      email: andrew.coles@kcl.ac.uk
+      affiliation: >-
+        Department of Informatics, King’s College
+        London
+      orcid: 'https://orcid.org/0000-0002-4954-9235'
+  abstract: >-
+    For users to trust planning algorithms, they must be able to understand the planner’s outputs and the reasons for each action selection. This output does not tend to be user-friendly, often consisting of sequences of parametrised actions or task networks. And these may not be practical for non-expert users who may find it easier to read natural language descriptions. In this paper, we propose PlanVerb, a domain and planner-independent method for the verbalization of task plans. It is based on semantic tagging of actions and predicates. Our method can generate natural language descriptions of plans including causal explanations. The verbalized plans can be summarized by compressing the actions that act on the same parameters. We further extend the concept of verbalization space, previously applied to robot navigation, and apply it to planning to generate different kinds of plan descriptions for different user requirements. Our method can deal with PDDL and RDDL domains, provided that they are tagged accordingly. Our user survey evaluation shows that users can read our automatically generated plan descriptions and that the explanations help them answer questions about the plan.
+  url: https://ojs.aaai.org/index.php/AAAI/article/view/21204
+  collection-title: "Proceedings of the AAAI Conference on Artificial Intelligence"
+  collection-type: "proceedings"
+  type: "conference-paper"
+  volume: "36(9)"
+  start: "9698"
+  end: "9706"
+  year: "2022"
+  
