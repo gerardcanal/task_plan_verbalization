@@ -9,7 +9,14 @@ To increase user trust in planning algorithms, users must be able to understand 
 
 ## Usage
 ### Prerequisites
-To run the verbalization node, you need to install [ROSPlan](https://github.com/KCL-Planning/ROSPlan#installation) and [mlconjug3](https://github.com/SekouDiaoNlp/mlconjug3/blob/master/INSTALL.rst).
+To run the verbalization node, you need to install [ROSPlan](https://github.com/KCL-Planning/ROSPlan#installation), [mlconjug3](https://github.com/SekouDiaoNlp/mlconjug3/blob/master/INSTALL.rst), [nltk](https://www.nltk.org/install.html), and [spaCy](https://spacy.io/usage). PlanVerb is written in Python 3.
+
+For ROS Melodic (Ubuntu 18.04), you may need to install some packages for Python 3:
+
+```
+sudo apt-get install python3-pip python3-yaml
+sudo pip3 install rospkg catkin_pkg
+```
 
 ### PDDL verbalization launch
 ```
@@ -61,10 +68,10 @@ If you use our work, please cite us as:
 @inproceedings{Canal_AAAI2022,
     author = "Gerard Canal and Senka Krivić and Paul Luff and Andrew Coles",
     title = "{PlanVerb: Domain-Independent Verbalization and Summary of Task Plans}",
-    booktitle = {Proceedings of the AAAI Conference on Artificial Intelligence},
-    volume = {36},
-    number = {1},
-    pages = {},
-    year = {2022}
+    booktitle = "Proceedings of the AAAI Conference on Artificial Intelligence",
+    volume = "36(9)",
+    pages = "9698-9706",
+    year = "2022",
+    url = "https://ojs.aaai.org/index.php/AAAI/article/view/21204"
 }
 ```
