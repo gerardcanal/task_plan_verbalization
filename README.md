@@ -72,6 +72,6 @@ If you use our work, please cite us as:
     volume = "36(9)",
     pages = "9698-9706",
     year = "2022",
-    url = "https://ojs.aaai.org/index.php/AAAI/article/view/21204"
+    doi = "10.1609/aaai.v36i9.21204",
 }
 ```
