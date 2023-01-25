@@ -1,4 +1,4 @@
-(define (domain warehouse_domain)
+(define (domain office_domain)
 
 (:requirements :strips :typing :fluents :disjunctive-preconditions :durative-actions)
 
@@ -102,6 +102,7 @@
     (at start (not (robot_at ?v ?from)))
     (at end (robot_at ?v ?to))
     (at start (not (not_moving ?v)))
+    (at end (visited ?to))
     (at end (not_moving ?v)))
 )
 
@@ -235,9 +236,7 @@
     (over all (person_nexto ?p ?place))
     (over all (person_found ?p)))
   :effect (and
-    (at start (object_at ?o ?p))
-    (at end (not (object_at ?o ?v)))
+    (at end (object_at ?o ?p))
+    (at start (not (object_at ?o ?v)))
     (at end (not_holding_object ?v))))
-)
-
 )
